@@ -1,0 +1,11 @@
+ @foreach ($data as $key=>$expenditure)
+                    <td class="table-border ">{{$expenditure->expenditureId}}</td>
+                    @endforeach
+
+
+
+                      <td>{{$grantTotalBudget}}</td>
+                    <td>{{$grantTotalExpenditureAmount}}</td>
+                    <td>{{$grantTotalVatAndTaxPercentage}}</td>
+                    <td>{{$grantTotalVatAndTaxAmount}}</td>
+                    <td>{{$grantTotalNetPaymentAmount}}</td>

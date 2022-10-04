@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="NikoshBAN">
+		<normal><![CDATA[fonts/NikoshBAN/NikoshBAN.ttf]]></normal>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>
