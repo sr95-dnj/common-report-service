@@ -36,27 +36,6 @@ $en = [];
 $bn = [];
 $data = json_decode($val['data']);
 
-/*function enToBnConveter($response) {
-    $englDTN = array(
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-        'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri',
-        'am', 'pm', 'at', 'st', 'nd', 'rd', 'th',
-        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    );
-    $bangDTN = array(
-        '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '০',
-        'শনিবার', 'রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার',
-        'শনি', 'রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র',
-        'পূর্বাহ্ণ', 'অপরাহ্ণ', '', '', '', '', '',
-        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর',
-        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
-    );
-    $converted = str_replace($englDTN, $bangDTN, $response);
-    echo $converted;
-}*/
-
 ?>
 
 <?php
@@ -94,13 +73,13 @@ $details = $data->details;
         <tr>
             <td style="width: 30%">ক্রমিক নম্বর</td>
             <td style="width: 3%">:</td>
-            <td style="width: 20%"><span>{{($Controller::entoBn($master->presentDailyOrder->orderNumber,'number'))}}</span></td>
+            <td style="width: 20%"><span>{{$Controller::entoBn($master->presentDailyOrder->orderNumber,'number')}}</span></td>
             <td style="width: 5%"></td>
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3% !important;">:</td>
             <td style="width: 30% !important;">
-                <sapn>{{($data->master->presentDailyOrder->banglaDate)}}</sapn>
-                &nbsp;/ &nbsp;
+                <sapn>{{$data->master->presentDailyOrder->banglaDate}}</sapn>
+                &nbsp; / &nbsp;
                 <span>
                     {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
                 </span>
@@ -120,8 +99,8 @@ $details = $data->details;
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3% !important;">:</td>
             <td style="width: 35% !important;">
-                <sapn>{{($data->master->previousDailyOrder->banglaDate)}}</sapn>
-                &nbsp;/ &nbsp;
+                <sapn>{{$data->master->previousDailyOrder->banglaDate}}</sapn>
+                &nbsp; / &nbsp;
                 <span>
                     {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}
                 </span>
@@ -133,7 +112,7 @@ $details = $data->details;
         <tr>
             <td style="text-align: center;">
                 <br>
-                <strong><u>{{($master->divison)}}</u></strong>
+                <strong><u>{{$master->divison}}</u></strong>
             </td>
         </tr>
     </table>
@@ -142,7 +121,7 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
-            <td><b><u>{{($master->subject)}}</u></b> </td>
+            <td><b><u>{{$master->subject}}</u></b> </td>
         </tr>
     </table>
     <!-- subject part -->
@@ -151,29 +130,27 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
-            <td>{!! ($master->header) !!}</td>
+            <td>{!! $master->header !!}</td>
         </tr>
     </table>
     <!-- header part -->
 
-
     <table width="100%" style="table-layout: fixed; border-collapse: collapse; border-top: 0.5px solid;">
         <tr style="text-align: center;">
             <td style=" border-collapse: collapse; border: 0.5px solid; width: 8%; text-align: center;">ক্রমিক </td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 17%; text-align: center;">শাখাা</td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 25%; text-align: center;">ব্যক্তিগত নম্বর, পদবী ও নাম</td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 50%; text-align: center;">কার্যক্রম</td>
+            <td style=" border-collapse: collapse; border: 0.5px solid; width: 32%; text-align: center;">নম্বর, নাম, পদবি ও শাখাা</td>
+            <td style=" border-collapse: collapse; border: 0.5px solid; width: 60%; text-align: center;">ঘটনার প্রকৃতি</td>
         </tr>
         @foreach ($details as $index => $details)
-            <tr>
-                <td style="width: 5% !important; text-align: center;">{{($Controller::entoBn($index + 1,'number'))}}</td>
-                <td style="width: 20% !important;">{{($details->employee->employeeOfficialInformation->branch->banglaName)}}</td>
-                <td style="width: 25% !important;">
-                    {{($Controller::entoBn($details->employee->code,'number'))}}, &nbsp;
-                    {{($details->employee->employeeOfficialInformation->designation->banglaName)}},<br>
-                    {{($details->employee->employeeNameBangla)}}
+            <tr style="table-layout: fixed;">
+                <td style="width: 8% !important; table-layout: fixed; text-align: center;">{{$Controller::entoBn($index + 1,'number')}}</td>
+                <td style="width: 32% !important; table-layout: fixed;">
+                    {{$Controller::entoBn($details->employee->code,'number')}}, &nbsp;
+                    {{$details->employee->employeeNameBangla}}, &nbsp;
+                    {{$details->employee->employeeOfficialInformation->designation->banglaName}}, &nbsp;
+                    {{$details->employee->employeeOfficialInformation->branch->banglaName}}
                 </td>
-                <td style="width: 50% !important;">{!! ($details->description) !!}</td>
+                <td style="width: 60% !important; table-layout: fixed;">{!! ($details->description) !!}</td>
 
             </tr>
         @endforeach
@@ -223,6 +200,7 @@ $details = $data->details;
                             echo $value;
                             ?>
                     </span>
+
                 </div>
 
 
