@@ -36,27 +36,6 @@ $en = [];
 $bn = [];
 $data = json_decode($val['data']);
 
-/*function enToBnConveter($response) {
-    $englDTN = array(
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-        'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-        'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri',
-        'am', 'pm', 'at', 'st', 'nd', 'rd', 'th',
-        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    );
-    $bangDTN = array(
-        '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '০',
-        'শনিবার', 'রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার',
-        'শনি', 'রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র',
-        'পূর্বাহ্ণ', 'অপরাহ্ণ', '', '', '', '', '',
-        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর',
-        'জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'
-    );
-    $converted = str_replace($englDTN, $bangDTN, $response);
-    echo $converted;
-}*/
-
 ?>
 
 <?php
@@ -157,23 +136,22 @@ $details = $data->details;
     <!-- header part -->
 
 
-    <table width="100%" style="table-layout: fixed; border-collapse: collapse; border-top: 0.5px solid;">
-        <tr style="text-align: center;">
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 8%; text-align: center;">ক্রমিক </td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 17%; text-align: center;">শাখাা</td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 25%; text-align: center;">ব্যক্তিগত নম্বর, পদবী ও নাম</td>
-            <td style=" border-collapse: collapse; border: 0.5px solid; width: 50%; text-align: center;">কার্যক্রম</td>
-        </tr>
+        <table width="100%" style="table-layout: fixed; border-collapse: collapse; border-top: 0.5px solid;">
+            <tr style="text-align: center;">
+                <td style=" border-collapse: collapse; border: 0.5px solid; width: 8%; text-align: center;">ক্রমিক </td>
+                <td style=" border-collapse: collapse; border: 0.5px solid; width: 32%; text-align: center;">ব্যক্তিগত নম্বর, পদবী শাখা ও নাম</td>
+                <td style=" border-collapse: collapse; border: 0.5px solid; width: 60%; text-align: center;">কার্যক্রম</td>
+            </tr>
         @foreach ($details as $index => $details)
             <tr>
-                <td style="width: 5% !important; text-align: center;">{{($Controller::entoBn($index + 1,'number'))}}</td>
-                <td style="width: 20% !important;">{{($details->employee->employeeOfficialInformation->branch->banglaName)}}</td>
-                <td style="width: 25% !important;">
+                <td style="width: 8% !important; text-align: center;">{{($Controller::entoBn($index + 1,'number'))}}</td>
+                <td style="width: 32% !important;">
                     {{($Controller::entoBn($details->employee->code,'number'))}}, &nbsp;
                     {{($details->employee->employeeOfficialInformation->designation->banglaName)}},<br>
+                    {{($details->employee->employeeOfficialInformation->branch->banglaName)}}<br>
                     {{($details->employee->employeeNameBangla)}}
                 </td>
-                <td style="width: 50% !important;">{!! ($details->description) !!}</td>
+                <td style="width: 60% !important;">{!! ($details->description) !!}</td>
 
             </tr>
         @endforeach
@@ -204,13 +182,15 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
-            <td width="50%">{!! ($master->footer) !!}</td>
+            <td width="50%">
+                {!! ($master->footer) !!}
+            </td>
             <td width="20%"></td>
             <td width="30%">
 
                 <div style="float: right;">
 
-                    <span>
+                   <span>
                         <?php
                         $value = ($master->presentDailyOrder->manager)? $master->presentDailyOrder->manager->employeeNameBangla : '';
                         echo $value;
