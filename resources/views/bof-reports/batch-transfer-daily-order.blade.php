@@ -72,25 +72,27 @@
                 <td style="width: 30%">ক্রমিক নম্বর</td>
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
-                    <span>{{$Controller::entoBn($data->master->presentDailyOrder->orderNumber,'number')}}</span>
+                    <span>{{$Controller::entoBn(optional($data->master->presentDailyOrder)->orderNumber,'number')}}</span>
                 </td>
                 <td style="width: 5%"></td>
                 <td style="width: 10%">তারিখ</td>
                 <td style="width: 3%;">:</td>
-                <td style="width: 30%;"><span>{{$data->master->presentDailyOrder->banglaDate}} /
+                <td style="width: 30%;"><span>{{ optional($data->master->presentDailyOrder)->banglaDate}} /
                         {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
+                    </span></td>
             </tr>
 
             <tr>
                 <td style="width: 30%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বর</td>
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
-                    <span>{{$Controller::entoBn($data->master->previousDailyOrder->orderNumber,'number')}} </span>
+                    <span>{{$Controller::entoBn( optional($data->master->previousDailyOrder)->orderNumber,'number')}}
+                    </span>
                 </td>
                 <td style="width: 5%"></td>
                 <td style="width: 10%">তারিখ</td>
                 <td style="width: 3%;">:</td>
-                <td style="width: 30%;"><span> {{$data->master->previousDailyOrder->banglaDate}} /
+                <td style="width: 30%;"><span> {{ optional($data->master->previousDailyOrder)->banglaDate}} /
                         {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}</span>
                 </td>
             </tr>
@@ -100,7 +102,7 @@
             <tr>
                 <td style="text-align: center;">
                     <br>
-                    <strong><u>{{$data->master->divison}}</u></strong>
+                    <strong><u>{{ optional($data->master)->divison}}</u></strong>
                 </td>
             </tr>
         </table>
@@ -109,7 +111,7 @@
 
         <table width="100%">
             <tr>
-                <td><b><u>{{$data->master->subject}}</u></b></td>
+                <td><b><u>{{ optional($data->master)->subject}}</u></b></td>
             </tr>
         </table>
         <!-- subject part -->
@@ -118,7 +120,7 @@
 
         <table width="100%">
             <tr>
-                <td>{!! ($data->master->header) !!}</td>
+                <td>{!! ( optional($data->master)->header) !!}</td>
             </tr>
         </table>
 
@@ -146,23 +148,25 @@
                     <tr>
                         <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            <span>{{$Controller::entoBn($list->employee->code,'number')}}</span>
+                            <span>{{$Controller::entoBn(optional($list->employee)->code,'number')}}</span>
                             <br>
-                            <span>{{$list->employee->employeeOfficialInformation->designation->banglaName}}</span>
+                            <span>{{optional($list->employee->employeeOfficialInformation->designation)->banglaName}}</span>
                             <br>
-                            <span>{{$list->employee->employeeNameBangla}}</span>
+                            <span>{{optional($list->employee)->employeeNameBangla}}</span>
 
 
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            <span>{{$list->previousWing->banglaName}} / {{$list->previousGroup->banglaName}} /
-                                {{$list->previousBranch->banglaName}}</span>
+                            <span>{{optional($list->previousWing)->banglaName}} /
+                                {{optional($list->previousGroup)->banglaName}} /
+                                {{optional($list->previousBranch)->banglaName}}</span>
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            <span>{{$list->presentWing->banglaName}} / {{$list->presentGroup->banglaName}} /
-                                {{$list->presentBranch->banglaName}}</span>
+                            <span>{{optional($list->presentWing)->banglaName}} /
+                                {{optional($list->presentGroup)->banglaName}} /
+                                {{optional($list->presentBranch)->banglaName}}</span>
                         </td>
                     </tr>
                     @endforeach
@@ -209,7 +213,7 @@
 
             <table width="100%">
                 <tr>
-                    <td width="50%">{!! ($data->master->footer) !!}</td>
+                    <td width="50%">{!! (optional($data->master)->footer) !!}</td>
                     <td width="20%"></td>
                     <td width="30%">
 
