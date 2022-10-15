@@ -128,6 +128,16 @@ class ReportController extends Controller
         return $newDate;
     }
 
+    public static function dateFormatterNBR($originalDate)
+    {
+        if ($originalDate == null || $originalDate == '') {
+            return '';
+        }
+        date_default_timezone_set('UTC');
+        $newDate = date("d-m-Y", strtotime($originalDate));
+        return $newDate;
+    }
+
     public static function minimizeScaleNumber($data)
     {
         if ($data == null || $data == '') {
