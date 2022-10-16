@@ -135,10 +135,10 @@
                 <thead>
                     <tr>
                         <th style="width: 10%; padding: 2px; ">ক্রঃ নং </th>
-                        <th style="width: 15%; padding: 2px; ">বিএ নম্বর /পদবি ও নাম</th>
-                        <th style="width: 15%; padding: 2px; ">তারিখ</th>
-                        <th style="width: 15%; padding: 2px; ">মোট দিন </th>
-                        <th style="width: 15%; padding: 2px; ">মোট টাকা</th>
+                        <th style="width: 25%; padding: 2px; ">বিএ নম্বর /পদবি ও নাম</th>
+                        <th style="width: 20%; padding: 2px; ">তারিখ</th>
+                        <th style="width: 25%; padding: 2px; ">মোট দিন </th>
+                        <th style="width: 20%; padding: 2px; ">মোট টাকা</th>
                     </tr>
 
                 </thead>
@@ -150,7 +150,7 @@
                     @foreach ($data->details as $index => $list)
                     <tr>
                         <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
-                        <td style="text-align: left; width: 15%; padding: 2px;">
+                        <td style="text-align: left; width: 25%; padding: 2px;">
                             <span>বিএ -
                                 {{$Controller::enToBnConveter( optional($list->employee)->code,'number')}}</span>
                             <br>
@@ -165,19 +165,19 @@
                         </td>
 
 
-                        <td style="width: 15%; padding: 2px;">
+                        <td style="width: 20%; padding: 2px;">
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->date)}}
                             </span>
                         </td>
 
-                        <td style="width: 15%; padding: 2px;">
+                        <td style="width: 25%; padding: 2px;">
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->totalDays)}}
                             </span>
                         </td>
 
-                        <td style="width: 15%; padding: 2px;">
+                        <td style="width: 20%; padding: 2px;">
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->amount)}}
                             </span>
