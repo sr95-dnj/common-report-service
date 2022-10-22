@@ -94,20 +94,27 @@ $details = $data->details;
         <tr>
             <td style="width: 30%">ক্রমিক নম্বর</td>
             <td style="width: 3%">:</td>
-            <td style="width: 20%"><span>{{($Controller::entoBn($master->presentDailyOrder->orderNumber,'number'))}}</span></td>
+            <td style="width: 20%">
+                <span>{{($Controller::entoBn(optional($master->presentDailyOrder)->orderNumber,'number'))}}</span>
+            </td>
             <td style="width: 5%"></td>
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3% !important;">:</td>
             <td style="width: 30% !important;">
-                <sapn>{{($data->master->presentDailyOrder->banglaDate)}}</sapn>
-                &nbsp;/ &nbsp;
-                <span>
-                    {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
-                </span>
+                @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->banglaDate != null)
+                    <sapn>{{($data->master->presentDailyOrder->banglaDate)}} &nbsp;/ &nbsp;</sapn>
+                @endif
+
+                @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->entryDate != null)
+                    <span>
+                         {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
+                    </span>
+                @endif
             </td>
         </tr>
 
-        <tr>
+        @if($master->previousDailyOrder != null)
+            <tr>
             <td style="width: 25%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বরঃ</td>
             <td style="width: 3%">:</td>
             <td style="width: 20%">
@@ -120,20 +127,28 @@ $details = $data->details;
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3% !important;">:</td>
             <td style="width: 35% !important;">
-                <sapn>{{($data->master->previousDailyOrder->banglaDate)}}</sapn>
-                &nbsp;/ &nbsp;
-                <span>
-                    {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}
-                </span>
+                @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->banglaDate != null)
+                    <sapn>{{($data->master->previousDailyOrder->banglaDate)}} &nbsp;/ &nbsp;</sapn>
+                @endif
+
+                @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->entryDate != null)
+                    <span>
+                         {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}
+                    </span>
+                @endif
             </td>
         </tr>
+        @endif
+
     </table>
 
     <table width="100%">
         <tr>
             <td style="text-align: center;">
                 <br>
+                @if($master->divison != null)
                 <strong><u>{{($master->divison)}}</u></strong>
+                @endif
             </td>
         </tr>
     </table>
@@ -142,7 +157,9 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
+            @if($master->subject != null)
             <td><b><u>{{($master->subject)}}</u></b> </td>
+            @endif
         </tr>
     </table>
     <!-- subject part -->
@@ -151,7 +168,9 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
+            @if($master->header != null)
             <td>{!! ($master->header) !!}</td>
+            @endif
         </tr>
     </table>
     <!-- header part -->
@@ -184,7 +203,9 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
+            @if($master->body != null)
             <td>{!! ($master->body) !!}</td>
+            @endif
         </tr>
 
     </table>
@@ -195,7 +216,9 @@ $details = $data->details;
 
     <table width="100%" style="text-align: center;">
         <tr>
+            @if($master->presentDailyOrder != null)
             <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
+            @endif
         </tr>
 
     </table>
