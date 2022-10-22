@@ -74,7 +74,7 @@
                 <td style="width: 30%">ক্রমিক নম্বর</td>
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
-                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder)->orderNumber !=
+                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->orderNumber !=
                     null)
                     <span>{{$Controller::entoBn(optional($data->master->presentDailyOrder)->orderNumber,'number')}}</span>
                     @endif
@@ -84,7 +84,7 @@
                 <td style="width: 10%">তারিখ</td>
                 <td style="width: 3%;">:</td>
                 <td style="width: 30%;">
-                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder)->banglaDate !=
+                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->banglaDate !=
                     null)
                     <span>
                         {{ optional($data->master->presentDailyOrder)->banglaDate}} /
@@ -99,13 +99,13 @@
                 <td style="width: 30%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বর</td>
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
+                    @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->orderNumber
+                    !=
+                    null)
                     <span>
-                        @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder)->orderNumber
-                        !=
-                        null)
-                        {{$Controller::entoBn( optional($data->master->previousDailyOrder)->orderNumber,'number')}}
-                        @endif
+                        {{$Controller::entoBn( optional($data->master->previousDailyOrder->orderNumber,'number'))}}
                     </span>
+                    @endif
                 </td>
                 <td style="width: 5%"></td>
                 <td style="width: 10%">তারিখ</td>
@@ -175,7 +175,7 @@
                     <tr>
                         <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
                         <td style="text-align: left; width: 15%; padding: 2px;">
-                            @if($list->employee != null && $list->employee)->code !=null)
+                            @if($list->employee != null && $list->employee->code !=null)
                             <span>{{$Controller::entoBn(optional($list->employee)->code,'number')}}</span>
                             @endif
                             <br>
@@ -210,7 +210,7 @@
                             @endif
                             <br>
 
-                            @if($list)->promotionDate != null)
+                            @if($list->promotionDate != null)
                             <span>
                                 {{$Controller::enToBnConveter($Controller::dateFormatter(optional($list)->promotionDate))}}
                             </span>
@@ -218,12 +218,12 @@
 
 
                             <br>
-                            @if($list)->presentSalary != null)
+                            @if($list->presentSalary != null)
                             <span>{{$Controller::enToBnConveter( optional($list)->presentSalary,'number')}} /-</span>
                             @endif
                             <br>
 
-                            @if($list)->presentScale != null)
+                            @if($list->presentScale != null)
                             <span>
                                 {{$Controller::enToBnConveter($Controller::minimizeScaleNumber(optional($list)->presentScale))}}
                             </span>
@@ -245,12 +245,12 @@
                         </td>
 
                         <td style="width: 15%; padding: 2px;">
-                            @if($list)->previousMainSalary != null)
+                            @if($list->previousMainSalary != null)
                             <span>{{$Controller::enToBnConveter( optional($list)->previousMainSalary,'number')}}
                                 /-</span>
                             @endif
                             <br>
-                            @if($list)->previousScale != null)
+                            @if($list->previousScale != null)
                             <span>{{$Controller::enToBnConveter($Controller::minimizeScaleNumber(optional($list)->previousScale))}}</span>
                             @endif
                             <br>
@@ -260,18 +260,18 @@
                         </td>
 
                         <td style="width: 15%; padding: 2px;">
-                            @if($list)->promotionDate != null)
+                            @if($list->promotionDate != null)
                             <span>
                                 {{$Controller::enToBnConveter($Controller::dateFormatter(optional($list)->promotionDate))}}
                             </span>
                             @endif
                         </td>
                         <td style="width: 15%; padding: 2px;">
-                            @if($list)->presentSalary != null)
+                            @if($list->presentSalary != null)
                             <span>{{$Controller::enToBnConveter( optional($list)->presentSalary,'number')}} /-</span>
                             @endif
                             <br>
-                            @if($list)->presentScale != null)
+                            @if($list->presentScale != null)
                             <span>
                                 {{$Controller::enToBnConveter($Controller::minimizeScaleNumber(optional($list)->presentScale))}}
                             </span>
@@ -319,6 +319,7 @@
                     && $data->master->presentDailyOrder->referenceNo !=
                     null)
                     <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
+                    @endif
                 </tr>
 
             </table>
@@ -338,14 +339,14 @@
 
 
                             @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->manager !=
-                            null && $data->master->presentDailyOrder->manager)->employeeNameBangla != null)
+                            null && $data->master->presentDailyOrder->manager->employeeNameBangla != null)
                             <span>{{ optional($data->master->presentDailyOrder->manager)->employeeNameBangla }}</span>
                             @endif
                             <br>
 
                             @if($data->master->presentDailyOrder != null &&
                             $data->master->presentDailyOrder->managerDesignation !=
-                            null && $data->master->presentDailyOrder->managerDesignation)->banglaName != null)
+                            null && $data->master->presentDailyOrder->managerDesignation->banglaName != null)
                             <span>{{ optional($data->master->presentDailyOrder->managerDesignation)->banglaName }}</span>
                             @endif
                         </div>

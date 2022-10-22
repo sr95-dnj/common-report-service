@@ -74,7 +74,7 @@
                 <td style="width: 30%">ক্রমিক নম্বর</td>
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
-                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder)->orderNumber !=
+                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->orderNumber !=
                     null)
                     <span>{{$Controller::entoBn(optional($data->master->presentDailyOrder)->orderNumber,'number')}}</span>
                     @endif
@@ -84,7 +84,7 @@
                 <td style="width: 10%">তারিখ</td>
                 <td style="width: 3%;">:</td>
                 <td style="width: 30%;">
-                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder)->banglaDate !=
+                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->banglaDate !=
                     null)
                     <span>
                         {{ optional($data->master->presentDailyOrder)->banglaDate}} /
@@ -100,7 +100,7 @@
                 <td style="width: 3%">:</td>
                 <td style="width: 20%">
                     <span>
-                        @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder)->orderNumber
+                        @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->orderNumber
                         !=
                         null)
                         {{$Controller::entoBn( optional($data->master->previousDailyOrder)->orderNumber,'number')}}
@@ -111,7 +111,7 @@
                 <td style="width: 10%">তারিখ</td>
                 <td style="width: 3%;">:</td>
                 <td style="width: 30%;">
-                    @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder)->banglaDate !=
+                    @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->banglaDate !=
                     null)
                     <span> {{ optional($data->master->previousDailyOrder)->banglaDate}} /
                         {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}
@@ -172,7 +172,7 @@
                     <tr>
                         <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
                         <td style="text-align: left; width: 25%; padding: 2px;">
-                            @if($list->employee != null && $list->employee)->code !=null)
+                            @if($list->employee != null && $list->employee->code !=null)
                             <span>বিএ -
                                 {{$Controller::enToBnConveter( optional($list->employee)->code,'number')}}</span>
                             @endif
@@ -192,7 +192,7 @@
 
 
                         <td style="width: 20%; padding: 2px;">
-                            @if($list)->date != null)
+                            @if($list->date != null)
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->date)}}
                             </span>
@@ -200,7 +200,7 @@
                         </td>
 
                         <td style="width: 25%; padding: 2px;">
-                            @if($list)->totalDays != null)
+                            @if($list->totalDays != null)
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->totalDays)}}
                             </span>
@@ -208,7 +208,7 @@
                         </td>
 
                         <td style="width: 20%; padding: 2px;">
-                            @if($list)->amount != null)
+                            @if($list->amount != null)
                             <span>
                                 {{$Controller::enToBnConveter(optional($list)->amount)}}
                             </span>
@@ -252,6 +252,7 @@
                     && $data->master->presentDailyOrder->referenceNo !=
                     null)
                     <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
+                    @endif
                 </tr>
 
             </table>
@@ -271,14 +272,14 @@
 
 
                             @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->manager !=
-                            null && $data->master->presentDailyOrder->manager)->employeeNameBangla != null)
+                            null && $data->master->presentDailyOrder->manager->employeeNameBangla != null)
                             <span>{{ optional($data->master->presentDailyOrder->manager)->employeeNameBangla }}</span>
                             @endif
                             <br>
 
                             @if($data->master->presentDailyOrder != null &&
                             $data->master->presentDailyOrder->managerDesignation !=
-                            null && $data->master->presentDailyOrder->managerDesignation)->banglaName != null)
+                            null && $data->master->presentDailyOrder->managerDesignation->banglaName != null)
                             <span>{{ optional($data->master->presentDailyOrder->managerDesignation)->banglaName }}</span>
                             @endif
                         </div>
