@@ -62,19 +62,29 @@ $details = $data->details;
         <tbody>
         <tr>
             <td style="width: 10%; text-align: center;" rowspan="2">ক্রমিক নম্বর</td>
-            <td style="width: 10%; text-align: center;" rowspan="2">{{($Controller::entoBn($master->presentDailyOrder->orderNumber,'number'))}}</td>
+            <td style="width: 10%; text-align: center;" rowspan="2">
+                @if($master->presentDailyOrder->orderNumber != null)
+                <span>
+                    {{($Controller::entoBn($master->presentDailyOrder->orderNumber,'number'))}}
+                </span>
+                @endif
+            </td>
             <td style="width: 30%; text-align: left;" rowspan="2">স্থান: গাজীপুর সেনানিবাস</td>
             <td style="width: 10%; text-align: center;" rowspan="2">তারিখ:</td>
             <td style="width: 30%; text-align: center;">
+                @if($master->presentDailyOrder->banglaDate != null)
                 <sapn>{{($master->presentDailyOrder->banglaDate)}}</sapn>
+                @endif
             </td>
             <td style="width: 10%; text-align: left;" rowspan="2">রেজি:</td>
         </tr>
         <tr>
             <td style="width: 30%; text-align: center;">
+                @if($master->presentDailyOrder->entryDate != null)
                 <span>
                     {{$Controller::enToBnConveter($Controller::dateFormatter(optional($master->presentDailyOrder)->entryDate))}}
                 </span>
+                @endif
             </td>
         </tr>
         </tbody>
@@ -85,7 +95,9 @@ $details = $data->details;
     <br>
     <table width="100%">
         <tr>
+            @if($master->subject != null)
             <td><b><u>{{($master->subject)}}</u></b> </td>
+            @endif
         </tr>
     </table>
     <!-- subject part -->
@@ -93,7 +105,9 @@ $details = $data->details;
     <!-- header part -->
     <table width="100%">
         <tr>
+            @if($master->header != null)
             <td>{!! ($master->header) !!}</td>
+            @endif
         </tr>
     </table>
     <!-- header part -->
@@ -142,7 +156,9 @@ $details = $data->details;
 
     <table width="100%">
         <tr>
+            @if($master->body != null)
             <td>{!! ($master->body) !!}</td>
+            @endif
         </tr>
     </table>
 
@@ -150,7 +166,9 @@ $details = $data->details;
 
     <table width="100%" style="text-align: center;">
         <tr>
+            @if($master->presentDailyOrder != null)
             <td><u>{{$Controller::enToBnConveter(optional($master->presentDailyOrder)->referenceNo)}}</u></td>
+            @endif
         </tr>
 
     </table>

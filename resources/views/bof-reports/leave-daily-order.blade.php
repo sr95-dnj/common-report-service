@@ -72,27 +72,46 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 30%">ক্রমিক নম্বর</td>
             <td style="width: 3%">:</td>
-            <td style="width: 20%"><span>{{$Controller::entoBn($data->master->presentDailyOrder->orderNumber,'number')}}</span></td>
+            <td style="width: 20%">
+			@if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->orderNumber != null)
+                    <sapn>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->orderNumber)}} </sapn>
+                @endif
+			</td>
             <td style="width: 5%"></td>
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3%;">:</td>
-            <td style="width: 30%;"><span>{{ optional($data->master->presentDailyOrder)->banglaDate}} /
-                        {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
-                    </span></td>
+             <td style="width: 30%;">
+			 @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->banglaDate != null)
+                    <sapn>{{($data->master->presentDailyOrder->banglaDate)}} &nbsp;/ &nbsp;</sapn>
+                @endif
+
+                    @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->entryDate != null)
+                        <span> {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->presentDailyOrder)->entryDate))}}
+                        </span>
+                    @endif
+					</td>
         </tr>
 
         <tr>
             <td style="width: 30%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বর</td>
             <td style="width: 3%">:</td>
             <td style="width: 20%">
-			 <span>{{$Controller::entoBn( optional($data->master->previousDailyOrder)->orderNumber,'number')}}</span>
-					</td>
+			@if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->orderNumber != null)
+                    <sapn>{{$Controller::enToBnConveter(optional($data->master->previousDailyOrder)->orderNumber)}} </sapn>
+                @endif</td>
             <td style="width: 5%"></td>
             <td style="width: 10%">তারিখ</td>
             <td style="width: 3%;">:</td>
-            <td style="width: 30%;"><span> {{ optional($data->master->previousDailyOrder)->banglaDate}} /
-                        {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}</span>
-                </td>
+            <td style="width: 30%;">
+			@if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->banglaDate != null)
+                    <sapn>{{($data->master->previousDailyOrder->banglaDate)}} &nbsp;/ &nbsp;</sapn>
+                @endif
+
+                    @if($data->master->previousDailyOrder != null && $data->master->previousDailyOrder->entryDate != null)
+                        <span> {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->master->previousDailyOrder)->entryDate))}}
+                        </span>
+                    @endif
+					</td>
         </tr>
     </table>
 
@@ -100,7 +119,9 @@ $data = json_decode($val['data']);
         <tr>
             <td style="text-align: center;">
                 <br>
-                <strong><u>{{ optional($data->master)->divison}}</u></strong>
+                @if($master->divison != null)
+                <strong><u>{{($master->divison)}}</u></strong>
+                @endif
             </td>
         </tr>
     </table>
@@ -109,7 +130,9 @@ $data = json_decode($val['data']);
 
     <table width="100%">
         <tr>
-             <td><b><u>{{ optional($data->master)->subject}}</u></b></td>
+              @if($master->subject != null)
+            <td><b><u>{{($master->subject)}}</u></b> </td>
+            @endif
         </tr>
     </table>
     <!-- subject part -->
@@ -118,7 +141,9 @@ $data = json_decode($val['data']);
 
     <table width="100%">
         <tr>
-          <td>{!! ( optional($data->master)->header) !!}</td>
+          @if($master->header != null)
+            <td>{!! ($master->header) !!}</td>
+            @endif
         </tr>
     </table>
 
@@ -146,15 +171,23 @@ $data = json_decode($val['data']);
                     <tr>
                         <td style="width: 5%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
                         <td style="text-align: left; width: 20%; padding: 2px;">
-						    <span>{{$Controller::entoBn(optional($list->employee)->code,'number')}}/
-							{{ optional($list->employee->employeeOfficialInformation->branch)->banglaName }}</span>
+						@if($list->employee != null)
+							<sapn>{{$Controller::enToBnConveter(optional($list->employee)->code)}}&nbsp;/ &nbsp;</sapn>
+							@endif
+						@if($list->employee != null && $list->employee->employeeOfficialInformation && $list->employee->employeeOfficialInformation->branch)
+							<sapn>{{optional($list->employee->employeeOfficialInformation->branch)->banglaName}}</sapn>
+							@endif
 							
                         </td>
 						
                         <td style="text-align: left; width: 25%; padding: 2px;">
-						<span>{{optional($list->employee->employeeOfficialInformation->designation)->banglaName}}</span> 
+						@if($list->employee != null && $list->employee->employeeOfficialInformation && $list->employee->employeeOfficialInformation->designation)
+							<sapn>{{optional($list->employee->employeeOfficialInformation->designation)->banglaName}}, </sapn>
+							@endif
 						<br>
-						<span>{{optional($list->employee)->employeeNameBangla}}</span> 
+						@if($list->employee != null)
+							<sapn>{{optional($list->employee)->employeeNameBangla}}</sapn>
+							@endif  
 						
 						</td>
 						
@@ -179,8 +212,9 @@ $data = json_decode($val['data']);
 						</td>
 						<td style="text-align: left; width: 10%; padding: 2px;">
 						@foreach ($list->leaveApplicationList as $index => $leave)
-						<span>{{optional($leave->leaveType)->banglaName}}
-						</span>	 
+						@if($leave->leaveType != null)
+							<sapn>{{optional($leave->leaveType)->banglaName}}</sapn>
+							@endif
 						 @endforeach
 						</td>
                     </tr>
@@ -203,7 +237,9 @@ $data = json_decode($val['data']);
 			
      <table width="100%">
         <tr>
-            <td>{!! (optional($data->master)->body) !!}</td>
+             @if($master->body != null)
+            <td>{!! ($master->body) !!}</td>
+            @endif
         </tr>
         
     </table>
@@ -214,7 +250,9 @@ $data = json_decode($val['data']);
 
    <table width="100%" style="text-align: center;">
         <tr>
-            <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
+           @if($master->presentDailyOrder != null)
+            <td><u>{{$Controller::enToBnConveter(optional($master->presentDailyOrder)->referenceNo)}}</u></td>
+            @endif
         </tr>
         
     </table>
@@ -231,10 +269,13 @@ $data = json_decode($val['data']);
             <td width="30%">
 
             <div style="float: right;">
-
-               <span>{{ optional($data->master->presentDailyOrder->manager)->employeeNameBangla }}</span> 
-               <br>
-               <span>{{ optional($data->master->presentDailyOrder->managerDesignation)->banglaName }}</span> 
+			@if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->manager != null)
+				<span>{{ optional($data->master->presentDailyOrder->manager)->employeeNameBangla }}</span>
+				<br>
+				@endif
+			@if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->managerDesignation != null)
+				<span>{{ optional($data->master->presentDailyOrder->managerDesignation)->banglaName }}</span>
+				@endif
 
             </div>
 
