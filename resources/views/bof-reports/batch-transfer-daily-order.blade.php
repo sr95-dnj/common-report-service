@@ -160,10 +160,6 @@
                     </tr>
 
                 </thead>
-            </table>
-
-
-            <table class="center" style="text-align: center; padding: 5px;">
                 <tbody>
                     @foreach ($data->details as $index => $list)
                     <tr>
@@ -186,32 +182,39 @@
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            @if(($list->previousWing != null && $list->previousWing->banglaName != null) ||
-                            ($list->previousGroup !=null || $list->previousGroup->banglaName != null)
-                            || ($list->previousBranch !=null || $list->previousBranch->banglaName !=null))
-                            <span>{{optional($list->previousWing)->banglaName}} /
-                                {{optional($list->previousGroup)->banglaName}} /
+                            @if($list->previousWing != null && $list->previousWing->banglaName != null)
+                            <span>{{optional($list->previousWing)->banglaName}} /</span>
+                            @endif
+                            @if($list->previousGroup !=null && $list->previousGroup->banglaName != null)
+                            <span>{{optional($list->previousGroup)->banglaName}} /</span>
+                            @endif
+
+                            @if($list->previousBranch !=null && $list->previousBranch->banglaName !=null)
+                            <span>
                                 {{optional($list->previousBranch)->banglaName}}
                             </span>
                             @endif
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            @if(($list->presentWing != null && $list->presentWing->banglaName != null) ||
-                            ($list->presentGroup !=null || $list->presentGroup->banglaName != null)
-                            || ($list->presentBranch !=null || $list->presentBranch->banglaName !=null))
-                            <span>{{optional($list->presentWing)->banglaName}} /
-                                {{optional($list->presentGroup)->banglaName}} /
+                            @if($list->presentWing != null && $list->presentWing->banglaName != null)
+                            <span>{{optional($list->presentWing)->banglaName}} /</span>
+                            @endif
+
+                            @if($list->presentGroup !=null && $list->presentGroup->banglaName != null)
+                            <span>{{optional($list->presentGroup)->banglaName}} /</span>
+                            @endif
+
+                            @if($list->presentBranch !=null && $list->presentBranch->banglaName !=null)
+                            <span>
                                 {{optional($list->presentBranch)->banglaName}}</span>
                             @endif
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
-                <br>
-                <br>
             </table>
-
+            <br>
             <table width="100%">
                 <tr>
                     <td>মোট প্রকাশনা সংখ্যা ({{$Controller::entoBn(count($data->details),'number')}}) মাত্র</td>

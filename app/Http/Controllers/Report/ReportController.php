@@ -96,7 +96,7 @@ class ReportController extends Controller
     public static function enToBnConveter($response)
     {
         if ($response == null || $response == '') {
-            return 'কোন তথ্য পাওয়া যায়নি';
+            return '';
         }
         $englDTN = array(
             '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',

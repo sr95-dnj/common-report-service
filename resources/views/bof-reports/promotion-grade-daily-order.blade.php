@@ -8,23 +8,23 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
-    @page {
-        margin-top: 5px;
-    }
+        @page {
+            margin-top: 5px;
+        }
 
-    /* table,
+        /* table,
     th,
     td {
         border: 1px solid black;
         border-collapse: collapse;
     } */
 
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        padding: 5px;
-    }
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            padding: 5px;
+        }
     </style>
 
 </head>
@@ -162,10 +162,7 @@
                     </tr>
 
                 </thead>
-            </table>
 
-
-            <table class="center tbBorder" style="text-align: center; padding: 5px;">
                 <tbody>
                     @foreach ($data->details as $index => $list)
                     <tr>
@@ -228,9 +225,12 @@
                     </tr>
                     @endforeach
                 </tbody>
-                <br>
-                <br>
             </table>
+
+
+
+            <br>
+
 
             <table width="100%">
                 <tr>

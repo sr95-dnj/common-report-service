@@ -163,10 +163,7 @@
                     </tr>
 
                 </thead>
-            </table>
 
-
-            <table class="center tbBorder" style="text-align: center; padding: 5px;">
                 <tbody>
                     @foreach ($data->details as $index => $list)
                     <tr>
@@ -218,9 +215,9 @@
                     </tr>
                     @endforeach
                 </tbody>
-                <br>
-                <br>
             </table>
+            <br>
+
 
             <table width="100%">
                 <tr>
