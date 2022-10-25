@@ -56,19 +56,27 @@ $data = json_decode($val['data']);
         <tbody>
         <tr>
             <td style="width: 10%; text-align: center;" rowspan="2">ক্রমিক নম্বর</td>
-            <td style="width: 10%; text-align: center;" rowspan="2">{{($Controller::entoBn($data->presentDailyOrder->orderNumber,'number'))}}</td>
+            <td style="width: 10%; text-align: center;" rowspan="2">
+                @if($data->presentDailyOrder != null)
+                {{($Controller::entoBn($data->presentDailyOrder->orderNumber,'number'))}}
+                @endif
+            </td>
             <td style="width: 30%; text-align: left;" rowspan="2">স্থান: গাজীপুর সেনানিবাস</td>
             <td style="width: 10%; text-align: center;" rowspan="2">তারিখ:</td>
             <td style="width: 30%; text-align: center;">
+                @if($data->presentDailyOrder != null)
                 <sapn>{{($data->presentDailyOrder->banglaDate)}}</sapn>
+                @endif
             </td>
             <td style="width: 10%; text-align: left;" rowspan="2">রেজি:</td>
         </tr>
         <tr>
             <td style="width: 30%; text-align: center;">
+                @if($data->presentDailyOrder != null)
                 <span>
                     {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data->presentDailyOrder)->entryDate))}}
                 </span>
+                @endif
             </td>
         </tr>
         </tbody>
@@ -96,40 +104,50 @@ $data = json_decode($val['data']);
 
     <table width="100%" style="text-align: center;">
         <tr>
-            <td><u>{{$Controller::enToBnConveter(optional($data->presentDailyOrder)->referenceNo)}}</u></td>
+            @if($data->referenceNo !=null)
+                <td><u>{{$Controller::enToBnConveter(optional($data)->referenceNo)}}</u></td>
+            @endif
         </tr>
 
     </table>
-
     <br>
+    <!-- footer part -->
 
     <table width="100%">
         <tr>
-            <td width="50%">{!! ($data->footer) !!}</td>
+            <td width="50%"></td>
             <td width="20%"></td>
             <td width="30%">
-
                 <div style="float: right;">
-
-                    <span>
-                        <?php
-                        $value = ($data->presentDailyOrder->manager)? $data->presentDailyOrder->manager->employeeNameBangla : '';
-                        echo $value;
-                        ?>
-                    </span>
+                    @if($data->manager != null &&
+                    $data->manager->employeeNameBangla != null)
+                        <span>{{ optional($data->manager)->employeeNameBangla }}</span>
+                    @endif
                     <br>
 
-                    <span>  <?php
-                            $value = ($data->presentDailyOrder->managerDesignation) ? $data->presentDailyOrder->managerDesignation->banglaName : '';
-                            echo $value;
-                            ?>
-                    </span>
+                    @if($data->manager != null &&
+                    $data->manager->employeeOfficialInformation !=
+                    null && $data->manager->employeeOfficialInformation->designation != null
+                    && $data->manager->employeeOfficialInformation->designation->banglaName != null
+                    )
+                        <span>{{ optional($data->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                    @endif
                 </div>
-
-
-
             </td>
         </tr>
 
     </table>
+    <table>
+        <tr>
+            <td>{!! (optional($data)->footer) !!}</td>
+        </tr>
+
+    </table>
+    <!-- footer part -->
 </div>
+<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+    <p>
+        সীমিত
+    </p>
+</footer>
+</body>

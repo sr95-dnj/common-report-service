@@ -63,7 +63,7 @@ $details = $data->details;
         <tr>
             <td style="width: 10%; text-align: center;" rowspan="2">ক্রমিক নম্বর</td>
             <td style="width: 10%; text-align: center;" rowspan="2">
-                @if($master->presentDailyOrder->orderNumber != null)
+                @if($master->presentDailyOrder != null)
                 <span>
                     {{($Controller::entoBn($master->presentDailyOrder->orderNumber,'number'))}}
                 </span>
@@ -72,7 +72,7 @@ $details = $data->details;
             <td style="width: 30%; text-align: left;" rowspan="2">স্থান: গাজীপুর সেনানিবাস</td>
             <td style="width: 10%; text-align: center;" rowspan="2">তারিখ:</td>
             <td style="width: 30%; text-align: center;">
-                @if($master->presentDailyOrder->banglaDate != null)
+                @if($master->presentDailyOrder != null)
                 <sapn>{{($master->presentDailyOrder->banglaDate)}}</sapn>
                 @endif
             </td>
@@ -80,7 +80,7 @@ $details = $data->details;
         </tr>
         <tr>
             <td style="width: 30%; text-align: center;">
-                @if($master->presentDailyOrder->entryDate != null)
+                @if($master->presentDailyOrder != null)
                 <span>
                     {{$Controller::enToBnConveter($Controller::dateFormatter(optional($master->presentDailyOrder)->entryDate))}}
                 </span>
@@ -122,6 +122,7 @@ $details = $data->details;
             <td style=" border-collapse: collapse; border: 0.5px solid; width: 15%; text-align: center;">ফিডার পদে চাকরিকাল</td>
             <td style=" border-collapse: collapse; border: 0.5px solid; width: 15%; text-align: center;">পদোন্নতি বিধি অনুযায়ী ফিডার পদে চাকরি প্রয়োজন</td>
         </tr>
+        @if($details != null)
         @foreach ($details as $index => $details)
             <tr>
                 <td style="width: 5% !important; text-align: center;">{{$Controller::enToBnConveter($index+1)}}</td>
@@ -147,11 +148,19 @@ $details = $data->details;
                     {{$Controller::enToBnConveter($Controller::dateFormatterNBR(optional($details->employee->employeeOfficialInformation)->designation->entryDate))}}
                 </td>
 
-                <td style="width: 15% !important;">{{$details->totalDay}} </td>
-                <td style="width: 15% !important;">{{$details->needDay}}</td>
-
+                <td style="width: 15% !important; text-align: center">
+                    @if($details->totalDay != null)
+                    {{$details->totalDay}}
+                    @endif
+                </td>
+                <td style="width: 15% !important; text-align: center">
+                    @if($details->needDay != null)
+                    {{$details->needDay}}
+                    @endif
+                </td>
             </tr>
         @endforeach
+        @endif
     </table>
 
     <table width="100%">
@@ -166,42 +175,50 @@ $details = $data->details;
 
     <table width="100%" style="text-align: center;">
         <tr>
-            @if($master->presentDailyOrder != null)
-            <td><u>{{$Controller::enToBnConveter(optional($master->presentDailyOrder)->referenceNo)}}</u></td>
+            @if($data->master->referenceNo !=null)
+                <td><u>{{$Controller::enToBnConveter(optional($data->master)->referenceNo)}}</u></td>
             @endif
         </tr>
 
     </table>
-
     <br>
+    <!-- footer part -->
 
     <table width="100%">
         <tr>
-            <td width="50%">{!! ($master->footer) !!}</td>
+            <td width="50%"></td>
             <td width="20%"></td>
             <td width="30%">
-
                 <div style="float: right;">
-
-                    <span>
-                        <?php
-                        $value = ($master->presentDailyOrder->manager)? $master->presentDailyOrder->manager->employeeNameBangla : '';
-                        echo $value;
-                        ?>
-                    </span>
+                    @if($data->master->manager != null &&
+                    $data->master->manager->employeeNameBangla != null)
+                        <span>{{ optional($data->master->manager)->employeeNameBangla }}</span>
+                    @endif
                     <br>
 
-                    <span>  <?php
-                            $value = ($master->presentDailyOrder->managerDesignation) ? $master->presentDailyOrder->managerDesignation->banglaName : '';
-                            echo $value;
-                            ?>
-                    </span>
+                    @if($data->master->manager != null &&
+                    $data->master->manager->employeeOfficialInformation !=
+                    null && $data->master->manager->employeeOfficialInformation->designation != null
+                    && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
+                    )
+                        <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                    @endif
                 </div>
-
-
-
             </td>
         </tr>
 
     </table>
+    <table>
+        <tr>
+            <td>{!! (optional($data->master)->footer) !!}</td>
+        </tr>
+
+    </table>
+    <!-- footer part -->
 </div>
+<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+    <p>
+        সীমিত
+    </p>
+</footer>
+</body>

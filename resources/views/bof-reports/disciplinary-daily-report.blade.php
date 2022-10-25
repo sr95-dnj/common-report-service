@@ -71,12 +71,9 @@ $details = $data->details;
             <td style="width: 33%"></td>
             <td style="width: 34% !important; text-align: center;">
                 সীমিত <br>
-                দৈনিক আদেশনামা ২য় খন্ড
+                <u>দৈনিক আদেশনামা ২য় খন্ড</u>
             </td>
-            <td style="width: 33% !important; text-align: center;">
-                <br>
-                বিওএফ নম্বরঃ
-            </td>
+            <td style="width: 33% !important; text-align: center;"></td>
         </tr>
     </table>
 
@@ -213,45 +210,64 @@ $details = $data->details;
     <br>
 
     <!-- body part -->
-
-    <table width="100%" style="text-align: center;">
+    <table width="100%">
         <tr>
-            @if($master->presentDailyOrder != null)
-            <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
-            @endif
+            <td>{!! (optional($data->master)->body) !!}</td>
         </tr>
 
     </table>
 
     <br>
 
+    <!-- body part -->
+
+    <table width="100%" style="text-align: center;">
+        <tr>
+            @if($data->master->referenceNo !=null)
+                <td><u>{{$Controller::enToBnConveter(optional($data->master)->referenceNo)}}</u></td>
+            @endif
+        </tr>
+
+    </table>
+    <br>
+    <!-- footer part -->
+
     <table width="100%">
         <tr>
-            <td width="50%">{!! ($master->footer) !!}</td>
+            <td width="50%"></td>
             <td width="20%"></td>
             <td width="30%">
-
                 <div style="float: right;">
-
-                    <span>
-                        <?php
-                        $value = ($master->presentDailyOrder->manager)? $master->presentDailyOrder->manager->employeeNameBangla : '';
-                        echo $value;
-                        ?>
-                    </span>
+                    @if($data->master->manager != null &&
+                    $data->master->manager->employeeNameBangla != null)
+                        <span>{{ optional($data->master->manager)->employeeNameBangla }}</span>
+                    @endif
                     <br>
 
-                    <span>  <?php
-                            $value = ($master->presentDailyOrder->managerDesignation) ? $master->presentDailyOrder->managerDesignation->banglaName : '';
-                            echo $value;
-                            ?>
-                    </span>
+                    @if($data->master->manager != null &&
+                    $data->master->manager->employeeOfficialInformation !=
+                    null && $data->master->manager->employeeOfficialInformation->designation != null
+                    && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
+                    )
+                        <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                    @endif
                 </div>
-
-
-
             </td>
         </tr>
 
     </table>
+
+    <table>
+        <tr>
+            <td>{!! (optional($data->master)->footer) !!}</td>
+        </tr>
+
+    </table>
+    <!-- footer part -->
 </div>
+<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+    <p>
+        সীমিত
+    </p>
+</footer>
+</body>
