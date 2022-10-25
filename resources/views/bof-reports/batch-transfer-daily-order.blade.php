@@ -186,9 +186,9 @@
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            @if( ($list->previousWing != null && $list->previousWing->banglaName != null) ||
+                            @if(($list->previousWing != null && $list->previousWing->banglaName != null) ||
                             ($list->previousGroup !=null || $list->previousGroup->banglaName != null)
-                            || ($list->previousBranch !=null || $list->previousBranch)->banglaName !=null) )
+                            || ($list->previousBranch !=null || $list->previousBranch->banglaName !=null))
                             <span>{{optional($list->previousWing)->banglaName}} /
                                 {{optional($list->previousGroup)->banglaName}} /
                                 {{optional($list->previousBranch)->banglaName}}
@@ -197,9 +197,9 @@
                         </td>
 
                         <td style="text-align: left; width: 30%; padding: 2px;">
-                            @if( ($list->presentWing != null && $list->presentWing->banglaName != null) ||
+                            @if(($list->presentWing != null && $list->presentWing->banglaName != null) ||
                             ($list->presentGroup !=null || $list->presentGroup->banglaName != null)
-                            || ($list->presentBranch !=null || $list->presentBranch)->banglaName !=null) )
+                            || ($list->presentBranch !=null || $list->presentBranch->banglaName !=null))
                             <span>{{optional($list->presentWing)->banglaName}} /
                                 {{optional($list->presentGroup)->banglaName}} /
                                 {{optional($list->presentBranch)->banglaName}}</span>
@@ -238,10 +238,8 @@
 
             <table width="100%" style="text-align: center;">
                 <tr>
-                    @if($data->master->presentDailyOrder !=null
-                    && $data->master->presentDailyOrder->referenceNo !=
-                    null)
-                    <td>{{$Controller::enToBnConveter(optional($data->master->presentDailyOrder)->referenceNo)}}</td>
+                    @if($data->master->referenceNo !=null)
+                    <td><u>{{$Controller::enToBnConveter(optional($data->master)->referenceNo)}}</u></td>
                     @endif
                 </tr>
 
@@ -254,29 +252,33 @@
 
             <table width="100%">
                 <tr>
-                    <td width="50%">{!! (optional($data->master)->footer) !!}</td>
+                    <td width="50%"></td>
                     <td width="20%"></td>
                     <td width="30%">
-
                         <div style="float: right;">
-
-
-                            @if($data->master->presentDailyOrder != null && $data->master->presentDailyOrder->manager !=
-                            null && $data->master->presentDailyOrder->manager->employeeNameBangla != null)
-                            <span>{{ optional($data->master->presentDailyOrder->manager)->employeeNameBangla }}</span>
+                            @if($data->master->manager != null &&
+                            $data->master->manager->employeeNameBangla != null)
+                            <span>{{ optional($data->master->manager)->employeeNameBangla }}</span>
                             @endif
                             <br>
 
-                            @if($data->master->presentDailyOrder != null &&
-                            $data->master->presentDailyOrder->managerDesignation !=
-                            null && $data->master->presentDailyOrder->managerDesignation->banglaName != null)
-                            <span>{{ optional($data->master->presentDailyOrder->managerDesignation)->banglaName }}</span>
+                            @if($data->master->manager != null &&
+                            $data->master->manager->employeeOfficialInformation !=
+                            null && $data->master->manager->employeeOfficialInformation->designation != null
+                            && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
+                            )
+                            <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                             @endif
                         </div>
-
-
-
                     </td>
+                </tr>
+
+            </table>
+
+
+            <table>
+                <tr>
+                    <td>{!! (optional($data->master)->footer) !!}</td>
                 </tr>
 
             </table>
@@ -289,3 +291,11 @@
 
         </div>
     </div>
+
+    <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+        <p>
+            সীমিত
+        </p>
+    </footer>
+
+</body>
