@@ -85,7 +85,7 @@ $data = json_decode($val['data']);
             </td>
         </tr>
 
-        @if($data->previousDailyOrder != null)
+
             <tr>
                 <td style="width: 25%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বরঃ</td>
                 <td style="width: 3%">:</td>
@@ -110,7 +110,6 @@ $data = json_decode($val['data']);
                     @endif
                 </td>
             </tr>
-        @endif
     </table>
 
     <table width="100%">

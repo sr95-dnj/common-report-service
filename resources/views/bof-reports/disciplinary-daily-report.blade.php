@@ -110,7 +110,6 @@ $details = $data->details;
             </td>
         </tr>
 
-        @if($master->previousDailyOrder != null)
             <tr>
             <td style="width: 25%">পূর্বে প্রকাশিত দৈনিক আদেশ নামা ২য় খন্ড নম্বরঃ</td>
             <td style="width: 3%">:</td>
@@ -135,7 +134,6 @@ $details = $data->details;
                 @endif
             </td>
         </tr>
-        @endif
 
     </table>
 
