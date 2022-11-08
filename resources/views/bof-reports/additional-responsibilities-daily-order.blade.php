@@ -24,6 +24,9 @@
         @page {
             margin-top: 5px;
         }
+        td{
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -48,6 +51,8 @@ $data = json_decode($val['data']);
                 মেজর জেনারেল সৈয়দ তারেক হোসেন, এডব্লিউসি, পিএসসি <br>
                 কমান্ড্যান্ট, বাংলাদেশ সমরাস্ত্র কারখানা <br>
                 কর্তৃক নির্দেশিত
+                <br>
+                <u>বেসামরিক</u>
             </td>
         </tr>
     </table>
@@ -132,6 +137,10 @@ $data = json_decode($val['data']);
                     )
                         <span>{{ optional($data->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                     @endif
+                        <br>
+                        @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data)->onBehalfOf }}</span>
+                        @endif
                 </div>
             </td>
         </tr>

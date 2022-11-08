@@ -24,6 +24,9 @@
         @page {
             margin-top: 5px;
         }
+        td{
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -52,6 +55,8 @@ $details = $data->details;
                 মেজর জেনারেল সৈয়দ তারেক হোসেন, এডব্লিউসি, পিএসসি <br>
                 কমান্ড্যান্ট, বাংলাদেশ সমরাস্ত্র কারখানা <br>
                 কর্তৃক নির্দেশিত
+                <br>
+                <u>বেসামরিক</u>
             </td>
         </tr>
     </table>
@@ -127,6 +132,15 @@ $details = $data->details;
         @endforeach
         @endif
     </table>
+    <table width="100%">
+        <tr>
+            @if($data->details != null)
+                <td>মোট প্রকাশনা সংখ্যা ({{$Controller::enToBnConveter(count($data->details),'number')}}) মাত্র</td>
+            @endif
+        </tr>
+
+    </table>
+
     <br>
 
     <!-- body part -->
@@ -175,6 +189,11 @@ $details = $data->details;
                     )
                         <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                     @endif
+
+                        <br>
+                        @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
+                        @endif
                 </div>
             </td>
         </tr>

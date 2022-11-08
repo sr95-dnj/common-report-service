@@ -24,6 +24,9 @@
         @page {
             margin-top: 5px;
         }
+        td{
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -51,6 +54,8 @@ $details = $data->details;
             <td style="width: 34% !important; text-align: center;">
                 সীমিত <br>
                 <u>দৈনিক আদেশনামা ২য় খন্ড</u>
+                <br>
+                <u>বেসামরিক</u>
             </td>
             <td style="width: 33% !important; text-align: center;"></td>
         </tr>
@@ -174,6 +179,17 @@ $details = $data->details;
         @endforeach
     </table>
 
+    <table width="100%">
+        <tr>
+            @if($data->details != null)
+                <td>মোট প্রকাশনা সংখ্যা ({{$Controller::enToBnConveter(count($data->details),'number')}}) মাত্র</td>
+            @endif
+        </tr>
+
+    </table>
+
+    <br>
+
     <!-- body part -->
 
 
@@ -220,6 +236,10 @@ $details = $data->details;
                     )
                         <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                     @endif
+                        <br>
+                        @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
+                        @endif
                 </div>
             </td>
         </tr>

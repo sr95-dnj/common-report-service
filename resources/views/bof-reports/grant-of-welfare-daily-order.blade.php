@@ -24,6 +24,9 @@
         @page {
             margin-top: 5px;
         }
+        td{
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -46,6 +49,8 @@ $data = json_decode($val['data']);
             <td style="width: 34% !important; text-align: center;">
                 সীমিত <br>
                 <u>দৈনিক আদেশনামা ২য় খন্ড</u>
+                <br>
+                <u>বেসামরিক</u>
             </td>
             <td style="width: 33% !important; text-align: center;">
             </td>
@@ -185,6 +190,11 @@ $data = json_decode($val['data']);
                     )
                         <span>{{ optional($data->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                     @endif
+
+                        <br>
+                        @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
+                        @endif
                 </div>
             </td>
         </tr>

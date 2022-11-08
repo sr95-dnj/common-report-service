@@ -24,6 +24,9 @@
         @page {
             margin-top: 5px;
         }
+        td{
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -51,6 +54,8 @@ $details = $data->details;
             <td style="width: 34% !important; text-align: center;">
                 সীমিত <br>
                 <u>দৈনিক আদেশনামা ২য় খন্ড</u>
+                <br>
+                <u>বেসামরিক</u>
             </td>
             <td style="width: 33% !important; text-align: center;">
             </td>
@@ -163,20 +168,36 @@ $details = $data->details;
             <tr>
                 <td style="width: 5% !important; text-align: center;">{{($Controller::entoBn($index + 1,'number'))}}</td>
                 <td style="width: 20% !important;">
-                    {{($details->employee->employeeOfficialInformation->wing->banglaName)}} &nbsp;
-                    {{($details->employee->employeeOfficialInformation->shop->banglaName)}} &nbsp;
-                    {{($details->employee->employeeOfficialInformation->line->banglaName)}}
-                </td>
+                        @if($details->employee->employeeOfficialInformation != null && $details->employee->employeeOfficialInformation->wing != null && $details->employee->employeeOfficialInformation->wing->banglaName != null)
+                            {{(optional($details)->employee->employeeOfficialInformation->wing->banglaName)}} &nbsp;
+                        @endif
+                        @if($details->employee->employeeOfficialInformation != null && $details->employee->employeeOfficialInformation->shop != null && $details->employee->employeeOfficialInformation->shop->banglaName != null)
+                            {{(optional($details)->employee->employeeOfficialInformation->shop->banglaName)}} &nbsp;
+                        @endif
+                        @if($details->employee->employeeOfficialInformation != null && $details->employee->employeeOfficialInformation->line != null && $details->employee->employeeOfficialInformation->line->banglaName != null)
+                            {{(optional($details)->employee->employeeOfficialInformation->line->banglaName)}}
+                        @endif
+                </td>s
                 <td style="width: 25% !important;">
                     {{($Controller::entoBn($details->employee->code,'number'))}}, &nbsp;
-                    {{($details->employee->employeeOfficialInformation->designation->banglaName)}},<br>
-                    {{($details->employee->employeeNameBangla)}}
+                    {{(optional($details)->employee->employeeOfficialInformation->designation->banglaName)}},<br>
+                    {{(optional($details)->employee->employeeNameBangla)}}
                 </td>
-                <td style="width: 50% !important;">{!! ($details->description) !!}</td>
+                <td style="width: 50% !important;">{!! (optional($details)->description) !!}</td>
 
             </tr>
         @endforeach
     </table>
+    <table width="100%">
+        <tr>
+            @if($data->details != null)
+                <td>মোট প্রকাশনা সংখ্যা ({{$Controller::enToBnConveter(count($data->details),'number')}}) মাত্র</td>
+            @endif
+        </tr>
+
+    </table>
+
+    <br>
 
     <!-- body part -->
 
@@ -223,6 +244,11 @@ $details = $data->details;
                     )
                         <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                     @endif
+
+                        <br>
+                        @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
+                        @endif
                 </div>
             </td>
         </tr>
