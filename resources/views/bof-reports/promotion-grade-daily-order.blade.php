@@ -8,23 +8,23 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
-        @page {
-            margin-top: 5px;
-        }
+    @page {
+        margin-top: 5px;
+    }
 
-        /* table,
+    /* table,
     th,
     td {
         border: 1px solid black;
         border-collapse: collapse;
     } */
 
-        table.center {
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            padding: 5px;
-        }
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 5px;
+    }
     </style>
 
 </head>
@@ -288,6 +288,10 @@
                             && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
                             )
                             <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                            @endif
+                            <br>
+                            @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
                             @endif
                         </div>
                     </td>

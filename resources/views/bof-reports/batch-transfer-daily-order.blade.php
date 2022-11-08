@@ -272,6 +272,11 @@
                             )
                             <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
                             @endif
+                            <br>
+                            @if($data->master->onBehalfOf != null)
+                            <span>{{ optional($data->master)->onBehalfOf }}</span>
+                            @endif
+
                         </div>
                     </td>
                 </tr>
