@@ -35,27 +35,37 @@
     $en = [];
     $bn = [];
     $data = json_decode($val['data']);
+    $commandant = json_decode($val['commandant']);
     ?>
 
     <div style="font-size: 24px; ">
         <table width="100%">
             <tr>
-                <td style="width: 33%"></td>
-                <td style="width: 34%; text-align: center;">
-                    সীমিত
+                <td style="width: 100% !important; text-align: center;">
+                    সীমিত <br>
+                    দৈনিক আদেশনামা প্রথম খন্ড <br>
+                    @if($commandant != null && $commandant->employeeRank != null &&
+                    $commandant->employeeRank->banglaName != null)
+                    <span>{{($commandant->employeeRank->banglaName)}}</span>
+                    @endif
+
+                    @if($commandant != null && $commandant->employeeNameBangla != null)
+                    <span>{{($commandant->employeeNameBangla)}}</span>
+                    @endif, এডব্লিউসি, পিএসসি <br>
+
+                    @if($commandant != null && $commandant->employeeOfficialInformation != null &&
+                    $commandant->employeeOfficialInformation->designation != null &&
+                    $commandant->employeeOfficialInformation->designation->banglaName != null)
+                    <span>{{($commandant->employeeOfficialInformation->designation->banglaName)}}</span>
+                    @endif
+                    ,বাংলাদেশ সমরাস্ত্র কারখানা
                     <br>
-                    <u>দৈনিক আদেশনামা ২য় খন্ড</u>
+                    কর্তৃক নির্দেশিত
                     <br>
                     <u>বেসামরিক</u>
-
-                </td>
-                <td style="width: 33%; text-align: center;">
-                    <!-- <br>
-                বিওএফ নম্বরঃ -->
                 </td>
             </tr>
         </table>
-
 
         <table width="100%">
             <tr>
@@ -150,75 +160,78 @@
 
         <br>
         <div style="text-align: center;">
-        <table class="center tbBorder" style="text-align: center; padding: 5px;">
-    <thead>
-          <tr>
-                <th style="width: 10%; padding: 2px; ">ক্রমিক  </th>
-                <th style="width: 15%; padding: 2px; ">ব্যক্তিগত নম্বর</th>
-                <th style="width: 35%; padding: 2px; ">পদবি, শাখা  ও নাম</th>
-                <th style="width: 15%; padding: 2px; ">যাতায়াতের তারিখ</th>
-                <th style="width: 15%; padding: 2px; ">ব্যয়িত সময়</th>
-                <th style="width: 10%; padding: 2px; ">গন্তব্য স্থান</th>
-            </tr>
+            <table class="center tbBorder" style="text-align: center; padding: 5px;">
+                <thead>
+                    <tr>
+                        <th style="width: 10%; padding: 2px; ">ক্রমিক </th>
+                        <th style="width: 15%; padding: 2px; ">ব্যক্তিগত নম্বর</th>
+                        <th style="width: 35%; padding: 2px; ">পদবি, শাখা ও নাম</th>
+                        <th style="width: 15%; padding: 2px; ">যাতায়াতের তারিখ</th>
+                        <th style="width: 15%; padding: 2px; ">ব্যয়িত সময়</th>
+                        <th style="width: 10%; padding: 2px; ">গন্তব্য স্থান</th>
+                    </tr>
 
-    </thead>
-</table>
-<table class="center" style="text-align: center; padding: 5px;">
-        <tbody>
-            @foreach ($data->details as $index => $list)
-            <tr>
-                <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
-                <td style="text-align: left; width: 15%; padding: 2px;">
-                    @if($list->employee != null)
-                    <sapn>{{$Controller::enToBnConveter(optional($list->employee)->code)}}</sapn>
-                    @endif
-                    
-                </td>
-                
-                <td style="text-align: left; width: 35%; padding: 2px;">
-                @if($list->employee != null && $list->employee->employeeOfficialInformation && $list->employee->employeeOfficialInformation->designation)
-                    <sapn>{{optional($list->employee->employeeOfficialInformation->designation)->banglaName}}</sapn>
-                    <br>
-                    @endif
-                @if($list->employee != null && $list->employee->employeeOfficialInformation && $list->employee->employeeOfficialInformation->branch)
-                    <sapn>{{optional($list->employee->employeeOfficialInformation->branch)->banglaName}}</sapn>
-                    <br>
-                    @endif
-                @if($list->employee != null)
-                    <sapn>{{optional($list->employee)->employeeNameBangla}}</sapn>
-                    @endif 
-                
-                </td>
-                
-                <td style="text-align: left; width: 15%; padding: 2px;">
-                @foreach ($list->movementList as $index => $leave)
-                <span>{{$Controller::enToBnConveter($Controller::dateFormatter(optional($leave)->movementDate))}} 
-                </span> 
+                </thead>
+            </table>
+            <table class="center" style="text-align: center; padding: 5px;">
+                <tbody>
+                    @foreach ($data->details as $index => $list)
+                    <tr>
+                        <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
+                        <td style="text-align: left; width: 15%; padding: 2px;">
+                            @if($list->employee != null)
+                            <sapn>{{$Controller::enToBnConveter(optional($list->employee)->code)}}</sapn>
+                            @endif
+
+                        </td>
+
+                        <td style="text-align: left; width: 35%; padding: 2px;">
+                            @if($list->employee != null && $list->employee->employeeOfficialInformation &&
+                            $list->employee->employeeOfficialInformation->designation)
+                            <sapn>{{optional($list->employee->employeeOfficialInformation->designation)->banglaName}}
+                            </sapn>
+                            <br>
+                            @endif
+                            @if($list->employee != null && $list->employee->employeeOfficialInformation &&
+                            $list->employee->employeeOfficialInformation->branch)
+                            <sapn>{{optional($list->employee->employeeOfficialInformation->branch)->banglaName}}</sapn>
+                            <br>
+                            @endif
+                            @if($list->employee != null)
+                            <sapn>{{optional($list->employee)->employeeNameBangla}}</sapn>
+                            @endif
+
+                        </td>
+
+                        <td style="text-align: left; width: 15%; padding: 2px;">
+                            @foreach ($list->movementList as $index => $leave)
+                            <span>{{$Controller::enToBnConveter($Controller::dateFormatter(optional($leave)->movementDate))}}
+                            </span>
+                            <br>
+                            @endforeach
+                        </td>
+                        <td style="text-align: left; width: 15%; padding: 2px;">
+                            @foreach ($list->movementList as $index => $leave)
+                            <span>{{$Controller::enToBnConveter($Controller::dateFormatter(optional($leave)->totalTime))}}
+                            </span>
+                            <br>
+
+                            @endforeach
+                        </td>
+                        <td style="text-align: left; width: 10%; padding: 2px;">
+                            @foreach ($list->movementList as $index => $leave)
+
+                            <span>{{optional($leave)->movementLocation}},
+                            </span>
+
+                            @endforeach
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
                 <br>
-                 @endforeach
-                </td>
-                <td style="text-align: left; width: 15%; padding: 2px;">
-                @foreach ($list->movementList as $index => $leave)
-                <span>{{$Controller::enToBnConveter($Controller::dateFormatter(optional($leave)->totalTime))}}
-                </span>
-                <br>						
-                
-                 @endforeach
-                </td>
-                <td style="text-align: left; width: 10%; padding: 2px;">
-                @foreach ($list->movementList as $index => $leave)
-                
-                <span>{{optional($leave)->movementLocation}},
-                </span> 
-                
-                 @endforeach
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-        <br>
-        <br>
-</table>
+                <br>
+            </table>
 
             <table width="100%">
                 <tr>
