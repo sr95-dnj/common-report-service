@@ -111,7 +111,7 @@
                     {{($data->master->itemMaster->itemNameBn ? $data->master->itemMaster->itemNameBn : '')}}
                 </td>
                 <td style="width: 5%"></td>
-                <td style="width: 20%">প্রয়োজনীয় সংখ্যা </td>
+                <td style="width: 20%">প্রয়োজনীয় সংখ্যা/সেট </td>
                 <td style="width: 2%;">:</td>
                 <td style="width: 30%;">
                    {{($data->master->requiredNumber ? $data->master->requiredNumber : '')}}
@@ -189,7 +189,7 @@
                     {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->completionDate))}}
                 </td>
                 <td style="width: 5%"></td>
-                <td style="width: 20%">পসমাপ্তির তারিখ </td>
+                <td style="width: 20%">সমাপ্তির তারিখ </td>
                 <td style="width: 2%;">:</td>
                 <td style="width: 30%;">
 				 {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->lastDateOfSupply))}}
@@ -238,6 +238,8 @@
                 @endforeach
 
             </table>
+			  
+			 
             
     </div>
 	
