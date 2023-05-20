@@ -179,10 +179,15 @@
                                 ইনডেন্ট নং:
                             </td>
                             <td style="width: 45% !important; text-align: left;">
-                                {{($data->indentNo)}}
+                                @if($data->indentNo != null)
+                                    {{($data->indentNo)}}
+                                @endif
                             </td>
                             <td style="width: 35% !important; text-align: center;">
-                                তারিখ: {{($data->indentDate)}}
+                                তারিখ:
+                                @if($data->indentDate != null)
+                                    {{($data->indentDate)}}
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -197,7 +202,9 @@
                                 (ক) ইনডেন্ট চাহিদাকৃত দ্রব্যের মোট মূল্য:
                             </td>
                             <td style="width: 40%">
-                                {{$data->totalIndentPrice ? $data->totalIndentPrice : 0}}
+                                @if($data->totalIndentPrice != null)
+                                    {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -215,7 +222,12 @@
                                 (গ) বিকল্পনীয় বাজেট খাত:
                             </td>
                             <td style="width: 60%">
-                                Financial Code No. {{($data->budgetCode->economicCode)}}
+                                Financial Code No.
+                                <span>
+                                    @if($data->budgetCode != null)
+                                        {{($data->budgetCode->economicCode)}}
+                                    @endif
+                                </span>
                             </td>
                         </tr>
                         <tr style="margin-top: 10px;">
@@ -284,8 +296,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="70%">ইনডেন্ট নং: {{($data->indentNo)}}</td>
-                    <td width="30%">তারিখ: {{($data->indentDate)}}</td>
+                    <td width="70%">ইনডেন্ট নং:
+                        <span>
+                            @if($data->indentNo != null)
+                                {{($data->indentNo)}}
+                            @endif
+                        </span>
+                    </td>
+                    <td width="30%">তারিখ:
+                        <span>
+                            @if($data->indentDate != null)
+                                {{($data->indentDate)}}
+                            @endif
+                        </span>
+                    </td>
                 </tr>
             </table>
             <table class="rootTable" width="100%">
@@ -307,21 +331,60 @@
                 @foreach ($data->details as $index => $item)
                     <tr>
                         <td class="rootTable text-center">{{($index + 1)}}</td>
-                        <td class="rootTable text-center">{{($item->folioNo ? $item->folioNo->itemClassRefNo : '')}}</td>
-                        <td class="rootTable">
-                            <span>{{($item->folioNo ? $item->folioNo->itemNameEn : '')}}</span><br>
-                            <span>{{($item->folioNo ? $item->folioNo->itemSpecification : '')}}</span>
+                        <td class="rootTable text-center">
+                            @if($item->folioNo != null)
+                                {{($item->folioNo->itemClassRefNo)}}
+                            @endif
                         </td>
-                        <td class="rootTable text-center">{{($item->folioNo ? $item->folioNo->mcItemUnit->nameEn : '')}}</td>
-                        <td class="rootTable text-center">{{($item->demandQty ? $item->demandQty : '')}}</td>
-                        <td class="rootTable text-center">{{($item->unitRate ? $item->unitRate : '')}}</td>
-                        <td class="rootTable text-center">{{($item->totalValue ? $item->totalValue : '')}}</td>
+                        <td class="rootTable">
+                            @if($item->folioNo != null)
+                                <span>{{($item->folioNo->itemNameEn)}}</span><br>
+                                <span>{{($item->folioNo->itemSpecification)}}</span>
+                            @endif
+
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
+                                {{($item->folioNo->mcItemUnit->nameEn)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->demandQty != null)
+                                {{($item->demandQty)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->unitRate != null)
+                                {{($item->unitRate)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->totalValue != null)
+                                {{($item->totalValue)}}
+                            @endif
+                        </td>
                         <td class="rootTable"></td>
                         <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center">{{($item->presentStock ? $item->presentStock : '')}}</td>
-                        <td class="rootTable text-center">{{($item->countryOfOrigin ? $item->countryOfOrigin->name : '')}}</td>
-                        <td class="rootTable text-center">{{($item->appxDateOfSupply ? $item->appxDateOfSupply : '')}}</td>
-                        <td class="rootTable">{{($item->remarks ? $item->remarks : '')}}</td>
+                        <td class="rootTable text-center">
+                            @if($item->presentStock != null)
+                                {{($item->presentStock)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->countryOfOrigin != null)
+                                {{($item->countryOfOrigin)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->appxDateOfSupply != null)
+                                {{($item->appxDateOfSupply)}}
+                            @endif
+                        </td>
+                        <td class="rootTable">
+                            @if($item->remarks != null)
+                                {{($item->remarks)}}
+                            @endif
+                        </td>
 
                     </tr>
                 @endforeach
@@ -335,7 +398,12 @@
                 <tr>
                     <td class="text-center">
                         <h5>Row Mat-SAA</h5>
-                        <h6>Draft Indent - {{($data->financialYear->financialYear)}}</h6>
+                        <h6>Draft Indent -
+                            <span>
+                                @if($data->financialYear != null)
+                                    {{($data->financialYear->financialYear)}}
+                                @endif
+                            </span></h6>
                     </td>
                 </tr>
             </table>
@@ -364,28 +432,66 @@
                 @foreach ($data->details as $index => $item)
                     <tr>
                         <td class="rootTable text-center">{{($index + 1)}}</td>
-                        <td class="rootTable text-center">{{($item->folioNo ? $item->folioNo->itemClassRefNo : '')}}</td>
-                        <td class="rootTable">
-                            <span>{{($item->folioNo ? $item->folioNo->itemNameEn : '')}}</span><br>
-                            <span>{{($item->folioNo ? $item->folioNo->itemSpecification : '')}}</span>
+                        <td class="rootTable text-center">
+                            @if($item->folioNo != null)
+                                {{($item->folioNo->itemClassRefNo)}}
+                            @endif
                         </td>
-                        <td class="rootTable text-center">{{($item->folioNo ? $item->folioNo->mcItemUnit->nameEn : '')}}</td>
-                        <td class="rootTable text-center">{{($item->folioNo->componentName ? $item->folioNo->componentName : '')}}</td>
-                        <td class="rootTable text-center">{{($item->consumptionRate ? $item->consumptionRate : '')}}</td>
-                        <td class="rootTable text-center">{{($item->qtyOneYear ? $item->qtyOneYear : '')}}</td>
-                        <td class="rootTable text-center">{{($item->qtyTwoYear ? $item->qtyTwoYear : '')}}</td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center">{{($item->presentStock ? $item->presentStock : '')}}</td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center">{{($item->shortfall ? $item->shortfall : '')}}</td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center"></td>
-                        <td class="rootTable text-center">{{($item->approvedQty ? $item->approvedQty : '')}}</td>
+                        <td class="rootTable">
+                            @if($item->folioNo != null)
+                                <span>{{($item->folioNo->itemNameEn)}}</span><br>
+                                <span>{{($item->folioNo->itemSpecification)}}</span>
+                            @endif
 
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
+                                {{($item->folioNo->mcItemUnit->nameEn)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->folioNo != null && $item->folioNo->componentName != null)
+                                {{($item->folioNo->componentName)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->consumptionRate != null)
+                                {{($item->consumptionRate)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->qtyOneYear != null)
+                                {{($item->qtyOneYear)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center">
+                            @if($item->qtyTwoYear != null)
+                                {{($item->qtyTwoYear)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center">
+                            @if($item->presentStock != null)
+                                {{($item->presentStock)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center">
+                            @if($item->shortfall != null)
+                                {{($item->shortfall)}}
+                            @endif
+                        </td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center"></td>
+                        <td class="rootTable text-center">
+                            @if($item->qtyOneYapprovedQtyear != null)
+                                {{($item->qtyOneYear)}}
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </table>
