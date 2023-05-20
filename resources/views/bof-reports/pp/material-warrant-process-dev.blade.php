@@ -73,7 +73,7 @@
 
 
     <!--    master table-->
-    <div style="font-size: 24px; ">
+    <div >
 	<table width="100%">
 	<tr>
                     <td style="width: 100% !important; text-align: right;">
@@ -84,7 +84,7 @@
                 <td style="width: 100% !important; text-align: center;">
                                 <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
                                 <h3>গাজীপুর সেনানিবাস</h3>
-                               <u> <span>উৎপাদনী হুকুমনামা </span></u>
+                               <u> <span>দ্রব্যের হুকুমনামা </span></u>
                             </td>
             </tr>
         </table>
@@ -129,39 +129,37 @@
 			<td class="rootTable">সমাপ্তির তারিখ:</td>
 			<td class="rootTable">{{$Controller::enToBnConveter($Controller::dateFormatter($data->completionDate))}}</td>
 		</tr>
-		<tr>
-			<td class="rootTable">সরবরাহের শেষ তারিখ :</td>
-			<td class="rootTable"> ..............</td>
-			<td class="rootTable">প্রাপক :</td>
-			<td class="rootTable">{{($data->estimateNo ? $data->employeePersonalInformation->employeeNameBangla : '')}}</td>
-		</tr>
 </table>
  <table width="100%">
-            <tr> 
-                @if($data->specialComments != null)
-                <td style="width: 10%" > বিশেষ মন্তব্য : </td>
-                <td style="text-align: left">{!! ($data->specialComments) !!}</td>
-                @endif
-            </tr>
-        </table>
+                <tr>
+                    <td style="width: 100% !important; text-align: center;">
+                      <u> <h3> ০১ মিলিয়নের জন্য মঞ্জুরকৃত দ্রব্যের বিবরণ  </h3> </u>
+                    </td>
+                </tr>
+            </table>
 		<br>
 			
 			 <!--    Details Table-->
 			 <table class="rootTable" width="100%">
 			 <tr class="rootTable">
                     <td class="rootTable text-center">ক্রমিক</td>
-                    <td class="rootTable text-center">প্রক্রিয়া বিবরণী </td>
-                    <td class="rootTable text-center">হার </td>
-                    <td class="rootTable text-center">ঘন্টা/মিলিয়ন </td>
+                    <td class="rootTable text-center">বরাদ্দকৃত </td>
+                    <td class="rootTable text-center">সঠিক বিবরণ </td>
+                    <td class="rootTable text-center">একক </td>
+                    <td class="rootTable text-center">পরিমান/ওজন </td>
+                    <td class="rootTable text-center">ফলিও নম্বর</td>
                 </tr>
 				<tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
                     <td class="rootTable text-center" style="height: 500px;"> </td>
                     <td class="rootTable text-center" style="height: 500px;"> </td>
                     <td class="rootTable text-center" style="height: 500px;"></td>
                     <td class="rootTable text-center" style="height: 500px;"> </td>
+                    <td class="rootTable text-center" style="height: 500px;"> </td>
+                    <td class="rootTable text-center" style="height: 500px;"> </td>
                 </tr>
 			 </table>
-			<br>
+			 
+			 <br>
 			 <br>
 			 
 			<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
@@ -203,7 +201,6 @@
 			</table>
 
     </footer>  
-			  
 			 
             
     </div>
@@ -211,36 +208,26 @@
 	<div class="page-break"></div>
  <div style="font-size: 24px; ">
  <table width="100%">
- <tr>
+				<tr>
                     <td style="width: 100% !important; text-align: right;">
 						বিওএফ নং:
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>খুচরা কাজের বিবরণ </h3> </u>
+                      <u> <h3>তলবী দ্রব্যের বিবরণ  </h3> </u>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 100% !important; text-align: left;">
-                      <h3>আদেশকৃত সংখ্যা :.............................</h3> 
-                    </td>
-                </tr>
-				<tr>
-                    <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>জমা/খরচের হিসাব </h3> </u>
-                    </td>
-                </tr>
+                
             </table>
 			 <table class="rootTable" width="100%">
 			 <tr class="rootTable">
-                    <td class="rootTable text-center">তারিখ </td>
-                    <td class="rootTable text-center">সংখ্যা/সেট   </td>
-                    <td class="rootTable text-center">গ্রহণকারী/পরিদর্শন  </td>
-                    <td class="rootTable text-center">পরিদর্শন নোটের নম্বর </td>
-                    <td class="rootTable text-center">তারিখ  </td>
-                    <td class="rootTable text-center">বাকি </td>
-                    <td class="rootTable text-center">বাতিল  </td>
+                    <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                    <td class="rootTable text-center">একক  </td>
+                    <td class="rootTable text-center">চাহিদার পরিমান বা ওজন </td>
+                    <td class="rootTable text-center">দেয় পরিমান বা ওজন  </td>
+                    <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                    <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ  </td>
                 </tr>
 				<tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
                     <td class="rootTable text-center" style="height: 400px;"> </td>
@@ -249,24 +236,23 @@
                     <td class="rootTable text-center" style="height: 400px;"> </td>
                     <td class="rootTable text-center" style="height: 400px;"> </td>
                     <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
                 </tr>
 			 </table>
-			 <br>
+			  <br>
 			 <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>সংশোধনী বিবরণী </h3> </u>
+                      <u> <h3>পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </h3> </u>
                     </td>
                 </tr>
             </table>
 			 <table class="rootTable" width="100%">
 			 <tr class="rootTable">
-                    <td class="rootTable text-center">ক্রমিক </td>
-                    <td class="rootTable text-center">প্রক্রিয়া বিবরণী   </td>
-                    <td class="rootTable text-center">পরিবর্তিত হার </td>
-                    <td class="rootTable text-center">একক </td>
-                    <td class="rootTable text-center">কোন অধিকার বলে </td>
+                    <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                    <td class="rootTable text-center">একক  </td>
+                    <td class="rootTable text-center">দ্রব্যের পরিমান বা ওজন</td>
+                    <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                    <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ  </td>
                 </tr>
 				<tr  >
                     <td class="rootTable text-center" style="height: 400px;"> </td>

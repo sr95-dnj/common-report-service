@@ -75,6 +75,11 @@
     <!--    master table-->
     <div style="font-size: 24px; ">
 	<table width="100%">
+	<tr>
+                    <td style="width: 100% !important; text-align: right;">
+						বিওএফ নং:
+                    </td>
+                </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
                                 <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
@@ -186,13 +191,13 @@
                 <td style="width: 30%">সরবারহের সূচি </td>
                 <td style="width: 2%">:</td>
                 <td style="width: 20%">
-                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->completionDate))}}
+                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->lastDateOfSupply))}}
                 </td>
                 <td style="width: 5%"></td>
                 <td style="width: 20%">সমাপ্তির তারিখ </td>
                 <td style="width: 2%;">:</td>
                 <td style="width: 30%;">
-				 {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->lastDateOfSupply))}}
+				 {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->completionDate))}}
                 </td>
             </tr>
 			
@@ -246,6 +251,11 @@
 	<div class="page-break"></div>
  <div style="font-size: 24px; ">
  <table width="100%">
+ <tr>
+                    <td style="width: 100% !important; text-align: right;">
+						বিওএফ নং:
+                    </td>
+                </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
                       <u> <h3>তলবি দ্রব্যের বিবরণ  </h3> </u>
