@@ -72,12 +72,13 @@
     ?>
 
 
-    <!--    details page-->
-    <div>
+    <!--    master page-->
+    <div style="font-size: 24px; ">
             <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h2>{{($data->master->targetYear->financialYear)}} অর্থ বছরের উৎপাদন লক্ষ্যমাত্রা নির্ধারণ প্রসঙ্গে </h2> </u>
+                      <u> <h2>
+                      {{$Controller::enToBnConveter($data->master->targetYear->financialYear)}} অর্থ বছরের উৎপাদন লক্ষ্যমাত্রা নির্ধারণ প্রসঙ্গে </h2> </u>
                     </td>
                 </tr>
             </table>
@@ -90,10 +91,10 @@
                 @foreach ($data->details as $index => $item)
                     <tr>
                         <td class="rootTable text-center">
-                        {{$Controller::entoBn( $index + 1,'number')}}</td>
+                        {{$Controller::entoBn( $index + 1,'number')}} |</td>
                         <td class="rootTable text-left">{{($item->product ? $item->product->nameBn : '')}}</td>
                         <td class="rootTable text-center">
-                        {{$Controller::entoBn( $item->targetQty,'number')}}
+                        {{$Controller::enToBnConveter($item->targetQty)}}
                         </td>
                     </tr>
                 @endforeach
