@@ -85,8 +85,8 @@
                 <tr>
                     <td style="width: 60%;">
                         <span>শাখার নামঃ &nbsp;
-                            @if($data->sectionNameBn != null)
-                                <span>{{$data->sectionNameBn}}</span>
+                            @if($data->sectionId != null)
+                                <span>{{$data->sectionId->banglaName}}</span>
                             @endif
                         </span><br>
                         <span>বস্তুর নামঃ &nbsp;
@@ -157,7 +157,7 @@
                         </span><br>
                         <span>প্ৰাপকঃ &nbsp;
                             @if($data->recipient != null)
-                                <span>{{$data->recipient->employeeNameBangla}}</span>
+                                <span>{{$data->recipient->name}}</span>
                             @endif
                         </span><br>
                     </td>
