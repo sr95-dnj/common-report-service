@@ -93,7 +93,7 @@
 		<tr>
 			<td class="rootTable" colspan="2">উন্নয়নমূলক  <br>
 			{{$Controller::enToBnConveter($data->financialYear->financialYear)}} <br>
-			উৎপাদনী শাখা: {{$Controller::enToBnConveter($data->section)}}
+			উৎপাদনী শাখা: {{($data->section ? $data->section->name : '')}}
 			</td>
 			<td class="rootTable" colspan="2">শাখা: {{($data->sectionNo ? $data->sectionNo : '')}}</td>
 		</tr>
