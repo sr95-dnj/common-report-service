@@ -90,7 +90,7 @@
 
     <table width="100%">
         <tr>
-            <td>কারিগরী শাখার নাম : {{($data->section ? $data->section : '')}}</td>
+            <td>কারিগরী শাখার নাম : {{($data->section ? $data->section->name : '')}}</td>
             <td>শাখা কোড নম্বর: {{($data->sectionNo ? $data->sectionNo : '')}}</td>
         </tr>
         <tr style="margin-bottom: 2px">
