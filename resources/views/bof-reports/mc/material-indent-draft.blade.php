@@ -8,18 +8,8 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
-    /* table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    } */
 
-    @page {
-        size: landscape;
-        orientation: landscape;
 
-    }
     @media print {
         .page-break {page-break-after: always;}
     }
@@ -54,25 +44,21 @@
         border-collapse: collapse;
     }
 
-    @page {
-        margin-top: 5px;
-    }
-
-    td {
-        vertical-align: top !important;
+    td th{
+        vertical-align: middle !important;
     }
     </style>
 
 </head>
 
 
-<body class="landscapePage" style="font-size: 24px;">
+<body>
     <?php
     $data = json_decode($val['data']);
     ?>
 
 
-    <div>
+    <div class="landscapePage">
         @if($data->menuType == 'INDIRECT')
             <div style="width: 100%; margin-top: 50px;">
                 <div style="width: 50%; float: left;">
@@ -97,7 +83,7 @@
                                     দ্রবটি ইতিপূর্বে ক্রয় করা  হয়েছে।</td>
                             </tr>
                         </table>
-                        <br><br>
+                        <br><br><br><br><br>
                         <table width="95%" class="top-border bottom-border">
                             <tr class="top-border bottom-border">
                                 <td class="top-border bottom-border right-border text-center" style="width: 10% !important;">
@@ -146,8 +132,8 @@
                     <table width="100%">
                         <tr>
                             <td style="width: 100% !important; text-align: center;">
-                                <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                                <h3><u>গাজীপুর সেনানিবাস, গাজীপুর।</u></h3>
+                                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                                <span style="font-size: 15px;"><u>গাজীপুর সেনানিবাস, গাজীপুর।</u></span><br>
                                 <span>দ্রব্যের ইনডেন্ট</span>
                             </td>
                         </tr>
@@ -175,15 +161,15 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 20% !important; text-align: left;">
+                            <td style="width: 30% !important; text-align: left;">
                                 ইনডেন্ট নং:
                             </td>
-                            <td style="width: 45% !important; text-align: left;">
+                            <td style="width: 40% !important; text-align: left;">
                                 @if($data->indentNo != null)
                                     {{($data->indentNo)}}
                                 @endif
                             </td>
-                            <td style="width: 35% !important; text-align: center;">
+                            <td style="width: 30% !important; text-align: center;">
                                 তারিখ:
                                 @if($data->indentDate != null)
                                     {{($data->indentDate)}}
@@ -198,30 +184,30 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 70% !important; text-align: left;">
                                 (ক) ইনডেন্ট চাহিদাকৃত দ্রব্যের মোট মূল্য:
                             </td>
-                            <td style="width: 40%">
+                            <td style="width: 30%">
                                 @if($data->totalIndentPrice != null)
                                     {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
                                 @endif
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 70% !important; text-align: left;">
                                 (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
                             </td>
-                            <td style="width: 40%">
-                                1234000.0
+                            <td style="width: 30%">
+
                             </td>
                         </tr>
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 40% !important; text-align: left;">
+                            <td style="width: 60% !important; text-align: left;">
                                 (গ) বিকল্পনীয় বাজেট খাত:
                             </td>
-                            <td style="width: 60%">
+                            <td style="width: 40%">
                                 Financial Code No.
                                 <span>
                                     @if($data->budgetCode != null)
@@ -239,7 +225,7 @@
                         </tr>
                     </table>
 
-                    <table class="top-border bottom-border" style="margin-top: 6px;">
+                    <table class="top-border bottom-border" style="margin-top: 13px;">
                         <tr class="top-border bottom-border">
                             <td class="top-border bottom-border right-border text-center" style="width: 33% !important;">
                                 পরীক্ষিত
@@ -281,18 +267,17 @@
                     </table>
                 </div>
             </div>
-            <div class="page-break"></div>
         @endif
     </div>
-
+    <div class="page-break"></div>
     <!--    details page-->
     <div>
         @if($data->menuType == 'INDIRECT')
             <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: left;">
-                        <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                        <h3>গাজীপুর সেনানিবাস, গাজীপুর।</h3>
+                        <span style="font-size: 17px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                        <span style="font-size: 14px;">গাজীপুর সেনানিবাস, গাজীপুর।</span>
                     </td>
                 </tr>
                 <tr>
@@ -397,13 +382,13 @@
             <table width="100%">
                 <tr>
                     <td class="text-center">
-                        <h5>Row Mat-SAA</h5>
-                        <h6>Draft Indent -
+                        <span style="font-size: 15px;">Row Mat-SAA</span> <br>
+                        <span style="font-size: 13px;">Draft Indent -
                             <span>
                                 @if($data->financialYear != null)
                                     {{($data->financialYear->financialYear)}}
                                 @endif
-                            </span></h6>
+                            </span></span>
                     </td>
                 </tr>
             </table>
@@ -488,7 +473,7 @@
                         <td class="rootTable text-center"></td>
                         <td class="rootTable text-center"></td>
                         <td class="rootTable text-center">
-                            @if($item->qtyOneYapprovedQtyear != null)
+                            @if($item->qtyOneYear != null)
                                 {{($item->qtyOneYear)}}
                             @endif
                         </td>
