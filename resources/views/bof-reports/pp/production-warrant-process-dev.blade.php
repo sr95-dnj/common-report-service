@@ -93,7 +93,7 @@
 		<tr>
 			<td class="rootTable" colspan="2">উন্নয়নমূলক  <br>
 			{{$Controller::enToBnConveter($data->financialYear->financialYear)}} <br>
-			উৎপাদনী শাখা: {{$Controller::enToBnConveter($data->section)}}
+			উৎপাদনী শাখা: {{($data->section ? $data->section->banglaName : '')}}
 			</td>
 			<td class="rootTable" colspan="2">শাখা: {{($data->sectionNo ? $data->sectionNo : '')}}</td>
 		</tr>
@@ -133,7 +133,7 @@
 			<td class="rootTable">সরবরাহের শেষ তারিখ :</td>
 			<td class="rootTable"> ..............</td>
 			<td class="rootTable">প্রাপক :</td>
-			<td class="rootTable">{{($data->estimateNo ? $data->employeePersonalInformation->employeeNameBangla : '')}}</td>
+			<td class="rootTable"> {{($data->recipient ? $data->recipient->banglaName : '')}}</td>
 		</tr>
 </table>
  <table width="100%">

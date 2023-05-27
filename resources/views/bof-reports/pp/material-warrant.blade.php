@@ -104,7 +104,7 @@
                 <td style="width: 30%">উৎপাদনী শাখা </td>
                 <td style="width: 2%">:</td>
                 <td style="width: 20%">
-                    {{($data->master->sectionName ? $data->master->sectionName : '')}}
+                    {{($data->master->section ? $data->master->section->banglaName : '')}}
 
                 </td>
             </tr>
