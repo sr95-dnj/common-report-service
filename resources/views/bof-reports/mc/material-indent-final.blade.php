@@ -24,6 +24,7 @@
     .rootTable{
         border: 1px solid;
         border-collapse: collapse;
+        font-size: 10px;
     }
     .left-border{
         border-left: 1px solid;
@@ -48,6 +49,8 @@
 
     td th {
         vertical-align: middle !important;
+        padding-left: 7px !important;
+        padding-right: 7px !important;
     }
     </style>
 
@@ -62,7 +65,8 @@
 
     <div class="landscapePage" style="margin-top: 40px;">
         <br>
-            <div style="width: 100%; margin-top: 50px;">
+            <div style="width: 100%; margin-top: 40px;">
+                <div style="text-align: right; font-size: 12px;">BOF NO: 199</div>
                 <div style="width: 50%; float: left;">
                     <div>
                         <br>
@@ -126,12 +130,12 @@
                                 <td>ইন্ডেন্টের দ্রবগুলোর বিশদ বিবরণ আই, এ এন্ড ই /আইএ আই কর্তৃক পরীক্ষিত /অনুমোদিত </td>
                             </tr>
                         </table>
-                        <br><br><br>
+                        <br><br><br><br>
 
                         <table>
                             <tr>
-                                <td style="width: 70%">&nbsp;</td>
-                                <td style="width: 30%">
+                                <td style="width: 60%">&nbsp;</td>
+                                <td style="width: 40%">
                                     <span>সাক্ষর</span><br>
                                     <span>প্রধান পরিদর্শক/সহকারী প্রকৌশলী</span><br>
                                     <span>আইএন্ডই/আইএসআই</span>
@@ -148,7 +152,7 @@
                         <tr>
                             <td style="width: 100% !important; text-align: center;">
                                 <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-                                <span style="font-size: 15px;"><u>গাজীপুর সেনানিবাস, গাজীপুর।</u></span><br>
+                                <span style="font-size: 16px;"><u>গাজীপুর সেনানিবাস, গাজীপুর।</u></span><br>
                                 <span>দ্রব্যের ইনডেন্ট</span>
                             </td>
                         </tr>
@@ -168,29 +172,27 @@
                     </table>
                     <table style="width: 100%; margin-top: 30px;">
                         <tr>
-                            <td style="width: 15% !important; text-align: left;">
-                                প্রতি:
-                            </td>
-                            <td style="width: 85% !important; text-align: left;">
-                                Deputi Director Material
+                            <td style="width: 100% !important; text-align: left;">
+                                প্রতি: Deputi Director Material
                             </td>
                         </tr>
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 20% !important; text-align: left;">
-                                ইনডেন্ট নং:
+                            <td style="width: 75% !important; text-align: left;">
+                                ইনডেন্ট নং: <span>
+                                    @if($data->indentNo != null)
+                                        {{$Controller::enToBnConveter($data->indentNo)}}
+                                    @endif
+                                </span>
                             </td>
-                            <td style="width: 45% !important; text-align: left;">
-                                @if($data->indentNo != null)
-                                    {{($data->indentNo)}}
-                                @endif
-                            </td>
-                            <td style="width: 35% !important; text-align: center;">
-                                তারিখ:
+                            <td style="width: 25% !important; text-align: center;">
+                                <span>
+                                    তারিখ:
                                 @if($data->indentDate != null)
-                                    {{($data->indentDate)}}
-                                @endif
+                                        {{$Controller::enToBnConveter($Controller::dateFormatter($data->indentDate))}}
+                                    @endif
+                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -201,37 +203,41 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 65% !important; text-align: left;">
                                 (ক) ইনডেন্ট চাহিদাকৃত দ্রব্যের মোট মূল্য:
                             </td>
-                            <td style="width: 40%">
-                                {{$data->totalIndentPrice ? $data->totalIndentPrice : 0}}
+                            <td style="width: 35%">
+                                {{$Controller::enToBnConveter($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 65% !important; text-align: left;">
                                 (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
                             </td>
-                            <td style="width: 40%">
+                            <td style="width: 35%">
 
                             </td>
                         </tr>
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 45% !important; text-align: left;">
                                 (গ) বিকল্পনীয় বাজেট খাত:
                             </td>
-                            <td style="width: 40%">
-                                Financial Code No.
-                                @if($data->budgetCode != null)
-                                    {{($data->budgetCode->economicCode)}}
-                                @endif
+                            <td style="width: 55%">
+                                = Financial Code No.
+                                <span>
+                                    @if($data->budgetCode != null)
+                                        {{$Controller::enToBnConveter($data->budgetCode->economicCode)}}
+                                    @endif
+                                </span>
                             </td>
                         </tr>
+                    </table>
+                    <table>
                         <tr style="margin-top: 10px;">
-                            <td>&nbsp;</td>
-                            <td style="text-align: center;">
+                            <td style="width: 70%">&nbsp;</td>
+                            <td style="text-align: center; width: 30%">
                                 সহকারী প্রকৌশলী, দ্রব নিয়ন্ত্রণ শাখা <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা
                             </td>
@@ -251,26 +257,26 @@
                             </td>
                         </tr>
                         <tr class="top-border bottom-border">
-                            <td class="top-border bottom-border right-border" style="width: 33% !important;">
+                            <td class="top-border bottom-border right-border" style="width: 33% !important; padding-left: 10px;">
                                 <br><br><br><br>
                                 সাক্ষর
-                                <br> <br> <br>
+                                <br> <br> <br><br>
                                 পরিচালক পরিকল্পনা এবং সংরক্ষণ <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
-                            <td class="top-border bottom-border right-border" style="width: 33%">
-                                <br><br><br><br>
+                            <td class="top-border bottom-border right-border" style="width: 33% padding-left: 10px;">
+                                <br><br><br><br><br>
                                 সাক্ষর
-                                <br> <br> <br>
+                                <br> <br> <br><br>
                                 ডেপুটি কমান্ড্যান্ট <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
-                            <td class="top-border bottom-border" style="width: 34%">
-                                <br><br><br><br>
+                            <td class="top-border bottom-border" style="width: 34% padding-left: 10px;">
+                                <br><br><br><br><br>
                                 সাক্ষর
-                                <br> <br> <br>
+                                <br> <br> <br><br>
                                 এডিশনাল চিফ কন্ট্রোলার অফ ডিফেন্স ফাইন্যান্স <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
@@ -289,38 +295,42 @@
         <table width="100%">
             <tr>
                 <td style="width: 100% !important; text-align: left;">
-                    <span style="font-size: 15px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-                    <span style="font-size: 13px;">গাজীপুর সেনানিবাস, গাজীপুর।</span>
+                    <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                    <span style="font-size: 16px;">গাজীপুর সেনানিবাস, গাজীপুর।</span>
                 </td>
             </tr>
             <tr>
-                <td width="70%">ইনডেন্ট নং:
+                <td>
+                    <span>
+                        ইনডেন্ট নং:
                     @if($data->indentNo != null)
-                        {{($data->indentNo)}}
-                    @endif
-                </td>
-                <td width="30%">তারিখ:
+                            {{$Controller::enToBnConveter($data->indentNo)}}
+                        @endif
+                    </span>
+                    <span>
+                        তারিখ:
                     @if($data->indentDate != null)
-                        {{($data->indentDate)}}
-                    @endif
+                            {{$Controller::enToBnConveter($Controller::dateFormatter($data->indentDate))}}
+                        @endif
+                    </span>
                 </td>
             </tr>
         </table>
         <table class="rootTable" width="100%">
             <tr class="rootTable">
-                <td class="rootTable text-center">SL</td>
-                <td class="rootTable text-center">Folio No</td>
-                <td class="rootTable text-center">Name of Item and Specification</td>
-                <td class="rootTable text-center">Unit</td>
-                <td class="rootTable text-center">Indent Qty</td>
-                <td class="rootTable text-center">Rate (Tk)</td>
-                <td class="rootTable text-center">Total Value</td>
-                <td class="rootTable text-center">So No Supplier Name</td>
-                <td class="rootTable text-center">User Section</td>
-                <td class="rootTable text-center">Present Stock</td>
-                <td class="rootTable text-center">Country of Origin</td>
-                <td class="rootTable text-center">Appx. Date/Time of Supply</td>
-                <td class="rootTable text-center">Remarks</td>
+                <td class="rootTable text-center" style="width: 5%">SL</td>
+                <td class="rootTable text-center" style="width: 7%">Folio No</td>
+                <td class="rootTable text-center" style="width: 15%">Name of Item and Specification</td>
+                <td class="rootTable text-center" style="width: 5%">Unit</td>
+                <td class="rootTable text-center" style="width: 5%">Indent Qty</td>
+                <td class="rootTable text-center" style="width: 5%">Rate (Tk)</td>
+                <td class="rootTable text-center" style="width: 5%">Total Value</td>
+                <td class="rootTable text-center" style="width: 9%">So No Supplier Name</td>
+                <td class="rootTable text-center" style="width: 5%">User Section</td>
+                <td class="rootTable text-center" style="width: 5%">Present Stock</td>
+                <td class="rootTable text-center" style="width: 7%">Country of Origin</td>
+                <td class="rootTable text-center" style="width: 7%">Appx. Date/ Time of Supply</td>
+                <td class="rootTable text-center" style="width: 20%">Remarks</td>
             </tr>
             @foreach ($data->details as $index => $item)
                 <tr>
@@ -367,7 +377,7 @@
                     </td>
                     <td class="rootTable text-center">
                         @if($item->appxDateOfSupply)
-                            {{($item->appxDateOfSupply)}}
+                            {{$Controller::dateFormatter($item->appxDateOfSupply)}}
                         @endif
                     </td>
                     <td class="rootTable">
