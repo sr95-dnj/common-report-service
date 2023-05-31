@@ -75,7 +75,7 @@
     <div>
         <br><br><br>
         <div style="text-align: right">
-            <span>বিওএফ নং:</span>
+            <span>বিওএফ নং: ২৬৮</span>
         </div>
         <div style="font-size: 20px; text-align: center">
             <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
@@ -99,23 +99,33 @@
                         </span><br>
                         <span>অংকন নম্বরঃ &nbsp;
                             @if($data->master->drawingNo != null)
-                                <span>{{$data->master->drawingNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->drawingNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সংক্ষিপ্ত ফরমায়েশনামা নম্বরঃ &nbsp;
                             @if($data->master->shortOrderNbr != null)
-                                <span>{{$data->master->shortOrderNbr}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->shortOrderNbr)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>হুকুমনামা নম্বর ও তারিখঃ  &nbsp;
                             @if($data->master->warrantNo != null)
-                                <span>{{$data->master->warrantNo}}</span>
-                                <span>{{$data->master->warrantDate}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->warrantNo)}}
+                                </span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->warrantDate))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সম্পূরক কার্যাদেশ নম্বরঃ &nbsp;
                             @if($data->master->supplementaryOrderNo != null)
-                                <span>{{$data->master->supplementaryOrderNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->supplementaryOrderNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সরবরাহের সূচীঃ &nbsp;
@@ -132,27 +142,37 @@
                     <td style="width: 40%">
                         <span>শাখার নম্বরঃ &nbsp;
                             @if($data->master->sectionNo != null)
-                                <span>{{$data->master->sectionNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->sectionNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্রয়োজনীয় সংখ্যাঃ &nbsp;
                             @if($data->master->requiredNumber != null)
-                                <span>{{$data->master->requiredNumber}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->requiredNumber)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>তারিখঃ &nbsp;
                             @if($data->master->warrantDate != null)
-                                <span>{{$data->master->warrantDate}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->warrantDate))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সমাপ্তির তারিখঃ &nbsp;
                             @if($data->master->completionDate != null)
-                                <span>{{$data->master->completionDate}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->completionDate))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্রাক্কলিত নম্বরঃ &nbsp;
                             @if($data->master->estimateNo != null)
-                                <span>{{$data->master->estimateNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->estimateNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্ৰাপকঃ &nbsp;
@@ -162,7 +182,9 @@
                         </span><br>
                         <span>বর্তমান মজুদঃ &nbsp;
                             @if($data->master->currentStock != null)
-                                <span>{{$data->master->currentStock}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->master->currentStock)}}
+                                </span>
                             @endif
                         </span><br>
                     </td>
@@ -267,7 +289,7 @@
     <div><br><br><br>
         <div style="padding-top: 90px !important;">
             <div style="width: 100%; text-align: right">
-                <span>বিওএফ নং:</span>
+                <span>বিওএফ নং: ২৬৮</span>
             </div>
             <div>
                 <span>আদেশকৃত সংখ্যা..................</span>
@@ -290,7 +312,7 @@
                     <tbody>
                         <tr>
                             <td class="rootTable">
-                                <br><br><br><br><br><br><br><br><br><br><br><br>
+                                <br><br><br><br><br><br><br><br><br>
                             </td>
                             <td class="rootTable"></td>
                             <td class="rootTable"></td>
@@ -320,7 +342,7 @@
                     <tbody>
                     <tr>
                         <td class="rootTable">
-                            <br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br>
                         </td>
                         <td class="rootTable"></td>
                         <td class="rootTable"></td>
@@ -352,7 +374,7 @@
                     <tbody>
                     <tr>
                         <td class="rootTable">
-                            <br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br>
                         </td>
                         <td class="rootTable"></td>
                         <td class="rootTable"></td>
@@ -384,7 +406,7 @@
                     <tbody>
                     <tr>
                         <td class="rootTable">
-                            <br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br>
                         </td>
                         <td class="rootTable"></td>
                         <td class="rootTable"></td>

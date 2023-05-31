@@ -73,7 +73,10 @@
     ?>
 
     <div>
-        <br><br>
+        <br>
+        <div style="text-align: right">
+            <span>বিওএফ নং: ১০০</span>
+        </div>
         <div style="font-size: 18px; text-align: center">
             <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
             <span>গাজীপুর সেনানিবাস</span><br>
@@ -99,18 +102,24 @@
                         </span><br>
                         <span>সংক্ষিপ্ত ফরমায়েশনামা নম্বরঃ &nbsp;
                             @if($data->shortOrderNbr != null)
-                                <span>{{$data->shortOrderNbr}}</span>
+                                {{$Controller::enToBnConveter($data->shortOrderNbr)}}
                             @endif
                         </span><br>
                         <span>হুকুমনামা নম্বর ও তারিখঃ  &nbsp;
                             @if($data->warrantNo != null)
-                                <span>{{$data->warrantNo}}</span>&nbsp;
-                                <span>{{$data->warrantDate}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->warrantNo)}}
+                                </span>&nbsp;
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সম্পূরক কার্যাদেশ নম্বরঃ &nbsp;
                             @if($data->supplementaryOrderNo != null)
-                                <span>{{$data->supplementaryOrderNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->supplementaryOrderNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সরবরাহের সূচীঃ &nbsp;
@@ -120,7 +129,9 @@
                         </span><br>
                         <span>সরবরাহের শেষ তারিখঃ &nbsp;
                             @if($data->lastDateOfSupply != null)
-                                <span>{{$data->lastDateOfSupply}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->lastDateOfSupply))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>মন্তব্যঃ &nbsp;
@@ -132,27 +143,37 @@
                     <td style="width: 40%">
                         <span>শাখার নম্বরঃ &nbsp;
                             @if($data->sectionNo != null)
-                                <span>{{$data->sectionNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->sectionNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্রয়োজনীয় সংখ্যাঃ &nbsp;
                             @if($data->requiredNbr != null)
-                                <span>{{$data->requiredNbr}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->requiredNbr)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>তারিখঃ &nbsp;
                             @if($data->date != null)
-                                <span>{{$data->date}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->date))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>সমাপ্তির তারিখঃ &nbsp;
                             @if($data->completionDate != null)
-                                <span>{{$data->completionDate}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->completionDate))}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্রাক্কলিত নম্বরঃ &nbsp;
                             @if($data->estimateNo != null)
-                                <span>{{$data->estimateNo}}</span>
+                                <span>
+                                    {{$Controller::enToBnConveter($data->estimateNo)}}
+                                </span>
                             @endif
                         </span><br>
                         <span>প্ৰাপকঃ &nbsp;

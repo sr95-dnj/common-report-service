@@ -78,27 +78,27 @@
             <table class="center tbBorder" style="text-align: center; padding: 5px;">
                 <thead>
                 <tr>
-                    <th style="width: 10%; padding: 2px; ">ক্রঃ নং </th>
-                    <th style="width: 10%; padding: 2px; ">ইনডেন্ট দ্রব্যের নাম </th>
-                    <th style="width: 10%; padding: 2px; ">একক </th>
-                    <th style="width: 10%; padding: 2px; ">বাৎসরিক চাহিদা</th>
-                    <th style="width: 10%; padding: 2px; ">বর্তমান মজুদ</th>
-                    <th style="width: 10%; padding: 2px; ">পাইপ লাইন</th>
-                    <th style="width: 10%; padding: 2px; ">ঘাটতি</th>
-                    <th style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</th>
-                    <th style="width: 10%; padding: 2px; ">ব্যবহার </th>
+                    <td style="width: 10%; padding: 2px; ">ক্রঃ নং </td>
+                    <td style="width: 10%; padding: 2px; ">ইনডেন্ট দ্রব্যের নাম </td>
+                    <td style="width: 10%; padding: 2px; ">একক </td>
+                    <td style="width: 10%; padding: 2px; ">বাৎসরিক চাহিদা</td>
+                    <td style="width: 10%; padding: 2px; ">বর্তমান মজুদ</td>
+                    <td style="width: 10%; padding: 2px; ">পাইপ লাইন</td>
+                    <td style="width: 10%; padding: 2px; ">ঘাটতি</td>
+                    <td style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</td>
+                    <td style="width: 10%; padding: 2px; ">ব্যবহার </td>
                 </tr>
 
                 <tr>
-                    <th style="width: 10%; padding: 2px; ">ক</th>
-                    <th style="width: 10%; padding: 2px; ">খ</th>
-                    <th style="width: 10%; padding: 2px; ">গ</th>
-                    <th style="width: 10%; padding: 2px; ">ঘ</th>
-                    <th style="width: 10%; padding: 2px; ">ঙ</th>
-                    <th style="width: 10%; padding: 2px; ">চ</th>
-                    <th style="width: 10%; padding: 2px; ">ছ</th>
-                    <th style="width: 10%; padding: 2px; ">জ</th>
-                    <th style="width: 10%; padding: 2px; ">ঝ</th>
+                    <td style="width: 10%; padding: 2px; ">ক</td>
+                    <td style="width: 10%; padding: 2px; ">খ</td>
+                    <td style="width: 10%; padding: 2px; ">গ</td>
+                    <td style="width: 10%; padding: 2px; ">ঘ</td>
+                    <td style="width: 10%; padding: 2px; ">ঙ</td>
+                    <td style="width: 10%; padding: 2px; ">চ</td>
+                    <td style="width: 10%; padding: 2px; ">ছ</td>
+                    <td style="width: 10%; padding: 2px; ">জ</td>
+                    <td style="width: 10%; padding: 2px; ">ঝ</td>
                 </tr>
 
                 </thead>
