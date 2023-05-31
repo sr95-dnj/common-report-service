@@ -53,7 +53,9 @@
         <table width="100%">
             <tr>
                 <td style="text-align: left;">
-                    নথি নং : <u>{!! (optional($data)->materialFinalIndentNo) !!}</u>
+                @if($data->materialIndentFinalMaster != null && $data->materialIndentFinalMaster->indentNo != null)
+                <span>নথি নং : <u>{{optional($data)->materialIndentFinalMaster->indentNo}}</u></span>
+                @endif
                 </td>
             </tr>
         </table>
@@ -65,6 +67,7 @@
                 <td><b><u>{!! (optional($data)->subject) !!}</u></b></td>
             </tr>
         </table>
+        <br>
         <!-- subject part -->
 
         <!--main start-->
@@ -73,24 +76,24 @@
             <table class="center tbBorder" style="text-align: center; padding: 5px;">
                 <thead>
                 <tr>
-                    <th style="width: 10%; padding: 2px; ">ক্রঃ নং </th>
-                    <th style="width: 20%; padding: 2px; ">দ্রব্যের বিবরণ </th>
-                    <th style="width: 10%; padding: 2px; ">দ্রব্যের একক </th>
-                    <th style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</th>
-                    <th style="width: 15%; padding: 2px; ">একক মূলো টাকা</th>
-                    <th style="width: 15%; padding: 2px; ">মোট মূলো টাকা </th>
-                    <th style="width: 20%; padding: 2px; ">মন্তব্য</th>
+                    <td style="width: 10%; padding: 2px; ">ক্রঃ নং </td>
+                    <td style="width: 20%; padding: 2px; ">দ্রব্যের বিবরণ </td>
+                    <td style="width: 10%; padding: 2px; ">দ্রব্যের একক </td>
+                    <td style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</td>
+                    <td style="width: 15%; padding: 2px; ">একক মূলো টাকা</td>
+                    <td style="width: 15%; padding: 2px; ">মোট মূলো টাকা </td>
+                    <td style="width: 20%; padding: 2px; ">মন্তব্য</td>
 
                 </tr>
 
                 <tr>
-                    <th style="width: 10%; padding: 2px; ">ক</th>
-                    <th style="width: 20%; padding: 2px; ">খ</th>
-                    <th style="width: 10%; padding: 2px; ">গ</th>
-                    <th style="width: 10%; padding: 2px; ">ঘ</th>
-                    <th style="width: 15%; padding: 2px; ">ঙ</th>
-                    <th style="width: 15%; padding: 2px; ">চ</th>
-                    <th style="width: 20%; padding: 2px; ">ছ</th>
+                    <td style="width: 10%; padding: 2px; ">ক</td>
+                    <td style="width: 20%; padding: 2px; ">খ</td>
+                    <td style="width: 10%; padding: 2px; ">গ</td>
+                    <td style="width: 10%; padding: 2px; ">ঘ</td>
+                    <td style="width: 15%; padding: 2px; ">ঙ</td>
+                    <td style="width: 15%; padding: 2px; ">চ</td>
+                    <td style="width: 20%; padding: 2px; ">ছ</td>
                 </tr>
 
                 </thead>
@@ -99,9 +102,14 @@
                 <tr>
                     <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
                     <td style="text-align: left; width: 20%; padding: 2px;">
+                        @if($list->itemName != null)
+                        <span>{{optional($list)->itemName}}</span>
+                        @endif
+                        <br>
                         @if($list->itemNameShortSpecification != null)
                         <span>{{optional($list)->itemNameShortSpecification}}</span>
                         @endif
+
                     </td>
 
                     <td style="text-align: left; width: 10%; padding: 2px;">

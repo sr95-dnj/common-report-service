@@ -109,8 +109,8 @@
 			<td colspan="2">সম্পূরক কার্যাদেশ নম্বর :  {{($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
 		</tr>
 		<tr>
-			<td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ :  {{$Controller::enToBnConveter($Controller::dateFormatter($data->orderDate))}}
-			- {{$Controller::enToBnConveter($Controller::dateFormatter($data->supplementaryOrderDate))}}
+			<td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ :  {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityFrom))}}
+			- {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityTo))}}
 			</td>
 		</tr>
 		<tr>
