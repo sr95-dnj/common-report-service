@@ -113,7 +113,7 @@
                 <td style="width: 30%">বস্তুর নাম</td>
                 <td style="width: 2%">:</td>
                 <td style="width: 20%">
-                    {{($data->master->itemMaster->itemNameBn ? $data->master->itemMaster->itemNameBn : '')}}
+                    {{($data->master->productCode->mcProduct ? $data->master->productCode->mcProduct->nameBn : $data->master->productCode->component->nameBn)}}
                 </td>
                 <td style="width: 5%"></td>
                 <td style="width: 20%">প্রয়োজনীয় সংখ্যা/সেট </td>
