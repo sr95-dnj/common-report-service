@@ -68,13 +68,13 @@
 </head>
 
 
-<body class="landscapePage" style="font-size: 24px;">
+<body class="landscapePage">
 <?php
 $data = json_decode($val['data']);
 ?>
 
         <!--    master table-->
-<div style="font-size: 40px; !important">
+<div>
     <table width="100%">
         <tr>
             <td style="width: 100% !important; text-align: right;">
@@ -83,8 +83,8 @@ $data = json_decode($val['data']);
         </tr>
         <tr>
             <td style="width: 100% !important; text-align: center;">
-                <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                <h3>প্রতিরক্ষা বাহিনীর জন্য প্রয়োজনীয় চাহিদাপত্র </h3>
+                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                <span style="font-size: 16px">প্রতিরক্ষা বাহিনীর জন্য প্রয়োজনীয় চাহিদাপত্র </span><br>
                 <u> <span>১ম অংশ</span></u>
             </td>
         </tr>
