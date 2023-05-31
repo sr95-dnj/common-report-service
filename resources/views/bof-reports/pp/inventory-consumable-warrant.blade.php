@@ -66,24 +66,24 @@
 </head>
 
 
-<body class="landscapePage" style="font-size: 24px;">
+<body class="landscapePage">
     <?php
     $data = json_decode($val['data']);
     ?>
 
 
     <!--    master table-->
-    <div style="font-size: 40px; !important">
+    <div>
 	<table width="100%">
 	<tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০১
                     </td>
                 </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
-                                <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                                <h3>গাজীপুর সেনানিবাস</h3>
+                                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                                <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
                                <u> <span> ইনভেন্ট্রি/ কনজুমেবল দ্রব্যের হুকুমনামা</span></u>
                             </td>
             </tr>
@@ -181,12 +181,12 @@
  <table width="100%">
  <tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০১
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>তলবি দ্রব্যের বিবরণ  </h3> </u>
+                      <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ  </span> </u>
                     </td>
                 </tr>
             </table>
@@ -212,7 +212,7 @@
 			 <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </h3> </u>
+                      <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </span> </u>
                     </td>
                 </tr>
             </table>

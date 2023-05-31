@@ -66,24 +66,24 @@
 </head>
 
 
-<body class="landscapePage" style="font-size: 24px;">
+<body class="landscapePage">
     <?php
     $data = json_decode($val['data']);
     ?>
 
 
     <!--    master table-->
-    <div style="font-size: 24px; ">
+    <div>
 	<table width="100%">
 	<tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০০
                     </td>
                 </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
-                                <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                                <h3>গাজীপুর সেনানিবাস</h3>
+                                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                                <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
                                <u> <span>উৎপাদনী হুকুমনামা </span></u>
                             </td>
             </tr>
@@ -213,22 +213,22 @@
  <table width="100%">
  <tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০০
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>খুচরা কাজের বিবরণ </h3> </u>
+                      <u> <span style="font-size: 16px;">খুচরা কাজের বিবরণ </span> </u>
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: left;">
-                      <h3>আদেশকৃত সংখ্যা :.............................</h3> 
+                      <span style="font-size: 16px;">আদেশকৃত সংখ্যা :.............................</span>
                     </td>
                 </tr>
 				<tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>জমা/খরচের হিসাব </h3> </u>
+                      <u> <span style="font-size: 16px;">জমা/খরচের হিসাব </span> </u>
                     </td>
                 </tr>
             </table>
@@ -256,7 +256,7 @@
 			 <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>সংশোধনী বিবরণী </h3> </u>
+                      <u> <span style="font-size: 16px;">সংশোধনী বিবরণী </span> </u>
                     </td>
                 </tr>
             </table>

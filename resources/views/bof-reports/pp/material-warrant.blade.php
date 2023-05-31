@@ -66,24 +66,24 @@
 </head>
 
 
-<body class="landscapePage" style="font-size: 24px;">
+<body class="landscapePage">
     <?php
     $data = json_decode($val['data']);
     ?>
 
 
     <!--    master table-->
-    <div style="font-size: 24px; ">
+    <div>
 	<table width="100%">
 	<tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০১
                     </td>
                 </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
-                                <h2>বাংলাদেশ সমরাস্ত্র কারখানা</h2>
-                                <h3>গাজীপুর সেনানিবাস</h3>
+                                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                                <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
                                <u> <span>দ্রব্যের হুকুমনামা</span></u>
                             </td>
             </tr>
@@ -206,7 +206,7 @@
 		<table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3> ০১ মিলিয়নের জন্য মঞ্জুরকৃত দ্রব্যের বিবরণ  </h3> </u>
+                      <u> <span style="font-size: 16px;"> ০১ মিলিয়নের জন্য মঞ্জুরকৃত দ্রব্যের বিবরণ  </span> </u>
                     </td>
                 </tr>
             </table>
@@ -215,12 +215,12 @@
 			 
 			 <table class="rootTable" width="100%">
                 <tr class="rootTable">
-                    <td class="rootTable text-center">ক্রমিক </td>
-                    <td class="rootTable text-center">বরাদ্দকৃত </td>
-                    <td class="rootTable text-center">সঠিক বিবরণ</td>
-                    <td class="rootTable text-center">একক </td>
-                    <td class="rootTable text-center">পরিমান/ওজন </td>
-                    <td class="rootTable text-center">ফলিও নম্বর </td>
+                    <td class="rootTable text-center" style="width: 5%">ক্রমিক </td>
+                    <td class="rootTable text-center" style="width: 20%">বরাদ্দকৃত </td>
+                    <td class="rootTable text-center" style="width: 40%">সঠিক বিবরণ</td>
+                    <td class="rootTable text-center" style="width: 10%">একক </td>
+                    <td class="rootTable text-center" style="width: 10%">পরিমান/ওজন </td>
+                    <td class="rootTable text-center" style="width: 15%">ফলিও নম্বর </td>
                 </tr>
                 @foreach ($data->details as $index => $item)
                     <tr>
@@ -253,12 +253,12 @@
  <table width="100%">
  <tr>
                     <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং:
+						বিওএফ নং: ১০১
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>তলবি দ্রব্যের বিবরণ  </h3> </u>
+                      <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ  </span> </u>
                     </td>
                 </tr>
             </table>
@@ -284,7 +284,7 @@
 			 <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                      <u> <h3>পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </h3> </u>
+                      <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </span> </u>
                     </td>
                 </tr>
             </table>
