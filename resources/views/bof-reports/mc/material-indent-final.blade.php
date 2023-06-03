@@ -385,9 +385,27 @@
                             {{($item->remarks)}}
                         @endif
                     </td>
-
                 </tr>
             @endforeach
+            <tr>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable text-center">
+                    {{($data->totalQty ? $data->totalQty : 0)}}
+                </td>
+                <td class="rootTable"></td>
+                <td class="rootTable text-center">
+                    {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                </td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+                <td class="rootTable"></td>
+            </tr>
         </table>
     </div>
 
