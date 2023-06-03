@@ -90,6 +90,7 @@
         </table>
 		
             <table width="100%">
+            <thead>
             <tr>
                 <td style="width: 30%">{{$Controller::enToBnConveter($data->master->financialYear->financialYear)}}</td>
                 <td style="width: 2%"></td>
@@ -200,7 +201,7 @@
 				 {{$Controller::enToBnConveter($Controller::dateFormatter($data->master->completionDate))}}
                 </td>
             </tr>
-			
+			</thead>
         </table>
 		
 		<table width="100%">
@@ -214,6 +215,7 @@
 			 <!--    Details Table-->
 			 
 			 <table class="rootTable" width="100%">
+                <thead>
                 <tr class="rootTable">
                     <td class="rootTable text-center" style="width: 5%">ক্রমিক </td>
                     <td class="rootTable text-center" style="width: 20%">বরাদ্দকৃত </td>
@@ -222,6 +224,7 @@
                     <td class="rootTable text-center" style="width: 10%">পরিমান/ওজন </td>
                     <td class="rootTable text-center" style="width: 15%">ফলিও নম্বর </td>
                 </tr>
+                </thead>
                 @foreach ($data->details as $index => $item)
                     <tr>
                         <td class="rootTable text-center">
