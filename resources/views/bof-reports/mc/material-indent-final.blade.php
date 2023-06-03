@@ -377,7 +377,7 @@
                     </td>
                     <td class="rootTable text-center">
                         @if($item->appxDateOfSupply)
-                            {{$Controller::dateFormatter($item->appxDateOfSupply)}}
+                            {{($item->appxDateOfSupply)}}
                         @endif
                     </td>
                     <td class="rootTable">

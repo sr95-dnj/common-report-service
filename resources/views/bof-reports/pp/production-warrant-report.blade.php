@@ -15,16 +15,17 @@
         border-collapse: collapse;
     } */
 
+
     @page {
-        size: landscape;
-        orientation: landscape;
 
     }
     @media print {
         .page-break {page-break-after: always;}
+        .page-margin{margin: 25mm 25mm 25mm 25mm;}
     }
     body {
         writing-mode: tb-rl;
+        margin: 25mm 25mm 25mm 25mm;
     }
     table.center {
         margin-left: auto;
@@ -36,6 +37,9 @@
     .rootTable{
         border: 1px solid;
         vertical-align: middle;
+        border-collapse: collapse;
+    }
+    .border-collapse{
         border-collapse: collapse;
     }
     .left-border{
@@ -55,10 +59,6 @@
         border-collapse: collapse;
     }
 
-    @page {
-        margin-top: 5px;
-    }
-
     td {
         vertical-align: top !important;
     }
@@ -73,7 +73,6 @@
     ?>
 
     <div>
-        <br>
         <div style="text-align: right">
             <span>বিওএফ নং: ১০০</span>
         </div>
@@ -84,9 +83,10 @@
         </div>
         <br>
         <div>
-            <table style="width: 100%; font-size: 15px;">
+            <table style="width: 100%; font-size: 15px; border-collapse: collapse;">
+                <thead>
                 <tr>
-                    <td style="width: 60%;">
+                    <td colspan="2" style="width: 60%;">
                         <span>শাখার নামঃ &nbsp;
                             @if($data->sectionId != null)
                                 <span>{{$data->sectionId->banglaName}}</span>
@@ -140,7 +140,7 @@
                             @endif
                         </span><br>
                     </td>
-                    <td style="width: 40%">
+                    <td colspan="2" style="width: 40%">
                         <span>শাখার নম্বরঃ &nbsp;
                             @if($data->sectionNo != null)
                                 <span>
@@ -183,48 +183,43 @@
                         </span><br>
                     </td>
                 </tr>
-
+                </thead>
+                <thead>
+                <tr>
+                    <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
+                    <td class="rootTable text-center" style="width: 50%">প্রক্রিয়ার বিবরণী</td>
+                    <td class="rootTable text-center" style="width: 25%">জনবল</td>
+                    <td class="rootTable text-center" style="width: 15%">ঘন্টা / মিলিয়ন </td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($data->details as $index => $item)
+                    <tr>
+                        <td class="rootTable text-center">{{($index + 1)}}</td>
+                        <td valign="middle"  class="rootTable">
+                            @if($item->processSetupMaster != null)
+                                <span>{{( $item->processSetupMaster ? $item->processSetupMaster->nameBn : '')}}</span><br>
+                                <span>{{( $item->processSetupMaster ? $item->processSetupMaster->remarks : '')}}</span>
+                            @endif
+                        </td>
+                        <td class="rootTable">
+                            @foreach ($item->processSetupMaster->details as $index => $process)
+                                <span>{{$process->employee->employeeOfficialInformation->designation->banglaName}}ঃ</span>
+                                <br>
+                            @endforeach
+                        </td>
+                        <td class="rootTable text-center">
+                            @foreach ($item->processSetupMaster->details as $index => $process)
+                                <span>{{($Controller::entoBn($process->timeHour,'number'))}}</span>
+                                <br>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
         </div>
-        <div>
-            <div>
-                <table class="rootTable" width="100%">
-                    <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
-                            <td class="rootTable text-center" style="width: 60%">প্রক্রিয়ার বিবরণী</td>
-                            <td class="rootTable text-center" style="width: 15%">জনবল</td>
-                            <td class="rootTable text-center" style="width: 15%">ঘন্টা / মিলিয়ন </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($data->details as $index => $item)
-                        <tr>
-                            <td class="rootTable text-center">{{($index + 1)}}</td>
-                            <td valign="middle"  class="rootTable">
-                                @if($item->processSetupMaster != null)
-                                    <span>{{( $item->processSetupMaster ? $item->processSetupMaster->nameBn : '')}}</span><br>
-                                    <span>{{( $item->processSetupMaster ? $item->processSetupMaster->remarks : '')}}</span>
-                                @endif
-                            </td>
-                            <td class="rootTable">
-                                @foreach ($item->processSetupMaster->details as $index => $process)
-                                    <span>{{$process->employee->employeeOfficialInformation->designation->banglaName}}ঃ</span>
-                                    <br>
-                                @endforeach
-                            </td>
-                            <td class="rootTable text-center">
-                                @foreach ($item->processSetupMaster->details as $index => $process)
-                                    <span>{{($Controller::entoBn($process->timeHour,'number'))}}</span>
-                                    <br>
-                                @endforeach
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
     </div>
 
 
