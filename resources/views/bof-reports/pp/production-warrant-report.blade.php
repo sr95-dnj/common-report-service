@@ -204,7 +204,7 @@
                         </td>
                         <td class="rootTable">
                             @foreach ($item->processSetupMaster->details as $index => $process)
-                                <span>{{$process->employee->employeeOfficialInformation->designation->banglaName}}ঃ</span>
+                                <span>{{$process->employee}}</span>
                                 <br>
                             @endforeach
                         </td>
