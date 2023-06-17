@@ -250,7 +250,17 @@
                             <td class="rootTable text-center" style="width: 45%">প্রক্রিয়ার নাম ও বিবরণ</td>
                             <td class="rootTable text-center" style="width: 15%">সংখ্যা</td>
                             <td class="rootTable text-center" style="width: 15%">হার </td>
-                            <td class="rootTable text-center" style="width: 15%">সময় ও একক</td>
+                            <td class="rootTable text-center" style="width: 15%">
+                            @if($data->master->productItem->type == "RIFLE")
+                            <span>ঘন্টা/হাজার/সংখ্যা</span>
+                            @endif
+                            @if($data->master->productItem->type == "CARTRIDGE")
+                            <span>ঘন্টা/মিলিয়ন</span>
+                            @endif
+                            @if($data->master->productItem->type == "GRENADE")
+                            <span>ঘন্টা/সংখ্যা</span>
+                            @endif
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
