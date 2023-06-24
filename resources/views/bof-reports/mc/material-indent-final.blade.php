@@ -86,7 +86,13 @@
                         <table width="90%" style="border-top: 1px solid;  padding-right: 50px;">
                             <tr>
                                 <td>ইন্ডেন্টের দ্রবগুলো পূর্বে সরবরাহ হইয়া থাকিলে: <br>
-                                    দ্রবটি ইতিপূর্বে ক্রয় করা  হয়েছে।</td>
+                                    <span>
+                                        @if($data->preSupplied != null)
+                                            {!! ($data->preSupplied) !!}
+                                        @endif
+                                    </span>
+
+                                </td>
                             </tr>
                         </table>
                         <br><br>
@@ -160,10 +166,10 @@
 
                     <table width="100%">
                         <tr>
-                            <td style="width: 25% !important; text-align: left;">
+                            <td style="width: 17% !important; text-align: left;">
                                 দ্রব্যের শ্রেণী  বিভাগ:
                             </td>
-                            <td style="width: 75% !important; text-align: left;">
+                            <td style="width: 83% !important; text-align: left;">
                                 @if($data->subject != null)
                                     {!! ($data->subject) !!}
                                 @endif
@@ -172,8 +178,13 @@
                     </table>
                     <table style="width: 100%; margin-top: 30px;">
                         <tr>
-                            <td style="width: 100% !important; text-align: left;">
-                                প্রতি: Deputi Director Material
+                            <td valign="top" style="width: 6% !important; text-align: left;">
+                                প্রতি:
+                            </td>
+                            <td style="width: 94% !important; text-align: left;">
+                                <span>Deputi Director Material</span><br>
+                                <span>Bangladesh Ordnance Factories</span><br>
+                                <span>Gazipur Cantt. Gazipur</span>
                             </td>
                         </tr>
                     </table>
@@ -182,7 +193,7 @@
                             <td style="width: 75% !important; text-align: left;">
                                 ইনডেন্ট নং: <span>
                                     @if($data->indentNo != null)
-                                        {{$Controller::enToBnConveter($data->indentNo)}}
+                                        {{($data->indentNo)}}
                                     @endif
                                 </span>
                             </td>
@@ -190,14 +201,14 @@
                                 <span>
                                     তারিখ:
                                 @if($data->indentDate != null)
-                                        {{$Controller::enToBnConveter($Controller::dateFormatter($data->indentDate))}}
+                                        {{($Controller::dateFormatter($data->indentDate))}}
                                     @endif
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                যথোপযুক্ত কর্তৃপক্ষ কর্তৃক আর্থিক সম্মতিক্রমে পাঠানো হইলো।
+                                <span>যথোপযুক্ত কর্তৃপক্ষ কর্তৃক আর্থিক সম্মতিক্রমে পাঠানো হইলো।</span>
                             </td>
                         </tr>
                     </table>
@@ -207,7 +218,7 @@
                                 (ক) ইনডেন্ট চাহিদাকৃত দ্রব্যের মোট মূল্য:
                             </td>
                             <td style="width: 35%">
-                                {{$Controller::enToBnConveter($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                                Tk. {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
                             </td>
                         </tr>
                         <tr>
@@ -228,7 +239,7 @@
                                 = Financial Code No.
                                 <span>
                                     @if($data->budgetCode != null)
-                                        {{$Controller::enToBnConveter($data->budgetCode->economicCode)}}
+                                        {{($data->budgetCode->economicCode)}}
                                     @endif
                                 </span>
                             </td>
@@ -236,8 +247,8 @@
                     </table>
                     <table>
                         <tr style="margin-top: 10px;">
-                            <td style="width: 70%">&nbsp;</td>
-                            <td style="text-align: center; width: 30%">
+                            <td style="width: 69%">&nbsp;</td>
+                            <td style="text-align: left; width: 31%">
                                 সহকারী প্রকৌশলী, দ্রব নিয়ন্ত্রণ শাখা <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা
                             </td>
@@ -306,7 +317,7 @@
                     @if($data->indentNo != null)
                             {{$Controller::enToBnConveter($data->indentNo)}}
                         @endif
-                    </span>
+                    </span>&nbsp;&nbsp;
                     <span>
                         তারিখ:
                     @if($data->indentDate != null)
@@ -319,17 +330,17 @@
         <table class="rootTable" width="100%">
             <tr class="rootTable">
                 <td class="rootTable text-center" style="width: 5%">SL</td>
-                <td class="rootTable text-center" style="width: 7%">Folio No</td>
-                <td class="rootTable text-center" style="width: 15%">Name of Item and Specification</td>
+                <td class="rootTable text-center" style="width: 5%">Folio No</td>
+                <td class="rootTable text-center" style="width: 14%">Name of Item and Specification</td>
                 <td class="rootTable text-center" style="width: 5%">Unit</td>
+                <td class="rootTable text-center" style="width: 10%">Demand Section</td>
                 <td class="rootTable text-center" style="width: 5%">Indent Qty</td>
                 <td class="rootTable text-center" style="width: 5%">Rate (Tk)</td>
                 <td class="rootTable text-center" style="width: 5%">Total Value</td>
-                <td class="rootTable text-center" style="width: 9%">So No Supplier Name</td>
+                <td class="rootTable text-center" style="width: 9%">SO No Supplier Name and Date</td>
                 <td class="rootTable text-center" style="width: 5%">User Section</td>
                 <td class="rootTable text-center" style="width: 5%">Present Stock</td>
                 <td class="rootTable text-center" style="width: 7%">Country of Origin</td>
-                <td class="rootTable text-center" style="width: 7%">Appx. Date/ Time of Supply</td>
                 <td class="rootTable text-center" style="width: 20%">Remarks</td>
             </tr>
             @foreach ($data->details as $index => $item)
@@ -353,6 +364,13 @@
                         @endif
                     </td>
                     <td class="rootTable text-center">
+                        @foreach ($item->demandSectionDetails as $indx => $demand)
+                            @if($demand->demandSection != null)
+                                {{($demand->demandSection->name)}},<br>
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="rootTable text-center">
                         @if($item->indentQty)
                             {{($item->indentQty)}}
                         @endif
@@ -370,14 +388,9 @@
                     <td class="rootTable"></td>
                     <td class="rootTable text-center"></td>
                     <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center">
+                    <td class="rootTable text-left">
                         @if($item->countryOfOrigin)
                             {{($item->countryOfOrigin)}}
-                        @endif
-                    </td>
-                    <td class="rootTable text-center">
-                        @if($item->appxDateOfSupply)
-                            {{($item->appxDateOfSupply)}}
                         @endif
                     </td>
                     <td class="rootTable">
@@ -387,26 +400,11 @@
                     </td>
                 </tr>
             @endforeach
-            <tr>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable text-center">
-                    {{($data->totalQty ? $data->totalQty : 0)}}
-                </td>
-                <td class="rootTable"></td>
-                <td class="rootTable text-center">
-                    {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
-                </td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-                <td class="rootTable"></td>
-            </tr>
         </table>
+        <div style="width: 100%; margin-top: 8px;">
+            <div style="width: 30%; float: left;">Total Item = {{count($data->details)}} Items</div>
+            <div style="width: 70%; float: right; text-align: right">Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}</div>
+        </div>
     </div>
 
 
