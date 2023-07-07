@@ -145,27 +145,10 @@
                 @endforeach
                 </tbody>
             </table>
-
-            <table width="100%">
-                <tr>
-                    <td style="text-align: left; width: 10%; padding: 2px;"></td>
-                    <td style="text-align: left; width: 20%; padding: 2px;"></td>
-                    <td style="text-align: left; width: 10%; padding: 2px;"></td>
-                    <td style="text-align: left; width: 10%; padding: 2px;"></td>
-                    <td style="text-align: left; width: 15%; padding: 2px;">ইন্ডেন্টের মোট মূল্য = </td>
-                    <td style="text-align: right; width: 15%; padding: 2px;">
-                        <b><u> {{optional($data)->totalIndentValue}} </u></b>
-                    </td>
-                    <td style="text-align: left; width: 20%; padding: 2px;"></td>
-                </tr>
-            </table>
-
-            <br>
-            <table width="100%">
-                <tr>
-                    <td>মোট প্রকাশনা সংখ্যা ({{$Controller::entoBn(count($data->details),'number')}}) মাত্র</td>
-                </tr>
-            </table>
+        </div>
+        <div style="width: 100%; font-size: 12px; margin-top: 8px;">
+            <div style="width: 30%; float: left;">মোট প্রকাশনা সংখ্যা: ({{$Controller::entoBn(count($data->details),'number')}}) মাত্র</div>
+            <div style="width: 70%; float: right; text-align: right;">ইন্ডেন্টের মোট মূল্য = <b><u> {{optional($data)->totalIndentValue}} </u></b></div>
         </div>
 
         <!-- body part -->

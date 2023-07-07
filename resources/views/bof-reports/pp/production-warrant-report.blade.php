@@ -189,7 +189,17 @@
                     <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
                     <td class="rootTable text-center" style="width: 50%">প্রক্রিয়ার বিবরণী</td>
                     <td class="rootTable text-center" style="width: 25%">জনবল</td>
-                    <td class="rootTable text-center" style="width: 15%">ঘন্টা / মিলিয়ন </td>
+                    <td class="rootTable text-center" style="width: 15%">
+                    @if($data->productItem->type == "RIFLE")
+                    <span>ঘন্টা/হাজার/সংখ্যা</span>
+                    @endif
+                    @if($data->productItem->type == "CARTRIDGE")
+                    <span>ঘন্টা/মিলিয়ন</span>
+                    @endif
+                    @if($data->productItem->type == "GRENADE")
+                    <span>ঘন্টা/সংখ্যা</span>
+                    @endif
+                    </td>
                 </tr>
                 </thead>
                 <tbody>
