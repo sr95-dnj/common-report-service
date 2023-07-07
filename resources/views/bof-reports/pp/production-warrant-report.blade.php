@@ -124,7 +124,7 @@
                         </span><br>
                         <span>সরবরাহের সূচীঃ &nbsp;
                             @if($data->scheduleOfSupply != null)
-                                <span>{{$data->scheduleOfSupply}}</span>
+                                <span>{{$Controller::enToBnConveter($Controller::dateFormatter($data->scheduleOfSupply))}}</span>
                             @endif
                         </span><br>
                         <span>সরবরাহের শেষ তারিখঃ &nbsp;
@@ -210,7 +210,7 @@
                         </td>
                         <td class="rootTable text-center">
                             @foreach ($item->processSetupMaster->details as $index => $process)
-                                <span>{{($Controller::entoBn($process->timeHour,'number'))}}</span>
+                                <span>{{($Controller::entoBn(number_format($process->timeHour, 2), 'number'))}}</span>
                                 <br>
                             @endforeach
                         </td>
