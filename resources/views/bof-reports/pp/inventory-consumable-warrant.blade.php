@@ -8,18 +8,6 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
-    /* table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    } */
-
-    @page {
-        size: landscape;
-        orientation: landscape;
-
-    }
     @media print {
         .page-break {page-break-after: always;}
     }
@@ -55,7 +43,7 @@
     }
 
     @page {
-        margin-top: 5px;
+        margin-top: 5%;
     }
 
     td {
@@ -75,7 +63,7 @@
     <!--    master table-->
     <div>
 	<table width="100%">
-	<tr>
+	            <tr>
                     <td style="width: 100% !important; text-align: right;">
 						বিওএফ নং: ১০১
                     </td>
@@ -92,21 +80,21 @@
 		<table  width="100%">
 		<tr>
 			<td>কারিগরী শাখার নাম :  {{($data->section ? $data->section->banglaName : '')}}</td>
-			<td>শাখা কোড নম্বর: {{($data->sectionNo ? $data->sectionNo : '')}}</td>
+			<td>শাখা কোড নম্বর: {{$Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '')}}</td>
 		</tr>
 		<tr>
-			<td>সংক্ষিপ্ত ফরমায়েশনামা: {{($data->shortOrderNo ? $data->shortOrderNo : '')}}</td>
+			<td>সংক্ষিপ্ত ফরমায়েশনামা: {{$Controller::enToBnConveter($data->shortOrderNo ? $data->shortOrderNo : '')}}</td>
 			<td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->orderDate))}}</td>
 		</tr>
 		<tr>
-			<td>হুকুমনামা নম্বর:   {{($data->warrantNo ? $data->warrantNo : '')}}</td>
+			<td>হুকুমনামা নম্বর:   {{$Controller::enToBnConveter($data->warrantNo ? $data->warrantNo : '')}}</td>
 			<td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate))}}</td>
 		</tr>
 		<tr>
-			<td colspan="2">হার তালিকা নম্বর:   {{($data->listNo ? $data->listNo : '')}}</td>
+			<td colspan="2">হার তালিকা নম্বর:   {{$Controller::enToBnConveter($data->listNo ? $data->listNo : '')}}</td>
 		</tr>
 		<tr>
-			<td colspan="2">সম্পূরক কার্যাদেশ নম্বর :  {{($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
+			<td colspan="2">সম্পূরক কার্যাদেশ নম্বর :  {{$Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
 		</tr>
 		<tr>
 			<td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ :  {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityFrom))}}
@@ -119,10 +107,10 @@
                 @endif
 		</tr>
 		<tr>
-			<td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা :  {{($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
+			<td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা :  {{$Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
 		</tr>
 		<tr>
-			<td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট: {{($data->requiredNumber ? $data->requiredNumber : '')}} </td>
+			<td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট: {{$Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '')}} </td>
 		</tr>
 </table>
 
@@ -140,7 +128,7 @@
                     
                 </td>
                 <td style="width: 5%"></td>
-                <td style="width: 20%">পসহকারী প্রকৌশলী পরিকল্পনা</td>
+                <td style="width: 20%">সহকারী প্রকৌশলী পরিকল্পনা</td>
                 <td style="width: 30%;">
                    
                 </td>
