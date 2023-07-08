@@ -91,22 +91,29 @@
     <table width="100%">
         <tr>
             <td>কারিগরী শাখার নাম : {{($data->section ? $data->section->banglaName : '')}}</td>
-            <td>শাখা কোড নম্বর: {{($data->sectionNo ? $data->sectionNo : '')}}</td>
+            <td>শাখা কোড নম্বর:
+            {{$Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '')}}
+            </td>
         </tr>
         <tr style="margin-bottom: 2px">
             <td>কাজের ধরণ / প্রকৃতি : {!!($data->workTypeDescription ? $data->workTypeDescription : '')!!}</td>
         </tr>
         <tr>
-            <td>সংক্ষিপ্ত ফরমায়েশনামা: {{($data->shortOrderNo ? $data->shortOrderNo : '')}}</td>
+            <td>সংক্ষিপ্ত ফরমায়েশনামা:
+             {{$Controller::enToBnConveter($data->shortOrderNo ? $data->shortOrderNo : '')}}
+             </td>
             <td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->orderDate))}}</td>
         </tr>
         <tr>
-            <td>হুকুমনামা নম্বর: {{($data->warrantNo ? $data->warrantNo : '')}}</td>
+            <td>হুকুমনামা নম্বর:
+            {{$Controller::enToBnConveter($data->warrantNo ? $data->warrantNo : '')}}
+            </td>
             <td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate))}}</td>
         </tr>
         <tr>
             <td colspan="2">সম্পূরক কার্যাদেশ নম্বর
-                : {{($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
+                : {{$Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}
+                </td>
         </tr>
         <tr>
             <td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ
@@ -165,6 +172,75 @@
         </table>
 
     </footer>
+
+
+<br>
+<br>
+    <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: left;">
+                    <u><span style="font-size: 16px;">সার্ভিস সম্পন্নকারী শাখা কর্তৃক পুরোনীয়ঃ </span></u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">ক্রমিক</td>
+                <td class="rootTable text-center">শ্রমিকের গ্রেড</td>
+                <td class="rootTable text-center">স্বাভাবিক শ্রমঘন্টা</td>
+                <td class="rootTable text-center">অধিককাল শ্রমঘন্টা</td>
+                <td class="rootTable text-center">সর্বমোট শ্রমঘন্টা</td>
+                <td class="rootTable text-center">মন্তব্য</td>
+            </tr>
+            <tr>
+                <td class="rootTable text-left"> ১। </td>
+                <td class="rootTable text-left"> টেক-হেলপার </td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+            </tr>
+            <tr>
+                 <td class="rootTable text-left"> ২। </td>
+                 <td class="rootTable text-left"> জুনি-টেকঃ </td>
+                 <td class="rootTable text-left"></td>
+                 <td class="rootTable text-left"></td>
+                 <td class="rootTable text-left"></td>
+                 <td class="rootTable text-left"></td>
+            </tr>
+            <tr>
+                <td class="rootTable text-left"> ৩। </td>
+                <td class="rootTable text-left"> টেকনিশিয়ান </td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+            </tr>
+            <tr>
+                <td class="rootTable text-left"> ৪। </td>
+                <td class="rootTable text-left"> স্কিলড-টেকঃ </td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+            </tr>
+            <tr>
+                <td class="rootTable text-left">৫।</td>
+                <td class="rootTable text-left"> সিনিয়র-টেকঃ </td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+            </tr>
+            <tr>
+                <td class="rootTable text-left">৬।</td>
+                <td class="rootTable text-left">মাস্টার-টেকঃ </td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+                <td class="rootTable text-left"></td>
+            </tr>
+        </table>
 
 
 </div>
