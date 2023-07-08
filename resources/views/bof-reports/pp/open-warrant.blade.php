@@ -16,7 +16,7 @@
         } */
 
         @page {
-            margin-top: 5px;
+            margin-top: 5%;
         }
 
         @media print {
