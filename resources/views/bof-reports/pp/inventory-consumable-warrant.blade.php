@@ -72,7 +72,7 @@
                 <td style="width: 100% !important; text-align: center;">
                                 <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
                                 <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
-                               <u> <span> ইনভেন্ট্রি/ কনজুমেবল দ্রব্যের হুকুমনামা</span></u>
+                               <u> <span> ইনভেন্ট্রী/ কনজুমেবল দ্রব্যের হুকুমনামা</span></u>
                             </td>
             </tr>
         </table>
@@ -107,7 +107,7 @@
                 @endif
 		</tr>
 		<tr>
-			<td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা :  {{$Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
+			<td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা : সংযুক্ত দ্রব্য তালিকা মোতাবেক করা হলো ।</td>
 		</tr>
 		<tr>
 			<td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট: {{$Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '')}} </td>
