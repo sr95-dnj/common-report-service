@@ -123,7 +123,7 @@ class ReportController extends Controller
         if ($originalDate == null || $originalDate == '') {
             return '';
         }
-        date_default_timezone_set('UTC');
+        date_default_timezone_set('Asia/Dhaka');
         $newDate = date("d M, Y", strtotime($originalDate));
         return $newDate;
     }

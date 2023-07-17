@@ -121,12 +121,15 @@
             </td>
         </tr>
         <tr>
-            @if($data->specialComments != null)
-                <td colspan="2" style="text-align: left"> বিশেষ মন্তব্য : {!! ($data->specialComments) !!}</td>
-            @endif
+            <td colspan="2" style="text-align: left"> বিশেষ মন্তব্য : শ্রম ও দ্রব ব্যয় যাহার নিরুপিত মূল্য কোনক্রমেই ২০(বিশ) হাজার টাকার বেশি হবে না।</td>
         </tr>
     </table>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -176,7 +179,7 @@
 
 <br>
 <br>
-    <table width="100%">
+    <table width="100%" style="margin-top: 30%">
             <tr>
                 <td style="width: 100% !important; text-align: left;">
                     <u><span style="font-size: 16px;">সার্ভিস সম্পন্নকারী শাখা কর্তৃক পুরোনীয়ঃ </span></u>
