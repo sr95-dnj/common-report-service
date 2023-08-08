@@ -46,9 +46,12 @@
     }
 
     td th{
-        vertical-align: middle !important;
+        vertical-align: top !important;
         padding-left: 7px !important;
         padding-right: 7px !important;
+    }
+    .top-align{
+        vertical-align: top !important;
     }
     </style>
 
@@ -175,7 +178,6 @@
 
         <div>
             @if($data->menuType == 'DIRECT')
-                <div style="text-align: right; font-size: 12px;">BOF NO: 199</div>
                 <table width="100%">
                     <tr>
                         <td class="text-center">
@@ -192,88 +194,99 @@
                 <table class="rootTable" width="100%">
                     <tr class="rootTable">
                         <td class="rootTable text-center" style="width: 5%">SL</td>
-                        <td class="rootTable text-center" style="width: 5%">Folio No</td>
-                        <td class="rootTable text-center" style="width: 15%">Name of Item</td>
+                        <td class="rootTable text-center" style="width: 8%">Folio No</td>
+                        <td class="rootTable text-center" style="width: 17%">Name of Item</td>
                         <td class="rootTable text-center" style="width: 5%">Unit</td>
-                        <td class="rootTable text-center" style="width: 5%">Component Name</td>
-                        <td class="rootTable text-center" style="width: 5%">Consumption <br> Rate/Million <br> Ton</td>
-                        <td class="rootTable text-center" style="width: 5%">Target/Yr <br> (Mill)</td>
-                        <td class="rootTable text-center" style="width: 5%">Reqr/Yr <br> (Mill)</td>
-                        <td class="rootTable text-center" style="width: 5%">Storage Plan <br> (Yr)</td>
-                        <td class="rootTable text-center" style="width: 5%">Total Reqr <br> (Ton)</td>
-                        <td class="rootTable text-center" style="width: 5%">Present Stock <br> (Ton)</td>
-                        <td class="rootTable text-center" style="width: 5%">Pro Duration by <br> Present Stock <br> (Yr)</td>
-                        <td class="rootTable text-center" style="width: 5%">Contracted/S.O (Ton)</td>
-                        <td class="rootTable text-center" style="width: 5%">Supply(+)/ <br> Shortfall(-) <br> (Ton)</td>
-                        <td class="rootTable text-center" style="width: 5%">Indent No & <br> Date</td>
-                        <td class="rootTable text-center" style="width: 5%">Indent Qty <br> (Ton) </td>
-                        <td class="rootTable text-center" style="width: 5%">Tender/S.O.No & <br> Date</td>
-                        <td class="rootTable text-center" style="width: 5%">Supplier Name</td>
-                        <td class="rootTable text-center" style="width: 5%">Approve Qty</td>
+                        <td class="rootTable text-center" style="width: 7%">Component Name</td>
+                        <td class="rootTable text-center" style="width: 7%">Consumption <br> Rate/Million <br> (Ton)</td>
+                        <td class="rootTable text-center" style="width: 7%">Target/Yr <br> (Mill)</td>
+                        <td class="rootTable text-center" style="width: 7%">Reqr/Yr <br> (Mill)</td>
+                        <td class="rootTable text-center" style="width: 7%">Storage Plan <br> (Yr)</td>
+                        <td class="rootTable text-center" style="width: 7%">Total Reqr <br> (Ton)</td>
+                        <td class="rootTable text-center" style="width: 7%">Present Stock <br> (Ton)</td>
+                        <td class="rootTable text-center" style="width: 7%">Pro Duration by <br> Present Stock <br> (Yr)</td>
+                        <td class="rootTable text-center" style="width: 7%">Contracted/S.O (Ton)</td>
+                        <td class="rootTable text-center" style="width: 7%">Supply(+)/ <br> Shortfall(-) <br> (Ton)</td>
                     </tr>
                     @foreach ($data->details as $index => $item)
                         <tr>
                             <td class="rootTable text-center">{{($index + 1)}}</td>
-                            <td class="rootTable text-center">
+                            <td class="rootTable text-center top-align">
                                 @if($item->folioNo != null)
                                     {{($item->folioNo->itemClassRefNo)}}
                                 @endif
                             </td>
-                            <td class="rootTable">
+                            <td class="rootTable top-align">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
                                     <span>{{($item->folioNo->itemSpecification)}}</span>
                                 @endif
 
                             </td>
-                            <td class="rootTable text-center">
+                            <td class="rootTable top-align text-center">
                                 @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
                                     {{($item->folioNo->mcItemUnit->nameEn)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center">
-                                @if($item->productComponent != null)
-                                    {{($item->productComponent->nameEn)}}
+                            <td class="rootTable top-align text-center">
+                                @foreach ($item->consumptionRates as $index => $consumption)
+                                <span>
+                                    {{($consumption->component->nameEn)}}
+                                </span><br>
+                                @endforeach
+                            </td>
+                            <td class="rootTable top-align text-center">
+                                @foreach ($item->consumptionRates as $index => $consumption)
+                                    <span>
+                                    {{($consumption->consumptionRate)}}
+                                </span><br>
+                                @endforeach
+                            </td>
+                            <td class="rootTable top-align text-center">
+                                @foreach ($item->consumptionRates as $index => $consumption)
+                                    <span>
+                                    {{($consumption->targetQty)}}
+                                </span><br>
+                                @endforeach
+                            </td>
+                            <td class="rootTable top-align text-center">
+                                @foreach ($item->consumptionRates as $index => $consumption)
+                                    <span>
+                                    {{($consumption->reqrYr)}}
+                                </span><br>
+                                @endforeach
+                                <span>
+                                    @if($item->reqrQtyYr != null && count($item->consumptionRates) > 1)
+                                        <div style="border-top: 1px solid !important;">{{($item->reqrQtyYr)}}</div>
+                                    @endif
+                                </span>
+                            </td>
+                            <td class="rootTable top-align text-center">
+                                @if($item->storagePlanYr != null)
+                                    {{($item->storagePlanYr)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center">
-                                @if($item->consumptionRate != null)
-                                    {{($item->consumptionRate)}}
+                            <td class="rootTable top-align text-center">
+                                @if($item->requiredQty != null)
+                                    {{($item->requiredQty)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center">
-                                @if($item->qtyOneYear != null)
-                                    {{($item->qtyOneYear)}}
-                                @endif
-                            </td>
-                            <td class="rootTable text-center">
-                                @if($item->qtyTwoYear != null)
-                                    {{($item->qtyTwoYear)}}
-                                @endif
-                            </td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center">
+                            <td class="rootTable top-align text-center">
                                 @if($item->presentStock != null)
                                     {{($item->presentStock)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center">
-                                @if($item->shortfall != null)
-                                    {{($item->shortfall)}}
+                            <td class="rootTable top-align text-center">
+                                @if($item->productionDistributionYr != null)
+                                    {{($item->productionDistributionYr)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center"></td>
-                            <td class="rootTable text-center">
-                                @if($item->qtyOneYear != null)
-                                    {{($item->qtyOneYear)}}
+                            <td class="rootTable top-align text-center">
+                                @if($item->productionDistributionYr != null)
+                                    {{($item->productionDistributionYr)}}
                                 @endif
                             </td>
+                            <td class="rootTable top-align text-center"></td>
                         </tr>
                     @endforeach
                 </table>

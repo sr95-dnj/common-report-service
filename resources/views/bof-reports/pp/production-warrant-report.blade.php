@@ -190,13 +190,15 @@
                     <td class="rootTable text-center" style="width: 50%">প্রক্রিয়ার বিবরণী</td>
                     <td class="rootTable text-center" style="width: 25%">জনবল</td>
                     <td class="rootTable text-center" style="width: 15%">
-                    @if($data->productItem->type == "RIFLE")
+                    @if($data->productItem->productType != null && $data->productItem->productType->nameEn == "Small Arms")
                     <span>ঘন্টা/হাজার/সংখ্যা</span>
                     @endif
-                    @if($data->productItem->type == "CARTRIDGE")
+                        @if($data->productItem->productType != null && $data->productItem->productType->nameEn == "Small Arms Ammunition")
+                    {{--@if($data->productItem->type == "CARTRIDGE")--}}
                     <span>ঘন্টা/মিলিয়ন</span>
                     @endif
-                    @if($data->productItem->type == "GRENADE")
+                    @if($data->productItem->productType != null && $data->productItem->productType->nameEn == "Granade")
+                    {{--@if($data->productItem->type == "GRENADE")--}}
                     <span>ঘন্টা/সংখ্যা</span>
                     @endif
                     </td>
