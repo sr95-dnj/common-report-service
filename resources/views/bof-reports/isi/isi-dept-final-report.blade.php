@@ -80,11 +80,11 @@ $data = json_decode($val['data']);
         <table class="center tbBorder" style="text-align: center; padding: 5px;">
             <thead>
             <tr>
-                <th style="width: 10%; padding: 2px; ">ক্রঃ</th>
-                <th style="width: 40%; padding: 2px; ">দ্রব্যের বিবরণ</th>
-                <th style="width: 20%; padding: 2px; ">পরিমাণ</th>
-                <th style="width: 20%; padding: 2px; ">ফলাফল</th>
-                <th style="width: 10%; padding: 2px; ">মন্তব্য</th>
+                <th style="width: 5%; padding: 2px; ">ক্রঃ</th>
+                <th style="width: 25%; padding: 2px; ">দ্রব্যের বিবরণ</th>
+                <th style="width: 10%; padding: 2px; ">পরিমাণ</th>
+                <th style="width: 10%; padding: 2px; ">ফলাফল</th>
+                <th style="width: 50%; padding: 2px; ">মন্তব্য</th>
             </tr>
             </thead>
             <tbody>
@@ -101,8 +101,22 @@ $data = json_decode($val['data']);
                             <span>
 							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}}</span>
                         @endif</td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        @if($list->finalResult == 'ACCEPT')
+                            <span>গৃহীত</span>
+                        @endif
+
+                        @if($list->finalResult == 'REJECT')
+                            <span>প্রত্যাখ্যাত</span>
+                        @endif
+
+                    </td>
+                    <td style="text-align: left;">
+                        @if($list->remarks != null)
+                            <span>
+							{{($list->remarks)}}</span>
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </table>

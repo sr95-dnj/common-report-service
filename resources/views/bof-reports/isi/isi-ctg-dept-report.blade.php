@@ -45,7 +45,14 @@ $data = json_decode($val['data']);
                 <br>
                 <u>বাংলাদেশ সমরাস্ত্র কারখানা (বি ও এফ)</u>
                 <br>
-                (সিটিজি)
+                @if($data->master->isiReportType != null)
+                    (সিটিজি)
+                @endif
+
+                @if($data->master->isiReportType == null)
+                    <span>({{$data->master->section->banglaName}})</span>
+                @endif
+
 
             </td>
             <td style="width: 33%; text-align: center;">
@@ -99,6 +106,16 @@ $data = json_decode($val['data']);
                     <th style="width: 30%; padding: 2px; ">Remarks</th>
                 </tr>
             @endif
+
+            @if($data->master->isiReportType == null)
+                <tr>
+                    <th style="width: 5%; padding: 2px; ">ক্রঃ নং</th>
+                    <th style="width: 35%; padding: 2px; ">কোড নং</th>
+                    <th style="width: 10%; padding: 2px; ">নমুনা সংখ্যা</th>
+                    <th style="width: 15%; padding: 2px; ">ব্যবহারিক পরীক্ষার ফলাফল</th>
+                    <th style="width: 35%; padding: 2px; ">মন্তব্য</th>
+                </tr>
+            @endif
             </thead>
             @if($data->master->isiReportType == "REPORT")
                 <tbody>
@@ -114,16 +131,64 @@ $data = json_decode($val['data']);
                             @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
                                 <span>
 							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}}</span>
-                            @endif</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->practicalResult != null)
+                                <span>
+							{{($list->practicalResult)}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->physicalReport != null)
+                                <span>
+							{{($list->physicalReport)}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->remarks != null)
+                                <span>
+							{{($list->remarks)}}</span>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             @endif
 
             @if($data->master->isiReportType == "FORWARD")
+                <tbody>
+                @foreach ($data->details as $index => $list)
+                    <tr>
+                        <td style="width: 10%; padding: 2px; ">{{($index+1)}} .</td>
+                        <td style="text-align: left;">
+                            @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemName != null)
+                                <span>{{optional($list->sampleRegisterDetails)->itemName}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
+                                <span>
+                                {{($list->sampleRegisterDetails->receiveQty)}}</span>
+                            @endif</td>
+                        <td>
+                            @if($list->consumptionRate != null)
+                                <span>
+							{{($list->consumptionRate)}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->remarks != null)
+                                <span>
+							{{($list->remarks)}}</span>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            @endif
+
+            @if($data->master->isiReportType == null)
                 <tbody>
                 @foreach ($data->details as $index => $list)
                     <tr>
@@ -136,10 +201,20 @@ $data = json_decode($val['data']);
                         <td>
                             @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
                                 <span>
-                                {{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}}</span>
+							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}}</span>
                             @endif</td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            @if($list->practicalResult != null)
+                                <span>
+							{{($list->practicalResult)}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if($list->remarks != null)
+                                <span>
+							{{($list->remarks)}}</span>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
