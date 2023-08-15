@@ -83,7 +83,7 @@
                         <th style="width: 10%; padding: 2px; ">ক্রঃ</th>
                         <th style="width: 40%; padding: 2px; ">দ্রব্যের বিবরণ </th>
                         <th style="width: 20%; padding: 2px; ">পরিমাণ </th>
-                        <th style="width: 20%; padding: 2px; ">Consumtion Rate/Million </th>
+                        <th style="width: 20%; padding: 2px; ">C.R/Mill </th>
                         <th style="width: 10%; padding: 2px; ">ব্যবহারকরী শাখার নাম </th>
                     </tr>
                 </thead>
@@ -99,10 +99,18 @@
 						<td>
 						@if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
                             <span>
-							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}}</span>
+							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}} No</span>
                             @endif</td>
-						<td></td>
-						<td></td>
+						<td>
+						@if($list != null && $list->consumptionRate != null)
+                            <span>
+							{{$Controller::enToBnConveter($list->consumptionRate)}}</span>
+                            @endif</td>
+						<td>
+						@if($list->departmentName != null && $list->departmentName->banglaName != null)
+                            <span>
+							{{$list->departmentName->banglaName}}</span>
+                            @endif</td>
 					</tr>
 					@endforeach
 		 </table>
