@@ -103,8 +103,8 @@ $data = json_decode($val['data']);
                         @endif
                     </td>
                     <td>
-                        @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemSpecification != null)
-                            <span>{{optional($list->sampleRegisterDetails)->itemSpecification}}</span>
+                        @if($list->itemSpecification != null)
+                            <span>{{optional($list->itemSpecification)}}</span>
                         @endif
                     </td>
                 </tr>
