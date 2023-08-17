@@ -104,7 +104,7 @@ $data = json_decode($val['data']);
                     </td>
                     <td>
                         @if($list->itemSpecification != null)
-                            <span>{{optional($list->itemSpecification)}}</span>
+                            <span>{{optional($list)->itemSpecification}}</span>
                         @endif
                     </td>
                 </tr>
