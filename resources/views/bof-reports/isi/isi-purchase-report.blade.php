@@ -45,7 +45,7 @@ $data = json_decode($val['data']);
                 <br>
                 <u>বাংলাদেশ সমরাস্ত্র কারখানা (বি ও এফ)</u>
                 <br>
-                (আই এস আই শাখা)
+                (ক্রয় শাখা)
 
             </td>
             <td style="width: 33%; text-align: center;">
@@ -81,9 +81,8 @@ $data = json_decode($val['data']);
             <thead>
             <tr>
                 <th style="width: 10%; padding: 2px; ">ক্রঃ</th>
-                <th style="width: 35%; padding: 2px; ">দ্রব্যের নাম</th>
+                <th style="width: 70%; padding: 2px; ">পণ্যের নাম ও বিবরণ</th>
                 <th style="width: 20%; padding: 2px; ">পরিমাণ</th>
-                <th style="width: 35%; padding: 2px; ">দ্রব্যের বিবরণ</th>
             </tr>
             </thead>
 
@@ -93,18 +92,17 @@ $data = json_decode($val['data']);
                     <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
                     <td>
                         @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemName != null)
-                            <span>{{optional($list->sampleRegisterDetails)->itemName}}</span>
+                            <span>{{optional($list->sampleRegisterDetails)->itemName}} ,</span>
+                        @endif
+
+                        @if($list->itemSpecification != null)
+                            <span>{{optional($list)->itemSpecification}}</span>
                         @endif
                     </td>
                     <td>
                         @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
                             <span>
 							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}} পিছ </span>
-                        @endif
-                    </td>
-                    <td>
-                        @if($list->itemSpecification != null)
-                            <span>{{optional($list)->itemSpecification}}</span>
                         @endif
                     </td>
                 </tr>
