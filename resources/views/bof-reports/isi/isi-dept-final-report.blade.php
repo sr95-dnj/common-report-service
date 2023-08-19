@@ -93,7 +93,8 @@ $data = json_decode($val['data']);
                     <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
                     <td style="text-align: left;">
                         @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemName != null)
-                            <span>{{optional($list->sampleRegisterDetails)->itemName}}</span>
+                            <span>{{optional($list->sampleRegisterDetails)->itemName}}</span><br>
+                            <span style="font-size: 12px;">{{optional($list)->itemSpecification}}</span>
                         @endif
                     </td>
                     <td>
