@@ -114,8 +114,8 @@ $data = json_decode($val['data']);
                     </td>
                     <td style="text-align: left;">
                         @if($list->remarks != null)
-                            <span>
-							{{($list->remarks)}}</span>
+                            {!! (optional($list)->remarks) !!}
+                            <span></span>
                         @endif
                     </td>
                 </tr>
