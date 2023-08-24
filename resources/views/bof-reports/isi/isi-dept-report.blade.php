@@ -36,7 +36,7 @@ $bn = [];
 $data = json_decode($val['data']);
 ?>
 
-<div style="font-size: 24px; ">
+<div style="font-size: 24px; margin-top: 5px; ">
     <table width="100%">
         <tr>
             <td style="width: 33%"></td>
@@ -67,7 +67,7 @@ $data = json_decode($val['data']);
             </td>
         </tr>
         <tr>
-            <td>{!! (optional($data->master)->reference) !!}</td>
+            <td>{!! $Controller::enToBnConveter(optional($data->master)->reference) !!}</td>
         </tr>
         <tr>
             <td style="width: 100% !important; text-align: left;">
@@ -92,7 +92,7 @@ $data = json_decode($val['data']);
                     @endif
                     @if($data->master->chemical)
                         <span>
-							মন্তব্য
+							প্রয়োজনীয় পরীক্ষা
                         </span>
                     @endif
                 </th>
@@ -101,31 +101,29 @@ $data = json_decode($val['data']);
             <tbody>
             @foreach ($data->details as $index => $list)
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
+                    <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} </td>
                     <td>
                         @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemName != null)
-                            <span>{{optional($list->sampleRegisterDetails)->itemName}}</span><br>
+                            {{optional($list->sampleRegisterDetails)->itemName}}<br>
                         @endif
-                        <span>{{optional($list)->itemSpecification}}</span>
+                        {{optional($list)->itemSpecification}}
                     </td>
                     <td>
                         @if($list->qty != null)
-                            <span>
-							{{$Controller::enToBnConveter(optional($list)->qty)}}</span>
-                        @endif</td>
+							{{$Controller::enToBnConveter(optional($list)->qty)}}
+                        @endif
+                    </td>
                     <td>
-                        @if($list != null && $list->consumptionRate != null)
-                            <span>
-							{{$Controller::enToBnConveter($list->consumptionRate)}}</span>
-                        @endif</td>
+                        @if($list->consumptionRate != null)
+							{{$Controller::enToBnConveter(optional($list)->consumptionRate)}}
+                        @endif
+                    </td>
                     <td>
                         @if($data->master->chemical)
-                            <span>
-							{{$list->remarks}}</span>
+							{{$list->remarks}}
                         @endif
                         @if(!$data->master->chemical)
-                            <span>
-							{{$list->remarks}}</span>
+							{{$list->departmentNameList}}
                         @endif
                     </td>
                 </tr>
@@ -158,7 +156,7 @@ $data = json_decode($val['data']);
                             null && $data->master->manager->employeeOfficialInformation->designation != null
                             && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
                             )
-                                <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                                <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }} আইএসআই </span>
                             @endif
 
                             <div>
