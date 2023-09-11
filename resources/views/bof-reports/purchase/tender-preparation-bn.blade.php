@@ -102,18 +102,37 @@
                     <td style="width: 7%" class="rootTable text-center">Qty</td>
                     <td style="width: 30%" class="rootTable text-center">Rate(Unit Price)</td>
                 </tr>
+                 @foreach ($data->details as $index => $list)
                 <tr>
+                <td class="rootTable text-center" style="width: 5%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
+                    <td class="rootTable text-left" style="width: 30%; padding: 2px; ">
+                    @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null)
+                         <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemNameBn}} </sapn>
+                    @endif
+                    </td>
                     <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
+                    <td class="rootTable text-center">
+                     @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null && $list->mcFinalIndentDetails->folioNo->mcItemUnit != null)
+                         <sapn>{{optional($list->mcFinalIndentDetails->folioNo->mcItemUnit)->nameBn}} </sapn>
+                     @endif
+                    </td>
+                    <td class="rootTable text-center">
+                    @if($list->mcFinalIndentDetails != null)
+                         <sapn>{{$Controller::entoBn($list->mcFinalIndentDetails->indentQty ,'number')}} </sapn>
+                    @endif
+                    </td>
+                    <td class="rootTable text-center">
+                    @if($list->mcFinalIndentDetails != null)
+                         <sapn>{{$Controller::entoBn($list->mcFinalIndentDetails->unitRate ,'number')}} </sapn>
+                    @endif
+                    </td>
                 </tr>
+                 @endforeach
             </table>
+            <br>
         <table width="100%">
             <tr>
-                <td></td>
+             <td>{!! (optional($data)->termsAndCondition) !!}</td>
             </tr>
         </table>
 
