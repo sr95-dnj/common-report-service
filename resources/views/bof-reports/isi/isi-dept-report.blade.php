@@ -12,7 +12,7 @@
             margin-top: 5px;
         }
 
-        .borderTable{
+        .borderTable {
             border: 1px solid;
             border-collapse: collapse;
             text-align: center;
@@ -29,18 +29,19 @@
 </head>
 
 
-<body>
+<body style="margin-top: 20px;">
 <?php
 $en = [];
 $bn = [];
 $data = json_decode($val['data']);
 ?>
 
-<div style="font-size: 24px; ">
+<div style="font-size: 24px; margin-top: 5px; ">
     <table width="100%">
         <tr>
             <td style="width: 33%"></td>
             <td style="width: 34%; text-align: center;">
+                <br><br>
                 সীমিত
                 <br>
                 <u>বাংলাদেশ সমরাস্ত্র কারখানা (বি ও এফ)</u>
@@ -56,7 +57,7 @@ $data = json_decode($val['data']);
     </table>
     <table width="100%">
         <tr>
-            <td>এল এম  <br>
+            <td>এল এম <br>
                 {{$Controller::enToBnConveter($data->master ? $data->master->lmNo : '')}}
             </td>
         </tr>
@@ -66,7 +67,7 @@ $data = json_decode($val['data']);
             </td>
         </tr>
         <tr>
-            <td>{!! (optional($data->master)->reference) !!}</td>
+            <td>{!! $Controller::enToBnConveter(optional($data->master)->reference) !!}</td>
         </tr>
         <tr>
             <td style="width: 100% !important; text-align: left;">
@@ -80,38 +81,51 @@ $data = json_decode($val['data']);
         <table class="center tbBorder" style="text-align: center; padding: 5px;">
             <thead>
             <tr>
-                <th style="width: 10%; padding: 2px; ">ক্রঃ</th>
-                <th style="width: 40%; padding: 2px; ">দ্রব্যের বিবরণ </th>
-                <th style="width: 20%; padding: 2px; ">পরিমাণ </th>
-                <th style="width: 20%; padding: 2px; ">Consumtion Rate/Million </th>
-                <th style="width: 10%; padding: 2px; ">ব্যবহারকরী শাখার নাম </th>
+                <th style="width: 5%; padding: 2px; ">ক্রঃ</th>
+                <th style="width: 30%; padding: 2px; ">দ্রব্যের বিবরণ</th>
+                <th style="width: 10%; padding: 2px; ">পরিমাণ</th>
+                <th style="width: 15%; padding: 2px; ">Consumtion Rate/Million</th>
+
+                <th style="width: 30%; padding: 2px; ">
+                    @if(!$data->master->chemical)
+                        ব্যবহারকরী শাখার নাম
+                    @endif
+                    @if($data->master->chemical)
+                        <span>
+							প্রয়োজনীয় পরীক্ষা
+                        </span>
+                    @endif
+                </th>
             </tr>
             </thead>
             <tbody>
             @foreach ($data->details as $index => $list)
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} |</td>
+                    <td style="width: 10%; padding: 2px; ">{{$Controller::enToBnConveter($index+1,'number')}} </td>
                     <td>
                         @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->itemName != null)
-                            <span>{{optional($list->sampleRegisterDetails)->itemName}}</span><br>
-                            <span style="font-size: 12px;">{{optional($list)->itemSpecification}}</span>
+                            {{optional($list->sampleRegisterDetails)->itemName}}<br>
+                        @endif
+                        {{optional($list)->itemSpecification}}
+                    </td>
+                    <td>
+                        @if($list->qty != null)
+							{{$Controller::enToBnConveter(optional($list)->qty)}}
                         @endif
                     </td>
                     <td>
-                        @if($list->sampleRegisterDetails != null && $list->sampleRegisterDetails->receiveQty != null)
-                            <span>
-							{{$Controller::enToBnConveter($list->sampleRegisterDetails->receiveQty)}} No</span>
-                        @endif</td>
+                        @if($list->consumptionRate != null)
+							{{$Controller::enToBnConveter(optional($list)->consumptionRate)}}
+                        @endif
+                    </td>
                     <td>
-                        @if($list != null && $list->consumptionRate != null)
-                            <span>
-							{{$Controller::enToBnConveter($list->consumptionRate)}}</span>
-                        @endif</td>
-                    <td>
-                        @if($list->departmentName != null && $list->departmentName->banglaName != null)
-                            <span>
-							{{$list->departmentName->banglaName}}</span>
-                        @endif</td>
+                        @if($data->master->chemical)
+							{{$list->remarks}}
+                        @endif
+                        @if(!$data->master->chemical)
+							{{$list->departmentNameList}}
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </table>
@@ -142,8 +156,13 @@ $data = json_decode($val['data']);
                             null && $data->master->manager->employeeOfficialInformation->designation != null
                             && $data->master->manager->employeeOfficialInformation->designation->banglaName != null
                             )
-                                <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }}</span>
+                                <span>{{ optional($data->master->manager->employeeOfficialInformation->designation)->banglaName }} আইএসআই </span>
                             @endif
+
+                            <div>
+                                পক্ষে পরিচালক পরিকল্পনা ও সংরক্ষণ <br>
+                                ফোনঃ ৪২২২
+                            </div>
 
 
                         </div>
@@ -160,11 +179,13 @@ $data = json_decode($val['data']);
             </table>
 
         </div>
+    </div>
 
-        <footer style="position: fixed; bottom: 0; width: 100%; text-align: center">
-            <p>
-                সীমিত
-            </p>
-        </footer>
+</div>
+<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+    <p>
+        সীমিত
+    </p>
+</footer>
 
 </body>
