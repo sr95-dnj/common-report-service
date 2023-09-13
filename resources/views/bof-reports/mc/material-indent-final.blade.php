@@ -96,7 +96,6 @@
                             </tr>
                         </table>
                         <br><br>
-                        <br><br>
                         <table width="95%" class="top-border bottom-border">
                             <tr class="top-border bottom-border">
                                 <td class="top-border bottom-border right-border text-center" style="width: 10% !important;">
@@ -130,13 +129,13 @@
                                 <td>বিশেষ নির্দেশ</td>
                             </tr>
                         </table>
-                        <br><br><br>
+                        <br><br>
                         <table width="90%" style="border-top: 1px solid;  padding-right: 20px;">
                             <tr>
                                 <td>ইন্ডেন্টের দ্রবগুলোর বিশদ বিবরণ আই, এ এন্ড ই /আইএ আই কর্তৃক পরীক্ষিত /অনুমোদিত </td>
                             </tr>
                         </table>
-                        <br><br><br><br>
+                        <br><br>
 
                         <table>
                             <tr>
@@ -386,8 +385,16 @@
                         @endif
                     </td>
                     <td class="rootTable"></td>
-                    <td class="rootTable text-center"></td>
-                    <td class="rootTable text-center"></td>
+                    <td class="rootTable text-center">
+                        @foreach ($item->userSections as $indx => $user)
+                            @if($user != null)
+                                {{($user->name)}},<br>
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="rootTable text-center">
+
+                    </td>
                     <td class="rootTable text-left">
                         @if($item->countryOfOrigin)
                             {{($item->countryOfOrigin)}}

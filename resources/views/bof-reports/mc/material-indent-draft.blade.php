@@ -146,23 +146,31 @@
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->unitRate != null)
-                                    {{($item->unitRate)}}
+                                    {{($item->unitRate ? $item->unitRate : 0)}}
                                 @endif
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->totalValue != null)
-                                    {{($item->totalValue)}}
+                                    {{($item->totalValue ? $item->totalValue : 0)}}
                                 @endif
                             </td>
                             <td class="rootTable"></td>
-                            <td class="rootTable text-center"></td>
+                            <td class="rootTable text-center">
+                                @foreach ($item->userSections as $indx => $user)
+                                    @if($user != null)
+                                        {{($user->name)}},<br>
+                                    @endif
+                                @endforeach
+                            </td>
                             <td class="rootTable text-center">
                                 @if($item->presentStock != null)
                                     {{($item->presentStock)}}
                                 @endif
                             </td>
                             <td class="rootTable text-center">
-
+                                @if($item->countryOfOrigin != null)
+                                    {{($item->countryOfOrigin)}}
+                                @endif
                             </td>
                             <td class="rootTable">
                                 @if($item->remarks != null)
@@ -286,7 +294,11 @@
                                     {{($item->productionDistributionYr)}}
                                 @endif
                             </td>
-                            <td class="rootTable top-align text-center"></td>
+                            <td class="rootTable top-align text-center">
+                                @if($item->requiredQty != null)
+                                    {{($item->requiredQty - $item->presentStock - $item->pipeLine)}}
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </table>
