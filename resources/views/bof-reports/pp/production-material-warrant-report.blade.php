@@ -313,12 +313,12 @@
                 <table class="rootTable" width="100%">
                     <thead>
                     <tr>
-                        <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
-                        <td class="rootTable text-center" style="width: 12%">একক</td>
-                        <td class="rootTable text-center" style="width: 12%">চাহিদার পরিমান বা ওজন</td>
-                        <td class="rootTable text-center" style="width: 12%">দেয়  পরিমান বা ওজন  </td>
-                        <td class="rootTable text-center" style="width: 12%">মোট  পরিমান বা ওজন </td>
-                        <td class="rootTable text-center" style="width: 26%">তলবি নোট নম্বর ও তারিখ</td>
+                        <th class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</th>
+                        <th class="rootTable text-center" style="width: 12%">একক</th>
+                        <th class="rootTable text-center" style="width: 12%">চাহিদার পরিমান বা ওজন</th>
+                        <th class="rootTable text-center" style="width: 12%">দেয়  পরিমান বা ওজন  </th>
+                        <th class="rootTable text-center" style="width: 12%">মোট  পরিমান বা ওজন </th>
+                        <th class="rootTable text-center" style="width: 26%">তলবি নোট নম্বর ও তারিখ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -344,11 +344,11 @@
                 <table class="rootTable" width="100%">
                     <thead>
                     <tr>
-                        <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
-                        <td class="rootTable text-center" style="width: 10%">একক</td>
-                        <td class="rootTable text-center" style="width: 15%">চাহিদার পরিমান বা ওজন</td>
-                        <td class="rootTable text-center" style="width: 15%">মোট  পরিমান বা ওজন </td>
-                        <td class="rootTable text-center" style="width: 26%">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ</td>
+                        <th class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</th>
+                        <th class="rootTable text-center" style="width: 10%">একক</th>
+                        <th class="rootTable text-center" style="width: 15%">চাহিদার পরিমান বা ওজন</th>
+                        <th class="rootTable text-center" style="width: 15%">মোট  পরিমান বা ওজন </th>
+                        <th class="rootTable text-center" style="width: 26%">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -374,13 +374,13 @@
                 <table class="rootTable" width="100%">
                     <thead>
                     <tr>
-                        <td class="rootTable text-center" style="width: 15%">তারিখ</td>
-                        <td class="rootTable text-center" style="width: 15%">সংখ্যা /সেট </td>
-                        <td class="rootTable text-center" style="width: 20%">গ্রহণকারী / পরিদর্শন </td>
-                        <td class="rootTable text-center" style="width: 20%"> পরিদর্শন নোটের নম্বর </td>
-                        <td class="rootTable text-center" style="width: 10%"> তারিখ</td>
-                        <td class="rootTable text-center" style="width: 10%"> বাকী</td>
-                        <td class="rootTable text-center" style="width: 10%">বাতিল </td>
+                        <th class="rootTable text-center" style="width: 15%">তারিখ</th>
+                        <th class="rootTable text-center" style="width: 15%">সংখ্যা /সেট </th>
+                        <th class="rootTable text-center" style="width: 20%">গ্রহণকারী / পরিদর্শন </th>
+                        <th class="rootTable text-center" style="width: 20%"> পরিদর্শন নোটের নম্বর </th>
+                        <th class="rootTable text-center" style="width: 10%"> তারিখ</th>
+                        <th class="rootTable text-center" style="width: 10%"> বাকী</th>
+                        <th class="rootTable text-center" style="width: 10%">বাতিল </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -408,11 +408,11 @@
                 <table class="rootTable" width="100%">
                     <thead>
                     <tr>
-                        <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
-                        <td class="rootTable text-center" style="width: 35%">প্রক্রিয়া বিবরণী </td>
-                        <td class="rootTable text-center" style="width: 25%">পরিবর্তিত হার  </td>
-                        <td class="rootTable text-center" style="width: 10%"> একক / প্রতি  </td>
-                        <td class="rootTable text-center" style="width: 20%"> প্রাধিকার নং </td>
+                        <th class="rootTable text-center" style="width: 10%">ক্রমিক</th>
+                        <th class="rootTable text-center" style="width: 35%">প্রক্রিয়া বিবরণী </th>
+                        <th class="rootTable text-center" style="width: 25%">পরিবর্তিত হার  </th>
+                        <th class="rootTable text-center" style="width: 10%"> একক / প্রতি  </th>
+                        <th class="rootTable text-center" style="width: 20%"> প্রাধিকার নং </th>
                     </tr>
                     </thead>
                     <tbody>
