@@ -81,7 +81,7 @@
                         <h3>
                             <u>Annexure - A TO</u><br>
                             <u>Tender NO. {{$data-> tenderNo}}</u><br>
-                            <u>Date {{$Controller::dateFormatter($data->createdDate)}}  </u><br>
+                            <u>Date {{$Controller::dateFormatter($data->createdDate)}} </u><br>
                         </h3>
                     </td>
                 </tr>
@@ -89,68 +89,62 @@
             <table width="100%">
                 <tr>
                     <td style="width: 100% !important; text-align: center;">
-                        <h3><strong><u>NECESSARY DETAILS</u></strong></h3>
+                        <h3><strong><u>DETAILS OF THE MACHINE</u></strong></h3>
                     </td>
                 </tr>
             </table>
             <table class="rootTable" width="100%">
                 <tr class="rootTable">
-                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">Ser</td>
-                    <td style="width: 30%; padding: 2px;" class="rootTable text-center">Name of item & Specification</td>
-                    <td style="width: 8%; padding: 2px;" class="rootTable text-center">Unit</td>
-                    <td style="width: 7%; padding: 2px;" class="rootTable text-center">Qty</td>
-                    <td style="width: 15%; padding: 2px;" class="rootTable text-center">Unit Price (In figure & word)</td>
-                    <td style="width: 15%; padding: 2px;" class="rootTable text-center">Total Price (In figure & word)</td>
-                    <td style="width: 20%; padding: 2px;" class="rootTable text-center">Remarks</td>
+                    <td style="width: 20%; padding: 2px;" class="rootTable text-center">Name Of Machine</td>
+                    <td style="width: 70%; padding: 2px;" class="rootTable text-center">Specification</td>
+                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">A/U</td>
+                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">Qty</td>
+                </tr>
+                <tr class="rootTable">
+                    <td style="width: 20%; padding: 2px;" class="rootTable text-center">(a)</td>
+                    <td style="width: 70%; padding: 2px;" class="rootTable text-center">(b)</td>
+                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">(c)</td>
+                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">(d)</td>
                 </tr>
                  @foreach ($data->details as $index => $list)
                 <tr>
-                <td class="rootTable text-center" style="width: 5%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
-                    <td class="rootTable text-left" style="width: 30%; padding: 2px; ">
+                    <td class="rootTable text-center" style="width: 20%; padding: 2px; ">
                     @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null)
-                         <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemNameBn}} </sapn><br>
-                         <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemSpecification}} </sapn>
+                         <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemNameBn}} </sapn>
                     @endif
                     </td>
-                    <td class="rootTable text-center" style="width: 8%; padding: 2px; ">
-                        @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null && $list->mcFinalIndentDetails->folioNo->mcItemUnit != null)
-                            <sapn>{{optional($list->mcFinalIndentDetails->folioNo->mcItemUnit)->nameBn}} </sapn>
-                        @endif
+
+                    <td class="rootTable text-left" style="width: 70%; padding: 2px; ">
+                    @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null)
+                         <sapn>
+                         {!! (optional($list->mcFinalIndentDetails->folioNo)->itemLongSpecification) !!}</sapn>
+                    @endif
                     </td>
-                    <td class="rootTable text-center" style="width: 7%; padding: 2px; ">
+                    <td class="rootTable text-center" style="width: 5%; padding: 2px; ">
+                       No
+                    </td>
+                    <td class="rootTable text-center" style="width: 5%; padding: 2px; ">
                       @if($list->mcFinalIndentDetails != null)
-                           <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->indentQty)}} </sapn>
+                           <sapn>{{$list->mcFinalIndentDetails->indentQty}} </sapn>
                       @endif
                     </td>
-                    <td class="rootTable text-center" style="width: 15%; padding: 2px; ">
-                    @if($list->mcFinalIndentDetails != null)
-                         <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->unitRate)}} </sapn>
-                    @endif
-                    </td>
-                    <td class="rootTable text-center" style="width: 15%; padding: 2px; ">
-                    @if($list->mcFinalIndentDetails != null)
-                        <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->totalValue)}} </sapn>
-                    @endif
-                    </td>
-                    <td class="rootTable text-center" style="width: 20%; padding: 2px; ">
-                    @if($list->remarks != null)
-                       <sapn>{{$list->remarks}} </sapn>
-                    @endif
-                   </td>
-
-
 
                 </tr>
                  @endforeach
             </table>
             <br>
-        <table width="100%">
+
+    <table width="100%">
+
+    <tr>
+     <td><strong><u>Terms and Conditions</u></strong></td>
+    </tr>
             <tr>
              <td>{!! (optional($data)->termsAndCondition) !!}</td>
             </tr>
         </table>
 
-        <table width="100%">
+        {{--     <table width="100%">
             <tr>
                 <td style="width: 50%">&nbsp;</td>
                 <td style="width: 50%; text-align: center;">
@@ -168,7 +162,7 @@
                 </td>
 
             </tr>
-        </table>
+        </table> --}}
 
 
     </div>
