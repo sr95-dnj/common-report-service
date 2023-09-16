@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 
@@ -9,7 +10,10 @@
 
     <style>
         @page {
-            margin-top: 5%;
+            margin-top: 10px;
+        }
+        @media print {
+            .page-break {page-break-after: always;}
         }
 
         /* table,
@@ -37,147 +41,270 @@ $bn = [];
 $data = json_decode($val['data']);
 ?>
 
-<div style="font-size: 24px; ">
+<div>
+
+    <header style="position: fixed; top: 2%; width: 100%; text-align: center">
+        <p>
+            RESTRICTED
+        </p>
+    </header>
+
     <table width="100%">
         <tr>
-            <td style="width: 25%"></td>
-            <td style="width: 50%; text-align: center;">
-                BANGLADESH ORDNANCE FACTORY (BOF) <br>
-                GAZIPUR CANTONMENT, GAZIPUR-1703
-                web: www.bof.gov.bd, email: <br>
-                <u>man.pur.admin@bof.gov.bd</u>
-            </td>
-            <td style="width: 25%; text-align: center;">
+            <td style="width: 70%"></td>
+            <td style="width: 30%; text-align: left;">
+                <u>ANNEX - G TO</u> <br>
+                <u>TENDER NO: </u> <br>
+                <u>DATED:</u>
             </td>
         </tr>
     </table>
 
+    <br>
+    <br>
+
+    <!-- subject part -->
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: center;"><b><u>QUALITY ASSURANCE CERTIFICATE (QAC)</u></b></td>
+        </tr>
+    </table>
 
     <br>
 
-    <!--main start-->
+    <br>
 
-    <div style="text-align: center;">
-        <table class="center tbBorder" style="text-align: center; padding: 5px;">
-            <thead>
-            <tr>
-                <td style="width: 10%; padding: 2px; ">ক্রমিক</td>
-                <td style="width: 40%; padding: 2px; ">বিষয়</td>
-                <td style="width: 50%; padding: 2px; ">বিবরণ</td>
-            </tr>
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">1. As per Bangladesh Ordnance Factories (BOF) Contract No .................................................
+                Dated .................. for the procurement of items mentioned in paragraph 2 below, the concerned involved from seller are:
+            </td>
+        </tr>
+    </table>
 
-            </thead>
-
-            <tbody>
-            <tr>
-                <td>১</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র নম্বর ও তারিখ</span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
+    <br>
 
 
-            <tr>
-                <td>২</td>
+    <table width="100%" style="margin-left: 4%; margin-right: 4%">
+        <tr class="tbBorder">
+            <td>
+                <b>Supplier:</b>
+                <br>
+                <span>(As mentioned in the contract with address and other contract information including the email address)</span>
+            </td>
 
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে এসিসিডিএফ(বিওএফ ) কর্তৃক আর্থিক স্বীকৃতি </span>
-                </td>
+            <td>
+                <b>Quality Control Department of Manufacturer:</b>
+                <br>
+                <span>(Address and other contract information including the email address)</span>
 
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৩</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে পণ্যের নাম , পরিমান ও সংখ্যা </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
+            </td>
+        </tr>
 
 
-            <tr>
-                <td>৪</td>
+        <tr class="tbBorder">
+            <td>
+                <b>Manufacturer:</b>
+                <br>
+                <span>(As mentioned in the contract with address and other contract information and stamped seal to be used)</span>
+            </td>
 
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র প্রাপ্তির  তারিখ </span>
-                </td>
+            <td>
+                <b>Local Agent:</b>
+                <br>
+                <span>As mentioned in the contract with address and other contract information and stamped seal to be used)</span>
 
-                <td style="text-align: center;">
-                </td>
-            </tr>
+            </td>
+        </tr>
 
 
-            <tr>
-                <td>৫</td>
 
-                <td style="text-align: center;">
-                    <span>দরপত্র নম্বর ও তারিখ </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td>৬</td>
-
-                <td style="text-align: center;">
-                    <span>বিওএফ এর ওয়েব সাইডে বিজ্ঞপ্তি প্রকাশের জন্য উপস্থাপন </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td> ৭</td>
-
-                <td style="text-align: center;">
-                    <span>মন্তব্য </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    </table>
 
     <br>
 
 
     <table width="100%">
         <tr>
+            <td style="text-align: left;">
+                2. Stores : (List of stores to be provided for which QAC is submitted as mentioned in the contract including following information,
+                separate sheets may be enclosed, if required):
+            </td>
+
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="100%" style="margin-left: 4%;">
+    <tr>
+        <td style="text-align: left;">
+            a.	Inventory Inspection.
+        </td>
+
+    </tr>
+    </table>
+
+
+    <table width="100%" class="center tbBorder" style="margin-left: 4%; margin-right: 4%">
+        <thead>
+        <tr>
+            <th style="padding: 2px; ">Ser</th>
+            <th style="padding: 2px; ">Nomenclature/Brand/ Model/Part Number/ Factory Code/Lot Number/Year of Production</th>
+            <th style="padding: 2px; ">A/U</th>
+            <th style="padding: 2px; ">Quantity</th>
+            <th style="padding: 2px; ">Quantities Physically Found During Inspection by the Quality Control Department of OEM</th>
+            <th style="padding: 2px; ">Remarks</th>
+        </tr>
+        <tr>
+            <th style="padding: 2px; ">a</th>
+            <th style="padding: 2px; ">b</th>
+            <th style="padding: 2px; ">c</th>
+            <th style="padding: 2px; ">d</th>
+            <th style="padding: 2px; ">e</th>
+            <th style="padding: 2px; ">f</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                It is to certify that the equipment/stores are found correct and all the quantity found as per contract.
+            </td>
+
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="100%" style="margin-left: 4%; margin-right: 4%">
+        <tr class="tbBorder">
             <td>
-                <span>De...</span>
-            </td>
-
-            <td style="width: 30%">
-            </td>
-
-            <td>
-                <span>APO...</span>
-            </td>
-
-            <
-            <td style="width: 30%">
+                <br>
+                __________________ <br>
+                Sign by Supplier <br>
+                Name: <br>
+                Designation: <br>
+                Address (Including the email address): <br>
+                Date:
             </td>
 
             <td>
-                <span>PO...</span>
+                <br>
+                __________________ <br>
+                Sign by Manufacturer <br>
+                Quality Control Department <br>
+                Name: <br>
+                Designation: <br>
+                Address (Including the email address): <br>
+                Date:
+
+
             </td>
         </tr>
     </table>
+
+    <br>
+    <br>
+
+
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                3.	Inspection of Technical Specification (As Per Contract) .
+                The Quality Control Department of Manufacturer will check the functionality of the stores as per technical specifications.
+                All Technical parameters are to be checked one by one as mentioned in the contract.
+                If, for any reason cannot be checked, it will be mentioned in the remarks column as under :
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="100%" class="center tbBorder" style="margin-left: 4%; margin-right: 4%">
+        <thead>
+        <tr>
+            <th style="padding: 2px; ">Ser</th>
+            <th style="padding: 2px; ">Description as Per Contract</th>
+            <th style="padding: 2px; ">Technical  Specifications as Per Contract</th>
+            <th style="padding: 2px; ">Functional Condition Physically Found During Inspection by the Quality Control Department of OEM</th>
+            <th style="padding: 2px; ">Remarks</th>
+        </tr>
+        <tr>
+            <th style="padding: 2px; ">a</th>
+            <th style="padding: 2px; ">b</th>
+            <th style="padding: 2px; ">c</th>
+            <th style="padding: 2px; ">d</th>
+            <th style="padding: 2px; ">e</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                <p>4. <u>QAC related Documents/Certificates.</u>
+                    <br>
+                    <br>
+                    Following documents/certificates are to be furnished with the QAC. All test/inspection result/results
+                    which was/were conducted by the quality control department of manufacturer are to be furnished including the following: <br> <br>
+                    a.	Cetificate of country of origin. <br>
+                    b. 	Cetificate of country of manufacture. <br>
+                    c. 	Cetificate of year of production. <br>
+                    d. 	Cetificate of warranty as specified in the contract. <br>
+                    e. 	Cetificate of quality assurance and genuineness. <br>
+                    f.	Certificate of after sales service as specified in the contract (if applicable). <br>
+                    g.	Functionality test (s) certificate (s) for fulfillment the technical specification as per contract. <br>
+                    h.	Laboratory test (s) certificate(s) for fulfillment of  the technical specification as per contract. <br>
+                    j.	Any other certificate as mentioned in the contract or deemed necessary. <br>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+
+
+
 </div>
+
+
+<footer style="position: fixed; bottom: 0; width: 100%; text-align: center">
+    <p>
+        G - 2 <br>
+        RESTRICTED
+
+    </p>
+</footer>
 
 </body>
