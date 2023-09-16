@@ -42,7 +42,7 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 70%"></td>
             <td style="width: 30%; text-align: left;">
-                <u>ANNEX- F TO</u> <br>
+                <u>ANNEX - E TO</u> <br>
                 <u>TENDER NO: </u> <br>
                 <u>DATED:</u>
             </td>
