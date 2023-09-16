@@ -65,7 +65,7 @@ $data = json_decode($val['data']);
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <img src="/resources/assets/image/img.png" alt="">
+                <img src="{{ asset('images/img.png') }}" alt="Image Alt Text">
             </td>
         </tr>
     </table>
@@ -168,10 +168,13 @@ $data = json_decode($val['data']);
     <br>
 
 
+    <div class="page-break"></div>
+
+
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <img src="/resources/assets/image/img.png" alt="">
+                <img src="/public/image/img.png" alt="">
             </td>
         </tr>
     </table>
@@ -228,11 +231,13 @@ $data = json_decode($val['data']);
     <br>
     <br>
 
+    <div class="page-break"></div>
+
 
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <img src="/resources/assets/image/img.png" alt="">
+                <img src="/public/image/img.png" alt="">
             </td>
         </tr>
     </table>

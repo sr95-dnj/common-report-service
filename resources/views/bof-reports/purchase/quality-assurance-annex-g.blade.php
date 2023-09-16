@@ -10,7 +10,7 @@
 
     <style>
         @page {
-            margin-top: 10px;
+            margin-top: 5%;
         }
         @media print {
             .page-break {page-break-after: always;}
@@ -168,12 +168,12 @@ $data = json_decode($val['data']);
         </thead>
         <tbody>
         <tr>
-            <td style="padding: 2px; "> </td>
-            <td style="padding: 2px; "> </td>
-            <td style="padding: 2px; "> </td>
-            <td style="padding: 2px; "> </td>
-            <td style="padding: 2px; "> </td>
-            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> &nbsp; </td>
+            <td style="padding: 2px; ">&nbsp; </td>
+            <td style="padding: 2px; ">&nbsp; </td>
+            <td style="padding: 2px; ">&nbsp; </td>
+            <td style="padding: 2px; ">&nbsp; </td>
+            <td style="padding: 2px; "> &nbsp;</td>
         </tr>
         </tbody>
     </table>
@@ -223,6 +223,9 @@ $data = json_decode($val['data']);
     <br>
 
 
+    <div class="page-break"></div>
+
+
 
     <table width="100%">
         <tr>
@@ -256,7 +259,7 @@ $data = json_decode($val['data']);
         </thead>
         <tbody>
         <tr>
-            <td style="padding: 2px; "> </td>
+            <td style="padding: 2px; "> &nbsp;</td>
             <td style="padding: 2px; "> </td>
             <td style="padding: 2px; "> </td>
             <td style="padding: 2px; "> </td>
@@ -265,8 +268,6 @@ $data = json_decode($val['data']);
         </tbody>
     </table>
 
-    <br>
-    <br>
     <br>
     <br>
 
