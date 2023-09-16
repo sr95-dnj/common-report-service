@@ -40,11 +40,21 @@ $data = json_decode($val['data']);
 <div>
     <table width="100%">
         <tr>
-            <td style="width: 70%"></td>
-            <td style="width: 30%; text-align: left;">
+            <td style="width: 60%"></td>
+            <td style="width: 40%; text-align: left;">
                 <u>ANNEX - E TO</u> <br>
-                <u>TENDER NO: </u> <br>
+                <u>TENDER NO: </u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->tenderNo != null)
+                        <span>{{($data->tenderPreparation->tenderNo)}}</span>
+                    @endif
+                </span> <br>
                 <u>DATED:</u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->prepareDate != null)
+                        <span>{{$Controller::dateFormatter(optional($data)->tenderPreparation->prepareDate)}}</span>
+                    @endif
+                </span>
             </td>
         </tr>
     </table>

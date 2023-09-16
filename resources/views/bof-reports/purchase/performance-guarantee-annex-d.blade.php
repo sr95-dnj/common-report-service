@@ -9,7 +9,7 @@
 
     <style>
         @page {
-            margin-top: 10px;
+            margin-top: 3%;
         }
 
         @media print {
@@ -50,8 +50,18 @@ $data = json_decode($val['data']);
             <td style="width: 60%"></td>
             <td style="width: 40%; text-align: left;">
                 <u>ANNEX - D TO</u> <br>
-                <u>TENDER NO: </u> <br>
+                <u>TENDER NO: </u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->tenderNo != null)
+                        <span>{{($data->tenderPreparation->tenderNo)}}</span>
+                    @endif
+                </span> <br>
                 <u>DATED:</u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->prepareDate != null)
+                        <span>{{$Controller::dateFormatter(optional($data)->tenderPreparation->prepareDate)}}</span>
+                    @endif
+                </span>
             </td>
         </tr>
     </table>
@@ -69,6 +79,8 @@ $data = json_decode($val['data']);
             </td>
         </tr>
     </table>
+
+    <br>
 
 
     <table width="100%">
@@ -126,7 +138,7 @@ $data = json_decode($val['data']);
             <td style="width: 45%"></td>
         </tr>
         <tr>
-            <td style="width: 45%">SWIFT MASSAGE  NO</td>
+            <td style="width: 45%">SWIFT MASSAGE NO</td>
             <td style="width: 10%; text-align: center">:</td>
             <td style="width: 45%"></td>
         </tr>
@@ -174,10 +186,12 @@ $data = json_decode($val['data']);
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <img src="/public/image/img.png" alt="">
+                <img src="{{ asset('images/img.png') }}" alt="Image Alt Text">
             </td>
         </tr>
     </table>
+
+    <br>
 
 
     <table width="100%">
@@ -186,11 +200,13 @@ $data = json_decode($val['data']);
         </tr>
     </table>
 
+    <br>
+
 
     <table class="tbBorder" width="100%" style="margin-left: 4%; margin-right: 4%">
         <tbody>
         <tr>
-            <td style="width: 45%">PERFORMANCE GUARANTEE NO. &  ISSUING DATE</td>
+            <td style="width: 45%">PERFORMANCE GUARANTEE NO. & ISSUING DATE</td>
             <td style="width: 10%; text-align: center">:</td>
             <td style="width: 45%"></td>
         </tr>
@@ -237,10 +253,12 @@ $data = json_decode($val['data']);
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <img src="/public/image/img.png" alt="">
+                <img src="{{ asset('images/img.png') }}" alt="Image Alt Text">
             </td>
         </tr>
     </table>
+
+    <br>
 
 
     <table width="100%">
@@ -249,11 +267,13 @@ $data = json_decode($val['data']);
         </tr>
     </table>
 
+    <br>
+
 
     <table class="tbBorder" width="100%" style="margin-left: 4%; margin-right: 4%">
         <tbody>
         <tr>
-            <td style="width: 45%">PERFORMANCE GUARANTEE NO. &  ISSUING DATE</td>
+            <td style="width: 45%">PERFORMANCE GUARANTEE NO. & ISSUING DATE</td>
             <td style="width: 10%; text-align: center">:</td>
             <td style="width: 45%"></td>
         </tr>
