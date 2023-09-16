@@ -86,8 +86,8 @@ $data = json_decode($val['data']);
     <br>
 
 
-    <table width="100%" style="margin-left: 4%; margin-right: 4%">
-        <tr class="tbBorder">
+    <table width="100%" style="margin-left: 4%; margin-right: 4%" class="tbBorder">
+        <tr >
             <td>
                 <b>Supplier:</b>
                 <br>
@@ -103,7 +103,7 @@ $data = json_decode($val['data']);
         </tr>
 
 
-        <tr class="tbBorder">
+        <tr>
             <td>
                 <b>Manufacturer:</b>
                 <br>
@@ -192,8 +192,8 @@ $data = json_decode($val['data']);
 
     <br>
 
-    <table width="100%" style="margin-left: 4%; margin-right: 4%">
-        <tr class="tbBorder">
+    <table width="100%" style="margin-left: 4%; margin-right: 4%" class="tbBorder">
+        <tr>
             <td>
                 <br>
                 __________________ <br>

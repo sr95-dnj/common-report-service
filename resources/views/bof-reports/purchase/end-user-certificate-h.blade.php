@@ -128,8 +128,8 @@ $data = json_decode($val['data']);
     <br>
 
 
-    <table width="100%">
-        <tr class="tbBorder">
+    <table width="100%" class="tbBorder">
+        <tr>
             <td>
                 <u>Principal Supplier</u>
                 <br>
