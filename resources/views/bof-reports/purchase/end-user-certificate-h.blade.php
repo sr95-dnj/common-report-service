@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 
@@ -9,7 +10,7 @@
 
     <style>
         @page {
-            margin-top: 5%;
+            margin-top: 10px;
         }
 
         /* table,
@@ -37,147 +38,187 @@ $bn = [];
 $data = json_decode($val['data']);
 ?>
 
-<div style="font-size: 24px; ">
+<div>
+
+
     <table width="100%">
         <tr>
-            <td style="width: 25%"></td>
-            <td style="width: 50%; text-align: center;">
-                BANGLADESH ORDNANCE FACTORY (BOF) <br>
-                GAZIPUR CANTONMENT, GAZIPUR-1703
-                web: www.bof.gov.bd, email: <br>
-                <u>man.pur.admin@bof.gov.bd</u>
-            </td>
-            <td style="width: 25%; text-align: center;">
+            <td style="text-align: center;">SECRET</td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="width: 70%"></td>
+            <td style="width: 30%; text-align: left;">
+                <u>ANNEX- F TO</u> <br>
+                <u>TENDER NO: </u> <br>
+                <u>DATED:</u>
             </td>
         </tr>
     </table>
 
+    <br>
+    <br>
+
+    <!-- subject part -->
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: center;"><b><u>END USER CERTIFICATE (EUC) FORMAT</u></b></td>
+        </tr>
+    </table>
+
+   <br>
+
+
+    <table width="100%">
+        <tr>
+            <td style="width: 50%; text-align: left;">
+            </td>
+
+            <td style="width: 50%; text-align: left;">
+                <span>'ACCOUNTABLE'</span> <br>
+                <span>Copy Number  ......01...of....01..............</span> <br>
+                <span>Total page: .........01...............................</span> <br>
+                <span>Government of the People's</span> <br>
+                <span>Republic of Bangladesh</span> <br>
+                <span>Bangladesh Ordnance Factories (BOF)</span> <br>
+                <span>Gazipur Cantonment, Gazipur</span> <br>
+                <span>Tel: 880-02-224494021</span> <br>
+                <span>Fax: 880-02-224494044</span> <br> <br>
+                <span>E-mail: comdt@bof.gov.bd</span> <br>
+            </td>
+
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td style="width: 50%; text-align: left;">
+                <span> 232300.67676.676 </span>
+            </td>
+
+            <td style="width: 50%; text-align: left;">
+                <span>Dated</span>
+            </td>
+
+        </tr>
+    </table>
 
     <br>
 
-    <!--main start-->
+    <table width="100%">
+        <tr>
+            <td style="text-align: center;"><b><u>END USER CERTIFICATE (EUC)</u></b></td>
+        </tr>
+    </table>
 
-    <div style="text-align: center;">
-        <table class="center tbBorder" style="text-align: center; padding: 5px;">
-            <thead>
-            <tr>
-                <td style="width: 10%; padding: 2px; ">ক্রমিক</td>
-                <td style="width: 40%; padding: 2px; ">বিষয়</td>
-                <td style="width: 50%; padding: 2px; ">বিবরণ</td>
-            </tr>
+    <br>
 
-            </thead>
-
-            <tbody>
-            <tr>
-                <td>১</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র নম্বর ও তারিখ</span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>২</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে এসিসিডিএফ(বিওএফ ) কর্তৃক আর্থিক স্বীকৃতি </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৩</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে পণ্যের নাম , পরিমান ও সংখ্যা </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৪</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র প্রাপ্তির  তারিখ </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৫</td>
-
-                <td style="text-align: center;">
-                    <span>দরপত্র নম্বর ও তারিখ </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td>৬</td>
-
-                <td style="text-align: center;">
-                    <span>বিওএফ এর ওয়েব সাইডে বিজ্ঞপ্তি প্রকাশের জন্য উপস্থাপন </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td> ৭</td>
-
-                <td style="text-align: center;">
-                    <span>মন্তব্য </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">1. As per Bangladesh Ordnance Factories (BOF)
+                Contract No……………………………………… ………………………………..Dated……………for Supply of …………………………………., Qty……………………
+                Nos for the procurement of item mentioned in paragraph 2 below, the parties involved are:
+            </td>
+        </tr>
+    </table>
 
     <br>
 
 
     <table width="100%">
-        <tr>
+        <tr class="tbBorder">
             <td>
-                <span>De...</span>
-            </td>
-
-            <td style="width: 30%">
-            </td>
-
-            <td>
-                <span>APO...</span>
-            </td>
-
-            <
-            <td style="width: 30%">
+                <u>Principal Supplier</u>
+                <br>
+                <br>
+                <br>
+                <u>Exporter/Manufacturer </u>
+                <br>
+                <br>
+                <br>
+                <u>Local Agent</u>
             </td>
 
             <td>
-                <span>PO...</span>
+                <u>Purchaser</u>
+                <br>
+                <br>
+                <br>
+                <u>Name of End User</u>
+                <br>
+                <br>
+                <br>
+                <u>Address of Consignee</u>
+
             </td>
         </tr>
     </table>
+
+    <br>
+
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                2. Goods :
+            </td>
+
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                3. The total value of contractual Item is USD ………………. (In word).
+            </td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: left;">
+                <p>4. It is hereby certified that the above mentioned material will be supplied for the sole use of the People's Republic of Bangladesh and that it will not authorize the re-export, re-sale, re-transfer of possession of the above material without the prior approval of the .............. Government.
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+
+
+    <table width="100%">
+        <tr>
+
+            <td style="width: 60%"></td>
+
+            <td style="width: 40%; text-align: left;">
+                <span>For and on behalf of the</span> <br>
+                <span> Government of the People's</span> <br>
+                <span> Republic of Bangladesh</span>
+            </td>
+
+        </tr>
+    </table>
+
+
 </div>
+
+
+<footer style="position: fixed; bottom: 0; width: 100%; text-align: center">
+    <p>
+        H -1 <br>
+        SECRET
+
+    </p>
+</footer>
 
 </body>
