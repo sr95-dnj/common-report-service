@@ -51,11 +51,21 @@ $data = json_decode($val['data']);
 
     <table width="100%">
         <tr>
-            <td style="width: 70%"></td>
-            <td style="width: 30%; text-align: left;">
+            <td style="width: 60%"></td>
+            <td style="width: 40%; text-align: left;">
                 <u>ANNEX - G TO</u> <br>
-                <u>TENDER NO: </u> <br>
+                <u>TENDER NO: </u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->tenderNo != null)
+                        <span>{{($data->tenderPreparation->tenderNo)}}</span>
+                    @endif
+                </span> <br>
                 <u>DATED:</u>
+                <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->prepareDate != null)
+                        <span>{{$Controller::dateFormatter(optional($data)->tenderPreparation->prepareDate)}}</span>
+                    @endif
+                </span>
             </td>
         </tr>
     </table>
@@ -280,6 +290,16 @@ $data = json_decode($val['data']);
                     <br>
                     Following documents/certificates are to be furnished with the QAC. All test/inspection result/results
                     which was/were conducted by the quality control department of manufacturer are to be furnished including the following: <br> <br>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+
+    <table width="100%" style="margin-left: 4%">
+        <tr>
+            <td style="text-align: left;">
+                <p>
                     a.	Cetificate of country of origin. <br>
                     b. 	Cetificate of country of manufacture. <br>
                     c. 	Cetificate of year of production. <br>

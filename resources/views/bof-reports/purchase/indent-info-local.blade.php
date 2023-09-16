@@ -77,6 +77,11 @@ $data = json_decode($val['data']);
                 </td>
 
                 <td style="text-align: center;">
+                    <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->tenderNo != null)
+                            <span>{{($data->tenderPreparation->tenderNo)}}</span>
+                        @endif
+                    </span>
                 </td>
             </tr>
 
@@ -89,6 +94,11 @@ $data = json_decode($val['data']);
                 </td>
 
                 <td style="text-align: center;">
+                    <span>
+                     @if($data->tenderPreparation  != null && $data->tenderPreparation ->prepareDate != null)
+                            <span>{{$Controller::dateFormatter(optional($data)->tenderPreparation->prepareDate)}}</span>
+                        @endif
+                   </span>
                 </td>
             </tr>
 
