@@ -37,119 +37,121 @@ $bn = [];
 $data = json_decode($val['data']);
 ?>
 
-<div style="font-size: 24px; ">
+<div>
     <table width="100%">
         <tr>
-            <td style="width: 25%"></td>
-            <td style="width: 50%; text-align: center;">
-                BANGLADESH ORDNANCE FACTORY (BOF) <br>
-                GAZIPUR CANTONMENT, GAZIPUR-1703
-                web: www.bof.gov.bd, email: <br>
-                <u>man.pur.admin@bof.gov.bd</u>
-            </td>
-            <td style="width: 25%; text-align: center;">
+            <td style="width: 70%"></td>
+            <td style="width: 30%; text-align: left;">
+                <u>ANNEX- F TO</u> <br>
+                <u>TENDER NO: </u> <br>
+                <u>DATED:</u>
             </td>
         </tr>
     </table>
 
+    <br>
+    <br>
+
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: center;">
+                <span><u style="font-style: italic">(This Certificate should be on Principals official pad)</u></span>
+            </td>
+        </tr>
+    </table>
 
     <br>
 
+    <!-- subject part -->
+
+    <table width="100%">
+        <tr>
+            <td style="text-align: center;"><b><u>CERTIFICATE ON EXPORT PERMIT</u></b></td>
+        </tr>
+    </table>
+    <br>
+
+
+    <br>
+
+
+
+
+    <table width="100%">
+        <tr>
+
+            <td style="width: 25%; text-align: left;">
+                TO, <br> <br>
+                Commandant<br>
+                Bangladesh Ordnance Factories (BOF)<br>
+                Gazipur Cantonment, Gazipur-1703
+            </td>
+
+        </tr>
+    </table>
+
+    <br>
+
+
+
     <!--main start-->
 
-    <div style="text-align: center;">
-        <table class="center tbBorder" style="text-align: center; padding: 5px;">
-            <thead>
+    <div>
+        <table>
             <tr>
-                <td style="width: 10%; padding: 2px; ">ক্রমিক</td>
-                <td style="width: 40%; padding: 2px; ">বিষয়</td>
-                <td style="width: 50%; padding: 2px; ">বিবরণ</td>
+                <td>
+
+                    <span>
+                        Dear Sir,
+                    </span>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <span>
+                        We <u>(Principal Name & Address)</u>  have participated in BOF tender number <u>(Tender No & Date)</u>
+                        for procurement of <u>(Item Name & Qty)</u>.
+                        We would like to assure that we are the Principal/Manufacturer of the item and has appropriate authorization
+                        (Export Permit from Concern Ministry or from the appropriate authority) to export the said item to BOF.
+                        All liabilities will be reposed on us when offer is accepted but the contact fails to conclude for
+                        the sake of non-availability of export permission.
+                    </span>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span>
+                        On behalf of
+                    </span>
+
+                    <br>
+                    <br>
+                    <span>
+                        ....................................................
+                        <br>
+                        (To be signed by authentic representative of the company)
+                    </span>
+
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span>
+                        <u style="font-style: italic"> Note: This certificate has to be signed in original. Computerized or digitally edited signature will not be accepted</u>
+                    </span>
+
+
+
+
+                </td>
+
             </tr>
 
-            </thead>
-
-            <tbody>
-            <tr>
-                <td>১</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র নম্বর ও তারিখ</span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>২</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে এসিসিডিএফ(বিওএফ ) কর্তৃক আর্থিক স্বীকৃতি </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৩</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্রে পণ্যের নাম , পরিমান ও সংখ্যা </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৪</td>
-
-                <td style="text-align: center;">
-                    <span>চাহিদাপত্র প্রাপ্তির  তারিখ </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>৫</td>
-
-                <td style="text-align: center;">
-                    <span>দরপত্র নম্বর ও তারিখ </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td>৬</td>
-
-                <td style="text-align: center;">
-                    <span>বিওএফ এর ওয়েব সাইডে বিজ্ঞপ্তি প্রকাশের জন্য উপস্থাপন </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-
-            <tr>
-                <td> ৭</td>
-
-                <td style="text-align: center;">
-                    <span>মন্তব্য </span>
-                </td>
-
-                <td style="text-align: center;">
-                </td>
-            </tr>
-            </tbody>
         </table>
     </div>
 
@@ -157,26 +159,7 @@ $data = json_decode($val['data']);
 
 
     <table width="100%">
-        <tr>
-            <td>
-                <span>De...</span>
-            </td>
 
-            <td style="width: 30%">
-            </td>
-
-            <td>
-                <span>APO...</span>
-            </td>
-
-            <
-            <td style="width: 30%">
-            </td>
-
-            <td>
-                <span>PO...</span>
-            </td>
-        </tr>
     </table>
 </div>
 
