@@ -31,6 +31,9 @@
             width: 100%;
             padding: 5px;
         }
+        td{
+            font-size: 12px;
+        }
     </style>
 
 </head>
