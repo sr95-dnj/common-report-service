@@ -447,6 +447,37 @@ $data = json_decode($val['data']);
         </tr>
     </table>
 
+    <br>
+
+
+    <table class="tbBorder" width="100%" style="margin-left: 4%; margin-right: 4%">
+        <thead>
+        <tr>
+            <th>Ser</th>
+            <th>Item Name & Instructions</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+            <th>Remarks</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr>
+            <td></td>
+            <td>Annex A, B, C, D , E, F, G & H  </td>
+            <td></td>
+            <td></td>
+            <td>Schedule Price</td>
+            <td>5,000/- (Non-Refundable</td>
+            <td>Foreign</td>
+        </tr>
+        </tbody>
+    </table>
+
 
     <table>
         <tr>

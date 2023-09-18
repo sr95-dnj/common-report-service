@@ -24,8 +24,9 @@
             width: 100%;
             padding: 5px;
         }
-        td{
-            font-size: 12px;
+
+        td {
+            font-size: 14px;
         }
     </style>
 
@@ -44,7 +45,7 @@ $data = json_decode($val['data']);
     <table width="100%" class="tbBorder" style="margin-top: 2%; margin-left: 10%; margin-right: 10%">
         <tr>
             <td style="text-align: left;">
-                <b>Indent No: </b>
+                <b>চাহিদাপত্র নম্বর- </b>
             </td>
         </tr>
     </table>
@@ -61,9 +62,9 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 25%"></td>
             <td style="width: 50%; text-align: center;">
-                BANGLADESH ORDNANCE FACTORY (BOF) <br>
-                GAZIPUR CANTONMENT, GAZIPUR-1703 <br>
-                Purchase Office
+                বাংলাদেশ সমরাস্ত্র কারখানা (বিওএফ) <br>
+                গাজীপুর সেনানিবাস, গাজীপুর <br>
+                ক্রয় শাখা
             </td>
             <td style="width: 25%; text-align: center;">
             </td>
@@ -79,7 +80,7 @@ $data = json_decode($val['data']);
         <table width="100%">
             <tr>
                 <td style="text-align: center;">
-                    <b>TENDER INFORMATION AND INSTRUCTIONS</b>
+                    <b><u>দরপত্র বিষয়ক তথ্য ও নির্দেশাবলী</u></b>
                 </td>
 
             </tr>
@@ -90,7 +91,7 @@ $data = json_decode($val['data']);
             <tr>
                 <td>
                     <span>
-                        <b>Tender No.</b>
+                         <b>দরপত্র নং- </b>
                     </span>
                     <span>
                      @if($data->tenderPreparation  != null && $data->tenderPreparation ->tenderNo != null)
@@ -101,7 +102,7 @@ $data = json_decode($val['data']);
 
                 <td>
                     <span>
-                        <b>Dated.</b>
+                         <b>তারিখ </b>
                     </span>
 
                     <span>
@@ -119,7 +120,7 @@ $data = json_decode($val['data']);
                 <td style="text-align: left;">
                     <span>
 
-                        M/S .......................................................... <br>
+                        মেসার্স  .......................................................... <br>
                         .................................................................. <br>
                         ..................................................................
                     </span>
@@ -132,7 +133,7 @@ $data = json_decode($val['data']);
         <table style="text-align: center; padding: 5px;">
             <tr>
                 <td>
-                    Dear Sir,
+                    প্রিয় মহোদয়,
                 </td>
             </tr>
         </table>
@@ -141,11 +142,11 @@ $data = json_decode($val['data']);
         <table style="text-align: center; padding: 5px;">
             <tr>
                 <td>
-                    1. You are invited to quote for delivery of goods as per the details and description of the
-                    schedule attached with the tender form. Note that the tender will be regulated by BOF's
-                    Procurement Policy 2017, Armed Forces Procurement Policy 2010 (Second Edition) and
-                    DP-35 for specific field. On the other hand, the following issues and instructions should be
-                    strictly followed in relation to the tender:
+                    ১। অত্র দরপত্র ফরমের সাথে সংযুক্ত তফসিলের বিবরণ ও বর্ণনা মতে মালামাল সরবরাহের জন্য আপনাদের নিকট হতে
+                    মূল্যোদ্ধৃতি আহবান করা যাচ্ছে।
+                    উল্লেখ্য, দরপত্র বিওএফ এর ক্রয় নীতিমালা ২০২২, সশস্ত্র বাহিনী ক্রয় নীতিমালা ২০১০ (দ্বিতীয় সংস্করন)
+                    এবং ক্ষেত্র বিশেষে ডিপি-৩৫ দ্বারা নিয়ন্ত্রিত হবে।
+                    অপরদিকে দরপত্র সংশ্লিষ্ট কার্যাদির ক্ষেত্রে নিম্নলিখিত বিষয় ও নির্দেশাবলী কঠোরভাবে পালন করতে হবেঃ
                 </td>
             </tr>
         </table>
@@ -154,18 +155,17 @@ $data = json_decode($val['data']);
         <table style="padding: 5px;">
             <tr>
                 <td>
-                    a. Tender Preparation:
+                    ক। দরপত্র প্রস্তুত করণঃ
                 </td>
             </tr>
 
             <tr>
                 <td style="padding: 2%">
-                    (1) Price should be given according to the description, size, quantity etc. of the items mentioned
-                    in the tender schedule.
-                    Alternative price of any non-specified item will not be acceptable under normal circumstances. <br>
+                    (১) দরপত্র তফসিলে বর্ণিত দ্রব্যের বিবরণ ও সাইজ, পরিমাণ প্রভৃতি অনুযায়ী দর প্রদান করতে হবে। বিনির্দেশ
+                    বহির্ভূত বিকল্প দ্রব্যের দর স্বাভাবিক অবস্থায় গ্রহণযোগ্য হবে না। <br>
                     <br>
-                    (2) All tender documents, associated papers (annex, appendix etc.) must be signed by company owner
-                    or by a registered active partner or any person legally authorized by the company through affidavit.
+                    (২) দরপত্র এবং দরপত্র সংশিষ্ট কাগজপত্রে দরদাতা প্রতিষ্ঠানের মালিক বা নিবন্ধীকৃত সক্রিয় অংশীদার বা
+                    মোক্তারনামা বলে প্রাধিকার প্রাপ্ত কোন ব্যক্তি স্বাক্ষর করবেন।
                 </td>
             </tr>
         </table>
@@ -173,18 +173,19 @@ $data = json_decode($val['data']);
         <table style=" padding: 5px;">
             <tr>
                 <td>
-                    b. Tender Submission:
+                    খ। দরপত্র প্রদান ও জমা করণঃ
                 </td>
             </tr>
 
             <tr>
                 <td style="padding: 2%">
-                    (1) The filled up tender documents to be inserted into sealed envelope and submit it in BOF tender
-                    box. The envelope must be sealed and contain the address of BOF purchase office. <br>
-                    (2) Tender has to be submitted within the stipulated date and time. Exceptions will not be accepted.
+                    (১) দরপত্র খামে ভরে নির্দেশমতে বিওএফ এর নির্ধারিত টেন্ডার বক্সে জমা দিতে হবে। খামটি সীলমোহরকৃত এবং
+                    বিওএফ এর ক্রয় অফিসের ঠিকানা সম্বলিত হতে হবে। <br>
+                    (২) নির্ধারিত তারিখে নির্ধারিত সময়ের মধ্যে দরপত্র অবশ্যই জমা করতে হবে। কোন প্রকার ব্যতিক্রম
+                    গ্রহণযোগ্য হবে না।
                     <br>
-                    (3) Tender can be submitted by post. But it must arrive at BOF within the stipulated date and time.
-                    BOF is not obligated to accept delayed tenders.
+                    (৩) ডাকযোগে দরপত্র দাখিল করা যাবে। তবে তা অবশ্যই নির্ধারিত তারিখ ও সময়ের মধ্যে পৌঁছাতে হবে। বিওএফ
+                    কর্তৃক বিলম্বে প্রাপ্ত দরপত্র গ্রহণে কোন প্রকার বাধ্যবাধকতা থাকবে না।
                 </td>
             </tr>
         </table>
@@ -192,23 +193,21 @@ $data = json_decode($val['data']);
         <table style="padding: 5px;">
             <tr>
                 <td>
-                    c. Price Quote:
+                    গ। মূল্যোদ্ধৃতিঃ
                 </td>
             </tr>
             <tr>
                 <td style="padding: 2%">
-                    (1) Price will have to be offered as per unit as mentioned in the tender schedule and the price will
-                    be inclusive of all taxes,
-                    packing and delivery costs. If price is tax free and the packet is returnable, it must be mentioned
-                    clearly and visibly. <br>
+                    (১) দরপত্র তফসিলে বর্ণিত একক অনুযায়ী দর প্রদান করতে হবে এবং উক্ত দর যাবতীয় করযুক্ত এবং প্যাকিং ও
+                    ডেলিভারী খরচ সমেত হবে। দর করমুক্ত এবং প্যাকেট ফেরৎযোগ্য হলে তা অবশ্যই পরিষ্কার ও দৃষ্টিযোগ্য করে
+                    উল্লেখ করতে হবে। <br>
 
-                    (2) The price of each item should be mentioned in Bangladeshi currency ‘taka’ (In numbers and in
-                    words) at the designated place in the schedule.
-                    However, a separate paper (with company seal and signed) can be used if necessary. <br>
+                    ((২ প্রতিটি দ্রব্যের দর বাংলাদেশী মুদ্রা ‘টাকা’য় (সংখ্যা ও কথায়) তফসিলের নির্ধারিত স্থানে উল্লেখ
+                    করতে হবে। তবে প্রয়োজনে সীল স্বাক্ষরযুক্ত আলাদা কাগজ ব্যবহার করা যেতে পারে। <br>
 
-                    (3) In case of purchase in foreign currency, price may be quoted in the currency of the country of
-                    manufacturer.
-                    In this case, the FOB Cost, Freight and CFR/LC value must be shown separately. <br>
+                    (৩) বৈদেশিক মুদ্রায় আহবানকৃত দরপত্রের বিপরীতে যে দেশের পণ্যের অনুকূলে দর প্রদান করা হবে সে দেশের
+                    মুদ্রায় দর প্রদান করা যাবে। অনুরূপ ক্ষেত্রে এফওবি (ঋঙই) এবং ঈড়ংঃ ধহফ ঋৎবরমযঃ (ঈঋজ) দর অবশ্যই আলাদা
+                    করে দেখাতে হবে। <br>
                 </td>
             </tr>
         </table>
@@ -227,21 +226,20 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td style="padding: 2%">
-                (4) In case of bidding in foreign currency, the offered price must be submitted from main manufacturer
-                /foreign principal along with the tender. <br>
+                (৪) বৈদেশিক মুদ্রায় দর প্রদানের ক্ষেত্রে মূল উৎপাদনকারী/সরবরাহকারী প্রতিষ্ঠানের সম্মতি সম্বলিত দর
+                প্রস্তাব অবশ্যই দরপত্রের সাথে জমা দিতে হবে। <br>
 
-                (5) In the case of bidding in foreign currency, the amount of agency commission as declared by principal
-                should be mentioned separately in the offer. <br>
+                (৫) বৈদেশিক মুদ্রায় দর প্রদানের ক্ষেত্রে স্থানীয় এজেন্ট হিসেবে কাম্য এজেন্সী কমিশনের পরিমাণ প্রস্তাবে
+                আলাদাভাবে উল্লেখ করতে হবে। <br>
 
-                (6) The bidding company will be bound to keep their price offer valid till the time limit specified in
-                the tender schedule.
-                However, the offer can be kept effective even after the scheduled time with the consent of the bidder.
+                (৬) দরপত্র তফসিলে বর্ণিত সময়সীমা পর্যন্ত প্রাপ্ত দর বহাল রাখতে দরদাতা প্রতিষ্ঠান বাধ্য থাকবে। তবে
+                দরদাতার সম্মতিক্রমে নির্ধারিত সময়ের পরও উক্ত দর বহাল রাখা যাবে।
                 <br>
 
-                (7) After opening the tender, any excuse from the supplier for example - price quoted by mistake, exact
-                item’s price not quoted, sudden price hike, items not available in market etc. is not acceptable.
-                For such excuses appropriate administrative action will be taken against the company in accordance with
-                BOF purchase policy. <br>
+                ((৭) দরপত্র খোলার পর সরবরাহকারী প্রতিষ্ঠান কর্তৃক দাখিলকৃত কোন প্রকার অজুহাত গ্রহণযোগ্য নয়। যেমন- ভুল
+                বশতঃ দর প্রদান, হঠাৎ মূল্যবৃদ্ধি, স্থানীয় বাজারে পণ্য সহজলভ্য নয়, সঠিক পণ্যের দর প্রদান না করা ইত্যাদ।
+                তদুপরি কোন অজুহাত দাখিল করলে বিও এফ এর প্রচলিত ক্রয় নীতিমালা মোতাবেক শাস্তিমূলক ব্যবস্থা গ্রহণ করা হবে।
+                <br>
 
             </td>
         </tr>
@@ -251,10 +249,9 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                d. Delivery: According to the tender schedule,
-                the bidding company will be bound to supply the items to the prescribed place / affiliated branch of
-                BOF. However,
-                if there is necessity to change the time for delivery of item, it can be mentioned in the offer.
+                ঘ। ডেলিভারীঃ দরপত্রের তফসিল মতে দরদাতা প্রতিষ্ঠান বিওএফ এলাকার নির্দেশিত যে কোন স্থানে/ সংশ্লিষ্ট শাখায়
+                পণ্য সরবরাহে বাধ্য থাকবে।
+                তবে তফসিলে পণ্য সরবরাহের সময় সীমার কোন পরিবর্তন প্রয়োজন হলে তা প্রস্তাবে উল্লেখ করা যাবে।
             </td>
         </tr>
     </table>
@@ -263,8 +260,8 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                e. Tender Sample: Tender sample must be submitted along with the tender documents (If asked for).
-                Otherwise the offer will be rejected by BOF. <br>
+                ঙ। অগ্রিম নমুনাঃ দরপত্রে নমুনা চাওয়া হলে দরপত্রের সাথে অবশ্যই অগ্রিম নমুনা দাখিল করতে হবে। অন্যথায়
+                দরপত্র বাতিল করা যাবে। <br>
             </td>
         </tr>
     </table>
@@ -273,9 +270,9 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                f. Packing: The bidder will be bound to supply the items with appropriate packing as per standard
-                practice or as per the description of tender schedule. However, any alternative proposal of the bidder
-                may be mentioned in the schedule.
+                চ। প্যাকিংঃ প্রচলিত ধারামতে উপযুক্ত প্যাকিং অথবা দরপত্র তফসিলে বর্ণনা মতে প্যাকিং করে পণ্য
+                সরবরাহে দরদাতা বাধ্য থাকবে। তবে প্যাকিং এর ক্ষেত্রে দরদাতা প্রতিষ্ঠানের কোন বিকল্প প্রস্তাব থাকলে তা
+                দরপত্রে উল্লেখ করতে পারবে।
             </td>
         </tr>
     </table>
@@ -283,11 +280,11 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                g. Inspection: All the tender sample, advance sample and supplied stores will be inspected by BOF
-                inspection authority. The supplier will be bound to co-operate the inspection authority as per BOF
-                requirement. Rejected stores must be taken away within 15 days.
-                Otherwise the claim of that stores will not be accepted. Beyond that time, the claim will be regarded
-                invalid.
+                ছ। পরিদর্শনঃ বিওএফ এর সংশ্লিষ্ট পরিদর্শন কর্তৃপক্ষ কর্তৃক অগ্রিম নমুনা এবং সরবরাহকৃত পণ্য পরিদর্শন করানো
+                হবে।
+                সরবরাহকারী প্রতিষ্ঠান পরিদর্শন কর্তৃপক্ষ-কে চাহিদামতে সহায়তা করতে বাধ্য থাকবে। পরিদর্শনে প্রত্যাখ্যাত
+                পণ্য ১৫ দিনের মধ্যে সরিয়ে নিতে হবে।
+                অন্যথায় উক্ত পণ্যের দাবী বাতিল করা যাবে।
             </td>
         </tr>
     </table>
@@ -296,8 +293,9 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                h. Bill Payment: On acceptance of stores, partial or full bill of the supplied items will be paid
-                through cross cheque by ACCDF (BOF) as directed by the authority.
+                জ। বিল পরিশোধঃ পরিদর্শনে গৃহিত হওয়া সাপেক্ষে সরবরাহকৃত পণ্যের আংশিক বা সম্পূর্ন বিল কর্তৃপক্ষের
+                নির্দেশমতে অর্থ নিয়ন্ত্রক (বিওএফ) অফিস কর্তৃক ক্রস চেকের মাধ্যমে পরিশোধ করা হবে।
+                উল্লেখ্য, কোন অবস্থাতেই ৫% কম/বেশী পণ্যের বিল প্রদান করা হবে না।
             </td>
         </tr>
     </table>
@@ -305,21 +303,17 @@ $data = json_decode($val['data']);
     <table style="padding: 2px;">
         <tr>
             <td>
-                j. Penalty :
+                ঝ। জরিমানাঃ
             </td>
         </tr>
         <tr>
             <td style="padding: 2%">
-                (1) In case the supplier fails to complete the shipment / delivery within the date stipulated in the
-                contract,
-                the buyer shall have the right to impose liquidated damage (LD) at the rate of 2% but not less than 1%
-                (one) of the value of item per month (Full or partial as applicable) not exceeding 10% of the total
-                contract value. However,
-                BOF authorities reserve the power to waive or reduce LD if the reason for late delivery is deemed
-                reasonable and acceptable. <br>
+                (১) নির্দিষ্ট সময়ের মধ্যে পণ্য সরবরাহে ব্যর্থ হলে প্রতি মাস ও তার অংশ বিশেষ সময়ের জন্য ২% হারে জরিমানা
+                আদায় যোগ্য হবে।
+                তবে বিলম্বে সরবরাহের কারণ যুক্তিযুক্ত ও গ্রহণযোগ্য বিবেচিত হলে জরিমানা মওকুফ বা হ্রাস করার ক্ষমতা বিওএফ
+                কর্তৃপক্ষ সংরক্ষণ করে। <br>
+                (২) পণ্য সরবরাহে সংশ্লিষ্ট প্রতিষ্ঠান ব্যর্থ হলে বিওএফ কর্তৃপক্ষের সিদ্ধান্ত চুড়ান্ত বলে বিবেচিত হবে।
 
-                (2) In case of failure to supply the contracted items, the decision of BOF authority regarding any
-                administrative measurers/penalty against supplier will be considered as final.
             </td>
         </tr>
     </table>
@@ -327,12 +321,11 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td>
-                k. Warning : By drawing attention to the Official Secrets Acts 1923 Rules 5, it is to be warned that,
-                bidder must ensure confidentiality regarding the tender and tender related matters.
-                Any description and information about tender and tendered item should not be disclosed to any
-                unauthorized person or organization.
-                Violation of the above mentioned rule will be subject to administrative action against the concerned
-                company.
+                ঞ। সতর্কতাঃ ১৯২৩ সালের অফিসিয়াল সিক্রেট এ্যাক্ট এর ৫ ধারার প্রতি দৃষ্টি আকর্ষণ পূর্বক এ মর্মে সতর্ক করা
+                যাচ্ছে যে,
+                দরদাতা প্রতিষ্ঠান দরপত্র এবং দরপত্র সংশ্লিষ্ট সমুদয় বিষয়ের গোপনীয়তা নিশ্চিত করবে। দরপত্র এবং দরপত্র
+                সংশ্লিষ্ট পণ্য সম্পর্কিত কোন বিবরণ ও তথ্য অননুমোদিত ব্যক্তি/প্রতিষ্ঠানের নিকট প্রকাশ করবে না।
+                অন্যথায় আলোচ্য আইনেরআওতায় অপরাধীর বিরুদ্ধে প্রশাসনিক শাস্তিমূলক ব্যবস্থা গ্রহণ করা যেতে পারে।
             </td>
         </tr>
     </table>
@@ -341,9 +334,10 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td>
-                m. Dispute Mitigation : In case of any dispute with the interpretation of the said rules or if there is
-                nothing mentioned in these rules or if any question is raised in the tender,
-                the interpretation and decision of the BOF authority will be considered as final
+                ট। বিরোধ নিষ্পত্তিঃ উল্লেখিত নিয়মাবলীর কোন ব্যাখ্যা নিয়ে কোন প্রকার সমস্যা সৃষ্টি হলে বা নিয়মাবলীতে
+                উল্লেখ নেই অথচ দরপত্রের ক্ষেত্রে প্রাসঙ্গিক
+                এমন কোন প্রশ্ন কোন পক্ষ হতে উত্থাপিত হলে সেক্ষেত্রে বিওএফ কর্তৃপক্ষেও ব্যাখ্যা ও সিদ্ধান্তই চুড়ান্ত বলে
+                গণ্য হবে।
             </td>
         </tr>
     </table>
@@ -351,9 +345,10 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td>
-                n. Reserved Rights : Commandant BOF upholds the authority to deny the lowest bid for the reasons of best
-                interest of BOF. He also reserves the right to accept or reject any bid in whole or partial and to
-                cancel the offer in whole and partial.
+                ঠ। সংরক্ষিত অধিকারঃ কম্যান্ড্যান্ট,
+                বাংলাদেশ সমরাস্ত্র কারখানা সর্বনিম্ন দর প্রস্তাব গ্রহণে বাধ্য নন। ত
+                িনি যে কোন দর সম্পূর্ণ বা আংশিক গ্রহণ করা বা না করা এবং সম্পূর্ণ বা আংশিক প্রস্তাব বাতিল করার অধিকার
+                সংরক্ষণ করেন।
             </td>
         </tr>
     </table>
@@ -362,8 +357,8 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td>
-                2. Therefore, you are requested to submit your offer against the invited tender as per the above
-                mentioned rules and instructions.
+                ২। অতএব, উল্লেখিত নিয়মাবলী এবং নির্দেশাবলী যথাযথভাবে অবহিত হয়ে তদানুযায়ী আহবানকৃত দরপত্রের বিপরীতে
+                আপনাদের দর প্রস্তাব প্রদানের অনুরোধ করা হলো।
             </td>
         </tr>
     </table>
@@ -372,7 +367,7 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td style="width: 40%; text-align: left">
-                Place : Gazipur Cantonment
+                স্থানঃ গাজীপুর সেনানিবাস
             </td>
 
             <td style="width: 20%;">
@@ -380,7 +375,7 @@ $data = json_decode($val['data']);
             </td>
 
             <td style="width: 40%; text-align: right">
-                On Behalf of
+                পক্ষে কম্যান্ড্যান্ট
             </td>
 
         </tr>
@@ -390,7 +385,7 @@ $data = json_decode($val['data']);
     <table style="padding: 5px;">
         <tr>
             <td style="width: 40%; text-align: left">
-                Date :
+                তারিখঃ
             </td>
 
             <td style="width: 20%;">
@@ -398,7 +393,7 @@ $data = json_decode($val['data']);
             </td>
 
             <td style="width: 40%; text-align: right">
-                Bangladesh Ordnance Factories
+                বাংলাদেশ সমরাস্ত্র কারখানা
             </td>
         </tr>
     </table>
@@ -415,7 +410,7 @@ $data = json_decode($val['data']);
     <table width="100%">
         <tr>
             <td style="text-align: center;">
-                <span>Tender Schedule</span>
+                <span><u>দরপত্র তফসিল</u></span>
             </td>
         </tr>
     </table>
@@ -423,83 +418,114 @@ $data = json_decode($val['data']);
     <table width="100%">
         <tr>
             <td style="text-align: left;">
-                <span>1   Tender No</span> <br>
+                <span>১।	দরপত্র নম্বরঃ </span> <br>
             </td>
         </tr>
 
         <tr>
             <td style="text-align: left;">
-                <span>2   Last Date  and Time of Tender Submission</span> <br>
+                <span>২।	দরপত্র জমা দানের শেষ তারিখ ও সময়ঃ    </span> <br>
             </td>
 
         </tr>
 
         <tr>
             <td style="text-align: left;">
-                <span>3  Tender Open Date & Time</span> <br>
+                <span>৩।	দরপত্র খোলার তারিখ ও সময়ঃ</span> <br>
             </td>
         </tr>
 
         <tr>
             <td style="text-align: left;">
-                <span>4   Tendered Item Details</span> <br>
+                <span>৪।	দর আহবানকৃত দ্রব্যের বিবরণঃ </span> <br>
             </td>
         </tr>
     </table>
 
 
+    <table class="tbBorder" width="100%" style="margin-left: 4%; margin-right: 4%">
+        <thead>
+        <tr>
+            <th>ক্রমিক</th>
+            <th>দ্রব্যের নাম ও বিনির্দেশ</th>
+            <th>পরিমাণ</th>
+            <th>হিসেবের একক</th>
+            <th>এককের মূল্যে</th>
+            <th>মোট মূল্যে</th>
+            <th>মন্তব্য</th>
+        </tr>
+
+
+        </thead>
+
+        <tbody>
+        <tr>
+            <td></td>
+            <td>Annex- A মোতাবেক</td>
+            <td></td>
+            <td></td>
+            <td>সিডিউল মূল্য =</td>
+            <td>২০০০/-</td>
+            <td>দেশীয় মুদ্রায়</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+
     <table>
         <tr>
             <td style="text-align: left;">
-                <span>5   Terms  & Conditions for Price Quotation :</span>
+                <span>৫। মূল্যোদ্ধৃতির জন্য শর্তাবলীঃ</span>
             </td>
         </tr>
 
         <tr>
             <td style="padding: 2%">
-                a. Only one price is acceptable in favour of one item. <br>  <br>
-                b. The price quote will be valid for 180 days from the date of offer submission. <br> <br>
-                c. Advance samples should be provided as per the requirement of BOF. <br> <br>
-                d. BOF approved samples can be consulted before submission of the offer. <br> <br>
-                e. On acceptance of submitted offer the period of supply will be as following :
+                ক। একটি আইটেমের অনুক‚লে একটি দরই গ্রহণযোগ্য। <br> <br>
+                খ। উদ্ধৃত দর প্রদানের দিন হতে ১৮০ দিন পর্যস্ত বলবৎ থাকবে। <br> <br>
+                গ। বিওএফ এর চাহিদা অনুযায়ী মূল্যোদ্ধৃতির অনুক‚লে অগ্রিম নমুনা প্রদান করতে হবে। <br> <br>
+                ঘ। দর প্রদানের পূর্বে প্রযোজ্য ক্ষেত্রে বিওএফ’র অনুমোদিত নমুনা দেখে নেয়া যাবে। <br> <br>
+                ঙ। দর প্রস্তাব গ্রহণ সাপেক্ষে সরবরাহের সময়সীমা নিম্নরূপঃ
 
                 <table>
                     <tr>
                         <td style="padding: 2%">
                             <span>
-                               i.	In case of purchase in foreign currency, the items must be delivered within 180 days or earlier from the date of signing contract. <br> <br>
-                               ii.	In case of purchase in local currency, the goods must be delivered within 90 days for supply from local source and within 180 days for supply from foreign source or earlier.
+                               (১)	বৈদেশিক মুদ্রায় ক্রয়ের ক্ষেত্রে চুক্তিপত্র স্বাক্ষরের দিন হতে × দিন অথবা তৎপূর্বে পণ্য সরবরাহ করতে হবে।  <br> <br>
+                               (২)	দেশীয় মুদ্রায় ক্রয়ের ক্ষেত্রে স্থানীয় উৎস হতে সরবরাহের ক্ষেত্রে ৯০ দিন এবং বৈদেশিক উৎস হতে 	সরবরাহের ক্ষেত্রে ১৮০ দিন অথবা তৎপূর্বে পণ্য সরবরাহ করতে হবে।
                             </span>
                         </td>
                     </tr>
                 </table>
 
-                <span>f. BOF authority may reduce / increase the quantity of scheduled items as required. </span>  <br> <br>
-                <span>g. Conditional price offer will not be accepted; such offer may be rejected by BOF.</span>  <br> <br>
-                <span>h. After tender opening, application for increasing the price is not acceptable. </span>  <br> <br>
-                <span> j. If any tendered item was supplied within the last 3 years, the bidder has to mention the date and
-                number of the said supply order / contract.</span>  <br> <br>
-                <span>k. Even if there is no bid proposal, the tender schedule has to be submitted in due time. Otherwise the
-                matter can be considered as an offence.</span> <br> <br>
-                <span> l. If there is no permanent security deposited in favour of the organization, the security deposit at
-                the following rate has to be paid in favor of Commandant,
-                Bangladesh Ordnance Factories along with the tender.</span>
+                <span>চ।	তফসিলভুক্ত দ্রব্যের পরিমাণ প্রয়োজনে বিওএফ কর্তৃপক্ষ কমাতে/বাড়াতে পারবে। </span> <br> <br>
+                <span>ছ।	শর্তযুক্ত দর প্রস্তাব গ্রহণযোগ্য হবে না; উক্ত প্রস্তাব বাতিল করা যাবে।</span> <br> <br>
+                <span>জ।	দরপত্র খোলার পর দর বৃদ্ধির কোন আবেদন গ্রহণযোগ্য হবে না। </span> <br> <br>
+                <span> ঝ।	দরপত্রের কোন পণ্য বিগত ৩ বছরের মধ্যে সরবরাহ করে থাকলে দরদাতাকে উক্ত সরবরাহ আদেশ/চুক্তিপত্রের
+                    তারিখ ও নম্বর উল্লেখ করতে হবে।</span> <br> <br>
+                <span>ঞ।	কোন দর প্রস্তাব না থাকলেও অত্র দরপত্র সিডিউল অপূরণকৃত অবস্থায় নির্ধারিত সময়ে জমা দিতে হবে; অন্যথায়
+                    বিষয়টি অপরাধ হিসেবে গণ্য করা যাবে।</span> <br> <br>
+                <span> ট।	দরপত্রের সাথে কম্যান্ড্যান্ট, বাংলাদেশ সমরাস্ত্র কারখানা এর অনুক‚লে পে- অর্ডার এর মাধ্যমে নিম্ন্ােক্ত হারে
+                    নিরাপত্তা জামানত এর টাকা জমা দিতে হবেঃ</span>
                 <table>
                     <tr>
                         <td style="padding: 2%">
                             <span>
-                               (i) For quoted price  up to 10 lacs = 1% <br>
-                               (ii) For quoted price above 10 lacs and up to 25 lacs = 15,000/- <br>
-                               (iii) For quoted price above 25 lacs and up to 50 lacs = 25,000/- <br>
-                               (iv) For quoted price above 50 lacs and up to 75 lacs = 30,000/- <br>
-                               (v) For quoted price above 75 lacs and up to 1 crore = 40,000/- <br>
-                               (vi) For value above 01 crore = 50,000/-
+                               (১)	১০ লক্ষ টাকা পর্যন্ত উদ্ধৃত মূল্যের জন্য =	১% <br>
+                               (২)	১০ লক্ষ টাকার বেশী এবং ২৫ লক্ষ টাকা পর্যন্ত উদ্ধৃত মূল্যের জন্য = ১৫,০০০/-<br>
+                               (৩)	২৫ লক্ষ টাকার বেশী এবং ৫০ লক্ষ টাকা পর্যন্ত মূল্যের জন্য= ২৫,০০০/- <br>
+                               (৪)	৫০ লক্ষ টাকার বেশী এবং ৭৫ লক্ষ টাকা পর্যন্ত উদ্ধৃত মূল্যের জন্য = ৩০,০০০/- <br>
+                               ((৫)	৭৫ লক্ষ টাকার বেশী এবং ০১ কোটি টাকা পর্যন্ত উদ্ধৃত মূল্যের জন্য = ৪০,০০০/- <br>
+                               ((৬)	০১ কোটি টাকার তদূর্দ্ধ মূল্যের জন্য =৫০,০০০/-
                             </span>
                         </td>
                     </tr>
                 </table>
 
-                <p>m. On acceptance of the offer, if supplier is not willing to accept the supply order or not willing to execute the contract, the deposited security money can be confiscated.</p>
+                <p>ঠ। দর প্রস্তাব গৃহীত হওয়া সাপেক্ষে সরবরাহ আদেশ গ্রহণে বা চুক্তি সম্পাদনে অসম্মতি প্রকাশ করলে বায়নার
+                    টাকা বাজেয়াপ্ত করা যাবে।</p>
 
                 <br>
                 <br>
@@ -522,21 +548,22 @@ $data = json_decode($val['data']);
     <table>
         <tr>
             <td style="text-align: left;">
-                <span>6 To be filled By Bidder: :</span>
+                <span>৬। দরদাতা কর্তৃক পূরণযোগ্য বিষয়াবলীঃ</span>
             </td>
         </tr>
 
         <tr>
             <td style="padding: 2%">
-                a. The proposed item is similar and according to the requirement of BOF (If not details must be
-                specified) <br>
-                b. On receipt of supply order, date by which item can be supplied <br>
-                c. Type of packing and details of packing <br>
-                d. The gross and net weight of the items <br>
-                e. Insurance Amount <br>
-                f. In case of import, details about imported country <br>
-                g. The act under which the company is registered <br>
-                h. In not registered, owner’s name and address <br>
+                ক। প্রস্তাবিত দ্রব্য বিওএফ এর চাহিদাকৃত দ্রব্যের অনুরূপ ও সামঞ্জস্যপূর্ণ (না হলে কারণ সম্বলিত তথ্য
+                উল্লেখ করতে হবে) <br>
+                খ। আদেশ প্রাপ্তি সাপেক্ষে যে তারিখের মধ্যে পণ্য সরবরাহ করা যাবে
+                <br>
+                গ। প্যাকিং এর ধরণ ও পদ্ধতি যেরূপ হবে। <br>
+                ঘ। দ্রব্যের গ্রস ও নীট ওজন যা হবে। <br>
+                ঙ। বীমা বাবদ ব্যয়ের পরিমাণ <br>
+                চ। আমদানীর ক্ষেত্রে যে/যে সকল দেশ হতে আমদানী করা হবে তার বিস্তারিত বিবরণঃ <br>
+                ছ। প্রতিষ্ঠানটি যে আইনে নিবন্ধকৃত। <br>
+                জ। নিবন্ধনকৃত না হলে মালিকের নাম ঠিকানা <br>
             </td>
         </tr>
     </table>
@@ -545,9 +572,9 @@ $data = json_decode($val['data']);
     <table>
         <tr>
             <td style="text-align: left;">
-                <span>7 Bidder’s Certificate:	We have quoted / submitted offer after being informed about the tender,
-                    terms / conditions of the tender schedule and item name, quality details,
-                    specifications and above all the needs and requirements of BOF.
+                <span>৭।	দরদাতার প্রত্যায়ণ পত্র। দরপত্র, দরপত্র তফসিলের বিষয়াবলী/শর্তাবলী এবং দরপত্রের তফসিলভুক্ত দ্রব্যের নাম,
+                    গুনগত মান বিশদ বিবরণ ও বিনির্দেশ অবহিত হয়ে এবং সর্বোপরি বিওএফ এর প্রয়োজন
+                    ও চাহিদার বিষয়টি সম্যক উপলব্ধি করতঃ আমরা আমাদের মূল্যোদ্ধৃতি প্রদান করেছি।
                 </span>
             </td>
         </tr>
@@ -564,9 +591,9 @@ $data = json_decode($val['data']);
             <td style="width: 70%"></td>
             <td style="text-align: left;">
                 <span>--------------------------------------------</span> <br>
-                <span>On behalf of Commandant</span> <br>
-                <span>Bangladesh Ordnance Factories</span> <br>
-                <span>Date:</span>
+                <span>পক্ষে কম্যান্ড্যান্ট</span> <br>
+                <span>বাংলাদেশ সমরাস্ত্র কারখানা (বিওএফ)</span> <br>
+                <span>তারিখঃ</span>
             </td>
         </tr>
     </table>
@@ -579,7 +606,7 @@ $data = json_decode($val['data']);
         <tr>
             <td style="text-align: left;">
                 <span>--------------------------------------------</span> <br>
-                <span>Bidder’s Signature & Seal</span>
+                <span>সরবরাহকারীর স্বাক্ষর ও সীল</span>
             </td>
         </tr>
     </table>
