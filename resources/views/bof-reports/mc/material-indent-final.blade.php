@@ -225,7 +225,7 @@
                                 (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
                             </td>
                             <td style="width: 35%">
-
+                                Tk. {{($data->totalSum ? $data->totalSum : 0)}}
                             </td>
                         </tr>
                     </table>

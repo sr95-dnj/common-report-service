@@ -341,6 +341,10 @@
                 </table>
             @endif
         </div>
+        <div style="width: 100%; margin-top: 8px;">
+            <div style="width: 50%; float: left;">Total Item = {{count($data->details)}} Items</div>
+
+        </div>
     </div>
 
 
