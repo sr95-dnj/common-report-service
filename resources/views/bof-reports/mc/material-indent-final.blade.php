@@ -165,22 +165,22 @@
 
                     <table width="100%">
                         <tr>
-                            <td style="width: 17% !important; text-align: left;">
+                            <td style="width: 20% !important; text-align: left;">
                                 দ্রব্যের শ্রেণী  বিভাগ:
                             </td>
-                            <td style="width: 83% !important; text-align: left;">
+                            <td style="width: 80% !important; text-align: left;">
                                 @if($data->subject != null)
                                     {!! ($data->subject) !!}
                                 @endif
                             </td>
                         </tr>
                     </table>
-                    <table style="width: 100%; margin-top: 30px;">
+                    <table style="width: 100%; margin-top: 15px;">
                         <tr>
-                            <td valign="top" style="width: 6% !important; text-align: left;">
+                            <td valign="top" style="width: 10% !important; text-align: left;">
                                 প্রতি:
                             </td>
-                            <td style="width: 94% !important; text-align: left;">
+                            <td style="width: 90% !important; text-align: left;">
                                 <span>Deputi Director Material</span><br>
                                 <span>Bangladesh Ordnance Factories</span><br>
                                 <span>Gazipur Cantt. Gazipur</span>
@@ -189,14 +189,14 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 75% !important; text-align: left;">
+                            <td style="width: 65% !important; text-align: left;">
                                 ইনডেন্ট নং: <span>
                                     @if($data->indentNo != null)
                                         {{($data->indentNo)}}
                                     @endif
                                 </span>
                             </td>
-                            <td style="width: 25% !important; text-align: center;">
+                            <td style="width: 35% !important; text-align: center;">
                                 <span>
                                     তারিখ:
                                 @if($data->indentDate != null)
@@ -225,7 +225,7 @@
                                 (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
                             </td>
                             <td style="width: 35%">
-
+                                Tk. {{($data->totalSum ? $data->totalSum : 0)}}
                             </td>
                         </tr>
                     </table>
@@ -268,25 +268,25 @@
                         </tr>
                         <tr class="top-border bottom-border">
                             <td class="top-border bottom-border right-border" style="width: 33% !important; padding-left: 10px;">
-                                <br><br><br><br>
+                                <br><br><br>
                                 সাক্ষর
-                                <br> <br> <br><br>
+                                <br> <br> <br>
                                 পরিচালক পরিকল্পনা এবং সংরক্ষণ <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
-                            <td class="top-border bottom-border right-border" style="width: 33% padding-left: 10px;">
-                                <br><br><br><br><br>
+                            <td class="top-border bottom-border right-border" style="width: 33%; padding-left: 10px;">
+                                <br><br><br>
                                 সাক্ষর
-                                <br> <br> <br><br>
+                                <br> <br> <br>
                                 ডেপুটি কমান্ড্যান্ট <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
-                            <td class="top-border bottom-border" style="width: 34% padding-left: 10px;">
-                                <br><br><br><br><br>
+                            <td class="top-border bottom-border" style="width: 34%; padding-left: 10px;">
+                                <br><br><br>
                                 সাক্ষর
-                                <br> <br> <br><br>
+                                <br> <br> <br>
                                 এডিশনাল চিফ কন্ট্রোলার অফ ডিফেন্স ফাইন্যান্স <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
