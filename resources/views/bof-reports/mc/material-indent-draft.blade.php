@@ -328,7 +328,7 @@
                             </td>
                             <td class="rootTable top-align text-center">
                                 @if($item->productionDistributionYr != null)
-                                    {{($item->productionDistributionYr)}}
+                                    {{($item->pipeLine)}}
                                 @endif
                             </td>
                             <td class="rootTable top-align text-center">

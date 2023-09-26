@@ -178,7 +178,7 @@
                         </span><br>
                         <span>প্ৰাপকঃ &nbsp;
                             @if($data->recipient != null)
-                                <span>{{$data->recipient->name}}</span>
+                                <span>{{$data->recipient}}</span>
                             @endif
                         </span><br>
                     </td>

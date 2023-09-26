@@ -104,6 +104,9 @@
                 @foreach ($data->details as $index => $list)
                 <tr>
                     <td style="text-align: left; width: 30%; padding: 2px;">
+                        @if($list->itemName != null)
+                        <span>{{optional($list)->itemName}}</span><br>
+                        @endif
                         @if($list->itemNameShortSpecification != null)
                         <span>{{optional($list)->itemNameShortSpecification}}</span>
                         @endif
