@@ -78,13 +78,12 @@
             <table class="center tbBorder" style="text-align: center; padding: 5px;">
                 <thead>
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">ক্রঃ নং </td>
-                    <td style="width: 10%; padding: 2px; ">ইনডেন্ট দ্রব্যের নাম </td>
+                    <td style="width: 30%; padding: 2px; ">ইনডেন্ট দ্রব্যের নাম </td>
                     <td style="width: 10%; padding: 2px; ">একক </td>
                     <td style="width: 10%; padding: 2px; ">বাৎসরিক চাহিদা</td>
                     <td style="width: 10%; padding: 2px; ">বর্তমান মজুদ</td>
                     <td style="width: 10%; padding: 2px; ">পাইপ লাইন</td>
-                    <td style="width: 10%; padding: 2px; ">ঘাটতি</td>
+                    <td style="width: 10%; padding: 2px; ">ঘাটতি <br> চ = গ - <br>(ঘ + ঙ)</td>
                     <td style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</td>
                     <td style="width: 10%; padding: 2px; ">ব্যবহার </td>
                 </tr>
@@ -98,57 +97,74 @@
                     <td style="width: 10%; padding: 2px; ">চ</td>
                     <td style="width: 10%; padding: 2px; ">ছ</td>
                     <td style="width: 10%; padding: 2px; ">জ</td>
-                    <td style="width: 10%; padding: 2px; ">ঝ</td>
                 </tr>
 
                 </thead>
                 <tbody>
                 @foreach ($data->details as $index => $list)
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
                     <td style="text-align: left; width: 30%; padding: 2px;">
+                        @if($list->itemName != null)
+                        <span>{{optional($list)->itemName}}</span><br>
+                        @endif
                         @if($list->itemNameShortSpecification != null)
                         <span>{{optional($list)->itemNameShortSpecification}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->uom != null)
                         <span>{{optional($list)->uom}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->demandQty != null)
                         <span>{{optional($list)->demandQty}}</span>
                         @endif
+                            @if($list->demandQty == null)
+                                <span>0</span>
+                            @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->presentStock != null)
                         <span>{{optional($list)->presentStock}}</span>
                         @endif
+                            @if($list->presentStock == null)
+                                <span>0</span>
+                            @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->pipeLine != null)
                         <span>{{optional($list)->pipeLine}}</span>
                         @endif
+                            @if($list->pipeLine == null)
+                                <span>0</span>
+                            @endif
+
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->shortage != null)
                         <span>{{optional($list)->shortage}}</span>
                         @endif
+                            @if($list->shortage == null)
+                                <span>0</span>
+                            @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->indentQty != null)
                         <span>{{optional($list)->indentQty}}</span>
                         @endif
+                            @if($list->indentQty == null)
+                                <span>0</span>
+                            @endif
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; width: 10%; padding: 2px;">
                         @if($list->purposeOfUse != null)
                         <span>{{optional($list)->purposeOfUse}}</span>
                         @endif

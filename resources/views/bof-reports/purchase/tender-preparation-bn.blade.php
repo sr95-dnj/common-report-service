@@ -8,6 +8,9 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
+        @page {
+            margin-top: 5px; !important;
+        }
         /* table,
         th,
         td {
@@ -18,7 +21,6 @@
         @page {
             size: landscape;
             orientation: landscape;
-
         }
 
         @media print {
@@ -61,10 +63,6 @@
         .bottom-border {
             border-bottom: 1px solid;
             border-collapse: collapse;
-        }
-
-        @page {
-            margin-top: 5px;
         }
 
         td {
@@ -119,29 +117,29 @@ $data = json_decode($val['data']);
                 </td>
                 <td class="rootTable text-left" style="width: 30%; padding: 2px; ">
                     @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null)
-                        <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemNameBn}} </sapn><br>
-                        <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemSpecification}} </sapn>
+                        <sapn>{{optional($list->mcFinalIndentDetails->folioNo)->itemNameEn}} </sapn><br>
+                        <sapn>{{$list->mcFinalIndentDetails->folioNo->itemSpecification}} </sapn>
                     @endif
                 </td>
                 <td class="rootTable text-center" style="width: 8%; padding: 2px; ">
                     @if($list->mcFinalIndentDetails != null && $list->mcFinalIndentDetails->folioNo != null && $list->mcFinalIndentDetails->folioNo->mcItemUnit != null)
-                        <sapn>{{optional($list->mcFinalIndentDetails->folioNo->mcItemUnit)->nameBn}} </sapn>
+                        <sapn>{{optional($list->mcFinalIndentDetails->folioNo->mcItemUnit)->nameEn}} </sapn>
                     @endif
                 </td>
                 <td class="rootTable text-center" style="width: 7%; padding: 2px; ">
                     @if($list->mcFinalIndentDetails != null)
-                        <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->indentQty)}} </sapn>
+                        <sapn>{{$list->mcFinalIndentDetails->indentQty}} </sapn>
                     @endif
                 </td>
                 <td class="rootTable text-center" style="width: 15%; padding: 2px; ">
-                    @if($list->mcFinalIndentDetails != null)
+<!--                    @if($list->mcFinalIndentDetails != null)
                         <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->unitRate)}} </sapn>
-                    @endif
+                    @endif-->
                 </td>
                 <td class="rootTable text-center" style="width: 15%; padding: 2px; ">
-                    @if($list->mcFinalIndentDetails != null)
+                    {{--@if($list->mcFinalIndentDetails != null)
                         <sapn>{{$Controller::enToBnConveter($list->mcFinalIndentDetails->totalValue)}} </sapn>
-                    @endif
+                    @endif--}}
                 </td>
                 <td class="rootTable text-center" style="width: 20%; padding: 2px; ">
                     @if($list->remarks != null)

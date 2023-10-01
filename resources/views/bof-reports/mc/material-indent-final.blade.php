@@ -225,6 +225,9 @@
                                 (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
                             </td>
                             <td style="width: 35%">
+                                @if($data->totalSum != null)
+                                    Tk. {{($data->totalSum ? $data->totalSum : 0)}}
+                                @endif
 
                             </td>
                         </tr>
@@ -384,7 +387,11 @@
                             {{($item->totalValue)}}
                         @endif
                     </td>
-                    <td class="rootTable"></td>
+                    <td class="rootTable">
+                        @if($item->previousSupplier !=null)
+                            {{($item->previousSupplier)}}
+                        @endif
+                    </td>
                     <td class="rootTable text-center">
                         @foreach ($item->userSections as $indx => $user)
                             @if($user != null)

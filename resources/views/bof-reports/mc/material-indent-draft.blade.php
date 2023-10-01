@@ -70,28 +70,38 @@
             @if($data->menuType == 'INDIRECT')
                 <table width="100%">
                     <tr>
+                        <td class="text-center">
+                            <span style="font-size: 15px;">MATERIAL CONTROL SECTION</span> <br>
+                            <span style="font-size: 13px;">Draft Indent -
+                            <span>
+                                @if($data->financialYear != null)
+                                    {{($data->financialYear->financialYear)}}
+                                @endif
+                            </span></span>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
                         <td style="width: 100% !important; text-align: left;">
                             <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
                             <span style="font-size: 16px;">গাজীপুর সেনানিবাস, গাজীপুর।</span>
                         </td>
                     </tr>
                     <tr>
-                        <td width="70%">ইনডেন্ট নং:
+                        <td>
+                    <span>
+                        ইনডেন্ট নং:
+                    @if($data->indentNo != null)
+                            {{$Controller::enToBnConveter($data->indentNo)}}
+                        @endif
+                    </span>&nbsp;&nbsp;
                             <span>
-                            @if($data->indentNo != null)
-                                    {{($data->indentNo)}}
-                                @endif
-                            </span>&nbsp;&nbsp;
-                            <span> তারিখ: &nbsp;
-                            @if($data->indentDate != null)
+                        তারিখ:
+                    @if($data->indentDate != null)
                                     {{$Controller::enToBnConveter($Controller::dateFormatter($data->indentDate))}}
                                 @endif
-                        </span>
-                        </td>
-                        <td width="30%">
-                        <span>
-
-                        </span>
+                    </span>
                         </td>
                     </tr>
                 </table>
@@ -101,60 +111,48 @@
                         <td class="rootTable text-center" style="width: 5%;">Folio No</td>
                         <td class="rootTable text-center" style="width: 14%;">Name of Item and Specification</td>
                         <td class="rootTable text-center" style="width: 5%;">Unit</td>
-                        <td class="rootTable text-center" style="width: 10%;">Demand Section</td>
-                        <td class="rootTable text-center" style="width: 5%;">Indent Qty</td>
-                        <td class="rootTable text-center" style="width: 5%;">Rate (Tk)</td>
-                        <td class="rootTable text-center" style="width: 7%;">Total Value</td>
-                        <td class="rootTable text-center" style="width: 10%;">SO No Supplier Name and Date</td>
+                        <td class="rootTable text-center" style="width: 5%;">Demand Qty</td>
                         <td class="rootTable text-center" style="width: 7%;">User Section</td>
                         <td class="rootTable text-center" style="width: 5%;">Present Stock</td>
-                        <td class="rootTable text-center" style="width: 7%;">Country of Origin</td>
+                        <td class="rootTable text-center" style="width: 5%;">Pipe Line</td>
+                        <td class="rootTable text-center" style="width: 7%;">Reqd Qty</td>
+                        <td class="rootTable text-center" style="width: 10%;">Previous rate S.O No & dt</td>
                         <td class="rootTable text-center" style="width: 20%;">Remarks</td>
                     </tr>
                     @foreach ($data->details as $index => $item)
                         <tr>
                             <td class="rootTable text-center">{{($index + 1)}}</td>
+<!--                            Folio No-->
                             <td class="rootTable text-center">
                                 @if($item->folioNo != null)
                                     {{($item->folioNo->itemClassRefNo)}}
                                 @endif
                             </td>
+<!--                            Name of Item and Specification-->
                             <td class="rootTable">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                                    <span>{{($item->folioNo->itemSpecification)}}</span>
+                                    <span>{{($item->folioNo->itemSpecification)}}</span><br>
+                                    <span>
+                                        @if($item->countryOfOrigin != null)
+                                            <span>Country of Origin {{($item->countryOfOrigin)}}</span>
+                                        @endif
+                                    </span>
                                 @endif
-
                             </td>
+                            <!--Unit-->
                             <td class="rootTable text-center">
                                 @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
                                     {{($item->folioNo->mcItemUnit->nameEn)}}
                                 @endif
                             </td>
-
-                            <td class="rootTable text-center">
-                                @foreach ($item->demandSectionDetails as $indx => $demand)
-                                    @if($demand->demandSection != null)
-                                        {{($demand->demandSection->name)}},<br>
-                                    @endif
-                                @endforeach
-                            </td>
+<!--                            Demand Qty-->
                             <td class="rootTable text-center">
                                 @if($item->demandQty != null)
                                     {{($item->demandQty)}}
                                 @endif
                             </td>
-                            <td class="rootTable text-center">
-                                @if($item->unitRate != null)
-                                    {{($item->unitRate ? $item->unitRate : 0)}}
-                                @endif
-                            </td>
-                            <td class="rootTable text-center">
-                                @if($item->totalValue != null)
-                                    {{($item->totalValue ? $item->totalValue : 0)}}
-                                @endif
-                            </td>
-                            <td class="rootTable"></td>
+<!--                            User Section-->
                             <td class="rootTable text-center">
                                 @foreach ($item->userSections as $indx => $user)
                                     @if($user != null)
@@ -162,16 +160,31 @@
                                     @endif
                                 @endforeach
                             </td>
+<!--                            Present Stock-->
                             <td class="rootTable text-center">
                                 @if($item->presentStock != null)
                                     {{($item->presentStock)}}
                                 @endif
                             </td>
+<!--                            Pipe Line-->
                             <td class="rootTable text-center">
-                                @if($item->countryOfOrigin != null)
-                                    {{($item->countryOfOrigin)}}
+                                @if($item->pipeLine != null)
+                                    {{($item->pipeLine ? $item->pipeLine : 0)}}
                                 @endif
                             </td>
+<!--                            Reqd Qty-->
+                            <td class="rootTable text-center">
+                                @if($item->totalQty != null)
+                                    {{($item->totalQty)}}
+                                @endif
+                            </td>
+<!--                            Previous rate S.O No & dt previousRate-->
+                            <td class="rootTable">
+                                @if($item->previousRate != null)
+                                    {{($item->previousRate)}}
+                                @endif
+                            </td>
+                            <!--Remarks-->
                             <td class="rootTable">
                                 @if($item->remarks != null)
                                     {{($item->remarks)}}
@@ -196,6 +209,30 @@
                                     {{($data->financialYear->financialYear)}}
                                 @endif
                             </span></span>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td style="width: 100% !important; text-align: left;">
+                            <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                            <span style="font-size: 16px;">গাজীপুর সেনানিবাস, গাজীপুর।</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                    <span>
+                        ইনডেন্ট নং:
+                    @if($data->indentNo != null)
+                            {{$Controller::enToBnConveter($data->indentNo)}}
+                        @endif
+                    </span>&nbsp;&nbsp;
+                            <span>
+                        তারিখ:
+                    @if($data->indentDate != null)
+                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->indentDate))}}
+                                @endif
+                    </span>
                         </td>
                     </tr>
                 </table>
@@ -291,7 +328,7 @@
                             </td>
                             <td class="rootTable top-align text-center">
                                 @if($item->productionDistributionYr != null)
-                                    {{($item->productionDistributionYr)}}
+                                    {{($item->pipeLine)}}
                                 @endif
                             </td>
                             <td class="rootTable top-align text-center">
@@ -303,6 +340,10 @@
                     @endforeach
                 </table>
             @endif
+        </div>
+        <div style="width: 100%; margin-top: 8px;">
+            <div style="width: 50%; float: left;">Total Item = {{count($data->details)}} Items</div>
+
         </div>
     </div>
 
