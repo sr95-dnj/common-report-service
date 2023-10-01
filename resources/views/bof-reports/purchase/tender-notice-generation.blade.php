@@ -108,9 +108,9 @@ $data = json_decode($val['data']);
 
                             @foreach ($list->tenderPreparation->details as $itemIndex => $item)
 
-                                @if($item->mcFinalIndentDetails->folioNo->mcItemUnit->nameEn != null)
+                                @if($item->mcFinalIndentDetails->folioNo->itemNameEn != null)
                                     <span>
-                                    {{optional($item)->mcFinalIndentDetails->folioNo->mcItemUnit->nameEn}}
+                                    {{optional($item)->mcFinalIndentDetails->folioNo->itemNameEn}}
                                     </span>
                                 @endif
 
