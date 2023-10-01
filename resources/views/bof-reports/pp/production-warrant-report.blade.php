@@ -101,9 +101,9 @@
 
                         </span><br>
                         <span>সংক্ষিপ্ত ফরমায়েশনামা নম্বরঃ &nbsp;
-                            @if($data->shortOrderNbr != null)
+                            {{--@if($data->shortOrderNbr != null)
                                 {{$Controller::enToBnConveter($data->shortOrderNbr)}}
-                            @endif
+                            @endif--}}
                         </span><br>
                         <span>হুকুমনামা নম্বর ও তারিখঃ  &nbsp;
                             @if($data->warrantNo != null)
@@ -156,11 +156,11 @@
                             @endif
                         </span><br>
                         <span>তারিখঃ &nbsp;
-                            @if($data->date != null)
+                            {{--@if($data->date != null)
                                 <span>
                                     {{$Controller::enToBnConveter($Controller::dateFormatter($data->date))}}
                                 </span>
-                            @endif
+                            @endif--}}
                         </span><br>
                         <span>সমাপ্তির তারিখঃ &nbsp;
                             @if($data->completionDate != null)
