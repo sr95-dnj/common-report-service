@@ -81,6 +81,9 @@ $data = json_decode($val['data']);
 
         <!--    master page-->
 <div style="font-size: 24px; ">
+    <br>
+    <br>
+    <br>
     <table width="100%">
         <tr>
             <td style="width: 50% !important; text-align: center;">&nbsp;</td>
