@@ -89,9 +89,9 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 100% !important; text-align: center;">
                 <h3>
-                    <u>বাংলাদেশ সমরাস্ত্র কারখানা, গাজীপুর সেনানিবাস</u><br>
-                    <u>১ম বার দেশীয় মুদ্রায় সংবাদপত্রে বিজ্ঞাপনের মাধ্যমে ডবল ইনভেলপ পদ্ধতিতে দরপত্র আহবান </u><br>
-                    <u>দরপত্রের তুলনামূলক বিবরণী (সিএসটি)</u><br>
+                    বাংলাদেশ সমরাস্ত্র কারখানা, গাজীপুর সেনানিবাস<br>
+                    ৩য় বার বৈদেশিক মুদ্রায় সংবাদপত্রে বিজ্ঞাপণের মাধ্যমে ডবল ইনভেলপ পদ্ধতিতে দরপত্র আহবান <br>
+                    তুলনামূলক দরপত্রের বিবরণী (সিএসটি)<br>
                 </h3>
             </td>
         </tr>
@@ -104,6 +104,7 @@ $data = json_decode($val['data']);
             </td>
         </tr>
     </table>
+
     <table style="margin-top: 6px" class="rootTable" width="100%">
         <tr class="rootTable">
             <td style="width: 33%; padding: 2px;" class="rootTable text-left">ক। বিক্রিত দরপত্রের মোট সংখ্যা-  {{$Controller::enToBnConveter($data->noOfTenderSold)}} টি </td>
@@ -113,43 +114,82 @@ $data = json_decode($val['data']);
         <tr class="rootTable">
             <td style="width: 33%; padding: 2px;" class="rootTable text-left">ঘ। বাতিলকৃত দরপত্রের সংখ্যা- {{$Controller::enToBnConveter($data->noOfTenderCancelled)}} টি </td>
             <td style="width: 34%; padding: 2px;" class="rootTable text-left">ঙ। কারিগরী দরপত্র খোলার তারিখঃ {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data)->openingDate))}}</td>
-            <td style="width: 33%; padding: 2px;" class="rootTable text-left">চ। বাতিলকৃত দরপত্রের সংখ্যা- {{$Controller::enToBnConveter($data->noOfTenderCancelled)}} টি </td>
+            <td style="width: 33%; padding: 2px;" class="rootTable text-left">চ। কারিগরী দরপত্র খোলার সময়- {{$Controller::enToBnConveter($data->tenderOpeningTime)}} </td>
         </tr>
     </table>
-    <table style="margin-top: 6px" class="rootTable" width="100%">
-        <tr class="rootTable">
-            <td style="width: 5%; padding: 2px;" class="rootTable text-center">ক্রমিক</td>
-            <td style="width: 45%; padding: 2px;" class="rootTable text-center">দরদাতা প্রতিষ্ঠানের নাম</td>
-            <td style="width: 50%; padding: 2px;" class="rootTable text-center">আইটেম</td>
-        </tr>
 
-        @foreach ($data->details as $index => $list)
+    <table style="margin-top: 6px" class="rootTable" width="100%">
+
+
+        @foreach ($data->itemList as $index => $list)
+            <tr class="rootTable">
+                <td style="width: 5%; padding: 2px;" class="rootTable text-center">ক্রমিক</td>
+                <td style="width: 55%; padding: 2px;" class="rootTable text-center">পণ্যের নাম</td>
+                <td  colspan="2" style="width: 20%; padding: 2px;" class="rootTable text-center">পরিমান </td>
+            </tr>
             <tr>
                 <td class="rootTable text-center"
                     style="width: 5%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |
                 </td>
-                <td class="rootTable text-left" style="width: 45%; padding: 2px; ">
-                    @if($list->scheduleSaleInfo != null && $list->scheduleSaleInfo->supplierProfile != null)
-                        <sapn>{{optional($list->scheduleSaleInfo->supplierProfile)->supplierName}} </sapn>
+                <td class="rootTable text-left" style="width: 55%; padding: 2px; ">
+                    @if($list->item != null && $list->item->itemNameEn != null)
+                        <sapn>{{optional($list->item)->itemNameEn}} </sapn> <br>
                     @endif
                 </td>
-                <td class="rootTable text-left" style="width: 50%; padding: 2px; ">
-                    @if($list->tenderPreparationDetails != null && $list->tenderPreparationDetails->mcFinalIndentDetails != null && $list->tenderPreparationDetails->mcFinalIndentDetails->folioNo != null)
-                        <sapn>{{optional($list->tenderPreparationDetails->mcFinalIndentDetails->folioNo)->itemNameEn}} </sapn>
+                <td colspan="2" class="rootTable text-center" style="width: 20%; padding: 2px; ">
+                    @if($list->indentQty != null)
+                        <sapn>{{optional($list)->indentQty}} </sapn>
                     @endif
                 </td>
-
             </tr>
+            <tr class="rootTable">
+                <td style="width: 5%; padding: 2px;" class="rootTable text-center">ক্রমিক</td>
+                <td  style="width: 75%; padding: 2px;" class="rootTable text-center">দরদাতা প্রতিষ্ঠানের নাম </td>
+                <td style="width: 20%; padding: 2px;" class="rootTable text-center">একক</td>
+                <td style="width: 20%; padding: 2px;" class="rootTable text-center">দরপত্র </td>
+            </tr>
+            @foreach ($list->supplierList as $indx => $spList)
+                <tr>
+                    <td class="rootTable text-center"
+                        style="width: 5%; padding: 2px; ">{{$Controller::entoBn($indx+1,'number')}} |
+                    </td>
+                    <td  class="rootTable text-left" style="width: 75%; padding: 2px; ">
+                        @if($spList->scheduleSaleInfo != null && $spList->scheduleSaleInfo->supplierProfile != null)
+                            <strong>Local Agent:</strong>
+                            <sapn>{{optional($spList->scheduleSaleInfo->supplierProfile)->supplierName}} </sapn><br>
+                        @endif
+                        @if($data->principleName)
+                            <strong>Principal:</strong>
+                            <sapn>{{optional($data)->principleName}} </sapn>
+                        @endif
+                        @if($data->manufactureName)
+                            <strong>Manufacturer:</strong>
+                            <sapn>{{optional($data)->manufactureName}} </sapn>
+                        @endif
+                    </td>
+                    <td class="rootTable text-right" style="width: 20%; padding: 2px; ">
+                       No
+                    </td>
+                    <td class="rootTable text-right" style="width: 20%; padding: 2px; ">
+
+                    </td>
+                </tr>
+            @endforeach
         @endforeach
+
+
 
     </table>
     <br>
     <table width="100%">
         <tr>
             <td style="width: 100% !important; text-align: left;">
-                অফিসারঃ দাখিলকৃত _____ টি কারিগরী অফার মূল্যায়নের নিমিত্তে দরপত্র মূল্যায়ন কমিটি (TEC) এর মতামতের জন্য
-                প্রেরণ করা যেতে পারে।
-            </td>
+                {{$Controller::enToBnConveter($Controller::dateFormatter(optional($data)->openingDate))}} তারিখ
+                @if($data->tenderOpeningTime)
+                    {{optional($data)->tenderOpeningTime}}
+                @endif
+                ঘটিকায় দরপত্র উন্মুক্ত কমিটি কর্তৃক উন্মুক্ত করা হলে দাখিলকৃত {{$Controller::enToBnConveter($data->noOfTenderSold)}} টি কারিগরি অফার পাওয়া যায়।  যা কারিগরি মূল্যায়নের
+                নিমিত্তে দরপত্র মূল্যায়ন কমিটি (TEC) এর মতামতের জন্য প্রেরণ করা যেতে পারে। </td>
         </tr>
     </table>
 
@@ -160,7 +200,7 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 25%; !important; text-align: center;">প্রতিনিধি ব্যবহারকারী শাখা</td>
             <td style="width: 25%; !important; text-align: center;">প্রতিনিধি এসিসিডিএফ (বিওএফ)</td>
-            <td style="width: 25%; !important; text-align: center;">পার্সোনেল অফিসার, ক্রয়</td>
+            <td style="width: 25%; !important; text-align: center;">প্রতিনিধি ক্রয় শাখা</td>
             <td style="width: 25%; !important; text-align: center;">সভাপতি দরপত্র কমিটি</td>
         </tr>
     </table>
