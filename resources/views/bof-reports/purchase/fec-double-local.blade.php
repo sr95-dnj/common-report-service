@@ -86,86 +86,87 @@ $data = json_decode($val['data']);
         <tr>
             <td style="width: 20% !important; text-align: center;"></td>
             <td style="width: 60% !important; text-align: center;">
-                <p style="font-size: 13px;"><u>TENDER EVALUATION REPORT</u></p><br>
-                <span style="font-size: 13px;">1. <u> Name of Stores to procured: Rectified Spirit</u></span><br>
-                <span style="font-size: 13px;"><u>Demanded by SAA</u></span><br>
+                <span style="font-size: 13px;"><u>বাংলাদেশ সমরাস্ত্র কারখানা, গাজীপুর সেনানিবাস</u></span><br>
+                <span style="font-size: 13px;"><u> তুলনামূলক দরপত্রের বিবরণী  </u></span><br>
             </td>
-            <td style="width: 20% !important; text-align: center;">
-                <span>
-                    Date:
-                    @if($data->currentDate != null)
-                        {{($Controller::dateFormatter($data->currentDate))}}
-                    @endif
-                </span>
-            </td>
+            <td style="width: 20% !important; text-align: center;"></td>
 
         </tr>
     </table>
     <table width="100%">
         <tr>
             <td style="width: 50% !important; text-align: left;">
-                DD No.
-                @if($data->fecTenderNo != null)
-                    {{$data->fecTenderNo}}
+                দরপত্র নং:
+            @if($data->tenderNo != null)
+                    {{$Controller::enToBnConveter($data->tenderNo)}}
                 @endif
             </td>
             <td style="width: 50% !important; text-align: right;">
-                Tender No No.
-                @if($data->tenderPreparation->tenderNo != null)
-                    {{$data->tenderPreparation->tenderNo}}
+                তারিখ:
+                @if($data->currentDate != null)
+                    {{($Controller::enToBnConveter($Controller::dateFormatter($data->currentDate)))}}
                 @endif
             </td>
         </tr>
     </table>
-    <table class="rootTable" width="100%">
-        <tr class="rootTable">
-<!--            <td style="width: 5%; padding: 2px;" class="rootTable text-center">Ser</td>-->
-            <td style="width: 20%; padding: 2px;" class="rootTable text-center">Name of the Firm</td>
-            <td style="width: 15%; padding: 2px;" class="rootTable text-center">Specification</td>
-            <td style="width: 10%; padding: 2px;" class="rootTable text-center">Quoted Schedule Form</td>
-            <td style="width: 12%; padding: 2px;" class="rootTable text-center">Total Quoted Amount</td>
-            <td style="width: 13%; padding: 2px;" class="rootTable text-center">Total Lowest Amount</td>
-            <td style="width: 10%; padding: 2px;" class="rootTable text-center">Valid Trade License</td>
-            <td style="width: 20%; padding: 2px;" class="rootTable text-center">Remarks</td>
-        </tr>
-
-        @if(count($data->list) > 0)
-            @foreach ($data->list as $i => $item)
-                <tr>
-                    <!--                    <td class="rootTable text-center"
-                        style="width: 5%; padding: 2px; ">{{$i+1}} .
-                    </td>-->
-                    <td class="rootTable text-left"  style="padding: 2px; ">
-                        {{$item->previousSupplierNameOrder}}
-                    </td>
-                    <td class="rootTable text-center"  style="padding: 2px; ">
-                        {{$item->mcFinalIndentDetails->folioNo->itemSpecification}}
-                    </td>
-                    <td class="rootTable text-center"  style="padding: 2px; ">
-                        Ok
-                    </td>
-                    <td class="rootTable text-center"  style="padding: 2px; ">
-                        {{$item->mcFinalIndentDetails->totalValue}}
-                    </td>
-                    <td class="rootTable text-center"  style="padding: 2px; ">
-                        {{$item->mcFinalIndentDetails->totalValue}}
-                    </td>
-                    <td class="rootTable text-center"  style="padding: 2px; ">
-                        YES
-                    </td>
-                    <td class="rootTable text-left"  style="padding: 2px; ">
-                        @if($item->sectionDecision != null)
-                            {{$item->sectionDecision}}
-                        @endif
-                    </td>
-
+    @if(count($data->groupList) > 0)
+        @foreach($data->groupList as $index => $groupItem)
+            <table class="rootTable" width="100%">
+                <tr class="rootTable">
+                    <td colspan="2" style="width: 50%; padding: 2px;" class="rootTable text-center">পণ্য সরবরাহের প্রকৃতি</td>
+                    <td style="width: 25%; padding: 2px;" class="rootTable text-center">একক  </td>
+                    <td style="width: 25%; padding: 2px;" class="rootTable text-center">পরিমাণ </td>
                 </tr>
-            @endforeach
-        @endif
+                <tr>
+                    <td colspan="2" style="width: 55%; padding: 2px;" class="rootTable text-left">
+                        <span>{{$groupItem[0]->itemName}}</span><br>
+                        <span>{{$groupItem[0]->itemSpecification}}</span><br>
+                        <span>Country of Origin: Group A</span><br>
+                    </td>
+                    <td style="width: 20%; padding: 2px;" class="rootTable text-center">{{$groupItem[0]->uom}}</td>
+                    <td style="width: 20%; padding: 2px;" class="rootTable text-center">{{$groupItem[0]->indentQty}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 5%; padding: 2px;" class="rootTable text-center">ক্রমিক </td>
+                    <td colspan="2" style="width: 60%; padding: 2px;" class="rootTable text-center">সরবরাহকারীর নাম</td>
+                    <td style="width: 35%; padding: 2px;" class="rootTable text-center">সর্বমোট পরিমাণ </td>
+                </tr>
+                @foreach($groupItem as $i => $item)
+                    <tr>
+                        <td style="width: 5%; padding: 2px;" class="rootTable text-center">{{$i + 1}} </td>
+                        <td colspan="2" style="width: 60%; padding: 2px;" class="rootTable text-center">{{$item->supplierName}}</td>
+                        <td style="width: 35%; padding: 2px;" class="rootTable text-center">{{$item->totalAmount}}</td>
+                    </tr>
+                @endforeach
+                @if(count($data->groupList) != $index+1)
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                @endif
+
+
+            </table>
+        @endforeach
+    @endif
+
+    <table>
+        <tr>
+            <td>
+                নিম্ন সাক্ষরকারীগণের উপস্থিতিতে {{($Controller::enToBnConveter($Controller::dateFormatter($data->currentDate)))}} ইং ১২:০০ ঘটিকায় কারিগরীভাবে উপযুক্ত ২ টি প্রতিষ্ঠানের আর্থিক অফার খোলা হয়েছে।
+            </td>
+        </tr>
+    </table>
+    <br><br><br>
+    <table width="100%">
+        <tr>
+            <td style="width: 25%; text-align: center">প্রতিনিধি ব্যবহারকারী শাখা </td>
+            <td style="width: 25%; text-align: center">প্রতিনিধি এসিসিডি অফ(বিওএফ) </td>
+            <td style="width: 25%; text-align: center">পার্সোনাল অফিসার, ক্রয় </td>
+            <td style="width: 25%; text-align: center">সভাপতি দরপত্র কমিটি </td>
+        </tr>
     </table>
 
 
 </div>
-
 
 </body>

@@ -163,9 +163,84 @@ $data = json_decode($val['data']);
             @endforeach
         @endif
     </table>
+    <table>
+        <tr>
+            <td>
+                <b><u>Opinion:</u></b>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <b><u>Recommendation:</u></b>
+            </td>
+        </tr>
+    </table>
 
 
 </div>
+<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+    <table width="100%">
+        <tr>
+            <td style="width: 17%; text-align: left">
+                Member Secy
+                <br>
+                <br>
+                <br>
+                BA-5677 Maj <br>
+                Md. Shahedul Islam Bhuyain <br>
+                Acting Dy Dir SAA
+            </td>
+            <td style="width: 17%; text-align: left">
+                Member
+                <br>
+                <br>
+                <br>
+                No-1096 <br>
+                Belal Hussain <br>
+                Acting Manager Purchase
+            </td>
+            <td style="width: 16%; text-align: left">
+                Member
+                <br>
+                <br>
+                <br>
+                BA-5931 Col<br>
+                Md. Mizanuzzaman <br>
+                DD Admin & Mat
+            </td>
+            <td style="width: 17%; text-align: left">
+                Member
+                <br>
+                <br>
+                <br>
+                BA-5216 Brig Gen<br>
+                Mohammad Saiful Haque Khan <br>
+                Dir Admin & Mat
+            </td>
+            <td style="width: 16%; text-align: left">
+                Member
+                <br>
+                <br>
+                <br>
+                BA-4146 Brig Gen<br>
+                Md. Mahbood Karim <br>
+                Dir Production
+            </td>
+            <td style="width: 17%; text-align: left">
+                Member
+                <br>
+                <br>
+                <br>
+                BA-4133 Brig Gen<br>
+                Mohammad Emdad Ullah Bhuiyan <br>
+                Dir Planning & Maint
+            </td>
+        </tr>
+    </table>
+</footer>
 
 
 </body>
