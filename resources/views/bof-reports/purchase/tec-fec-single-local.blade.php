@@ -18,11 +18,6 @@
             border-collapse: collapse;
         } */
 
-        @page {
-            size: landscape;
-            orientation: landscape;
-        }
-
         @media print {
             .page-break {
                 page-break-after: always;
@@ -73,14 +68,12 @@
 </head>
 
 {{-- style="font-size: 24px;" --}}
-<body class="landscapePage">
+<body>
 <?php
 $data = json_decode($val['data']);
 ?>
-
-
         <!--    master page-->
-<div style="font-size: 24px; ">
+<div class="landscapePage">
     <br>
     <table width="100%">
         <tr>
@@ -166,7 +159,7 @@ $data = json_decode($val['data']);
     <table>
         <tr>
             <td>
-                <b><u>Opinion:</u></b>
+                <u><b>Opinion:</b></u>
             </td>
         </tr>
     </table>
@@ -174,7 +167,7 @@ $data = json_decode($val['data']);
     <table>
         <tr>
             <td>
-                <b><u>Recommendation:</u></b>
+                <u><b>Recommendation:</b></u>
             </td>
         </tr>
     </table>
