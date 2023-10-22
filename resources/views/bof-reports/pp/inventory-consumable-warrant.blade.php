@@ -8,47 +8,55 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
-    @media print {
-        .page-break {page-break-after: always;}
-    }
-    body {
-        writing-mode: tb-rl;
-    }
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100% !important;
-        padding: 5px;
-    }
+        @media print {
+            .page-break {
+                page-break-after: always;
+            }
+        }
 
-    .rootTable{
-        border: 1px solid;
-        border-collapse: collapse;
-    }
-    .left-border{
-        border-left: 1px solid;
-        border-collapse: collapse;
-    }
-    .right-border{
-        border-right: 1px solid;
-        border-collapse: collapse;
-    }
-    .top-border{
-        border-top: 1px solid;
-        border-collapse: collapse;
-    }
-    .bottom-border{
-        border-bottom: 1px solid;
-        border-collapse: collapse;
-    }
+        body {
+            writing-mode: tb-rl;
+        }
 
-    @page {
-        margin-top: 5%;
-    }
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100% !important;
+            padding: 5px;
+        }
 
-    td {
-        vertical-align: top !important;
-    }
+        .rootTable {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .left-border {
+            border-left: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .right-border {
+            border-right: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .top-border {
+            border-top: 1px solid;
+            border-collapse: collapse;
+        }
+
+        .bottom-border {
+            border-bottom: 1px solid;
+            border-collapse: collapse;
+        }
+
+        @page {
+            margin-top: 5%;
+        }
+
+        td {
+            vertical-align: top !important;
+        }
     </style>
 
 </head>
@@ -62,164 +70,238 @@
 
     <!--    master table-->
     <div>
-	<table width="100%">
-	            <tr>
-                    <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং: ১০১
-                    </td>
-                </tr>
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: right;">
+                    বিওএফ নং: ১০১
+                </td>
+            </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
-                                <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-                                <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
-                               <u> <span> ইনভেন্ট্রী/ কনজুমেবল দ্রব্যের হুকুমনামা</span></u>
-                            </td>
+                    <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+                    <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
+                    <u> <span> ইনভেন্ট্রী/ কনজুমেবল দ্রব্যের হুকুমনামা</span></u>
+                </td>
             </tr>
         </table>
-		
-		<table  width="100%">
-		<tr>
-			<td>কারিগরী শাখার নাম :  {{($data->section ? $data->section->banglaName : '')}}</td>
-			<td>শাখা কোড নম্বর: {{$Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '')}}</td>
-		</tr>
-		<tr>
-			<td>সংক্ষিপ্ত ফরমায়েশনামা: {{$Controller::enToBnConveter($data->shortOrderNo ? $data->shortOrderNo : '')}}</td>
-			<td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->orderDate))}}</td>
-		</tr>
-		<tr>
-			<td>হুকুমনামা নম্বর:   {{$Controller::enToBnConveter($data->warrantNo ? $data->warrantNo : '')}}</td>
-			<td>তারিখ: {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate))}}</td>
-		</tr>
-		<tr>
-			<td colspan="2">হার তালিকা নম্বর:   {{$Controller::enToBnConveter($data->listNo ? $data->listNo : '')}}</td>
-		</tr>
-		<tr>
-			<td colspan="2">সম্পূরক কার্যাদেশ নম্বর :  {{$Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '')}}</td>
-		</tr>
-		<tr>
-			<td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ :  {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityFrom))}}
-			- {{$Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityTo))}}
-			</td>
-		</tr>
-		<tr>
-		@if($data->specialComments != null)
-                <td colspan="2" style="text-align: left"> বিশেষ মন্তব্য : {!! ($data->specialComments) !!}</td>
+
+        <table width="100%">
+            <tr>
+                <td>কারিগরী শাখার নাম : {{ $data->section ? $data->section->banglaName : '' }}</td>
+                <td>শাখা কোড নম্বর: {{ $Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '') }}</td>
+            </tr>
+            <tr>
+                <td>সংক্ষিপ্ত ফরমায়েশনামা: {{ $Controller::enToBnConveter($data->extractNo ? $data->extractNo : '') }}
+                </td>
+                <td>তারিখ:
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->extractDate ? $data->extractDate : '')) }}
+                </td>
+            </tr>
+            <tr>
+                <td>হুকুমনামা নম্বর: {{ $Controller::enToBnConveter($data->warrantNo ? $data->warrantNo : '') }}</td>
+                <td>তারিখ:
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate ? $data->warrantDate : '')) }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">হার তালিকা নম্বর:
+                    {{ $Controller::enToBnConveter($data->listNo ? $data->listNo : '') }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">সম্পূরক কার্যাদেশ নম্বর :
+                    {{ $Controller::enToBnConveter($data->supplementaryOrderNo ? $data->supplementaryOrderNo : '') }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ :
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityFrom ? $data->warrantValidityFrom : '')) }}
+                    -
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantValidityTo ? $data->warrantValidityTo : '')) }}
+                </td>
+            </tr>
+            <tr>
+                @if ($data->specialComments != null)
+                    <td colspan="2" style="text-align: left"> বিশেষ মন্তব্য : {!! $data->specialComments !!}</td>
                 @endif
-		</tr>
-		<tr>
-			<td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা : সংযুক্ত দ্রব্য তালিকা মোতাবেক করা হলো ।</td>
-		</tr>
-		<tr>
-			<td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট: {{$Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '')}} </td>
-		</tr>
-</table>
+            </tr>
+            <tr>
+                <td colspan="2">চাহিদাকৃত দ্রব্যের হুকুমনামা : সংযুক্ত দ্রব্য তালিকা মোতাবেক করা হলো ।</td>
+            </tr>
+            <tr>
+                <td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট:
+                    {{ $Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '') }} </td>
+            </tr>
+        </table>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-	
-	<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
-<table width="100%">
-       <tr>
-                <td style="width: 30%">প্রস্তুতকারক: </td>
-                <td style="width: 20%">
-                    
-                </td>
-                <td style="width: 5%"></td>
-                <td style="width: 20%">সহকারী প্রকৌশলী পরিকল্পনা</td>
-                <td style="width: 30%;">
-                   
-                </td>
-            </tr>
-			<tr>
-                <td style="width: 30%">তারিখ : </td>
-                <td style="width: 20%">
-                    
-                </td>
-                <td style="width: 5%"></td>
-                <td style="width: 20%">পক্ষে কমান্ড্যান্ট</td>
-                <td style="width: 30%;">
-                   
-                </td>
-            </tr>
-			
-			<tr>
-                <td style="width: 30%"></td>
-                <td style="width: 20%">
-                    
-                </td>
-                <td style="width: 5%"></td>
-                <td style="width: 20%">তারিখ:</td>
-                <td style="width: 30%;">
-                   
-                </td>
-            </tr>
-			</table>
+        <br>
+        <br>
+        {{-- <br>
+        <br>
+        <br> --}}
 
-    </footer>
-			  
-			 
-            
+        {{-- <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+            <table width="100%">
+                <tr>
+                    <td style="width: 30%">প্রস্তুতকারক: </td>
+                    <td style="width: 20%">
+
+                    </td>
+                    <td style="width: 5%"></td>
+                    <td style="width: 20%">
+                        @if (isset($data->officer))
+                            {{ $data->officer->employeeNameBangla }}<br>
+                        @endif
+                        @if (isset($data->officer))
+                            {{ $data->officer->employeeOfficialInformation->designation->banglaName }}<br>
+                        @endif
+                        <span>পরিকল্পনা</span>
+                    </td>
+                    <td style="width: 30%;">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%">তারিখ : </td>
+                    <td style="width: 20%">
+
+                    </td>
+                    <td style="width: 5%"></td>
+                    <td style="width: 20%">{{ $data->onBehalf ? $data->onBehalf : '' }}</td>
+                    <td style="width: 30%;">
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 30%"></td>
+                    <td style="width: 20%">
+
+                    </td>
+                    <td style="width: 5%"></td>
+                    <td style="width: 20%">তারিখ:</td>
+                    <td style="width: 30%;">
+
+                    </td>
+                </tr>
+            </table>
+
+        </footer> --}}
+
+        <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
+
+            <thead>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->createBy))
+                            {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
+                        @endif
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->officer))
+                            {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->createBy))
+                            {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
+                            পরিকল্পনা
+                        @endif
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->officer))
+                            {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
+                            পরিকল্পনা
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                    <td style="width:40%;" class="text-left">
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+                    <td style="width:40%;" class="text-left">
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        তারিখঃ
+                    </td>
+                </tr>
+            </thead>
+
+        </table>
+
+
+
     </div>
-	
-	<div class="page-break"></div>
- <div style="font-size: 24px; ">
- <table width="100%">
- <tr>
-                    <td style="width: 100% !important; text-align: right;">
-						বিওএফ নং: ১০১
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 100% !important; text-align: center;">
-                      <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ  </span> </u>
-                    </td>
-                </tr>
-            </table>
-			 <table class="rootTable" width="100%">
-			 <tr class="rootTable">
-                    <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
-                    <td class="rootTable text-center">একক  </td>
-                    <td class="rootTable text-center">চাহিদার পরিমান বা ওজন </td>
-                    <td class="rootTable text-center">দেয় পরিমান বা ওজন  </td>
-                    <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
-                    <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ  </td>
-                </tr>
-				<tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"></td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                </tr>
-			 </table>
-			 <br>
-			 <table width="100%">
-                <tr>
-                    <td style="width: 100% !important; text-align: center;">
-                      <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ  </span> </u>
-                    </td>
-                </tr>
-            </table>
-			 <table class="rootTable" width="100%">
-			 <tr class="rootTable">
-                    <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
-                    <td class="rootTable text-center">একক  </td>
-                    <td class="rootTable text-center">দ্রব্যের পরিমান বা ওজন</td>
-                    <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
-                    <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ  </td>
-                </tr>
-				<tr  >
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"></td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                    <td class="rootTable text-center" style="height: 400px;"> </td>
-                </tr>
-			 </table>
- </div>
+
+    <div class="page-break"></div>
+    <div style="font-size: 24px; ">
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: right;">
+                    বিওএফ নং: ১০১
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                <td class="rootTable text-center">একক </td>
+                <td class="rootTable text-center">চাহিদার পরিমান বা ওজন </td>
+                <td class="rootTable text-center">দেয় পরিমান বা ওজন </td>
+                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ </td>
+            </tr>
+            <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"></td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+            </tr>
+        </table>
+        <br>
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                <td class="rootTable text-center">একক </td>
+                <td class="rootTable text-center">দ্রব্যের পরিমান বা ওজন</td>
+                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ </td>
+            </tr>
+            <tr>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"></td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 400px;"> </td>
+            </tr>
+        </table>
+    </div>
 
 </body>

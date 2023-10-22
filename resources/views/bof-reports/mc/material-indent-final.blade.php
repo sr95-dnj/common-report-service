@@ -79,13 +79,13 @@
                         <br><br>
                         <table width="90%" style="border-top: 1px solid;  padding-right: 50px;">
                             <tr>
-                                <td>ইন্ডেন্টের দ্রবগুলো বীমাকৃত হইবে কিনা : হ্যাঁ/না</td>
+                                <td>ইন্ডেন্টের দ্রব্যগুলো বীমাকৃত হইবে কিনা : হ্যাঁ/না</td>
                             </tr>
                         </table>
                         <br><br>
                         <table width="90%" style="border-top: 1px solid;  padding-right: 50px;">
                             <tr>
-                                <td>ইন্ডেন্টের দ্রবগুলো পূর্বে সরবরাহ হইয়া থাকিলে: <br>
+                                <td>ইন্ডেন্টের দ্রব্যগুলো পূর্বে সরবরাহ হইয়া থাকিলে: <br>
                                     <span>
                                         @if($data->preSupplied != null)
                                             {!! ($data->preSupplied) !!}
@@ -132,7 +132,7 @@
                         <br><br>
                         <table width="90%" style="border-top: 1px solid;  padding-right: 20px;">
                             <tr>
-                                <td>ইন্ডেন্টের দ্রবগুলোর বিশদ বিবরণ আই, এ এন্ড ই /আইএ আই কর্তৃক পরীক্ষিত /অনুমোদিত </td>
+                                <td>ইন্ডেন্টের দ্রব্যগুলোর বিশদ বিবরণ আই, এ এন্ড ই /আইএ আই কর্তৃক পরীক্ষিত /অনুমোদিত </td>
                             </tr>
                         </table>
                         <br><br>
@@ -141,7 +141,7 @@
                             <tr>
                                 <td style="width: 60%">&nbsp;</td>
                                 <td style="width: 40%">
-                                    <span>সাক্ষর</span><br>
+                                    <span>স্বাক্ষর</span><br>
                                     <span>প্রধান পরিদর্শক/সহকারী প্রকৌশলী</span><br>
                                     <span>আইএন্ডই/আইএসআই</span>
                                 </td>
@@ -180,8 +180,13 @@
                             <td valign="top" style="width: 10% !important; text-align: left;">
                                 প্রতি:
                             </td>
+<<<<<<< HEAD
                             <td style="width: 90% !important; text-align: left;">
                                 <span>Deputi Director Material</span><br>
+=======
+                            <td style="width: 94% !important; text-align: left;">
+                                <span>Deputy Director Material</span><br>
+>>>>>>> 36d1c703e891a9be11f1f0cbdecd72f9590d4b16
                                 <span>Bangladesh Ordnance Factories</span><br>
                                 <span>Gazipur Cantt. Gazipur</span>
                             </td>
@@ -251,7 +256,7 @@
                         <tr style="margin-top: 10px;">
                             <td style="width: 69%">&nbsp;</td>
                             <td style="text-align: left; width: 31%">
-                                সহকারী প্রকৌশলী, দ্রব নিয়ন্ত্রণ শাখা <br>
+                                সহকারী প্রকৌশলী, দ্রব্য নিয়ন্ত্রণ শাখা <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা
                             </td>
                         </tr>
@@ -272,7 +277,7 @@
                         <tr class="top-border bottom-border">
                             <td class="top-border bottom-border right-border" style="width: 33% !important; padding-left: 10px;">
                                 <br><br><br>
-                                সাক্ষর
+                                স্বাক্ষর
                                 <br> <br> <br>
                                 পরিচালক পরিকল্পনা এবং সংরক্ষণ <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
@@ -280,7 +285,7 @@
                             </td>
                             <td class="top-border bottom-border right-border" style="width: 33%; padding-left: 10px;">
                                 <br><br><br>
-                                সাক্ষর
+                                স্বাক্ষর
                                 <br> <br> <br>
                                 ডেপুটি কমান্ড্যান্ট <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
@@ -288,7 +293,7 @@
                             </td>
                             <td class="top-border bottom-border" style="width: 34%; padding-left: 10px;">
                                 <br><br><br>
-                                সাক্ষর
+                                স্বাক্ষর
                                 <br> <br> <br>
                                 এডিশনাল চিফ কন্ট্রোলার অফ ডিফেন্স ফাইন্যান্স <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
