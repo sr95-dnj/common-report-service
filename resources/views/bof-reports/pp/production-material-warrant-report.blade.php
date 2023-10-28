@@ -154,8 +154,8 @@ function findObjectById($array ,$id){
                             @endif
                         </span><br>
                         <span>খরচের হারঃ &nbsp;
-                            @if ($data->master->scheduleOfSupply != null)
-                                <span>{{ $data->master->scheduleOfSupply }}</span>
+                            @if ($data->master->completionRate != null)
+                                <span>{{ $data->master->completionRate }}</span>
                             @endif
                         </span><br>
                     </td>
@@ -207,11 +207,14 @@ function findObjectById($array ,$id){
                             @endif
                         </span><br>
                         <span>বর্তমান মজুদঃ &nbsp;
-                            @if ($data->master->currentStock != null)
+                            @if (isset($data->master->productItem))
+                                <span>{{ $data->master->productItem->availableStock ?  : 0 }}</span>
+                            @endif
+                            {{--@if ($data->master->currentStock != null)
                                 <span>
                                     {{ $Controller::enToBnConveter($data->master->currentStock) }}
                                 </span>
-                            @endif
+                            @endif--}}
                         </span><br>
                     </td>
                 </tr>
