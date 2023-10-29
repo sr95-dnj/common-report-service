@@ -18,6 +18,8 @@
         @page {
             size: landscape;
             orientation: landscape;
+            header: html_myHeader;
+            footer: html_myFooter;
 
         }
 
@@ -65,7 +67,7 @@
         }
 
         @page {
-            margin-top: 5px;
+            margin-top: 15%;
         }
 
         td {
@@ -77,32 +79,41 @@
 
 
 <body class="landscapePage" style="font-size: 16px;">
-    <?php
-    $data = json_decode($val['data']);
+<?php
+$data = json_decode($val['data']);
 //    dd($data);
 
-function findObjectById($array ,$id){
+function findObjectById($array, $id)
+{
 
-    foreach ( $array as $element ) {
-        if ( $id == $element->id ) {
+    foreach ($array as $element) {
+        if ($id == $element->id) {
             return $element->name;
         }
     }
     return false;
-    }
-    ?>
+}
+?>
 
+
+
+
+        <!-- header part-->
+<htmlpageheader name="myHeader" style="display:none;">
+    <div style="text-align: right">
+        <span>বিওএফ নং: ২৬৮</span>
+    </div>
+    <div style="font-size: 20px; text-align: center">
+        <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+        <span>গাজীপুর সেনানিবাস</span><br>
+        <span><u>উৎপাদনী ও দ্রব্যের হুকুমনামা</u></span><br>
+    </div>
+    <br>
+</htmlpageheader>
+
+<!--body part-->
+<div>
     <div>
-        <br><br><br>
-        <div style="text-align: right">
-            <span>বিওএফ নং: ২৬৮</span>
-        </div>
-        <div style="font-size: 20px; text-align: center">
-            <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-            <span>গাজীপুর সেনানিবাস</span><br>
-            <span><u>উৎপাদনী ও দ্রব্যের হুকুমনামা</u></span><br>
-        </div>
-        <br>
         <div>
             <table style="width: 100%; border: 1px solid; font-size: 15px;">
                 <tr>
@@ -229,39 +240,39 @@ function findObjectById($array ,$id){
             <div>
                 <table class="rootTable" width="100%">
                     <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
-                            <td class="rootTable text-center" style="width: 45%">বরাদ্দকৃত দ্রব্যের নাম ও বিবরণ</td>
-                            <td class="rootTable text-center" style="width: 15%">একক</td>
-                            <td class="rootTable text-center" style="width: 15%">পরিমান/ওজন</td>
-                            <td class="rootTable text-center" style="width: 15%">ফোলিও নং</td>
-                        </tr>
+                    <tr>
+                        <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
+                        <td class="rootTable text-center" style="width: 45%">বরাদ্দকৃত দ্রব্যের নাম ও বিবরণ</td>
+                        <td class="rootTable text-center" style="width: 15%">একক</td>
+                        <td class="rootTable text-center" style="width: 15%">পরিমান/ওজন</td>
+                        <td class="rootTable text-center" style="width: 15%">ফোলিও নং</td>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data->subItemDetails as $index => $item)
-                            <tr>
-                                <td class="rootTable text-center">{{ $index + 1 }}</td>
-                                <td valign="middle" class="rootTable">
-                                    @if (isset($item->mcItemMaster))
-                                        <span>{{ $item->mcItemMaster ? $item->mcItemMaster->itemNameBn : '' }}</span><br>
-                                        <span>{{ $item->mcItemMaster ? $item->mcItemMaster->itemSpecification : '' }}</span>
-                                    @endif
-                                </td>
-                                <td valign="middle" class="rootTable text-center">
-                                    @if ($item->mcItemMaster != null && $item->mcItemMaster->mcItemUnit != null)
-                                        <span>{{ $item->mcItemMaster->mcItemUnit->nameBn }}</span>
-                                    @endif
-                                </td>
-                                <td valign="middle" class="rootTable text-center">
-                                    <span>{{ $item->qty }}</span>
-                                </td>
-                                <td valign="middle" class="rootTable text-center">
-                                    @if ($item->mcItemMaster != null)
-                                        <span>{{ $item->mcItemMaster->itemClassRefNo }}</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
+                    @foreach ($data->subItemDetails as $index => $item)
+                        <tr>
+                            <td class="rootTable text-center">{{ $index + 1 }}</td>
+                            <td valign="middle" class="rootTable">
+                                @if (isset($item->mcItemMaster))
+                                    <span>{{ $item->mcItemMaster ? $item->mcItemMaster->itemNameBn : '' }}</span><br>
+                                    <span>{{ $item->mcItemMaster ? $item->mcItemMaster->itemSpecification : '' }}</span>
+                                @endif
+                            </td>
+                            <td valign="middle" class="rootTable text-center">
+                                @if ($item->mcItemMaster != null && $item->mcItemMaster->mcItemUnit != null)
+                                    <span>{{ $item->mcItemMaster->mcItemUnit->nameBn }}</span>
+                                @endif
+                            </td>
+                            <td valign="middle" class="rootTable text-center">
+                                <span>{{ $item->qty }}</span>
+                            </td>
+                            <td valign="middle" class="rootTable text-center">
+                                @if ($item->mcItemMaster != null)
+                                    <span>{{ $item->mcItemMaster->itemClassRefNo }}</span>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -274,235 +285,254 @@ function findObjectById($array ,$id){
             <div>
                 <table class="rootTable" width="100%">
                     <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
-                            <td class="rootTable text-center" style="width: 45%">প্রক্রিয়ার নাম ও বিবরণ</td>
-                            <td class="rootTable text-center" style="width: 15%">সংখ্যা</td>
-                            <td class="rootTable text-center" style="width: 15%">হার </td>
-                            <td class="rootTable text-center" style="width: 15%">
+                    <tr>
+                        <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
+                        <td class="rootTable text-center" style="width: 45%">প্রক্রিয়ার নাম ও বিবরণ</td>
+                        <td class="rootTable text-center" style="width: 15%">সংখ্যা</td>
+                        <td class="rootTable text-center" style="width: 15%">হার</td>
+                        <td class="rootTable text-center" style="width: 15%">
                             <span>ঘন্টা/মিলিয়ন/সংখ্যা</span>
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data->details as $index => $item)
-                            <tr>
-                                <td class="rootTable text-center">{{ $index + 1 }}</td>
-                                <td valign="middle" class="rootTable">
-                                    @if ($item->processSetupMaster != null)
-                                        <span>{{ $item->processSetupMaster ? $item->processSetupMaster->nameBn : '' }}</span><br>
-                                        <span>{{ $item->processSetupMaster ? $item->processSetupMaster->remarks : '' }}</span>
-                                    @endif
-                                </td>
-                                <td class="rootTable text-center"></td>
-                                <td class="rootTable">
-                                    @foreach ($item->processSetupMaster->details as $index => $process)
-                                        <span>{{ $process->employee }}</span>
-                                        <br>
-                                    @endforeach
-                                </td>
-                                <td class="rootTable text-center">
-                                    @foreach ($item->processSetupMaster->details as $index => $process)
-                                        <span>{{ $Controller::entoBn($process->timeHour, 'number') }} (প্রতিটি)</span>
-                                        <br>
-                                    @endforeach
-                                </td>
-                            </tr>
-                        @endforeach
+                    @foreach ($data->details as $index => $item)
+                        <tr>
+                            <td class="rootTable text-center">{{ $index + 1 }}</td>
+                            <td valign="middle" class="rootTable">
+                                @if ($item->processSetupMaster != null)
+                                    <span>{{ $item->processSetupMaster ? $item->processSetupMaster->nameBn : '' }}</span>
+                                    <br>
+                                    <span>{{ $item->processSetupMaster ? $item->processSetupMaster->remarks : '' }}</span>
+                                @endif
+                            </td>
+                            <td class="rootTable text-center"></td>
+                            <td class="rootTable">
+                                @foreach ($item->processSetupMaster->details as $index => $process)
+                                    <span>{{ $process->employee }}</span>
+                                    <br>
+                                @endforeach
+                            </td>
+                            <td class="rootTable text-center">
+                                @foreach ($item->processSetupMaster->details as $index => $process)
+                                    <span>{{ $Controller::entoBn($process->timeHour, 'number') }} (প্রতিটি)</span>
+                                    <br>
+                                @endforeach
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <!--.......next page.......-->
+    <div class="page-break"></div>
+    <div style="padding-top: 90px !important;">
+        <div>
+            <span>আদেশকৃত সংখ্যা..................</span>
+        </div>
+        <div style="text-align: center">
+            <span><u>তলবি দ্রব্যের বিবরণ</u></span>
+        </div>
+        <div>
+            <table class="rootTable" width="100%">
+                <thead>
+                <tr>
+                    <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
+                    <td class="rootTable text-center" style="width: 12%">একক</td>
+                    <td class="rootTable text-center" style="width: 12%">চাহিদার পরিমান বা ওজন</td>
+                    <td class="rootTable text-center" style="width: 12%">দেয় পরিমান বা ওজন</td>
+                    <td class="rootTable text-center" style="width: 12%">মোট পরিমান বা ওজন</td>
+                    <td class="rootTable text-center" style="width: 26%">তলবি নোট নম্বর ও তারিখ</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="rootTable">
+                        <br><br><br><br><br><br><br><br><br>
+                    </td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--...............................................-->
+        <br>
+        <div style="text-align: center">
+            <span><u>পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ</u></span>
+        </div>
+        <div>
+            <table class="rootTable" width="100%">
+                <thead>
+                <tr>
+                    <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
+                    <td class="rootTable text-center" style="width: 10%">একক</td>
+                    <td class="rootTable text-center" style="width: 15%">চাহিদার পরিমান বা ওজন</td>
+                    <td class="rootTable text-center" style="width: 15%">মোট পরিমান বা ওজন</td>
+                    <td class="rootTable text-center" style="width: 26%">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="rootTable">
+                        <br><br><br><br><br><br><br><br><br>
+                    </td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--...............................................-->
+        <br>
+        <div style="text-align: center">
+            <span><u>খুচরা কাজের বিবরণ</u></span>
+        </div>
+        <div>
+            <table class="rootTable" width="100%">
+                <thead>
+                <tr>
+                    <td class="rootTable text-center" style="width: 15%">তারিখ</td>
+                    <td class="rootTable text-center" style="width: 15%">সংখ্যা /সেট</td>
+                    <td class="rootTable text-center" style="width: 20%">গ্রহণকারী / পরিদর্শন</td>
+                    <td class="rootTable text-center" style="width: 20%"> পরিদর্শন নোটের নম্বর</td>
+                    <td class="rootTable text-center" style="width: 10%"> তারিখ</td>
+                    <td class="rootTable text-center" style="width: 10%"> বাকী</td>
+                    <td class="rootTable text-center" style="width: 10%">বাতিল</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="rootTable">
+                        <br><br><br><br><br><br><br><br><br>
+                    </td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--...............................................-->
+        <br>
+        <div style="text-align: center">
+            <span><u>সংশোধনের বিবরণী </u></span>
+        </div>
+        <div>
+            <table class="rootTable" width="100%">
+                <thead>
+                <tr>
+                    <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
+                    <td class="rootTable text-center" style="width: 35%">প্রক্রিয়া বিবরণী</td>
+                    <td class="rootTable text-center" style="width: 25%">পরিবর্তিত হার</td>
+                    <td class="rootTable text-center" style="width: 10%"> একক / প্রতি</td>
+                    <td class="rootTable text-center" style="width: 20%"> প্রাধিকার নং</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="rootTable">
+                        <br><br><br><br><br><br><br><br><br>
+                    </td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                    <td class="rootTable"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--footer part-->
+<htmlpagefooter name="myFooter" style="display:none">
 
     <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
 
         <thead>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->master->createBy))
-                        {{ $data->master->createBy->employeeNameBangla ? $data->master->createBy->employeeNameBangla : '' }}
-                    @endif
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->master->officer))
-                        {{ $data->master->officer->employeeNameBangla ? $data->master->officer->employeeNameBangla : '' }}
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->master->createBy))
-                        {{ $data->master->createBy ? $data->master->createBy->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
-                    @endif
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->master->officer))
-                        {{ $data->master->officer ? $data->master->officer->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                <td style="width:40%;" class="text-left">
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    {{ isset($data->master->onBehalf) ? $data->master->onBehalf : '' }}
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
-                <td style="width:40%;" class="text-left">
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    তারিখঃ
-                </td>
-            </tr>
+        <tr>
+            <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+            <td style="width:40%;" class="text-left">
+                @if (isset($data->master->createBy))
+                    {{ $data->master->createBy->employeeNameBangla ? $data->master->createBy->employeeNameBangla : '' }}
+                @endif
+            </td>
+            <td style="width:10%;"></td>
+            <td style="width:40%;" class="text-left">
+                @if (isset($data->master->officer))
+                    {{ $data->master->officer->employeeNameBangla ? $data->master->officer->employeeNameBangla : '' }}
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+            <td style="width:40%;" class="text-left">
+                @if (isset($data->master->createBy))
+                    {{ $data->master->createBy ? $data->master->createBy->employeeOfficialInformation->designation->banglaName : '' }}
+                    ,
+                    পরিকল্পনা
+                @endif
+            </td>
+            <td style="width:10%;"></td>
+            <td style="width:40%;" class="text-left">
+                @if (isset($data->master->officer))
+                    {{ $data->master->officer ? $data->master->officer->employeeOfficialInformation->designation->banglaName : '' }}
+                    ,
+                    পরিকল্পনা
+                @endif
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+            <td style="width:40%;" class="text-left">
+            </td>
+            <td style="width:10%;"></td>
+            <td style="width:40%;" class="text-left">
+                {{ isset($data->master->onBehalf) ? $data->master->onBehalf : '' }}
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+            <td style="width:40%;" class="text-left">
+            </td>
+            <td style="width:10%;"></td>
+            <td style="width:40%;" class="text-left">
+                তারিখঃ
+            </td>
+        </tr>
         </thead>
 
     </table>
 
-    <!--....................next page...........................-->
-    <div class="page-break"></div>
-    <div><br><br><br>
-        <div style="padding-top: 90px !important;">
-            <div style="width: 100%; text-align: right">
-                <span>বিওএফ নং: ২৬৮</span>
-            </div>
-            <div>
-                <span>আদেশকৃত সংখ্যা..................</span>
-            </div>
-            <div style="text-align: center">
-                <span><u>তলবি দ্রব্যের বিবরণ</u></span>
-            </div>
-            <div>
-                <table class="rootTable" width="100%">
-                    <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
-                            <td class="rootTable text-center" style="width: 12%">একক</td>
-                            <td class="rootTable text-center" style="width: 12%">চাহিদার পরিমান বা ওজন</td>
-                            <td class="rootTable text-center" style="width: 12%">দেয় পরিমান বা ওজন </td>
-                            <td class="rootTable text-center" style="width: 12%">মোট পরিমান বা ওজন </td>
-                            <td class="rootTable text-center" style="width: 26%">তলবি নোট নম্বর ও তারিখ</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rootTable">
-                                <br><br><br><br><br><br><br><br><br>
-                            </td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!--...............................................-->
-            <br>
-            <div style="text-align: center">
-                <span><u>পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ</u></span>
-            </div>
-            <div>
-                <table class="rootTable" width="100%">
-                    <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 26%">দ্রব্যের পরিমান ও সঠিক বিবরণ</td>
-                            <td class="rootTable text-center" style="width: 10%">একক</td>
-                            <td class="rootTable text-center" style="width: 15%">চাহিদার পরিমান বা ওজন</td>
-                            <td class="rootTable text-center" style="width: 15%">মোট পরিমান বা ওজন </td>
-                            <td class="rootTable text-center" style="width: 26%">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rootTable">
-                                <br><br><br><br><br><br><br><br><br>
-                            </td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <!--...............................................-->
-            <br>
-            <div style="text-align: center">
-                <span><u>খুচরা কাজের বিবরণ</u></span>
-            </div>
-            <div>
-                <table class="rootTable" width="100%">
-                    <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 15%">তারিখ</td>
-                            <td class="rootTable text-center" style="width: 15%">সংখ্যা /সেট </td>
-                            <td class="rootTable text-center" style="width: 20%">গ্রহণকারী / পরিদর্শন </td>
-                            <td class="rootTable text-center" style="width: 20%"> পরিদর্শন নোটের নম্বর </td>
-                            <td class="rootTable text-center" style="width: 10%"> তারিখ</td>
-                            <td class="rootTable text-center" style="width: 10%"> বাকী</td>
-                            <td class="rootTable text-center" style="width: 10%">বাতিল </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rootTable">
-                                <br><br><br><br><br><br><br><br><br>
-                            </td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <table width="100%">
+        <tr>
+            <td width="33%">
+                <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
+            </td>
+            <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
+                {PAGENO}/{nbpg}
+            </td>
+            <td width="33%" style="text-align: right;">
+            </td>
+        </tr>
+    </table>
+</htmlpagefooter>
 
-            <!--...............................................-->
-            <br>
-            <div style="text-align: center">
-                <span><u>সংশোধনের বিবরণী </u></span>
-            </div>
-            <div>
-                <table class="rootTable" width="100%">
-                    <thead>
-                        <tr>
-                            <td class="rootTable text-center" style="width: 10%">ক্রমিক</td>
-                            <td class="rootTable text-center" style="width: 35%">প্রক্রিয়া বিবরণী </td>
-                            <td class="rootTable text-center" style="width: 25%">পরিবর্তিত হার </td>
-                            <td class="rootTable text-center" style="width: 10%"> একক / প্রতি </td>
-                            <td class="rootTable text-center" style="width: 20%"> প্রাধিকার নং </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rootTable">
-                                <br><br><br><br><br><br><br><br><br>
-                            </td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                            <td class="rootTable"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
 </body>
+
+</html>
