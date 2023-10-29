@@ -8,16 +8,17 @@
     <link href="{{ asset('style/report-style.css') }}" rel="stylesheet">
 
     <style>
+
     @page {
-        margin-top: 5px;
+        size: auto;
+        margin-top: 15%;
+        header: html_myHeader;
+        footer: html_myFooter;
     }
 
-    /* table,
-    th,
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    } */
+    .main-content {
+        margin-top: 100px;
+    }
 
     table.center {
         margin-left: auto;
@@ -37,7 +38,7 @@
     $data = json_decode($val['data']);
     ?>
 
-    <div style="font-size: 24px; ">
+    <htmlpageheader name="myHeader" style="display:none;">
         <table width="100%">
             <tr>
                 <td style="width: 33%"></td>
@@ -49,27 +50,25 @@
                 </td>
             </tr>
         </table>
-
         <table width="100%">
             <tr>
                 <td style="text-align: left;">
-                @if($data->materialIndentFinalMaster != null && $data->materialIndentFinalMaster->indentNo != null)
-                <span>নথি নং : <u>{{optional($data)->materialIndentFinalMaster->indentNo}}</u></span>
-                @endif
+                    @if($data->materialIndentFinalMaster != null && $data->materialIndentFinalMaster->indentNo != null)
+                        <span>নথি নং : <u>{{optional($data)->materialIndentFinalMaster->indentNo}}</u></span>
+                    @endif
                 </td>
             </tr>
         </table>
-
         <!-- subject part -->
-
         <table width="100%">
             <tr>
                 <td><b><u>{!! (optional($data)->subject) !!}</u></b></td>
             </tr>
         </table>
-        <br>
         <!-- subject part -->
+    </htmlpageheader>
 
+    <div class="main-content" style="font-size: 24px; ">
         <!--main start-->
 
         <div style="text-align: center;">
@@ -99,49 +98,49 @@
                 </thead>
                 <tbody>
                 @foreach ($data->details as $index => $list)
-                <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
-                    <td style="text-align: left; width: 20%; padding: 2px;">
-                        @if($list->itemName != null)
-                        <span>{{optional($list)->itemName}}</span>
-                        @endif
-                        <br>
-                        @if($list->itemNameShortSpecification != null)
-                        <span>{{optional($list)->itemNameShortSpecification}}</span>
-                        @endif
+                    <tr>
+                        <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
+                        <td style="text-align: left; width: 20%; padding: 2px;">
+                            @if($list->itemName != null)
+                                <span>{{optional($list)->itemName}}</span>
+                            @endif
+                            <br>
+                            @if($list->itemNameShortSpecification != null)
+                                <span>{{optional($list)->itemNameShortSpecification}}</span>
+                            @endif
 
-                    </td>
+                        </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
-                        @if($list->uom != null)
-                        <span>{{optional($list)->uom}}</span>
-                        @endif
-                    </td>
+                        <td style="text-align: left; width: 10%; padding: 2px;">
+                            @if($list->uom != null)
+                                <span>{{optional($list)->uom}}</span>
+                            @endif
+                        </td>
 
-                    <td style="text-align: right; width: 10%; padding: 2px;">
-                        @if($list->indentQty != null)
-                        <span>{{optional($list)->indentQty}}</span>
-                        @endif
-                    </td>
+                        <td style="text-align: right; width: 10%; padding: 2px;">
+                            @if($list->indentQty != null)
+                                <span>{{optional($list)->indentQty}}</span>
+                            @endif
+                        </td>
 
-                    <td style="text-align: right; width: 15%; padding: 2px;">
-                        @if($list->unitPrice != null)
-                        <span>{{optional($list)->unitPrice}}</span>
-                        @endif
-                    </td>
+                        <td style="text-align: right; width: 15%; padding: 2px;">
+                            @if($list->unitPrice != null)
+                                <span>{{optional($list)->unitPrice}}</span>
+                            @endif
+                        </td>
 
-                    <td style="text-align: right; width: 15%; padding: 2px;">
-                        @if($list->totalPrice != null)
-                        <span>{{optional($list)->totalPrice}}</span>
-                        @endif
-                    </td>
+                        <td style="text-align: right; width: 15%; padding: 2px;">
+                            @if($list->totalPrice != null)
+                                <span>{{optional($list)->totalPrice}}</span>
+                            @endif
+                        </td>
 
-                    <td style="text-align: left; width: 20%; padding: 2px;">
-                        @if($list->remarks != null)
-                        <span>{{optional($list)->remarks}}</span>
-                        @endif
-                    </td>
-                </tr>
+                        <td style="text-align: left; width: 20%; padding: 2px;">
+                            @if($list->remarks != null)
+                                <span>{{optional($list)->remarks}}</span>
+                            @endif
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
@@ -170,7 +169,7 @@
                     <td style="text-align: left; width: 20%; padding: 2px;">
 
                         @if($list->fromUserId != null && $list->fromUserId->name != null)
-                           <u><span>{{optional($list)->fromUserId->name}}</span></u>
+                            <u><span>{{optional($list)->fromUserId->name}}</span></u>
                         @endif
                         <br>
                         <br>
@@ -192,10 +191,19 @@
 
     </div>
 
-    <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
-        <p>
-            সীমিত
-        </p>
-    </footer>
+    <htmlpagefooter name="myFooter" style="display:none">
+        <table width="100%">
+            <tr>
+                <td width="33%">
+                 <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
+                </td>
+                <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
+                    {PAGENO}/{nbpg}
+                </td>
+                <td width="33%" style="text-align: right;">
+                </td>
+            </tr>
+        </table>
+    </htmlpagefooter>
 
 </body>
