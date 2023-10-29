@@ -80,10 +80,13 @@
     $data = json_decode($val['data']);
     ?>
 
-
+    <br>
+    <br>
+    <br>
     <!--    master table-->
     <div>
         <table width="100%">
+
             <tr>
                 <td style="width: 100% !important; text-align: right;">
                     বিওএফ নং: ১০১
@@ -108,7 +111,7 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->itemMaster ? $data->itemMaster->itemNameBn : '' }}</td>
+                    {{ $data->itemMaster ? $data->itemMaster->itemNameEn : '' }}</td>
                 <td class="rootTable" colspan="2">প্রয়োজনীয় সংখ্যা/সেট :
                     {{ $data->requiredNumber ? $data->requiredNumber : '' }}</td>
             </tr>
