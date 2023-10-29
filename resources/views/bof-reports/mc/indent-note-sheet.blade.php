@@ -151,12 +151,40 @@
             <div style="width: 70%; float: right; text-align: right;">ইন্ডেন্টের মোট মূল্য = <b><u> {{optional($data)->totalIndentValue}} </u></b></div>
         </div>
 
+        <br>
+
         <!-- body part -->
 
         <table width="100%">
             <tr>
                 <td>{!! (optional($data)->body) !!}</td>
             </tr>
+        </table>
+
+        <br>
+
+        <table width="100%">
+            <tbody>
+            @foreach ($data->approvalHistoryList as $index => $list)
+                <tr>
+                    <td style="text-align: left; width: 20%; padding: 2px;">
+
+                        @if($list->fromUserId != null && $list->fromUserId->name != null)
+                           <u><span>{{optional($list)->fromUserId->name}}</span></u>
+                        @endif
+                        <br>
+                        <br>
+                        @if($list->comment != null)
+                            <span>{{optional($list)->comment}}</span>
+                        @endif
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
         </table>
 
         <!-- body part -->
