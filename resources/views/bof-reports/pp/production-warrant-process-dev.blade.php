@@ -109,7 +109,7 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->itemMaster->itemNameBn ? $data->itemMaster->itemNameBn : '' }}</td>
+                    {{ $data->itemMaster->itemNameEn ? $data->itemMaster->itemNameEn : '' }}</td>
                 <td class="rootTable" colspan="2">প্রয়োজনীয় সংখ্যা/সেট :
                     {{ $data->requiredNumber ? $data->requiredNumber : '' }}</td>
             </tr>
@@ -160,6 +160,7 @@
                 @endif </td>
             </tr>
         </table>
+        <br>
         <table width="100%">
             <tr>
                 @if ($data->specialComments != null)
