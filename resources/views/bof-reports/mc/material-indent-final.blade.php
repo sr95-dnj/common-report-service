@@ -169,8 +169,9 @@
                                 দ্রব্যের শ্রেণী  বিভাগ:
                             </td>
                             <td style="width: 80% !important; text-align: left;">
+
                                 @if($data->subject != null)
-                                    {!! ($data->subject) !!}
+                                    Purchase of  {!! ($data->subject) !!}
                                 @endif
                             </td>
                         </tr>
@@ -180,19 +181,15 @@
                             <td valign="top" style="width: 10% !important; text-align: left;">
                                 প্রতি:
                             </td>
-<<<<<<< HEAD
-                            <td style="width: 90% !important; text-align: left;">
-                                <span>Deputi Director Material</span><br>
-=======
                             <td style="width: 94% !important; text-align: left;">
                                 <span>Deputy Director Material</span><br>
->>>>>>> 36d1c703e891a9be11f1f0cbdecd72f9590d4b16
                                 <span>Bangladesh Ordnance Factories</span><br>
                                 <span>Gazipur Cantt. Gazipur</span>
                             </td>
+
                         </tr>
                     </table>
-                    <table>
+                    <table style="width: 100%">
                         <tr>
                             <td style="width: 65% !important; text-align: left;">
                                 ইনডেন্ট নং: <span>
@@ -211,9 +208,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
-                                <span>যথোপযুক্ত কর্তৃপক্ষ কর্তৃক আর্থিক সম্মতিক্রমে পাঠানো হইলো।</span>
+                            <td style="width: 65% !important;"></td>
+                            <td style="width: 35%; text-align: right"><span>যথোপযুক্ত কর্তৃপক্ষ কর্তৃক</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 65% !important;">
+                                <span>আর্থিক সম্মতিক্রমে পাঠানো হইলো।</span>
                             </td>
+                            <td style="width: 35% !important;"></td>
                         </tr>
                     </table>
                     <table>
@@ -227,9 +229,10 @@
                         </tr>
                         <tr>
                             <td style="width: 65% !important; text-align: left;">
-                                (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট সমূহের মোট মূল্য:
+                                (খ) বর্তমান অর্থ বৎসরে উপস্থাপিত ইনডেন্ট <br> সমূহের সর্বমোট মূল্য:
                             </td>
                             <td style="width: 35%">
+                                <br>
                                 @if($data->totalSum != null)
                                     Tk. {{($data->totalSum ? $data->totalSum : 0)}}
                                 @endif
@@ -239,16 +242,13 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 45% !important; text-align: left;">
+                            <td style="width: 69% !important; text-align: left;">
                                 (গ) বিকল্পনীয় বাজেট খাত:
                             </td>
-                            <td style="width: 55%">
-                                = Financial Code No.
-                                <span>
-                                    @if($data->budgetCode != null)
-                                        {{($data->budgetCode->economicCode)}}
-                                    @endif
-                                </span>
+                            <td style="width: 31%">
+                                <br>
+                                সহকারী প্রকৌশলী, দ্রব্য নিয়ন্ত্রণ শাখা <br>
+                                বাংলাদেশ সমরাস্ত্র কারখানা
                             </td>
                         </tr>
                     </table>
@@ -256,8 +256,7 @@
                         <tr style="margin-top: 10px;">
                             <td style="width: 69%">&nbsp;</td>
                             <td style="text-align: left; width: 31%">
-                                সহকারী প্রকৌশলী, দ্রব্য নিয়ন্ত্রণ শাখা <br>
-                                বাংলাদেশ সমরাস্ত্র কারখানা
+
                             </td>
                         </tr>
                     </table>
@@ -340,7 +339,6 @@
                 <td class="rootTable text-center" style="width: 5%">Folio No</td>
                 <td class="rootTable text-center" style="width: 14%">Name of Item and Specification</td>
                 <td class="rootTable text-center" style="width: 5%">Unit</td>
-                <td class="rootTable text-center" style="width: 10%">Demand Section</td>
                 <td class="rootTable text-center" style="width: 5%">Indent Qty</td>
                 <td class="rootTable text-center" style="width: 5%">Rate (Tk)</td>
                 <td class="rootTable text-center" style="width: 5%">Total Value</td>
@@ -361,7 +359,7 @@
                     <td class="rootTable">
                         @if($item->folioNo != null)
                             <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                            <span>{{($item->folioNo->itemSpecification)}}</span>
+                        <span>{!! ($item->folioNo->itemSpecification) !!}</span>
                         @endif
 
                     </td>
@@ -369,13 +367,6 @@
                         @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
                             {{($item->folioNo->mcItemUnit->nameEn)}}
                         @endif
-                    </td>
-                    <td class="rootTable text-center">
-                        @foreach ($item->demandSectionDetails as $indx => $demand)
-                            @if($demand->demandSection != null)
-                                {{($demand->demandSection->name)}},<br>
-                            @endif
-                        @endforeach
                     </td>
                     <td class="rootTable text-center">
                         @if($item->indentQty)
@@ -398,11 +389,7 @@
                         @endif
                     </td>
                     <td class="rootTable text-center">
-                        @foreach ($item->userSections as $indx => $user)
-                            @if($user != null)
-                                {{($user->name)}},<br>
-                            @endif
-                        @endforeach
+
                     </td>
                     <td class="rootTable text-center">
 
