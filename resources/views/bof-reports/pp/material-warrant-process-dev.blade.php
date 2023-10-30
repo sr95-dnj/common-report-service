@@ -107,7 +107,7 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->itemMaster ? $data->itemMaster->itemNameEn : '' }} -
+                    {{ $data->productItem ? $data->productItem->itemNameEn : '' }} -
                     {{ $data->mcProductComponent ? $data->mcProductComponent->itemNameEn : '' }} -
                     {{ $data->shortDescription ? $data->shortDescription : '' }}
 
