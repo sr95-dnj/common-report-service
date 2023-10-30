@@ -83,7 +83,7 @@
     ?>
     <htmlpageheader name="myHeader" style="display:none;">
         <div style="text-align: right">
-            <span>বিওএফ নং: ২৬৮</span>
+            <span>বিওএফ নং: ১০১</span>
         </div>
         <div style="font-size: 20px; text-align: center">
             <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
@@ -238,11 +238,6 @@
     <div class="page-break"></div>
     <div style="font-size: 24px; ">
         <table width="100%">
-            <tr>
-                <td style="width: 100% !important; text-align: right;">
-                    বিওএফ নং: ১০১
-                </td>
-            </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
                     <u> <span style="font-size: 16px;">তলবী দ্রব্যের বিবরণ </span> </u>
