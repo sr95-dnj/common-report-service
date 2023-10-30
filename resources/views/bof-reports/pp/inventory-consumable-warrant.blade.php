@@ -67,6 +67,8 @@
     $data = json_decode($val['data']);
     ?>
 
+    <br>
+    <br>
 
     <!--    master table-->
     <div>
@@ -88,18 +90,18 @@
         <table width="100%">
             <tr>
                 <td>কারিগরী শাখার নাম : {{ $data->section ? $data->section->banglaName : '' }}</td>
-                <td>শাখা কোড নম্বর: {{ $Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '') }}</td>
+                <td class="text-right">শাখা কোড নম্বর: {{ $Controller::enToBnConveter($data->sectionNo ? $data->sectionNo : '') }}</td>
             </tr>
             <tr>
                 <td>সংক্ষিপ্ত ফরমায়েশনামা: {{ $Controller::enToBnConveter($data->extractNo ? $data->extractNo : '') }}
                 </td>
-                <td>তারিখ:
+                <td class="text-right">তারিখ:
                     {{ $Controller::enToBnConveter($Controller::dateFormatter($data->extractDate ? $data->extractDate : '')) }}
                 </td>
             </tr>
             <tr>
                 <td>হুকুমনামা নম্বর: {{ $Controller::enToBnConveter($data->warrantNo ? $data->warrantNo : '') }}</td>
-                <td>তারিখ:
+                <td class="text-right">তারিখ:
                     {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate ? $data->warrantDate : '')) }}
                 </td>
             </tr>
@@ -129,7 +131,7 @@
             </tr>
             <tr>
                 <td colspan="2">প্রয়োজনীয় দ্রব্যের সংখ্যা/সেট:
-                    {{ $Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '') }} </td>
+                    {{ $Controller::enToBnConveter($data->requiredNumber ? $data->requiredNumber : '') }} দফা </td>
             </tr>
         </table>
 
@@ -187,6 +189,18 @@
 
         </footer> --}}
 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
 
             <thead>
