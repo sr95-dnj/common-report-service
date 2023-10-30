@@ -107,7 +107,9 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->itemMaster->itemNameEn ? $data->itemMaster->itemNameEn : '' }}</td>
+                    {{ $data->itemMaster ? $data->itemMaster->itemNameEn : '' }} -
+                    {{ $data->mcProductComponent ? $data->mcProductComponent->itemNameEn : '' }} -
+                    {{ $data->shortDescription ? $data->shortDescription : '' }}</td>
                 <td class="rootTable" colspan="2">প্রয়োজনীয় সংখ্যা/সেট :
                     {{ $data->requiredNumber ? $data->requiredNumber : '' }}</td>
             </tr>
@@ -138,7 +140,7 @@
             <tr>
                 <td class="rootTable">সরবারহের সূচি:</td>
                 <td class="rootTable">
-                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->lastDateOfSupply)) }}</td>
+                    {{ $data->scheduleOfSupply ? $data->scheduleOfSupply : '' }}</td>
                 <td class="rootTable">সমাপ্তির তারিখ:</td>
                 <td class="rootTable">
                     {{ $Controller::enToBnConveter($Controller::dateFormatter($data->completionDate)) }}</td>
