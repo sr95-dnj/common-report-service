@@ -243,7 +243,8 @@
                     <table>
                         <tr>
                             <td style="width: 69% !important; text-align: left;">
-                                (গ) বিকল্পনীয় বাজেট খাত:
+                                (গ) বিকল্পনীয় বাজেট খাত: &nbsp;&nbsp;&nbsp;
+                                <span>{{$data->budgetCode->economicCode}}</span>
                             </td>
                             <td style="width: 31%">
                                 <br>
@@ -362,8 +363,8 @@
                         <span>{!! ($item->folioNo->itemSpecification) !!}</span>
                         @endif
 
-                    </td>
-                    <td class="rootTable text-center">
+                    </td>otT
+                    <td class="roable text-center">
                         @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
                             {{($item->folioNo->mcItemUnit->nameEn)}}
                         @endif
@@ -389,10 +390,20 @@
                         @endif
                     </td>
                     <td class="rootTable text-center">
-
+                        @if(count($item->demandSectionDetails) > 0)
+                            @foreach ($item->demandSectionDetails as $index => $demand)
+                                <span>
+                                    {{($demand->demandSection->name)}}
+                                </span><br>
+                            @endforeach
+                        @endif
                     </td>
                     <td class="rootTable text-center">
-
+                        @if($item->folioNo->availableStock !=null)
+                            {{($item->folioNo->availableStock)}}
+                        @else
+                            0
+                        @endif
                     </td>
                     <td class="rootTable text-left">
                         @if($item->countryOfOrigin)
@@ -407,10 +418,16 @@
                 </tr>
             @endforeach
         </table>
-        <div style="width: 100%; margin-top: 8px;">
-            <div style="width: 30%; float: left;">Total Item = {{count($data->details)}} Items</div>
-            <div style="width: 70%; float: right; text-align: right">Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}</div>
-        </div>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 40%; text-align: left">
+                    Total Item = {{count($data->details)}} Items
+                </td>
+                <td style="width: 40%; text-align: right">
+                    Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                </td>
+            </tr>
+        </table>
     </div>
 
 
