@@ -12,7 +12,7 @@
         @page {
             size: auto;
             margin-top: 15%;
-            margin-bottom: 15%;
+            margin-bottom: 5%;
             header: html_myHeader;
             footer: html_myFooter;
         }
@@ -83,6 +83,14 @@ function getMonthYear($date)
 
 <div class="main-content" style="font-size: 24px; ">
     <!--main start-->
+
+    <table width="100%">
+        <tr>
+            <td>{!! (optional($data)->header) !!}</td>
+        </tr>
+    </table>
+
+    <br>
 
     <div style="text-align: center;">
         <table class="center tbBorder" style="text-align: center; padding: 5px;">
@@ -178,37 +186,6 @@ function getMonthYear($date)
 
     <br>
 
-    <table width="100%">
-        <tbody>
-        @foreach ($data->approvalHistoryList as $index => $list)
-            <tr>
-                <td style="text-align: left; width: 20%; padding: 2px;">
-
-                    @if($list->fromUserId != null && $list->fromUserId->name != null)
-                        <u><span>{{optional($list)->fromUserId->name}}</span></u>
-                    @endif
-                    <br>
-                    <br>
-                    @if($list->comment != null)
-                        <span>{{optional($list)->comment}}</span>
-                    @endif
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-
-    <!-- body part -->
-
-
-</div>
-
-<htmlpagefooter name="myFooter" style="display:none">
-
     <table style="width: 100%; font-size: 15px; border-collapse: collapse;" class="table-center">
         <tr>
             <td width="75%"></td>
@@ -237,6 +214,37 @@ function getMonthYear($date)
     <br>
 
     <table width="100%">
+        <tbody>
+        @foreach ($data->approvalHistoryList as $index => $list)
+            <tr>
+                <td style="text-align: left; width: 20%; padding: 2px;">
+
+                    @if($list->fromUserId != null && $list->fromUserId->designation != null)
+                        <u><span>{{optional($list)->fromUserId->designation}}</span></u>
+                    @endif
+                    <br>
+                    <br>
+                    @if($list->comment != null)
+                        <span>{{optional($list)->comment}}</span>
+                    @endif
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+    <!-- body part -->
+
+
+</div>
+
+<htmlpagefooter name="myFooter" style="display:none">
+
+    <table width="100%">
         <tr>
             <td width="33%">
                 <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
@@ -251,3 +259,4 @@ function getMonthYear($date)
 </htmlpagefooter>
 
 </body>
+</html>
