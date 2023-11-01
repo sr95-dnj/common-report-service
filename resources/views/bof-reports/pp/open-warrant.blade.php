@@ -191,6 +191,73 @@
 
         {{-- <br> --}}
         {{-- <br> --}}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+            <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
+
+                <thead>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->createBy))
+                            {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
+                        @endif
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->officer))
+                            {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->createBy))
+                            {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
+                            পরিকল্পনা
+                        @endif
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        @if (isset($data->officer))
+                            {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
+                            পরিকল্পনা
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                    <td style="width:40%;" class="text-left">
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+                    <td style="width:40%;" class="text-left">
+                    </td>
+                    <td style="width:10%;"></td>
+                    <td style="width:40%;" class="text-left">
+                        তারিখঃ
+                    </td>
+                </tr>
+                </thead>
+
+            </table>
+        </footer>
+        <br>
+        <br>
+        <br>
+        <br>
         <table width="100%" style="margin-top: 10%">
             <tr>
                 <td style="width: 100% !important; text-align: left;">
@@ -257,66 +324,7 @@
             </tr>
         </table>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
-        <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
 
-            <thead>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->createBy))
-                        {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
-                    @endif
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->officer))
-                        {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->createBy))
-                        {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
-                    @endif
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->officer))
-                        {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                <td style="width:40%;" class="text-left">
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
-                <td style="width:40%;" class="text-left">
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    তারিখঃ
-                </td>
-            </tr>
-            </thead>
-
-        </table>
-        </footer>
 
 
     </div>

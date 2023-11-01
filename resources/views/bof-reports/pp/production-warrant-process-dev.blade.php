@@ -18,6 +18,8 @@
         @page {
             size: landscape;
             orientation: landscape;
+            header: html_myHeader;
+            footer: html_myFooter;
 
         }
 
@@ -64,7 +66,7 @@
         }
 
         @page {
-            margin-top: 5px;
+            margin-top: 15%;
         }
 
         td {
@@ -80,25 +82,21 @@
     $data = json_decode($val['data']);
 //     dd($data);
     ?>
-
+            <!-- header part-->
+    <htmlpageheader name="myHeader" style="display:none;">
+        <div style="text-align: right">
+            <span>বিওএফ নং: ১০০</span>
+        </div>
+        <div style="font-size: 20px; text-align: center">
+            <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+            <span>গাজীপুর সেনানিবাস</span><br>
+            <span><u>উৎপাদনী হুকুমনামা</u></span><br>
+        </div>
+        <br>
+    </htmlpageheader>
 
     <!--    master table-->
     <div>
-        <table width="100%">
-            <tr>
-                <td style="width: 100% !important; text-align: right;">
-                    বিওএফ নং: ১০০
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 100% !important; text-align: center;">
-                    <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-                    <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
-                    <u> <span>উৎপাদনী হুকুমনামা </span></u>
-                </td>
-            </tr>
-        </table>
-
         <table class="rootTable" width="100%">
             <tr>
                 <td class="rootTable" colspan="2">উন্নয়নমূলক <br>
@@ -109,7 +107,9 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->itemMaster->itemNameEn ? $data->itemMaster->itemNameEn : '' }}</td>
+                    {{ $data->productItem ? $data->productItem->itemNameEn : '' }} -
+                    {{ $data->mcProductComponent ? $data->mcProductComponent->itemNameEn : '' }} -
+                    {{ $data->shortDescription ? $data->shortDescription : '' }}</td>
                 <td class="rootTable" colspan="2">প্রয়োজনীয় সংখ্যা/সেট :
                     {{ $data->requiredNumber ? $data->requiredNumber : '' }}</td>
             </tr>
@@ -140,7 +140,7 @@
             <tr>
                 <td class="rootTable">সরবারহের সূচি:</td>
                 <td class="rootTable">
-                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->lastDateOfSupply)) }}</td>
+                    {{ $data->scheduleOfSupply ? $data->scheduleOfSupply : '' }}</td>
                 <td class="rootTable">সমাপ্তির তারিখ:</td>
                 <td class="rootTable">
                     {{ $Controller::enToBnConveter($Controller::dateFormatter($data->completionDate)) }}</td>
@@ -180,14 +180,12 @@
                 <td class="rootTable text-center">ঘন্টা/মিলিয়ন </td>
             </tr>
             <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 500px;"> </td>
-                <td class="rootTable text-center" style="height: 500px;  vertical-align: middle;">শ্রম প্রয়োজন মত। </td>
-                <td class="rootTable text-center" style="height: 500px;"></td>
-                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;  vertical-align: middle;">শ্রম প্রয়োজন মত। </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
             </tr>
         </table>
-        <br>
-        <br>
 
         {{-- <footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
             <table width="100%">
@@ -238,60 +236,7 @@
             </table>
 
         </footer> --}}
-        <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
 
-            <thead>
-                <tr>
-                    <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
-                    <td style="width:40%;" class="text-left">
-                        @if (isset($data->createBy))
-                            {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
-                        @endif
-                    </td>
-                    <td style="width:10%;"></td>
-                    <td style="width:40%;" class="text-left">
-                        @if (isset($data->officer))
-                            {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                    <td style="width:40%;" class="text-left">
-                        @if (isset($data->createBy))
-                            {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
-                            পরিকল্পনা
-                        @endif
-                    </td>
-                    <td style="width:10%;"></td>
-                    <td style="width:40%;" class="text-left">
-                        @if (isset($data->officer))
-                            {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
-                            পরিকল্পনা
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                    <td style="width:40%;" class="text-left">
-                    </td>
-                    <td style="width:10%;"></td>
-                    <td style="width:40%;" class="text-left">
-                        {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
-                    <td style="width:40%;" class="text-left">
-                    </td>
-                    <td style="width:10%;"></td>
-                    <td style="width:40%;" class="text-left">
-                        তারিখঃ
-                    </td>
-                </tr>
-            </thead>
-
-        </table>
 
 
     </div>
@@ -299,11 +244,6 @@
     <div class="page-break"></div>
     <div style="font-size: 24px; ">
         <table width="100%">
-            <tr>
-                <td style="width: 100% !important; text-align: right;">
-                    বিওএফ নং: ১০০
-                </td>
-            </tr>
             <tr>
                 <td style="width: 100% !important; text-align: center;">
                     <u> <span style="font-size: 16px;">খুচরা কাজের বিবরণ </span> </u>
@@ -331,13 +271,13 @@
                 <td class="rootTable text-center">বাতিল </td>
             </tr>
             <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"></td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
             </tr>
         </table>
         <br>
@@ -357,13 +297,86 @@
                 <td class="rootTable text-center">কোন অধিকার বলে </td>
             </tr>
             <tr>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"></td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
             </tr>
         </table>
     </div>
+
+    <!--footer part-->
+    <htmlpagefooter name="myFooter" style="display:none">
+
+        <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
+
+            <thead>
+            <tr>
+                <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+                <td style="width:40%;" class="text-left">
+                    @if (isset($data->createBy))
+                        {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
+                    @endif
+                </td>
+                <td style="width:10%;"></td>
+                <td style="width:40%;" class="text-left">
+                    @if (isset($data->officer))
+                        {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                <td style="width:40%;" class="text-left">
+                    @if (isset($data->createBy))
+                        {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
+                        পরিকল্পনা
+                    @endif
+                </td>
+                <td style="width:10%;"></td>
+                <td style="width:40%;" class="text-left">
+                    @if (isset($data->officer))
+                        {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
+                        পরিকল্পনা
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                <td style="width:40%;" class="text-left">
+                </td>
+                <td style="width:10%;"></td>
+                <td style="width:40%;" class="text-left">
+                    {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+                <td style="width:40%;" class="text-left">
+                </td>
+                <td style="width:10%;"></td>
+                <td style="width:40%;" class="text-left">
+                    তারিখঃ
+                </td>
+            </tr>
+            </thead>
+
+        </table>
+
+
+        <table width="100%">
+            <tr>
+                <td width="33%">
+                    <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
+                </td>
+                <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
+                    {PAGENO}/{nbpg}
+                </td>
+                <td width="33%" style="text-align: right;">
+                </td>
+            </tr>
+        </table>
+    </htmlpagefooter>
 
 </body>

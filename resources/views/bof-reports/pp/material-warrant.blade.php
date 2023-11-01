@@ -18,6 +18,8 @@
         @page {
             size: landscape;
             orientation: landscape;
+            header: html_myHeader;
+            footer: html_myFooter;
 
         }
 
@@ -64,7 +66,7 @@
         }
 
         @page {
-            margin-top: 5px;
+            margin-top: 15%;
         }
 
         td {
@@ -81,27 +83,24 @@
 //     dd($data);
     ?>
 
+            <!-- header part-->
+    <htmlpageheader name="myHeader" style="display:none;">
+        <div style="text-align: right">
+            <span>বিওএফ নং: ১০১</span>
+        </div>
+        <div style="font-size: 20px; text-align: center">
+            <span>বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
+            <span>গাজীপুর সেনানিবাস</span><br>
+            <span><u>দ্রব্যের হুকুমনামা</u></span><br>
+        </div>
+        <br>
+    </htmlpageheader>
 
     <!--    master table-->
     <div>
-        <table width="100%">
-            <tr>
-                <td style="width: 100% !important; text-align: right;">
-                    বিওএফ নং: ১০১
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 100% !important; text-align: center;">
-                    <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
-                    <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
-                    <u> <span>দ্রব্যের হুকুমনামা</span></u>
-                </td>
-            </tr>
-        </table>
-
-        <table width="100%">
+        <table class="rootTable" width="100%">
             <thead>
-                <tr>
+                <tr >
                     <td style="width: 30%">
                         {{ $Controller::enToBnConveter($data->master->financialYear->financialYear) }}</td>
                     <td style="width: 2%"></td>
@@ -225,6 +224,7 @@
             </thead>
         </table>
 
+        <br>
         <table width="100%">
             <tr>
                 <td colspan="1" style="width: 10%">
@@ -283,9 +283,66 @@
 
     </div>
 
-    <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
 
-        <thead>
+
+    <div class="page-break"></div>
+    <div style="font-size: 24px; ">
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                <td class="rootTable text-center">একক </td>
+                <td class="rootTable text-center">চাহিদার পরিমান বা ওজন </td>
+                <td class="rootTable text-center">দেয় পরিমান বা ওজন </td>
+                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ </td>
+            </tr>
+            <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+            </tr>
+        </table>
+        <br>
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
+                <td class="rootTable text-center">একক </td>
+                <td class="rootTable text-center">দ্রব্যের পরিমান বা ওজন</td>
+                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
+                <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ </td>
+            </tr>
+            <tr>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--footer part-->
+    <htmlpagefooter name="myFooter" style="display:none">
+        <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
+
+            <thead>
             <tr>
                 <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
                 <td style="width:40%;" class="text-left">
@@ -334,67 +391,24 @@
                     তারিখঃ
                 </td>
             </tr>
-        </thead>
+            </thead>
 
-    </table>
+        </table>
 
-    <div class="page-break"></div>
-    <div style="font-size: 24px; ">
+
+
         <table width="100%">
             <tr>
-                <td style="width: 100% !important; text-align: right;">
-                    বিওএফ নং: ১০১
+                <td width="33%">
+                    <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
                 </td>
-            </tr>
-            <tr>
-                <td style="width: 100% !important; text-align: center;">
-                    <u> <span style="font-size: 16px;">তলবি দ্রব্যের বিবরণ </span> </u>
+                <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
+                    {PAGENO}/{nbpg}
                 </td>
-            </tr>
-        </table>
-        <table class="rootTable" width="100%">
-            <tr class="rootTable">
-                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
-                <td class="rootTable text-center">একক </td>
-                <td class="rootTable text-center">চাহিদার পরিমান বা ওজন </td>
-                <td class="rootTable text-center">দেয় পরিমান বা ওজন </td>
-                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
-                <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ </td>
-            </tr>
-            <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"></td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-            </tr>
-        </table>
-        <br>
-        <table width="100%">
-            <tr>
-                <td style="width: 100% !important; text-align: center;">
-                    <u> <span style="font-size: 16px;">পুনুরুদ্ধারকৃত দ্রব্যের বিবরণ </span> </u>
+                <td width="33%" style="text-align: right;">
                 </td>
             </tr>
         </table>
-        <table class="rootTable" width="100%">
-            <tr class="rootTable">
-                <td class="rootTable text-center">দ্রব্যের পরিমান ও সঠিক বিবরণ </td>
-                <td class="rootTable text-center">একক </td>
-                <td class="rootTable text-center">দ্রব্যের পরিমান বা ওজন</td>
-                <td class="rootTable text-center">মোট পরিমান বা ওজন </td>
-                <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ </td>
-            </tr>
-            <tr>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"></td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-            </tr>
-        </table>
-    </div>
-
+    </htmlpagefooter>
 
 </body>
