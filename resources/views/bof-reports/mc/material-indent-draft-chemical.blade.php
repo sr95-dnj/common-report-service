@@ -146,16 +146,16 @@ $data = json_decode($val['data']);
                 <td class="rootTable text-center">5</td>
                 <td class="rootTable text-center">6</td>
                 <td class="rootTable text-center">7</td>
-                <td class="rootTable text-center">8=(Total Sum of 6)</td>
+                <td class="rootTable text-center">8</td>
                 <td class="rootTable text-center">9</td>
                 <td class="rootTable text-center">10</td>
-                <td class="rootTable text-center">11=<br>(9+10)-8</td>
+                <td class="rootTable text-center">11</td>
                 <td class="rootTable text-center">12</td>
-                <td class="rootTable text-center">13 = (12/9)</td>
+                <td class="rootTable text-center">13</td>
                 <td class="rootTable text-center">14</td>
                 <td class="rootTable text-center">15</td>
                 <td class="rootTable text-center">16</td>
-                <td class="rootTable text-center">17=(12+14)-11</td>
+                <td class="rootTable text-center">17</td>
                 <td class="rootTable text-center">18</td>
                 <td class="rootTable text-center">19</td>
             </tr>
@@ -172,7 +172,7 @@ $data = json_decode($val['data']);
                     <td class="rootTable">
                         @if($item->folioNo != null)
                             <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                            <span>{{($item->folioNo->itemSpecification)}}</span><br>
+                            <span>{!! $item->folioNo->itemSpecification!!}</span><br>
                             <span>
                                         @if($item->countryOfOrigin != null)
                                     <span>Country of Origin {{($item->countryOfOrigin)}}</span>
