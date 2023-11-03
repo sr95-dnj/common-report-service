@@ -68,6 +68,7 @@
 
         @page {
             margin-top: 15%;
+            margin-bottom: 15%;
         }
 
         td {
@@ -460,7 +461,7 @@ function findObjectById($array, $id)
 <!--footer part-->
 <htmlpagefooter name="myFooter" style="display:none">
 
-    <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
+    <table style="width: 100%; font-size: 15px; border-collapse: collapse;">
 
         <thead>
         <tr>
@@ -515,20 +516,6 @@ function findObjectById($array, $id)
         </tr>
         </thead>
 
-    </table>
-
-
-    <table width="100%">
-        <tr>
-            <td width="33%">
-                <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
-            </td>
-            <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
-                {PAGENO}/{nbpg}
-            </td>
-            <td width="33%" style="text-align: right;">
-            </td>
-        </tr>
     </table>
 </htmlpagefooter>
 

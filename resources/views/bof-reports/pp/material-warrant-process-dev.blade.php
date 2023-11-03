@@ -20,6 +20,7 @@
             orientation: landscape;
             header: html_myHeader;
             footer: html_myFooter;
+            margin-bottom: 15%;
 
         }
 
@@ -107,10 +108,18 @@
             </tr>
             <tr>
                 <td class="rootTable" colspan="2">বস্তুর নাম:
-                    {{ $data->productItem ? $data->productItem->itemNameEn : '' }} -
-                    {{ $data->mcProductComponent ? $data->mcProductComponent->itemNameEn : '' }} -
-                    {{ $data->shortDescription ? $data->shortDescription : '' }}
+                    <span>
+                        @if(isset($data->productItem->itemNameEn))
+                            {{ $data->productItem->itemNameEn }} -
+                        @endif
+                    </span>
 
+                    <span>
+                        @if($data->mcProductComponent != null && $data->mcProductComponent->itemNameEn != null)
+                            {{ $data->mcProductComponent->itemNameEn}} -
+                        @endif
+                    </span>
+                    {{ $data->shortDescription ? $data->shortDescription : '' }}
                 </td>
                 <td class="rootTable" colspan="2">প্রয়োজনীয় সংখ্যা/সেট :
                     {{ $data->requiredNumber ? $data->requiredNumber : '' }}</td>
@@ -347,20 +356,6 @@
             </tr>
             </thead>
 
-        </table>
-
-
-        <table width="100%">
-            <tr>
-                <td width="33%">
-                    <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
-                </td>
-                <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
-                    {PAGENO}/{nbpg}
-                </td>
-                <td width="33%" style="text-align: right;">
-                </td>
-            </tr>
         </table>
     </htmlpagefooter>
 

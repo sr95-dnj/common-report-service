@@ -21,6 +21,7 @@
             orientation: landscape;
             header: html_myHeader;
             footer: html_myFooter;
+            margin-bottom: 15%;
 
         }
 
@@ -106,13 +107,13 @@
     <br>
 </htmlpageheader>
 
-    <div>
+<div>
 
         <div>
             <table  style="width: 100%; font-size: 15px; border-collapse: collapse;">
-                <thead class="rootTable">
-                    <tr class="rootTable">
-                        <td colspan="2" style=" border-right: 1px solid;width: 60%;">
+                <thead>
+                    <tr>
+                        <td colspan="2" style="width: 60%;">
                             <span>শাখার নামঃ &nbsp;
                                 @if ($data->sectionId != null)
                                     <span>{{ $data->sectionId->banglaName }}</span>
@@ -262,11 +263,75 @@
                     @endforeach
                 </tbody>
             </table>
-
-
         </div>
 
     </div>
+
+<div class="page-break"></div>
+
+<div style="font-size: 24px; ">
+    <table width="100%">
+        <tr>
+            <td style="width: 100% !important; text-align: center;">
+                <u> <span style="font-size: 16px;">খুচরা কাজের বিবরণ </span> </u>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100% !important; text-align: left;">
+                <span style="font-size: 16px;">আদেশকৃত সংখ্যা :.............................</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100% !important; text-align: center;">
+                <u> <span style="font-size: 16px;">জমা/খরচের হিসাব </span> </u>
+            </td>
+        </tr>
+    </table>
+    <table class="rootTable" width="100%">
+        <tr class="rootTable">
+            <td class="rootTable text-center">তারিখ </td>
+            <td class="rootTable text-center">সংখ্যা/সেট </td>
+            <td class="rootTable text-center">গ্রহণকারী/পরিদর্শন </td>
+            <td class="rootTable text-center">পরিদর্শন নোটের নম্বর </td>
+            <td class="rootTable text-center">তারিখ </td>
+            <td class="rootTable text-center">বাকি </td>
+            <td class="rootTable text-center">বাতিল </td>
+        </tr>
+        <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"></td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+        </tr>
+    </table>
+    <br>
+    <table width="100%">
+        <tr>
+            <td style="width: 100% !important; text-align: center;">
+                <u> <span style="font-size: 16px;">সংশোধনী বিবরণী </span> </u>
+            </td>
+        </tr>
+    </table>
+    <table class="rootTable" width="100%">
+        <tr class="rootTable">
+            <td class="rootTable text-center">ক্রমিক </td>
+            <td class="rootTable text-center">প্রক্রিয়া বিবরণী </td>
+            <td class="rootTable text-center">পরিবর্তিত হার </td>
+            <td class="rootTable text-center">একক </td>
+            <td class="rootTable text-center">কোন অধিকার বলে </td>
+        </tr>
+        <tr>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"></td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+            <td class="rootTable text-center" style="height: 300px;"> </td>
+        </tr>
+    </table>
+</div>
 
 
 <!--footer part-->
@@ -325,20 +390,6 @@
         </tr>
         </thead>
 
-    </table>
-
-
-    <table width="100%">
-        <tr>
-            <td width="33%">
-                <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
-            </td>
-            <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
-                {PAGENO}/{nbpg}
-            </td>
-            <td width="33%" style="text-align: right;">
-            </td>
-        </tr>
     </table>
 </htmlpagefooter>
 </body>
