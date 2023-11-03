@@ -107,8 +107,8 @@
                 </table>
                 <table class="rootTable" width="100%">
                     <tr class="rootTable">
-                        <td class="rootTable text-center" style="width: 5%;">SL</td>
-                        <td class="rootTable text-center" style="width: 5%;">Folio No</td>
+                        <td class="rootTable text-center" style="width: 3%;">SL</td>
+                        <td class="rootTable text-center" style="width: 7%;">Folio No</td>
                         <td class="rootTable text-center" style="width: 14%;">Name of Item and Specification</td>
                         <td class="rootTable text-center" style="width: 5%;">Unit</td>
                         <td class="rootTable text-center" style="width: 5%;">Section</td>
@@ -133,10 +133,10 @@
                         <td class="rootTable text-center">5</td>
                         <td class="rootTable text-center">6</td>
                         <td class="rootTable text-center">7</td>
-                        <td class="rootTable text-center">8=(Total Sum of 6)</td>
+                        <td class="rootTable text-center">8</td>
                         <td class="rootTable text-center">9</td>
                         <td class="rootTable text-center">10</td>
-                        <td class="rootTable text-center">11=<br>(9+10)-8</td>
+                        <td class="rootTable text-center">11</td>
                         <td class="rootTable text-center">12</td>
                         <td class="rootTable text-center">13</td>
                         <td class="rootTable text-center">14</td>
@@ -157,7 +157,7 @@
                             <td class="rootTable">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                                    <span>{{($item->folioNo->itemSpecification)}}</span><br>
+                                    <span>{!! $item->folioNo->itemLongSpecification !!}</span><br>
                                     <span>
                                         @if($item->countryOfOrigin != null)
                                             <span>Country of Origin {{($item->countryOfOrigin)}}</span>
@@ -203,44 +203,60 @@
                             <td class="rootTable text-center">
                                 @if($item->demandQty != null)
                                     {{($item->demandQty)}}
+                                @else
+                                    0
                                 @endif
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->presentStock != null)
                                     {{($item->presentStock)}}
+                                @else
+                                    0
                                 @endif
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->pipeLine != null)
                                     {{($item->pipeLine)}}
+                                @else
+                                    0
                                 @endif
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->shortfall != null)
                                     {{($item->shortfall)}}
+                                @else
+                                    0
                                 @endif
                             </td>
                             <td class="rootTable text-center">
                                 @if($item->avgConsumption != null)
                                     {{($item->avgConsumption)}}
+                                @else
+                                    0
                                 @endif
                             </td>
 <!--                            Present Stock-->
                             <td class="rootTable text-center">
                                 @if($item->proposeQty != null)
                                     {{($item->proposeQty)}}
+                                @else
+                                    0
                                 @endif
                             </td>
 <!--                            Pipe Line-->
                             <td class="rootTable text-center">
                                 @if($item->approvedQty != null)
                                     {{($item->approvedQty ? $item->approvedQty : 0)}}
+                                @else
+                                    0
                                 @endif
                             </td>
 <!--                            Reqd Qty-->
                             <td class="rootTable text-center">
                                 @if($item->previousRate != null)
                                     {{($item->previousRate)}}
+                                @else
+                                    0
                                 @endif
                             </td>
 <!--                            Previous rate S.O No & dt previousRate-->
