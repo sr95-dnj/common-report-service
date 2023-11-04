@@ -314,17 +314,89 @@ $data = json_decode($val['data']);
 
     </div>
 </div>
-
-<footer style="position: fixed; bottom: 0; width: 100%; font-size: 24px; text-align: center">
+<br><br><br><br>
+<!--position: fixed; bottom: 0; width: 100%;-->
+<div style="font-size: 24px; text-align: center">
     <table style="width: 100%">
         <tr>
-            <td style="width: 20%; text-align: center;">Prepared By</td>
-            <td style="width: 20%; text-align: center;">Asst. Engr MC</td>
-            <td style="width: 20%; text-align: center;">Asst. Manager Plg</td>
-            <td style="width: 20%; text-align: center;">Manager Plg</td>
-            <td style="width: 20%; text-align: center;">Dy Dir Plg</td>
+            <td style="width: 20%; text-align: center; vertical-align: bottom;">
+                <span>
+                    @if(isset($data->preparedUser) && $data->preparedUser->signature != null && $data->preparedUser != null)
+                        <img style="width: 100px; height: 60px;" src="{{$data->preparedUser->signatureURL}}" alt="">
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->preparedUser) && $data->createdDate != null)
+                        {{$Controller::dateFormatter($data->createdDate)}}
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->preparedUser) && $data->preparedUser != null)
+                        {{$data->preparedUser->employeeName}}
+                    @endif
+                </span><br>
+                <span>Prepared By</span>
+            </td>
+            <td style="width: 20%; text-align: center; vertical-align: bottom;">
+                <span>
+                    @if(isset($data->assistantEng) && $data->assistantEng != null && $data->assistantEng->employeeInfo != null && $data->assistantEng->employeeInfo->signature != null)
+                        <img style="width: 100px; height: 60px;" src="{{$data->assistantEng->employeeInfo->signatureURL}}" alt="">
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->assistantEng) && $data->assistantEng != null)
+                        {{$Controller::dateFormatter($data->assistantEng->employeeInfo->entryDate)}}
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->assistantEng) && $data->assistantEng != null)
+                        {{$data->assistantEng->name}}
+                    @endif
+                </span><br>
+                <span>Asst. Engr MC</span>
+            </td>
+            <td style="width: 20%; text-align: center; vertical-align: bottom;">
+
+                <span>Asst. Manager Plg</span>
+            </td>
+            <td style="width: 20%; text-align: center; vertical-align: bottom;">
+                <span>
+                    @if(isset($data->manager) && $data->manager != null && $data->manager->employeeInfo != null && $data->manager->employeeInfo->signature != null)
+                        <img style="width: 100px; height: 60px;" src="{{$data->manager->employeeInfo->signatureURL}}" alt="">
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->manager) && $data->manager != null)
+                        {{$Controller::dateFormatter($data->manager->employeeInfo->entryDate)}}
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->manager) && $data->manager != null)
+                        {{$data->manager->name}}
+                    @endif
+                </span><br>
+                <span>Manager Plg</span>
+            </td>
+            <td style="width: 20%; text-align: center; vertical-align: bottom;">
+                <span>
+                    @if(isset($data->ddPlanning) && $data->ddPlanning != null && $data->ddPlanning->employeeInfo != null && $data->ddPlanning->employeeInfo->signature != null)
+                        <img style="width: 100px; height: 60px;" src="{{$data->ddPlanning->employeeInfo->signatureURL}}" alt="">
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->ddPlanning) && $data->ddPlanning != null)
+                        {{$Controller::dateFormatter($data->ddPlanning->employeeInfo->entryDate)}}
+                    @endif
+                </span><br>
+                <span>
+                    @if(isset($data->ddPlanning) && $data->ddPlanning != null)
+                        {{$data->ddPlanning->name}}
+                    @endif
+                </span><br>
+                <span>Dy Dir Plg</span>
+            </td>
         </tr>
     </table>
-</footer>
+</div>
 </body>
 </html>

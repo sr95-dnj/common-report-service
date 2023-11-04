@@ -275,23 +275,47 @@
                         </tr>
                         <tr class="top-border bottom-border">
                             <td class="top-border bottom-border right-border" style="width: 33% !important; padding-left: 10px;">
-                                <br><br><br>
-                                স্বাক্ষর
-                                <br> <br> <br>
+                                <br>
+                                <span>
+                                    @if(isset($data->ddPlanning) && $data->ddPlanning->employeeInfo != null && $data->ddPlanning->employeeInfo->signature != null)
+                                        <img style="width: 100px; height: 40px;" src="{{$data->ddPlanning->employeeInfo->signatureURL}}" alt="">
+                                    @endif
+                                </span>
+                                <br>
+                                স্বাক্ষর <br>
+                                @if(isset($data->ddPlanning) && $data->ddPlanning != null)
+                                    {{$data->ddPlanning->name}}
+                                @endif
+                                <br> <br>
                                 পরিচালক পরিকল্পনা এবং সংরক্ষণ <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
                             <td class="top-border bottom-border right-border" style="width: 33%; padding-left: 10px;">
-                                <br><br><br>
-                                স্বাক্ষর
-                                <br> <br> <br>
+                                <br>
+                                <span>
+                                    @if(isset($data->dyComDt) && $data->dyComDt->employeeInfo != null && $data->dyComDt->employeeInfo->signature != null)
+                                        <img style="width: 100px; height: 45px;" src="{{$data->dyComDt->employeeInfo->signatureURL}}" alt="">
+                                    @endif
+                                </span>
+                                <br>
+                                স্বাক্ষর <br>
+                                @if(isset($data->dyComDt) && $data->ddPlanning != null)
+                                    {{$data->dyComDt->name}}
+                                @endif
+                                <br>
                                 ডেপুটি কমান্ড্যান্ট <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা <br>
                                 গাজীপুর সেনানিবাস, গাজীপুর।
                             </td>
                             <td class="top-border bottom-border" style="width: 34%; padding-left: 10px;">
-                                <br><br><br>
+                                <br>
+                                <br>
+                                <span>
+                                    {{--@if(isset($data->ddPlanning) && $data->ddPlanning != null && $data->ddPlanning->employeeInfo != null && $data->ddPlanning->employeeInfo->signature != null)
+                                        <img style="width: 100px; height: 60px;" src="{{$data->ddPlanning->employeeInfo->signatureURL}}" alt="">
+                                    @endif--}}
+                                </span>
                                 স্বাক্ষর
                                 <br> <br> <br>
                                 এডিশনাল চিফ কন্ট্রোলার অফ ডিফেন্স ফাইন্যান্স <br>
@@ -336,7 +360,7 @@
         <table class="rootTable" width="100%">
             <tr class="rootTable">
                 <td class="rootTable text-center" style="width: 5%">SL</td>
-                <td class="rootTable text-center" style="width: 5%">Folio No</td>
+                <td class="rootTable text-center" style="width: 13%">Folio No</td>
                 <td class="rootTable text-center" style="width: 14%">Name of Item and Specification</td>
                 <td class="rootTable text-center" style="width: 5%">Unit</td>
                 <td class="rootTable text-center" style="width: 5%">Indent Qty</td>
@@ -346,7 +370,8 @@
                 <td class="rootTable text-center" style="width: 5%">User Section</td>
                 <td class="rootTable text-center" style="width: 5%">Present Stock</td>
                 <td class="rootTable text-center" style="width: 7%">Country of Origin</td>
-                <td class="rootTable text-center" style="width: 20%">Remarks</td>
+                <td class="rootTable text-center" style="width: 7%">Approx Date/ Time of Supply</td>
+                <td class="rootTable text-center" style="width: 15%">Remarks</td>
             </tr>
             @foreach ($data->details as $index => $item)
                 <tr>
@@ -409,6 +434,11 @@
                             {{($item->countryOfOrigin)}}
                         @endif
                     </td>
+                    <td class="rootTable text-left">
+                        @if($item->appxDateOfSupply)
+                            {{($item->appxDateOfSupply)}}
+                        @endif
+                    </td>
                     <td class="rootTable">
                         @if($item->remarks)
                             {{($item->remarks)}}
@@ -422,8 +452,11 @@
                 <td style="width: 40%; text-align: left">
                     Total Item = {{count($data->details)}} Items
                 </td>
-                <td style="width: 40%; text-align: right">
+                <td style="width: 40%; text-align: left">
                     Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+
+                    <span>(Tk. {{($data->totalIndentPriceInWord)}} only.)</span>
+
                 </td>
             </tr>
         </table>
