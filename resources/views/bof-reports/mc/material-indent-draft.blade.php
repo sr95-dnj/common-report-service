@@ -22,6 +22,9 @@
         width: 100% !important;
         padding: 5px;
     }
+    td{
+        padding:2px;
+    }
 
     .rootTable{
         border: 1px solid;
@@ -109,7 +112,7 @@
                     <tr class="rootTable">
                         <td class="rootTable text-center" style="width: 3%;">SL</td>
                         <td class="rootTable text-center" style="width: 7%;">Folio No</td>
-                        <td class="rootTable text-center" style="width: 14%;">Name of Item and Specification</td>
+                        <td class="rootTable text-center" style="width: 21%;">Name of Item and Specification</td>
                         <td class="rootTable text-center" style="width: 5%;">Unit</td>
                         <td class="rootTable text-center" style="width: 5%;">Section</td>
                         <td class="rootTable text-center" style="width: 5%;">Demand Qty</td>
@@ -123,7 +126,7 @@
                         <td class="rootTable text-center" style="width: 7%;">Approved Qty</td>
                         <td class="rootTable text-center" style="width: 7%;">Previous Rate</td>
                         <td class="rootTable text-center" style="width: 7%;">S.O. No. Dt & Supplier Name</td>
-                        <td class="rootTable text-center" style="width: 20%;">Remarks</td>
+                        <td class="rootTable text-center" style="width: 13%;">Remarks</td>
                     </tr>
                     <tr>
                         <td class="rootTable text-center">1</td>

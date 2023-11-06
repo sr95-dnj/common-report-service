@@ -20,6 +20,9 @@
         width: 100% !important;
         padding: 5px;
     }
+    td{
+        padding: 2px;
+    }
 
     .rootTable{
         border: 1px solid;
@@ -165,10 +168,10 @@
 
                     <table width="100%">
                         <tr>
-                            <td style="width: 35% !important; text-align: left;">
+                            <td style="width: 40% !important; text-align: left;">
                                 দ্রব্যের শ্রেণী  বিভাগ: &nbsp;&nbsp; Purchase of
                             </td>
-                            <td style="width: 65% !important; text-align: left;">
+                            <td style="width: 60% !important; text-align: left;">
                                 @if($data->subject != null)
                                       {!! ($data->subject) !!}
                                 @endif
@@ -190,7 +193,7 @@
                     </table>
                     <table style="width: 100%">
                         <tr>
-                            <td style="width: 65% !important; text-align: left;">
+                            <td style="width: 65% !important; text-align: left; font-size: 13px;">
                                 ইনডেন্ট নং: <span>
                                     @if($data->indentNo != null)
                                         {{($data->indentNo)}}
@@ -241,11 +244,11 @@
                     </table>
                     <table>
                         <tr>
-                            <td style="width: 69% !important; text-align: left;">
+                            <td style="width: 65% !important; text-align: left;">
                                 (গ) বিকল্পনীয় বাজেট খাত: &nbsp;&nbsp;&nbsp;
                                 <span>{{$data->budgetCode->economicCode}}</span>
                             </td>
-                            <td style="width: 31%">
+                            <td style="width: 35%">
                                 <br>
                                 সহকারী প্রকৌশলী, দ্রব্য নিয়ন্ত্রণ শাখা <br>
                                 বাংলাদেশ সমরাস্ত্র কারখানা
@@ -279,9 +282,9 @@
                                 <span>
                                     @if(isset($data->ddPlanning) && $data->ddPlanning->employeeInfo != null && $data->ddPlanning->employeeInfo->signature != null)
                                         <img style="width: 100px; height: 40px;" src="{{$data->ddPlanning->employeeInfo->signatureURL}}" alt="">
+                                        <p>{{$Controller::enToBnConveter($Controller::dateFormatter($data->ddPlanning->employeeInfo->entryDate))}}</p>
                                     @endif
                                 </span>
-                                <br>
                                 স্বাক্ষর <br>
                                 @if(isset($data->ddPlanning) && $data->ddPlanning != null)
                                     {{$data->ddPlanning->name}}
@@ -296,9 +299,9 @@
                                 <span>
                                     @if(isset($data->dyComDt) && $data->dyComDt->employeeInfo != null && $data->dyComDt->employeeInfo->signature != null)
                                         <img style="width: 100px; height: 45px;" src="{{$data->dyComDt->employeeInfo->signatureURL}}" alt="">
+                                        <p>{{$Controller::enToBnConveter($Controller::dateFormatter($data->dyComDt->employeeInfo->entryDate))}}</p>
                                     @endif
                                 </span>
-                                <br>
                                 স্বাক্ষর <br>
                                 @if(isset($data->dyComDt) && $data->ddPlanning != null)
                                     {{$data->dyComDt->name}}
@@ -449,10 +452,10 @@
         </table>
         <table style="width: 100%">
             <tr>
-                <td style="width: 40%; text-align: left">
+                <td style="width: 30%; text-align: left">
                     Total Item = {{count($data->details)}} Items
                 </td>
-                <td style="width: 40%; text-align: left">
+                <td style="width: 70%; text-align: left">
                     Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
 
                     <span>(Tk. {{($data->totalIndentPriceInWord)}} only.)</span>

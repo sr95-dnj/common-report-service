@@ -52,6 +52,9 @@
             border-bottom: 1px solid;
             border-collapse: collapse;
         }
+        td{
+            padding: 2px;
+        }
 
         td th {
             vertical-align: top !important;
