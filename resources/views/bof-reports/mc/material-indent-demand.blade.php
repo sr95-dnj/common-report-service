@@ -121,7 +121,7 @@ $data = json_decode($val['data']);
                         <td class="rootTable">
                             @if(isset($item->itemMaster))
                                 <span>{{($item->itemMaster->itemNameEn)}}</span><br>
-                                <span>{{($item->specification)}}</span>
+                                <span>{!!($item->specification) !!}</span>
                             @endif
 
                         </td>

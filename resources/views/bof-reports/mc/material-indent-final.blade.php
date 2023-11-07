@@ -315,9 +315,6 @@
                                 <br>
                                 <br>
                                 <span>
-                                    {{--@if(isset($data->ddPlanning) && $data->ddPlanning != null && $data->ddPlanning->employeeInfo != null && $data->ddPlanning->employeeInfo->signature != null)
-                                        <img style="width: 100px; height: 60px;" src="{{$data->ddPlanning->employeeInfo->signatureURL}}" alt="">
-                                    @endif--}}
                                 </span>
                                 স্বাক্ষর
                                 <br> <br> <br>
@@ -390,8 +387,8 @@
                         <span>{!! ($item->folioNo->itemSpecification) !!}</span>
                         @endif
 
-                    </td>otT
-                    <td class="roable text-center">
+                    </td>
+                    <td class="rootTable text-center">
                         @if($item->folioNo != null && $item->folioNo->mcItemUnit != null)
                             {{($item->folioNo->mcItemUnit->nameEn)}}
                         @endif

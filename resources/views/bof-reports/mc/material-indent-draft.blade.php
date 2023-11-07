@@ -286,7 +286,7 @@
                 <table width="100%">
                     <tr>
                         <td class="text-center">
-                            <span style="font-size: 15px;">Row Mat-SAA</span> <br>
+                            <span style="font-size: 15px;">Direct Raw Material Indent</span> <br>
                             <span style="font-size: 13px;">Draft Indent -
                             <span>
                                 @if($data->financialYear != null)
@@ -385,7 +385,7 @@
                             <td class="rootTable top-align">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                                    <span>{{($item->folioNo->itemSpecification)}}</span>
+                                    <span>{!! $item->folioNo->itemLongSpecification !!}</span>
                                 @endif
 
                             </td>
@@ -396,19 +396,19 @@
                                 @endif
                             </td>
                             <!--productName-->
-                            <td class="rootTable top-align text-center">
+                            <td class="rootTable top-align text-left">
                                 @foreach ($item->consumptionRates as $index => $consumption)
                                 <span>
-                                    {{($consumption->product->nameEn)}}
-                                </span><br>
+                                    {{$index + 1}}. {{($consumption->product->nameEn)}}
+                                </span><br><br>
                                 @endforeach
                             </td>
                             <!--componentName-->
-                            <td class="rootTable top-align text-center">
+                            <td class="rootTable top-align text-left">
                                 @foreach ($item->consumptionRates as $index => $consumption)
                                     <span>
-                                    {{($consumption->component->nameEn)}}
-                                </span><br>
+                                    {{$index + 1}}. {{($consumption->component->nameEn)}}
+                                </span><br><br>
                                 @endforeach
                             </td>
                             <!--consumptionRate-->
@@ -416,7 +416,7 @@
                                 @foreach ($item->consumptionRates as $index => $consumption)
                                     <span>
                                     {{($consumption->reqrYr)}}
-                                </span><br>
+                                </span><br><br>
                                 @endforeach
                             </td>
                             <!--targetYr-->
@@ -424,7 +424,7 @@
                                 @foreach ($item->consumptionRates as $index => $consumption)
                                     <span>
                                     {{($consumption->targetQty)}}
-                                </span><br>
+                                </span><br><br>
                                 @endforeach
                             </td>
                             <!--reqrYr-->
@@ -439,7 +439,7 @@
                             <td class="rootTable top-align text-center">
                                 <span>
                                     @if($item->reqrQtyYr != null)
-                                        <div style="border-top: 1px solid !important;">{{($item->reqrQtyYr)}}</div>
+                                        <div>{{($item->reqrQtyYr)}}</div>
                                     @else
                                         0
                                     @endif
