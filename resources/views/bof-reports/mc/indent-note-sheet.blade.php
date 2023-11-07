@@ -1,3 +1,7 @@
+@php
+    use App\Http\Controllers\Report\ReportController as ReportController;
+@endphp
+
 <!DOCTYPE html>
 <html lang="bn">
 
@@ -15,6 +19,12 @@
             margin-bottom: 5%;
             header: html_myHeader;
             footer: html_myFooter;
+        }
+
+        @media print {
+            .page-break-inside {
+                page-break-inside: avoid;
+            }
         }
 
         .main-content {
@@ -47,11 +57,10 @@ function getMonthYear($date)
         return '';
     }
 }
-
-
+$reportController = new ReportController();
 ?>
 
-<htmlpageheader name="myHeader" style="display:none;">
+<htmlpageheader name="myHeader" style="display:none; font-size: 16px">
     <table width="100%">
         <tr>
             <td style="width: 33%"></td>
@@ -67,7 +76,7 @@ function getMonthYear($date)
         <tr>
             <td style="text-align: left;">
                 @if($data->materialIndentFinalMaster != null && $data->materialIndentFinalMaster->indentNo != null)
-                    <span>নথি নং : <u>{{optional($data)->materialIndentFinalMaster->indentNo}}</u></span>
+                    <span>নথি নং {{$Controller::enToBnConveter($data->materialIndentFinalMaster->indentNo)}}</span>
                 @endif
             </td>
         </tr>
@@ -96,14 +105,13 @@ function getMonthYear($date)
         <table class="center tbBorder" style="text-align: center; padding: 5px;">
             <thead>
             <tr>
-                <td style="width: 10%; padding: 2px; ">ক্রঃ নং</td>
-                <td style="width: 20%; padding: 2px; ">দ্রব্যের বিবরণ</td>
-                <td style="width: 10%; padding: 2px; ">দ্রব্যের একক</td>
-                <td style="width: 10%; padding: 2px; ">ইনডেন্ট বর্ণিত পরিমান</td>
-                <td style="width: 15%; padding: 2px; ">একক মূলো টাকা</td>
-                <td style="width: 15%; padding: 2px; ">মোট মূলো টাকা</td>
-                <td style="width: 20%; padding: 2px; ">মন্তব্য</td>
-
+                <td style="width: 10%; padding: 2px; vertical-align: top;">ক্রমিক</td>
+                <td style="width: 20%; padding: 2px; vertical-align: top;">দ্রব্যের বিবরণ</td>
+                <td style="width: 10%; padding: 2px; vertical-align: top;">একক</td>
+                <td style="width: 10%; padding: 2px; vertical-align: top;">পরিমাণ</td>
+                <td style="width: 15%; padding: 2px; vertical-align: top;">একক মূলো <br> টাকা</td>
+                <td style="width: 15%; padding: 2px; vertical-align: top;">মোট মূলো টাকা <br> চ = (ঘ x ঙ) </td>
+                <td style="width: 20%; padding: 2px; vertical-align: top;">মন্তব্য</td>
             </tr>
 
             <tr>
@@ -120,8 +128,8 @@ function getMonthYear($date)
             <tbody>
             @foreach ($data->details as $index => $list)
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} |</td>
-                    <td style="text-align: left; width: 20%; padding: 2px;">
+                    <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} .</td>
+                    <td style="text-align: left; vertical-align: top; width: 20%; padding: 2px;">
                         @if($list->itemName != null)
                             <span>{{optional($list)->itemName}}</span>
                         @endif
@@ -129,34 +137,33 @@ function getMonthYear($date)
                         @if($list->itemNameShortSpecification != null)
                             <span>{{optional($list)->itemNameShortSpecification}}</span>
                         @endif
-
                     </td>
 
-                    <td style="text-align: left; width: 10%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; width: 10%; padding: 2px;">
                         @if($list->uom != null)
                             <span>{{optional($list)->uom}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: right; width: 10%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; width: 10%; padding: 2px;">
                         @if($list->indentQty != null)
                             <span>{{optional($list)->indentQty}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: right; width: 15%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
                         @if($list->unitPrice != null)
-                            <span>{{optional($list)->unitPrice}}</span>
+                            <span>{{number_format(optional($list)->unitPrice, 2)}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: right; width: 15%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
                         @if($list->totalPrice != null)
-                            <span>{{optional($list)->totalPrice}}</span>
+                            <span>{{number_format(optional($list)->totalPrice, 2)}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: left; width: 20%; padding: 2px;">
+                    <td style="text-align: left; vertical-align: top; width: 20%; padding: 2px;">
                         @if($list->remarks != null)
                             <span>{{optional($list)->remarks}}</span>
                         @endif
@@ -166,12 +173,11 @@ function getMonthYear($date)
             </tbody>
         </table>
     </div>
-    <div style="width: 100%; font-size: 12px; margin-top: 8px;">
-        <div style="width: 30%; float: left;">মোট প্রকাশনা সংখ্যা:
-            ({{$Controller::entoBn(count($data->details),'number')}}) মাত্র
+    <div style="width: 100%; font-size: 15px; margin-top: 8px;">
+        <div>
+            ইন্ডেন্টের মোট মূল্য = {{number_format(optional($data)->totalIndentValue, 2)}}
+            ({{$reportController->numToWord(optional($data)->totalIndentValue)}}) টাকা |
         </div>
-        <div style="width: 70%; float: right; text-align: right;">ইন্ডেন্টের মোট মূল্য =
-            <b><u> {{optional($data)->totalIndentValue}} </u></b></div>
     </div>
 
     <br>
@@ -186,30 +192,32 @@ function getMonthYear($date)
 
     <br>
 
-    <table style="width: 100%; font-size: 15px; border-collapse: collapse;" class="table-center">
-        <tr>
-            <td width="75%"></td>
-            <td width="25%">
+    <div class="page-break-inside">
+        <table style="width: 100%; font-size: 15px; border-collapse: collapse;" class="table-center">
+            <tr>
+                <td width="75%"></td>
+                <td width="25%">
                 <span>
                     @if($data->employee != null)
                         {{ $data->employee }}
                     @endif
                 </span>
-                <br>
-                <span>
+                    <br>
+                    <span>
                     @if($data->designation != null)
-                        {{$data->designation }}
-                    @endif
+                            {{$data->designation }}
+                        @endif
                 </span>
-                <br>
-                <span>
+                    <br>
+                    <span>
                      @if($data->createdDate !=null)
-                        {{ getMonthYear($Controller::enToBnConveter($Controller::dateFormatter($data->createdDate))) }}
-                    @endif
+                            {{ getMonthYear($Controller::enToBnConveter($Controller::dateFormatter($data->createdDate))) }}
+                        @endif
                 </span>
-            </td>
-        </tr>
-    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <br>
 
@@ -250,7 +258,7 @@ function getMonthYear($date)
                 <!--<span style="font-weight: bold; font-style: italic;">{DATE j-m-Y}</span>-->
             </td>
             <td width="33%" align="center" style="font-weight: bold; font-style: italic;">
-                {PAGENO}/{nbpg}
+                {PAGENO}
             </td>
             <td width="33%" style="text-align: right;">
             </td>
