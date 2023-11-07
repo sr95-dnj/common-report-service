@@ -153,13 +153,13 @@ $reportController = new ReportController();
 
                     <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
                         @if($list->unitPrice != null)
-                            <span>{{optional($list)->unitPrice}}</span>
+                            <span>{{number_format(optional($list)->unitPrice, 2)}}</span>
                         @endif
                     </td>
 
                     <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
                         @if($list->totalPrice != null)
-                            <span>{{optional($list)->totalPrice}}</span>
+                            <span>{{number_format(optional($list)->totalPrice, 2)}}</span>
                         @endif
                     </td>
 
