@@ -176,7 +176,7 @@ $numberToBangla = new NumberToBangla();
     <div style="width: 100%; font-size: 15px; margin-top: 8px;">
         <div>
             ইন্ডেন্টের মোট মূল্য = {{number_format(optional($data)->totalIndentValue, 2)}}
-            ({{$numberToBangla->bnMoney(optional($data)->totalIndentValue)}}) টাকা |
+            ({{$numberToBangla->bnMoney(optional($data)->totalIndentValue)}})
         </div>
     </div>
 
