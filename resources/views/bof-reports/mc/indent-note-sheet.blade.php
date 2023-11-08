@@ -1,5 +1,5 @@
 @php
-    use App\Http\Controllers\Report\ReportController as ReportController;
+    use Rakibhstu\Banglanumber\NumberToBangla as NumberToBangla;
 @endphp
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ function getMonthYear($date)
         return '';
     }
 }
-$reportController = new ReportController();
+$numberToBangla = new NumberToBangla();
 ?>
 
 <htmlpageheader name="myHeader" style="display:none; font-size: 16px">
@@ -176,7 +176,7 @@ $reportController = new ReportController();
     <div style="width: 100%; font-size: 15px; margin-top: 8px;">
         <div>
             ইন্ডেন্টের মোট মূল্য = {{number_format(optional($data)->totalIndentValue, 2)}}
-            ({{$reportController->numToWord(optional($data)->totalIndentValue)}}) টাকা |
+            ({{$numberToBangla->bnMoney(optional($data)->totalIndentValue)}}) টাকা |
         </div>
     </div>
 
