@@ -105,31 +105,31 @@ $reportController = new ReportController();
         <table class="center tbBorder" style="text-align: center; padding: 5px;">
             <thead>
             <tr>
-                <td style="width: 10%; padding: 2px; vertical-align: top;">ক্রমিক</td>
-                <td style="width: 20%; padding: 2px; vertical-align: top;">দ্রব্যের বিবরণ</td>
+                <td style="width: 5%; padding: 2px; vertical-align: top;">ক্রমিক</td>
+                <td style="width: 40%; padding: 2px; vertical-align: top;">দ্রব্যের বিবরণ</td>
                 <td style="width: 10%; padding: 2px; vertical-align: top;">একক</td>
                 <td style="width: 10%; padding: 2px; vertical-align: top;">পরিমাণ</td>
-                <td style="width: 15%; padding: 2px; vertical-align: top;">একক মূলো <br> টাকা</td>
-                <td style="width: 15%; padding: 2px; vertical-align: top;">মোট মূলো টাকা <br> চ = (ঘ x ঙ) </td>
-                <td style="width: 20%; padding: 2px; vertical-align: top;">মন্তব্য</td>
+                <td style="width: 10%; padding: 2px; vertical-align: top;">একক মূলো <br> টাকা</td>
+                <td style="width: 10%; padding: 2px; vertical-align: top;">মোট মূলো টাকা <br> চ = (ঘ x ঙ) </td>
+                <td style="width: 15%; padding: 2px; vertical-align: top;">মন্তব্য</td>
             </tr>
 
             <tr>
-                <td style="width: 10%; padding: 2px; ">ক</td>
-                <td style="width: 20%; padding: 2px; ">খ</td>
-                <td style="width: 10%; padding: 2px; ">গ</td>
-                <td style="width: 10%; padding: 2px; ">ঘ</td>
-                <td style="width: 15%; padding: 2px; ">ঙ</td>
-                <td style="width: 15%; padding: 2px; ">চ</td>
-                <td style="width: 20%; padding: 2px; ">ছ</td>
+                <td style="padding: 2px; ">ক</td>
+                <td style="padding: 2px; ">খ</td>
+                <td style="padding: 2px; ">গ</td>
+                <td style="padding: 2px; ">ঘ</td>
+                <td style="padding: 2px; ">ঙ</td>
+                <td style="padding: 2px; ">চ</td>
+                <td style="padding: 2px; ">ছ</td>
             </tr>
 
             </thead>
             <tbody>
             @foreach ($data->details as $index => $list)
                 <tr>
-                    <td style="width: 10%; padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} .</td>
-                    <td style="text-align: left; vertical-align: top; width: 20%; padding: 2px;">
+                    <td style="padding: 2px; ">{{$Controller::entoBn($index+1,'number')}} .</td>
+                    <td style="text-align: left; vertical-align: top; padding: 2px;">
                         @if($list->itemName != null)
                             <span>{{optional($list)->itemName}}</span>
                         @endif
@@ -139,31 +139,31 @@ $reportController = new ReportController();
                         @endif
                     </td>
 
-                    <td style="text-align: center; vertical-align: top; width: 10%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; padding: 2px;">
                         @if($list->uom != null)
                             <span>{{optional($list)->uom}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: center; vertical-align: top; width: 10%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; padding: 2px;">
                         @if($list->indentQty != null)
                             <span>{{optional($list)->indentQty}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; padding: 2px;">
                         @if($list->unitPrice != null)
                             <span>{{number_format(optional($list)->unitPrice, 2)}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: center; vertical-align: top; width: 15%; padding: 2px;">
+                    <td style="text-align: center; vertical-align: top; padding: 2px;">
                         @if($list->totalPrice != null)
                             <span>{{number_format(optional($list)->totalPrice, 2)}}</span>
                         @endif
                     </td>
 
-                    <td style="text-align: left; vertical-align: top; width: 20%; padding: 2px;">
+                    <td style="text-align: left; vertical-align: top; padding: 2px;">
                         @if($list->remarks != null)
                             <span>{{optional($list)->remarks}}</span>
                         @endif
