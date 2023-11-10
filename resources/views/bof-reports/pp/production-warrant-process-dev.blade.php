@@ -70,6 +70,10 @@
             margin-top: 15%;
         }
 
+        .page-break-inside-avoid {
+            page-break-inside: avoid;
+        }
+
         td {
             vertical-align: top !important;
         }
@@ -183,7 +187,7 @@
         <br>
 
         <!--    Details Table-->
-        <table class="rootTable" width="100%">
+        <table class="rootTable page-break-inside-avoid" width="100%">
             <tr class="rootTable">
                 <td class="rootTable text-center">ক্রমিক</td>
                 <td class="rootTable text-center">প্রক্রিয়া বিবরণী </td>
