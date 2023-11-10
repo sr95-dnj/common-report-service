@@ -191,10 +191,10 @@
                 <td class="rootTable text-center">ঘন্টা/মিলিয়ন </td>
             </tr>
             <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 450px;"> </td>
-                <td class="rootTable text-center" style="height: 450px;  vertical-align: middle;">শ্রম প্রয়োজন মত। </td>
-                <td class="rootTable text-center" style="height: 450px;"></td>
-                <td class="rootTable text-center" style="height: 450px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;  vertical-align: middle;">শ্রম প্রয়োজন মত। </td>
+                <td class="rootTable text-center" style="height: 500px;"></td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
             </tr>
         </table>
 

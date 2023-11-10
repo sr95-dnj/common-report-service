@@ -186,12 +186,12 @@
                 <td class="rootTable text-center">ফলিও নম্বর</td>
             </tr>
             <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"></td>
-                <td class="rootTable text-center" style="height: 400px; vertical-align: middle;"> দ্রব্য প্রয়োজন মত। </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
-                <td class="rootTable text-center" style="height: 400px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"></td>
+                <td class="rootTable text-center" style="height: 500px; vertical-align: middle;"> দ্রব্য প্রয়োজন মত। </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
             </tr>
         </table>
 
