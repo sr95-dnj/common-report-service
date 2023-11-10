@@ -106,7 +106,20 @@
             <tr>
                 <td class="rootTable" colspan="2">উন্নয়নমূলক <br>
                     {{ $Controller::enToBnConveter($data->financialYear->financialYear) }} <br>
-                    উৎপাদনী শাখা: {{ $data->section ? $data->section->banglaName : '' }}
+                    উৎপাদনী শাখা:
+                    <span>
+                        @foreach($data->sectionList as $index => $item)
+                            @if($item->section != null && $item->section->banglaName != null)
+                                <span> {{$item->section->banglaName}} </span>
+                            @endif
+
+                            @if ($loop->last)
+                            @else
+                                <span>/</span>
+                            @endif
+
+                        @endforeach
+                    </span>
                 </td>
                 <td class="rootTable" colspan="2">শাখা: {{ $data->sectionNo ? $data->sectionNo : '' }}</td>
             </tr>
