@@ -115,8 +115,8 @@
                     </span>
 
                     <span>
-                        @if($data->mcProductComponent != null && $data->mcProductComponent->itemNameEn != null)
-                            {{ $data->mcProductComponent->itemNameEn}} -
+                        @if($data->mcProductComponent != null && $data->mcProductComponent->nameEn != null)
+                            {{ $data->mcProductComponent->nameEn}} -
                         @endif
                     </span>
                     {{ $data->shortDescription ? $data->shortDescription : '' }}
@@ -293,11 +293,11 @@
                 <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ </td>
             </tr>
             <tr>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"></td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 450px;"> </td>
+                <td class="rootTable text-center" style="height: 450px;"> </td>
+                <td class="rootTable text-center" style="height: 450px;"></td>
+                <td class="rootTable text-center" style="height: 450px;"> </td>
+                <td class="rootTable text-center" style="height: 450px;"> </td>
             </tr>
         </table>
     </div>

@@ -85,7 +85,7 @@
                 <td style="width: 100% !important; text-align: center;">
                     <span style="font-size: 18px;">বাংলাদেশ সমরাস্ত্র কারখানা</span><br>
                     <span style="font-size: 16px;">গাজীপুর সেনানিবাস</span><br>
-                    <u> <span>ওপেন ওয়ারেন্ট </span></u>
+                    <<span>ওপেন ওয়ারেন্ট </span>
                 </td>
             </tr>
         </table>
@@ -119,7 +119,7 @@
             </tr>
             <tr>
                 <td colspan="2">হুকুমনামার কার্যকারিতার মেয়াদ
-                    : {{ $Controller::enToBnConveter($Controller::dateFormatter($data->extractDate)) }}
+                    : {{ $Controller::enToBnConveter($Controller::dateFormatter($data->completionDateTo))}}
                 </td>
             </tr>
             <tr>
