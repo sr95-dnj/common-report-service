@@ -135,7 +135,7 @@ $numberToBangla = new NumberToBangla();
                         @endif
                         <br>
                         @if($list->itemNameShortSpecification != null)
-                            <span>{{optional($list)->itemNameShortSpecification}}</span>
+                            <span>{!! (optional($list)->itemNameShortSpecification) !!}</span>
                         @endif
                     </td>
 
