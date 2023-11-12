@@ -20,8 +20,7 @@
             orientation: landscape;
             header: html_myHeader;
             footer: html_myFooter;
-            margin-bottom: 15%;
-
+            margin-bottom: 20%;
         }
 
         @media print {
@@ -285,15 +284,15 @@
                 <td class="rootTable text-center">তলবি নোট নম্বর ও তারিখ </td>
             </tr>
             <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"></td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
-                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"></td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
             </tr>
         </table>
-        <br>
+        <div class="page-break"></div>
         <table width="100%">
             <tr>
                 <td style="width: 100% !important; text-align: center;">
@@ -310,65 +309,94 @@
                 <td class="rootTable text-center">পুনুরুদ্ধারকৃত নোটের নম্বর ও তারিখ </td>
             </tr>
             <tr>
-                <td class="rootTable text-center" style="height: 450px;"> </td>
-                <td class="rootTable text-center" style="height: 450px;"> </td>
-                <td class="rootTable text-center" style="height: 450px;"></td>
-                <td class="rootTable text-center" style="height: 450px;"> </td>
-                <td class="rootTable text-center" style="height: 450px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"></td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
+                <td class="rootTable text-center" style="height: 500px;"> </td>
             </tr>
         </table>
     </div>
 
     <htmlpagefooter name="myFooter" style="display:none">
         <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
-
             <thead>
             <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+                <td style="width:10%; padding-right: 10px;" class="text-right" ></td>
                 <td style="width:40%;" class="text-left">
-                    @if (isset($data->createBy))
-                        {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
+                    @if(isset($data->firstEmployee->employeeInfo->signatureURL))
+                        <img style="width: 100px; height: 60px;"
+                             src="{{$data->firstEmployee->employeeInfo->signatureURL}}" alt="">
                     @endif
                 </td>
                 <td style="width:10%;"></td>
                 <td style="width:40%;" class="text-left">
-                    @if (isset($data->officer))
-                        {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->createBy))
-                        {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
-                    @endif
-                </td>
-                <td style="width:10%;"></td>
-                <td style="width:40%;" class="text-left">
-                    @if (isset($data->officer))
-                        {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
-                        পরিকল্পনা
+                    @if(isset($data->lastEmployee->employeeInfo->signatureURL))
+                        <img style="width: 100px; height: 60px;"
+                             src="{{$data->lastEmployee->employeeInfo->signatureURL}}" alt="">
                     @endif
                 </td>
             </tr>
+
+
             <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+                <td style="width:10%; padding-right: 10px;" class="text-right" >প্রস্তুতকারকঃ</td>
                 <td style="width:40%;" class="text-left">
+                    @if(isset($data->firstEmployee->employeeInfo->employeeNameBangla))
+                        {{$data->firstEmployee->employeeInfo->employeeNameBangla}}
+                    @endif
                 </td>
                 <td style="width:10%;"></td>
                 <td style="width:40%;" class="text-left">
-                    {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
+                    @if(isset($data->lastEmployee->employeeInfo->employeeNameBangla))
+                        {{$data->lastEmployee->employeeInfo->employeeNameBangla}}
+                    @endif
                 </td>
             </tr>
+
+
+
             <tr>
-                <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+                <td style="width:10%; padding-right: 10px;" class="text-right"></td>
                 <td style="width:40%;" class="text-left">
+                    @if(isset($data->firstEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName))
+                        {{$data->firstEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName}}
+                    @endif
                 </td>
                 <td style="width:10%;"></td>
                 <td style="width:40%;" class="text-left">
-                    তারিখঃ
+                    @if(isset($data->lastEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName))
+                        {{$data->lastEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName}}
+                    @endif
+                </td>
+            </tr>
+
+
+            <tr>
+                <td style="width:10%; padding-right: 10px;" class="text-right"></td>
+                <td style="width:40%;" class="text-left"></td>
+                <td style="width:10%;"></td>
+                <td style="width:40%;" class="text-left">
+                    @if (isset($data->onBehalf))
+                        {{ $data->onBehalf}}
+                    @endif
+                </td>
+            </tr>
+
+
+            <tr>
+                <td style="width:10%; padding-right: 13px;" class="text-right">তারিখঃ</td>
+                <td style="width:40%;" class="text-left">
+                    @if(isset($data->firstEmployee->employeeInfo->entryDate))
+                        {{$Controller::enToBnConveter($Controller::dateFormatter($data->firstEmployee->employeeInfo->entryDate))}}
+                    @endif
+                </td>
+                <td style="width:10%;">
+                </td>
+                <td style="width:40%;" class="text-left">
+                    তারিখঃ @if(isset($data->lastEmployee->employeeInfo->entryDate))
+                        {{$Controller::enToBnConveter($Controller::dateFormatter($data->lastEmployee->employeeInfo->entryDate))}}
+                    @endif
                 </td>
             </tr>
             </thead>

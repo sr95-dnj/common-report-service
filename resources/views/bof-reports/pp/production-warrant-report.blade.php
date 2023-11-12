@@ -21,8 +21,11 @@
             orientation: landscape;
             header: html_myHeader;
             footer: html_myFooter;
-            margin-bottom: 15%;
+            margin-bottom: 20%;
+        }
 
+        .page-break-inside-avoid{
+            page-break-inside: avoid;
         }
 
         @media print {
@@ -270,122 +273,155 @@
 <div class="page-break"></div>
 
 <div style="font-size: 24px; ">
-    <table width="100%">
-        <tr>
-            <td style="width: 100% !important; text-align: center;">
-                <u> <span style="font-size: 16px;">খুচরা কাজের বিবরণ </span> </u>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100% !important; text-align: left;">
-                <span style="font-size: 16px;">আদেশকৃত সংখ্যা :.............................</span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100% !important; text-align: center;">
-                <u> <span style="font-size: 16px;">জমা/খরচের হিসাব </span> </u>
-            </td>
-        </tr>
-    </table>
-    <table class="rootTable" width="100%">
-        <tr class="rootTable">
-            <td class="rootTable text-center">তারিখ </td>
-            <td class="rootTable text-center">সংখ্যা/সেট </td>
-            <td class="rootTable text-center">গ্রহণকারী/পরিদর্শন </td>
-            <td class="rootTable text-center">পরিদর্শন নোটের নম্বর </td>
-            <td class="rootTable text-center">তারিখ </td>
-            <td class="rootTable text-center">বাকি </td>
-            <td class="rootTable text-center">বাতিল </td>
-        </tr>
-        <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"></td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-        </tr>
-    </table>
+    <div class="page-break-inside-avoid">
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">খুচরা কাজের বিবরণ </span> </u>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100% !important; text-align: left;">
+                    <span style="font-size: 16px;">আদেশকৃত সংখ্যা :.............................</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">জমা/খরচের হিসাব </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">তারিখ </td>
+                <td class="rootTable text-center">সংখ্যা/সেট </td>
+                <td class="rootTable text-center">গ্রহণকারী/পরিদর্শন </td>
+                <td class="rootTable text-center">পরিদর্শন নোটের নম্বর </td>
+                <td class="rootTable text-center">তারিখ </td>
+                <td class="rootTable text-center">বাকি </td>
+                <td class="rootTable text-center">বাতিল </td>
+            </tr>
+            <tr class="rootTable" style="height: 50px !important; display: block; overflow: auto;">
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+            </tr>
+        </table>
+    </div>
     <br>
-    <table width="100%">
-        <tr>
-            <td style="width: 100% !important; text-align: center;">
-                <u> <span style="font-size: 16px;">সংশোধনী বিবরণী </span> </u>
-            </td>
-        </tr>
-    </table>
-    <table class="rootTable" width="100%">
-        <tr class="rootTable">
-            <td class="rootTable text-center">ক্রমিক </td>
-            <td class="rootTable text-center">প্রক্রিয়া বিবরণী </td>
-            <td class="rootTable text-center">পরিবর্তিত হার </td>
-            <td class="rootTable text-center">একক </td>
-            <td class="rootTable text-center">কোন অধিকার বলে </td>
-        </tr>
-        <tr>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"></td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-            <td class="rootTable text-center" style="height: 300px;"> </td>
-        </tr>
-    </table>
+    <div class="page-break-inside-avoid">
+        <table width="100%">
+            <tr>
+                <td style="width: 100% !important; text-align: center;">
+                    <u> <span style="font-size: 16px;">সংশোধনী বিবরণী </span> </u>
+                </td>
+            </tr>
+        </table>
+        <table class="rootTable" width="100%">
+            <tr class="rootTable">
+                <td class="rootTable text-center">ক্রমিক </td>
+                <td class="rootTable text-center">প্রক্রিয়া বিবরণী </td>
+                <td class="rootTable text-center">পরিবর্তিত হার </td>
+                <td class="rootTable text-center">একক </td>
+                <td class="rootTable text-center">কোন অধিকার বলে </td>
+            </tr>
+            <tr>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"></td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+                <td class="rootTable text-center" style="height: 300px;"> </td>
+            </tr>
+        </table>
+    </div>
+
 </div>
 
 
 <!--footer part-->
 <htmlpagefooter name="myFooter" style="display:none">
-
     <table style="width: 100%; font-size: 15px; border-collapse: collapse; margin-top:40px;">
-
         <thead>
         <tr>
-            <td style="width:10%;" class="text-right" style="padding-right: 10px;">প্রস্তুতকারকঃ</td>
+            <td style="width:10%; padding-right: 10px;" class="text-right" ></td>
             <td style="width:40%;" class="text-left">
-                @if (isset($data->createBy))
-                    {{ $data->createBy->employeeNameBangla ? $data->createBy->employeeNameBangla : '' }}
+                @if(isset($data->firstEmployee->employeeInfo->signatureURL))
+                    <img style="width: 100px; height: 60px;"
+                         src="{{$data->firstEmployee->employeeInfo->signatureURL}}" alt="">
                 @endif
             </td>
             <td style="width:10%;"></td>
             <td style="width:40%;" class="text-left">
-                @if (isset($data->officer))
-                    {{ $data->officer->employeeNameBangla ? $data->officer->employeeNameBangla : '' }}
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
-            <td style="width:40%;" class="text-left">
-                @if (isset($data->createBy))
-                    {{ $data->createBy ? $data->createBy->employeeOfficialInformation->designation->banglaName : '' }},
-                    পরিকল্পনা
-                @endif
-            </td>
-            <td style="width:10%;"></td>
-            <td style="width:40%;" class="text-left">
-                @if (isset($data->officer))
-                    {{ $data->officer ? $data->officer->employeeOfficialInformation->designation->banglaName : '' }},
-                    পরিকল্পনা
+                @if(isset($data->lastEmployee->employeeInfo->signatureURL))
+                    <img style="width: 100px; height: 60px;"
+                         src="{{$data->lastEmployee->employeeInfo->signatureURL}}" alt="">
                 @endif
             </td>
         </tr>
+
+
         <tr>
-            <td style="width:10%;" class="text-right" style="padding-right: 10px;"></td>
+            <td style="width:10%; padding-right: 10px;" class="text-right" >প্রস্তুতকারকঃ</td>
             <td style="width:40%;" class="text-left">
+                @if(isset($data->firstEmployee->employeeInfo->employeeNameBangla))
+                    {{$data->firstEmployee->employeeInfo->employeeNameBangla}}
+                @endif
             </td>
             <td style="width:10%;"></td>
             <td style="width:40%;" class="text-left">
-                {{ isset($data->onBehalf) ? $data->onBehalf : '' }}
+                @if(isset($data->lastEmployee->employeeInfo->employeeNameBangla))
+                    {{$data->lastEmployee->employeeInfo->employeeNameBangla}}
+                @endif
             </td>
         </tr>
+
+
+
         <tr>
-            <td style="width:10%;" class="text-right" style="padding-right: 13px;">তারিখঃ</td>
+            <td style="width:10%; padding-right: 10px;" class="text-right"></td>
             <td style="width:40%;" class="text-left">
+                @if(isset($data->firstEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName))
+                    {{$data->firstEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName}}
+                @endif
             </td>
             <td style="width:10%;"></td>
             <td style="width:40%;" class="text-left">
-                তারিখঃ
+                @if(isset($data->lastEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName))
+                    {{$data->lastEmployee->employeeInfo->employeeOfficialInformation->designation->banglaName}}
+                @endif
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="width:10%; padding-right: 10px;" class="text-right"></td>
+            <td style="width:40%;" class="text-left"></td>
+            <td style="width:10%;"></td>
+            <td style="width:40%;" class="text-left">
+                @if (isset($data->onBehalf))
+                    {{ $data->onBehalf}}
+                @endif
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="width:10%; padding-right: 13px;" class="text-right">তারিখঃ</td>
+            <td style="width:40%;" class="text-left">
+                @if(isset($data->firstEmployee->employeeInfo->entryDate))
+                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->firstEmployee->employeeInfo->entryDate))}}
+                @endif
+            </td>
+            <td style="width:10%;">
+            </td>
+            <td style="width:40%;" class="text-left">
+                তারিখঃ @if(isset($data->lastEmployee->employeeInfo->entryDate))
+                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->lastEmployee->employeeInfo->entryDate))}}
+                @endif
             </td>
         </tr>
         </thead>

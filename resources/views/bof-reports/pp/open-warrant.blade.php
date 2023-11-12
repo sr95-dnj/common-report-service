@@ -270,14 +270,14 @@
                     <td style="width:10%; padding-right: 13px;" class="text-right">তারিখঃ</td>
                     <td style="width:40%;" class="text-left">
                         @if(isset($data->firstEmployee->employeeInfo->entryDate))
-                            {{$Controller::dateFormatter($data->firstEmployee->employeeInfo->entryDate)}}
+                            {{$Controller::enToBnConveter($Controller::dateFormatter($data->firstEmployee->employeeInfo->entryDate))}}
                         @endif
                     </td>
                     <td style="width:10%;">
                     </td>
                     <td style="width:40%;" class="text-left">
                         তারিখঃ @if(isset($data->lastEmployee->employeeInfo->entryDate))
-                            {{$Controller::dateFormatter($data->lastEmployee->employeeInfo->entryDate)}}
+                            {{$Controller::enToBnConveter($Controller::dateFormatter($data->lastEmployee->employeeInfo->entryDate))}}
                         @endif
                     </td>
                 </tr>
