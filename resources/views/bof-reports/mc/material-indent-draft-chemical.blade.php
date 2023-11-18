@@ -311,7 +311,7 @@ $data = json_decode($val['data']);
     <div style="width: 50%; margin-top: 8px; float: left;">
         <table>
             <tr>
-                <td>Total Item = {{count($data->details)}} Items</td>
+                <td>Total = {{count($data->details)}} Items</td>
             </tr>
         </table>
 

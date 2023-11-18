@@ -160,7 +160,7 @@
                             <td class="rootTable">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                                    <span>{!! $item->folioNo->itemLongSpecification !!}</span><br>
+                                    <span>{!! $item->folioNo->itemSpecification !!}</span><br>
                                     <span>
                                         @if($item->countryOfOrigin != null)
                                             <span>Country of Origin {{($item->countryOfOrigin)}}</span>
@@ -385,7 +385,7 @@
                             <td class="rootTable top-align">
                                 @if($item->folioNo != null)
                                     <span>{{($item->folioNo->itemNameEn)}}</span><br>
-                                    <span>{!! $item->folioNo->itemLongSpecification !!}</span>
+                                    <span>{!! $item->folioNo->itemSpecification !!}</span>
                                 @endif
 
                             </td>
@@ -431,7 +431,7 @@
                             <td class="rootTable top-align text-center">
                                 @foreach ($item->consumptionRates as $index => $consumption)
                                     <span>
-                                    {{($consumption->total)}}
+                                    {{number_format($consumption->total, 2), 2}}
                                 </span><br>
                                 @endforeach
                             </td>
@@ -543,7 +543,7 @@
         <div style="width: 50%; margin-top: 8px; float: left;">
             <table>
                 <tr>
-                    <td>Total Item = {{count($data->details)}} Items</td>
+                    <td>Total = {{count($data->details)}} Items</td>
                 </tr>
             </table>
 

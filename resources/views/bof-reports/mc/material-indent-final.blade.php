@@ -55,6 +55,9 @@
         padding-left: 7px !important;
         padding-right: 7px !important;
     }
+    .v-align-top{
+        vertical-align: top;
+    }
     </style>
 
 </head>
@@ -226,7 +229,7 @@
                                 (ক) ইনডেন্ট চাহিদাকৃত দ্রব্যের মোট মূল্য:
                             </td>
                             <td style="width: 35%">
-                                Tk. {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                                Tk. {{number_format($data->totalIndentPrice ? $data->totalIndentPrice : 0, 2), 2}}
                             </td>
                         </tr>
                         <tr>
@@ -236,7 +239,7 @@
                             <td style="width: 35%">
                                 <br>
                                 @if($data->totalSum != null)
-                                    Tk. {{($data->totalSum ? $data->totalSum : 0)}}
+                                    Tk. {{number_format($data->totalSum ? $data->totalSum : 0, 2), 2}}
                                 @endif
 
                             </td>
@@ -400,12 +403,12 @@
                     </td>
                     <td class="rootTable text-center">
                         @if($item->unitRate)
-                            {{($item->unitRate)}}
+                            {{number_format($item->unitRate, 2), 2}}
                         @endif
                     </td>
                     <td class="rootTable text-center">
                         @if($item->totalValue)
-                            {{($item->totalValue)}}
+                            {{number_format($item->totalValue, 2), 2}}
                         @endif
                     </td>
                     <td class="rootTable">
@@ -434,15 +437,16 @@
                             {{($item->countryOfOrigin)}}
                         @endif
                     </td>
-                    <td class="rootTable text-left">
-                        @if($item->appxDateOfSupply)
-                            {{($item->appxDateOfSupply)}}
+                    <td rowspan="{{count($data->details)}}" class="rootTable text-left v-align-top">
+                        @if($index + 1 == 1 && $data->detailsAppxDateOfSupply != null)
+                            <span>{{$data->detailsAppxDateOfSupply}}</span>
                         @endif
                     </td>
-                    <td class="rootTable">
-                        @if($item->remarks)
-                            {{($item->remarks)}}
+                    <td rowspan="{{count($data->details)}}" class="rootTable text-left v-align-top">
+                        @if($index + 1 == 1 && $data->detailsRemarks != null)
+                            <span>{{$data->detailsRemarks}}</span>
                         @endif
+
                     </td>
                 </tr>
             @endforeach
@@ -450,10 +454,10 @@
         <table style="width: 100%">
             <tr>
                 <td style="width: 30%; text-align: left">
-                    Total Item = {{count($data->details)}} Items
+                    Total = {{count($data->details)}} Items
                 </td>
                 <td style="width: 70%; text-align: left">
-                    Total Tk: {{($data->totalIndentPrice ? $data->totalIndentPrice : 0)}}
+                    Total Tk: {{number_format($data->totalIndentPrice ? $data->totalIndentPrice : 0, 2), 2}}
 
                     <span>(Tk. {{($data->totalIndentPriceInWord)}} only.)</span>
 
