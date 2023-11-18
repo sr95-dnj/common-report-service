@@ -168,10 +168,10 @@
 
                     <table width="100%">
                         <tr>
-                            <td style="width: 40% !important; text-align: left;">
-                                দ্রব্যের শ্রেণী  বিভাগ: &nbsp;&nbsp; Purchase of
+                            <td style="width: 20% !important; text-align: left; vertical-align: top;">
+                                দ্রব্যের শ্রেণী  বিভাগ:
                             </td>
-                            <td style="width: 60% !important; text-align: left;">
+                            <td style="width: 80% !important; text-align: left;">
                                 @if($data->subject != null)
                                       {!! ($data->subject) !!}
                                 @endif
