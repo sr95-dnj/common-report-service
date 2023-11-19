@@ -85,6 +85,7 @@
 
         td {
             vertical-align: top !important;
+            padding: 3px;
         }
     </style>
     <?php
@@ -109,135 +110,187 @@
 </htmlpageheader>
 
 <div>
-    <table  style="width: 100%; font-size: 15px; border-collapse: collapse;">
+    <table  style="width: 100%; font-size: 14px; border-collapse: collapse;">
         <thead>
         <tr>
-            <td colspan="2" style="width: 60%;">
-                            <span>শাখার নামঃ &nbsp;
-                                @if ($data->sectionId != null)
-                                    <span>{{ $data->sectionId->banglaName }}</span>
-                                @endif
-                            </span><br>
-                <span>বস্তুর নামঃ &nbsp;
-                                @if (isset($data->productItem))
-                        <span>{{ $data->productItem ? $data->productItem->nameBn : '' }}</span>
-                        @if (isset($data->mcProductComponent))
-                            <span>-{{ $data->mcProductComponent ? $data->mcProductComponent->nameBn : '' }}</span>
-                        @endif
-                        <br><span>{{ isset($data->shortDescription) ? $data->shortDescription : '' }}</span>
-                    @endif
-                            </span><br>
-                <span>অংকন নম্বরঃ &nbsp;
+            <td colspan="3" style="width: 50%">
+                শাখার নামঃ &nbsp;
+                @if ($data->sectionId != null)
+                    <span>{{ $data->sectionId->banglaName }}</span>
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%">
+                শাখার নম্বরঃ &nbsp;
+                @if ($data->sectionNo != null)
+                    {{ $Controller::enToBnConveter($data->sectionNo) }}
+                @endif
+            </td>
+        </tr>
+        <tr style="width: 100%">
+            <td class="rootTable" colspan="3" style="width: 50%">
+                বস্তুর নামঃ &nbsp;
+                @if (isset($data->productItem))
+                    {{ $data->productItem ? $data->productItem->nameBn : '' }}
+                @endif
+                @if (isset($data->mcProductComponent))
+                    {{ $data->mcProductComponent ? $data->mcProductComponent->nameBn : '' }}
+                @endif
+                @if(isset($data->shortDescription))
+                    {{ isset($data->shortDescription) ? $data->shortDescription : '' }}
+                @endif
+            </td>
+            <td class="rootTable" colspan="3" style="width: 50%">
+                প্রয়োজনীয় সংখ্যাঃ &nbsp;
+                @if ($data->requiredNbr != null)
+                    {{ $Controller::enToBnConveter($data->requiredNbr) }}
+                @endif
+            </td>
+        </tr>
 
-                            </span><br>
-                <span>সংক্ষিপ্ত ফরমায়েশনামা নম্বরঃ &nbsp;
-                                @if (isset($data->extractNo) && $data->extractNo != null)
-                        {{ $Controller::enToBnConveter($data->extractNo ? $data->extractNo : '') }}
-                    @endif
-                            </span><br>
-                <span>হুকুমনামা নম্বর ও তারিখঃ &nbsp;
-                                @if ($data->warrantNo != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($data->warrantNo) }}
-                                    </span>&nbsp;
-                        <span>
-                                        {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate)) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>সম্পূরক কার্যাদেশ নম্বরঃ &nbsp;
-                                @if ($data->supplementaryOrderNo != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($data->supplementaryOrderNo) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>সরবরাহের সূচীঃ &nbsp;
-                                @if ($data->scheduleOfSupply != null)
-                        <span>{{ $Controller::enToBnConveter($Controller::dateFormatter($data->scheduleOfSupply)) }}</span>
-                    @endif
-                            </span><br>
-                <span>সরবরাহের শেষ তারিখঃ &nbsp;
-                                @if ($data->lastDateOfSupply != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($Controller::dateFormatter($data->lastDateOfSupply)) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>মন্তব্যঃ &nbsp;
-                                @if ($data->specialComments != null)
-                        <span>{{ $data->specialComments }}</span><br/><br/>
-                    @endif
-                            </span><br>
+        <tr>
+            <td colspan="3" style="width: 50%">
+                অংকন নম্বরঃ &nbsp;
+                @if (isset($data->extractNo) && $data->extractNo != null)
+                    {{ $Controller::enToBnConveter($data->extractNo ? $data->extractNo : '') }}
+                @endif
             </td>
-            <td colspan="2" style="width: 40%;">
-                            <span>শাখার নম্বরঃ &nbsp;
-                                @if ($data->sectionNo != null)
-                                    <span>
-                                        {{ $Controller::enToBnConveter($data->sectionNo) }}
-                                    </span>
-                                @endif
-                            </span><br>
-                <span>প্রয়োজনীয় সংখ্যাঃ &nbsp;
-                                @if ($data->requiredNbr != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($data->requiredNbr) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>তারিখঃ &nbsp;
-                                {{-- @if ($data->date != null)
-                                <span>
-                                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->date))}}
-                                </span>
-                            @endif --}}
-                            </span><br>
-                <span>সমাপ্তির তারিখঃ &nbsp;
-                                @if ($data->completionDate != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($Controller::dateFormatter($data->completionDate)) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>প্রাক্কলিত নম্বরঃ &nbsp;
-                                @if ($data->estimateNo != null)
-                        <span>
-                                        {{ $Controller::enToBnConveter($data->estimateNo) }}
-                                    </span>
-                    @endif
-                            </span><br>
-                <span>প্ৰাপকঃ &nbsp;
-                                @if ($data->recipient != null)
-                        <span>{{ $data->recipient }}</span>
-                    @endif
-                            </span><br>
+            <td colspan="3" style="width: 50%">
+                তারিখঃ &nbsp;
+                {{--@if ($data->date != null)
+                    {{$Controller::enToBnConveter($Controller::dateFormatter($data->date))}}
+                @endif--}}
             </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                সংক্ষিপ্ত ফরমায়েশনামা নম্বরঃ &nbsp;
+                @if (isset($data->extractNo) && $data->extractNo != null)
+                    {{ $Controller::enToBnConveter($data->extractNo ? $data->extractNo : '') }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%">
+                সমাপ্তির তারিখঃ &nbsp;
+                @if ($data->completionDate != null)
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->completionDate)) }}
+                @endif
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                হুকুমনামা নম্বর ও তারিখঃ &nbsp;
+                @if ($data->warrantNo != null)
+                    {{ $Controller::enToBnConveter($data->warrantNo) }}
+                @endif
+                @if(isset($data->warrantDate))
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->warrantDate)) }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%">
+                প্রাক্কলিত নম্বরঃ &nbsp;
+                @if ($data->estimateNo != null)
+                    {{ $Controller::enToBnConveter($data->estimateNo) }}
+                @endif
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                সম্পূরক কার্যাদেশ নম্বরঃ &nbsp;
+                @if ($data->supplementaryOrderNo != null)
+                    {{ $Controller::enToBnConveter($data->supplementaryOrderNo) }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%">
+                প্ৰাপকঃ &nbsp;
+                @if ($data->recipient != null)
+                    @if($data->recipient === 'MAIN STORE')
+                        প্রধান দ্রব্যাগার
+                    @elseif($data->recipient === 'CTG')
+                        সিটিজি
+                    @elseif($data->recipient === 'IA&E')
+                        আইএএন্ডই
+                    @endif
+                @endif
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                সরবরাহের সূচীঃ &nbsp;
+                @if ($data->scheduleOfSupply != null)
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->scheduleOfSupply)) }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                সরবরাহের শেষ তারিখঃ &nbsp;
+                @if ($data->lastDateOfSupply != null)
+                    {{ $Controller::enToBnConveter($Controller::dateFormatter($data->lastDateOfSupply)) }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" style="width: 50%">
+                মন্তব্যঃ &nbsp;
+                @if ($data->specialComments != null)
+                    {{ $data->specialComments }}
+                @endif
+            </td>
+            <td colspan="3" style="width: 50%"></td>
         </tr>
         </thead>
         <thead>
         <tr>
-            <td class="rootTable text-center" style="width: 50%">বরাদ্দকৃত </td>
-            <td class="rootTable text-center" style="width: 25%">সঠিক বিবরণ</td>
-            <td class="rootTable text-center" style="width: 15%"> একক</td>
-            <td class="rootTable text-center" style="width: 15%"> পরিমান /ওজন</td>
+            <td class="rootTable text-center" style="width: 5%">ক্রমিক </td>
+            <td class="rootTable text-center" style="width: 45%">বরাদ্দকৃত </td>
+            <td class="rootTable text-center" style="width: 15%">সঠিক বিবরণ</td>
+            <td class="rootTable text-center" style="width: 10%"> একক</td>
+            <td class="rootTable text-center" style="width: 10%"> পরিমান /ওজন</td>
             <td class="rootTable text-center" style="width: 15%">ফলিও নম্বর </td>
         </tr>
         </thead>
-        <tbody class="rootTable">
+        <tbody class="rootTable" style="font-size: 10px;">
         @foreach ($data->details as $index => $item)
             <tr>
+                <td class="text-center rootTable">
+                    <span style="text-align: left !important;">
+                        <br>
+                        @if($index == 0)
+                            <br>
+                        @endif
+                        @if(isset($item->labProcessSetupMaster) && count($item->labProcessSetupMaster->details)  > 0)
+                            @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
+                                @if(isset($processItem->mcItemMaster->itemSpecification))
+                                    {{ $Controller::enToBnConveter($subIndex + 1)}} | <br>
+                                @endif
+                            @endforeach
+                        @endif
+                    </span>
+                </td>
                 <td valign="middle" class="rootTable text-left">
                                 <span style="text-align: center !important;">
+                                    @if($index == 0)
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        (<u>প্রতিটি নমুনার জন্য প্রয়োজনীয় দ্রব</u>)<br>
+                                    @endif
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     @if ($item->labProcessSetupMaster != null)
-                                        (<u>{{ $item->labProcessSetupMaster ? $item->labProcessSetupMaster->processSetupMaster->nameBn : '' }}</u>)<br>
-                                        <u>{{ $item->labProcessSetupMaster ? $item->labProcessSetupMaster->processSetupMaster->remarks : '' }}</u>
+                                        <u>{{ $item->labProcessSetupMaster ? $item->labProcessSetupMaster->processSetupMaster->nameBn : '' }}</u><br>
                                     @endif
                                 </span>
 
                     <span style="text-align: left !important;">
                                     @if(isset($item->labProcessSetupMaster) && count($item->labProcessSetupMaster->details)  > 0)
                             @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
-                                {{$subIndex + 1}}. <span>{{$processItem->mcItemMaster->itemNameEn}}</span>
+                                <span>{{$processItem->mcItemMaster->itemNameEn}}</span>
                                 <br>
                             @endforeach
                         @endif
@@ -245,6 +298,9 @@
                 </td>
                 <td class="text-center rootTable">
                     <br>
+                    @if($index == 0)
+                        <br>
+                    @endif
                     @if(isset($item->labProcessSetupMaster) && count($item->labProcessSetupMaster->details)  > 0)
                         @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
                             @if(isset($processItem->mcItemMaster->itemSpecification))
@@ -258,6 +314,9 @@
                 </td>
                 <td class="text-center rootTable">
                     <br>
+                    @if($index == 0)
+                        <br>
+                    @endif
                     @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
                         @if(isset($processItem->mcItemMaster->mcItemUnit))
                             <span>{{$processItem->mcItemMaster->mcItemUnit->nameEn}}</span>
@@ -269,6 +328,9 @@
                 </td>
                 <td class="text-center rootTable">
                     <br>
+                    @if($index == 0)
+                        <br>
+                    @endif
                     @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
                         @if(isset($processItem->quantity))
                             <span>{{number_format($processItem->quantity),2}}</span>
@@ -280,6 +342,9 @@
                 </td>
                 <td class="text-center rootTable">
                     <br>
+                    @if($index == 0)
+                        <br>
+                    @endif
                     @foreach ($item->labProcessSetupMaster->details as $subIndex => $processItem)
                         @if(isset($processItem->mcItemMaster->itemClassRefNo))
                             <span>{{($processItem->mcItemMaster->itemClassRefNo)}}</span>
